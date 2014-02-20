@@ -10,7 +10,12 @@
 
 typedef void(^EXOOnepCreateRequestComplete)(EXOOnepResourceID *RID, NSError *error);
 
-@interface EXOOnepCreateRequest : EXOOnepRequest
-@property(nonatomic,copy) EXOOnepResource *resource;
-@property(nonatomic,copy) EXOOnepCreateRequestComplete complete;
+@interface EXOOnepCreateRequest : EXOOnepRequest <NSCopying>
+@property(nonatomic,copy,readonly) EXOOnepResource *resource;
+@property(nonatomic,copy,readonly) EXOOnepCreateRequestComplete complete;
+
++ (EXOOnepCreateRequest*)createWithResource:(EXOOnepResource*)resource complete:(EXOOnepCreateRequestComplete)complete;
+- (instancetype)initWithResource:(EXOOnepResource*)resource complete:(EXOOnepCreateRequestComplete)complete;
+- (NSDictionary *)plistValue;
+
 @end

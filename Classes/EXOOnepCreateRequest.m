@@ -7,7 +7,32 @@
 
 #import "EXOOnepCreateRequest.h"
 
+@interface EXOOnepCreateRequest ()
+@property(nonatomic,copy) EXOOnepResource *resource;
+@property(nonatomic,copy) EXOOnepCreateRequestComplete complete;
+@end
+
 @implementation EXOOnepCreateRequest
+
++ (EXOOnepCreateRequest *)createWithResource:(EXOOnepResource *)resource complete:(EXOOnepCreateRequestComplete)complete
+{
+    return [[EXOOnepCreateRequest alloc] initWithResource:resource complete:complete];
+}
+
+- (id)init
+{
+    return nil;
+}
+
+- (id)initWithResource:(EXOOnepResource *)resource complete:(EXOOnepCreateRequestComplete)complete
+{
+    self = [super init];
+    if (self) {
+        self.resource = resource;
+        self.complete = complete;
+    }
+    return self;
+}
 
 - (NSDictionary *)plistValue
 {
@@ -26,6 +51,29 @@
             self.complete(trid, nil);
         }
     }
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p, Res: %@>", NSStringFromClass([self class]), self, self.resource];
+}
+
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+    return [self.resource isEqual:[object resource]];
+}
+
+- (NSUInteger)hash
+{
+    return self.resource.hash;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
 }
 
 @end
