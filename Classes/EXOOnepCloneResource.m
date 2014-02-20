@@ -9,7 +9,7 @@
 
 @implementation EXOOnepCloneResource
 
-- (NSDictionary *)plistValue
+- (NSArray *)plistValue
 {
     return @[@"clone", @{@"rid": [self.rid plistValue], @"code": self.code, @"noaliases": @(self.noaliases), @"nohistorical": @(self.nohistorical)}];
 }

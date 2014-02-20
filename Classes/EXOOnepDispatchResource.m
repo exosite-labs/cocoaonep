@@ -58,7 +58,7 @@
         if (self.retentionDuration) {
             reten[@"duration"] = self.retentionDuration;
         }
-        args[@"retention"] = reten;
+        args[@"retention"] = [reten copy];
     }
     if (self.subject) {
         args[@"subject"] = self.subject;
@@ -67,7 +67,7 @@
         args[@"subscribe"] = [self.subscribe plistValue];
     }
 
-    return @[@"dispatch", args];
+    return @[@"dispatch", [args copy]];
 }
 
 @end

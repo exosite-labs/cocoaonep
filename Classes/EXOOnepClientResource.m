@@ -89,7 +89,7 @@
     }
     
     NSMutableDictionary *args = [NSMutableDictionary dictionaryWithCapacity:5];
-    args[@"limits"] = limits;
+    args[@"limits"] = [limits copy];
     if (self.locked) {
         args[@"locked"] = @"true";
     }
@@ -103,7 +103,7 @@
         args[@"public"] = @"true";
     }
 
-    return @[@"client", args];
+    return @[@"client", [args copy]];
 }
 
 @end

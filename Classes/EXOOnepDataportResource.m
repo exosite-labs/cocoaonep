@@ -47,7 +47,7 @@
     } else {
         reten[@"duration"] = @"infinity";
     }
-    args[@"retention"] = reten;
+    args[@"retention"] = [reten copy];
     if (self.preprocess) {
         args[@"preprocess"] = self.preprocess;
     } else {
@@ -55,7 +55,7 @@
     }
     args[@"visibility"] = @"parent"; // Undocumented.
     
-    return @[@"dataport", args];
+    return @[@"dataport", [args copy]];
 }
 
 @end
