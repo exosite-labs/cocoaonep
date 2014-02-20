@@ -5,11 +5,11 @@
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepCreateClientRequest.h"
+#import "EXOOnepClientResource.h"
 
-@implementation EXOOnepCreateClientRequest
+@implementation EXOOnepClientResource
 
-- (NSDictionary *)plistValue
+- (NSArray *)plistValue
 {
     NSMutableDictionary *limits = [NSMutableDictionary dictionaryWithCapacity:15];
     if (self.limitClient) {
@@ -103,7 +103,7 @@
         args[@"public"] = @"true";
     }
 
-    return @{@"procedure": @"create", @"arguments": @[@"client", args]};
+    return @[@"client", args];
 }
 
 @end

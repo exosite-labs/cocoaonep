@@ -5,11 +5,11 @@
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepCreateDataruleRequest.h"
+#import "EXOOnepDataruleResource.h"
 
-@implementation EXOOnepCreateDataruleRequest
+@implementation EXOOnepDataruleResource
 
-- (NSDictionary *)plistValue
+- (NSArray *)plistValue
 {
     NSMutableDictionary *args = [NSMutableDictionary dictionary];
     switch (self.format) {
@@ -50,7 +50,7 @@
         args[@"subscribe"] = [self.subscribe plistValue];
     }
     
-    return @{ @"procedure": @"create", @"arguments": @[@"datarule", args]};
+    return @[@"datarule", args];
 }
 
 @end

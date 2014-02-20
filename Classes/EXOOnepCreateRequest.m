@@ -9,6 +9,11 @@
 
 @implementation EXOOnepCreateRequest
 
+- (NSDictionary *)plistValue
+{
+    return @{@"procedure": @"create", @"arguments": self.resource};
+}
+
 - (void)doResult:(NSDictionary *)result error:(NSError *)error
 {
     if (self.complete) {

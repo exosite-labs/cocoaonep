@@ -5,7 +5,7 @@
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepCreateRequest.h"
+#import "EXOOnepResource.h"
 
 enum EXOOnepDispactMethod_e {
     EXOOnepDispactMethodEmail,
@@ -17,7 +17,7 @@ enum EXOOnepDispactMethod_e {
 };
 typedef enum EXOOnepDispactMethod_e EXOOnepDispactMethod_t;
 
-@interface EXOOnepCreateDispatchRequest : EXOOnepCreateRequest
+@interface EXOOnepDispatchResource : EXOOnepResource
 @property(assign) BOOL locked;
 @property(copy) NSString *message;
 @property(assign) EXOOnepDispactMethod_t method;

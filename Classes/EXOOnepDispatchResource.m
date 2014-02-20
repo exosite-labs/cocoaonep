@@ -5,11 +5,11 @@
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepCreateDispatchRequest.h"
+#import "EXOOnepDispatchResource.h"
 
-@implementation EXOOnepCreateDispatchRequest
+@implementation EXOOnepDispatchResource
 
-- (NSDictionary *)plistValue
+- (NSArray *)plistValue
 {
     NSMutableDictionary *args = [NSMutableDictionary dictionaryWithCapacity:13];
     args[@"locked"] = @(self.locked);
@@ -67,7 +67,7 @@
         args[@"subscribe"] = [self.subscribe plistValue];
     }
 
-    return @{ @"procedure": @"create", @"arguments": @[@"dispatch", args]};
+    return @[@"dispatch", args];
 }
 
 @end

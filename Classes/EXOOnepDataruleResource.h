@@ -5,8 +5,8 @@
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepCreateRequest.h"
-#import "EXOOnepCreateDataportRequest.h"
+#import "EXOOnepResource.h"
+#import "EXOOnepDataportResource.h"
 #import "EXOOnepDataruleSimple.h"
 #import "EXOOnepDataruleTimeout.h"
 #import "EXOOnepDataruleInterval.h"
@@ -14,7 +14,7 @@
 #import "EXOOnepDataruleCount.h"
 #import "EXOOnepDataruleScript.h"
 
-@interface EXOOnepCreateDataruleRequest : EXOOnepCreateRequest
+@interface EXOOnepDataruleResource : EXOOnepResource
 @property(assign) EXOOnepDataportFormat_t format;
 @property(copy) NSNumber *retentionCount;
 @property(copy) NSNumber *retentionDuration;

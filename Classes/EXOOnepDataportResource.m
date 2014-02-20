@@ -5,11 +5,11 @@
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepCreateDataportRequest.h"
+#import "EXOOnepDataportResource.h"
 
-@implementation EXOOnepCreateDataportRequest
+@implementation EXOOnepDataportResource
 
-- (NSDictionary *)plistValue
+- (NSArray *)plistValue
 {
     NSMutableDictionary *args = [NSMutableDictionary dictionary];
     switch (self.format) {
@@ -55,7 +55,7 @@
     }
     args[@"visibility"] = @"parent"; // Undocumented.
     
-    return @{ @"procedure": @"create", @"arguments": @[@"dataport", args]};
+    return @[@"dataport", args];
 }
 
 @end

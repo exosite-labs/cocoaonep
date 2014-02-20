@@ -6,14 +6,11 @@
 //
 
 #import "EXOOnepRequest.h"
-#import "EXOOnepResourceID.h"
+#import "EXOOnepResource.h"
 
 typedef void(^EXOOnepCreateRequestComplete)(EXOOnepResourceID *RID, NSError *error);
 
 @interface EXOOnepCreateRequest : EXOOnepRequest
-@property(copy) NSString *meta;
-@property(copy) NSString *name;
-@property(assign) BOOL public;
-
-@property(copy) EXOOnepCreateRequestComplete complete;
+@property(nonatomic,copy) EXOOnepResource *resource;
+@property(nonatomic,copy) EXOOnepCreateRequestComplete complete;
 @end

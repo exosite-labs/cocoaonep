@@ -5,9 +5,9 @@
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepCreateRequest.h"
+#import "EXOOnepResource.h"
 
-@interface EXOOnepCreateClientRequest : EXOOnepCreateRequest
+@interface EXOOnepClientResource : EXOOnepResource
 @property(assign) BOOL locked;
 
 @property(copy) NSNumber *limitClient;

@@ -17,11 +17,11 @@
 		6DA02B1A18B688B400490405 /* EXOExositeSimpleDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AD718B688B300490405 /* EXOExositeSimpleDevice.m */; };
 		6DA02B1B18B688B400490405 /* EXOOnepActivateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AD918B688B300490405 /* EXOOnepActivateRequest.m */; };
 		6DA02B1C18B688B400490405 /* EXOOnepAuthKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02ADB18B688B400490405 /* EXOOnepAuthKey.m */; };
-		6DA02B1D18B688B400490405 /* EXOOnepCreateClientRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02ADD18B688B400490405 /* EXOOnepCreateClientRequest.m */; };
-		6DA02B1E18B688B400490405 /* EXOOnepCreateCloneRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02ADF18B688B400490405 /* EXOOnepCreateCloneRequest.m */; };
-		6DA02B1F18B688B400490405 /* EXOOnepCreateDataportRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AE118B688B400490405 /* EXOOnepCreateDataportRequest.m */; };
-		6DA02B2018B688B400490405 /* EXOOnepCreateDataruleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AE318B688B400490405 /* EXOOnepCreateDataruleRequest.m */; };
-		6DA02B2118B688B400490405 /* EXOOnepCreateDispatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AE518B688B400490405 /* EXOOnepCreateDispatchRequest.m */; };
+		6DA02B1D18B688B400490405 /* EXOOnepClientResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02ADD18B688B400490405 /* EXOOnepClientResource.m */; };
+		6DA02B1E18B688B400490405 /* EXOOnepCloneResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02ADF18B688B400490405 /* EXOOnepCloneResource.m */; };
+		6DA02B1F18B688B400490405 /* EXOOnepDataportResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AE118B688B400490405 /* EXOOnepDataportResource.m */; };
+		6DA02B2018B688B400490405 /* EXOOnepDataruleResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AE318B688B400490405 /* EXOOnepDataruleResource.m */; };
+		6DA02B2118B688B400490405 /* EXOOnepDispatchResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AE518B688B400490405 /* EXOOnepDispatchResource.m */; };
 		6DA02B2218B688B400490405 /* EXOOnepCreateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AE718B688B400490405 /* EXOOnepCreateRequest.m */; };
 		6DA02B2318B688B400490405 /* EXOOnepDatarule.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AE918B688B400490405 /* EXOOnepDatarule.m */; };
 		6DA02B2418B688B400490405 /* EXOOnepDataruleCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AEB18B688B400490405 /* EXOOnepDataruleCount.m */; };
@@ -48,6 +48,7 @@
 		6DA02B3918B688B400490405 /* EXOOnepUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02B1518B688B400490405 /* EXOOnepUpdateRequest.m */; };
 		6DA02B3A18B688B400490405 /* EXOOnepUsageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02B1718B688B400490405 /* EXOOnepUsageRequest.m */; };
 		6DA02B3B18B688B400490405 /* EXOOnepWriteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02B1918B688B400490405 /* EXOOnepWriteRequest.m */; };
+		6DA02B3E18B6998E00490405 /* EXOOnepResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02B3D18B6998E00490405 /* EXOOnepResource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,16 +89,16 @@
 		6DA02AD918B688B300490405 /* EXOOnepActivateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepActivateRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02ADA18B688B400490405 /* EXOOnepAuthKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EXOOnepAuthKey.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		6DA02ADB18B688B400490405 /* EXOOnepAuthKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepAuthKey.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		6DA02ADC18B688B400490405 /* EXOOnepCreateClientRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepCreateClientRequest.h; sourceTree = "<group>"; };
-		6DA02ADD18B688B400490405 /* EXOOnepCreateClientRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepCreateClientRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		6DA02ADE18B688B400490405 /* EXOOnepCreateCloneRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepCreateCloneRequest.h; sourceTree = "<group>"; };
-		6DA02ADF18B688B400490405 /* EXOOnepCreateCloneRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepCreateCloneRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		6DA02AE018B688B400490405 /* EXOOnepCreateDataportRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepCreateDataportRequest.h; sourceTree = "<group>"; };
-		6DA02AE118B688B400490405 /* EXOOnepCreateDataportRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepCreateDataportRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		6DA02AE218B688B400490405 /* EXOOnepCreateDataruleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepCreateDataruleRequest.h; sourceTree = "<group>"; };
-		6DA02AE318B688B400490405 /* EXOOnepCreateDataruleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepCreateDataruleRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		6DA02AE418B688B400490405 /* EXOOnepCreateDispatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepCreateDispatchRequest.h; sourceTree = "<group>"; };
-		6DA02AE518B688B400490405 /* EXOOnepCreateDispatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepCreateDispatchRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6DA02ADC18B688B400490405 /* EXOOnepClientResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepClientResource.h; sourceTree = "<group>"; };
+		6DA02ADD18B688B400490405 /* EXOOnepClientResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepClientResource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6DA02ADE18B688B400490405 /* EXOOnepCloneResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepCloneResource.h; sourceTree = "<group>"; };
+		6DA02ADF18B688B400490405 /* EXOOnepCloneResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepCloneResource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6DA02AE018B688B400490405 /* EXOOnepDataportResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepDataportResource.h; sourceTree = "<group>"; };
+		6DA02AE118B688B400490405 /* EXOOnepDataportResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepDataportResource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6DA02AE218B688B400490405 /* EXOOnepDataruleResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepDataruleResource.h; sourceTree = "<group>"; };
+		6DA02AE318B688B400490405 /* EXOOnepDataruleResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepDataruleResource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6DA02AE418B688B400490405 /* EXOOnepDispatchResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepDispatchResource.h; sourceTree = "<group>"; };
+		6DA02AE518B688B400490405 /* EXOOnepDispatchResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepDispatchResource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AE618B688B400490405 /* EXOOnepCreateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepCreateRequest.h; sourceTree = "<group>"; };
 		6DA02AE718B688B400490405 /* EXOOnepCreateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepCreateRequest.m; sourceTree = "<group>"; };
 		6DA02AE818B688B400490405 /* EXOOnepDatarule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EXOOnepDatarule.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -150,6 +151,8 @@
 		6DA02B1718B688B400490405 /* EXOOnepUsageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepUsageRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02B1818B688B400490405 /* EXOOnepWriteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepWriteRequest.h; sourceTree = "<group>"; };
 		6DA02B1918B688B400490405 /* EXOOnepWriteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepWriteRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6DA02B3C18B6998E00490405 /* EXOOnepResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepResource.h; sourceTree = "<group>"; };
+		6DA02B3D18B6998E00490405 /* EXOOnepResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepResource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,16 +216,18 @@
 				6DA02ADB18B688B400490405 /* EXOOnepAuthKey.m */,
 				6DA02AD818B688B300490405 /* EXOOnepActivateRequest.h */,
 				6DA02AD918B688B300490405 /* EXOOnepActivateRequest.m */,
-				6DA02ADC18B688B400490405 /* EXOOnepCreateClientRequest.h */,
-				6DA02ADD18B688B400490405 /* EXOOnepCreateClientRequest.m */,
-				6DA02ADE18B688B400490405 /* EXOOnepCreateCloneRequest.h */,
-				6DA02ADF18B688B400490405 /* EXOOnepCreateCloneRequest.m */,
-				6DA02AE018B688B400490405 /* EXOOnepCreateDataportRequest.h */,
-				6DA02AE118B688B400490405 /* EXOOnepCreateDataportRequest.m */,
-				6DA02AE218B688B400490405 /* EXOOnepCreateDataruleRequest.h */,
-				6DA02AE318B688B400490405 /* EXOOnepCreateDataruleRequest.m */,
-				6DA02AE418B688B400490405 /* EXOOnepCreateDispatchRequest.h */,
-				6DA02AE518B688B400490405 /* EXOOnepCreateDispatchRequest.m */,
+				6DA02B3C18B6998E00490405 /* EXOOnepResource.h */,
+				6DA02B3D18B6998E00490405 /* EXOOnepResource.m */,
+				6DA02ADC18B688B400490405 /* EXOOnepClientResource.h */,
+				6DA02ADD18B688B400490405 /* EXOOnepClientResource.m */,
+				6DA02ADE18B688B400490405 /* EXOOnepCloneResource.h */,
+				6DA02ADF18B688B400490405 /* EXOOnepCloneResource.m */,
+				6DA02AE018B688B400490405 /* EXOOnepDataportResource.h */,
+				6DA02AE118B688B400490405 /* EXOOnepDataportResource.m */,
+				6DA02AE218B688B400490405 /* EXOOnepDataruleResource.h */,
+				6DA02AE318B688B400490405 /* EXOOnepDataruleResource.m */,
+				6DA02AE418B688B400490405 /* EXOOnepDispatchResource.h */,
+				6DA02AE518B688B400490405 /* EXOOnepDispatchResource.m */,
 				6DA02AE618B688B400490405 /* EXOOnepCreateRequest.h */,
 				6DA02AE718B688B400490405 /* EXOOnepCreateRequest.m */,
 				6DA02AE818B688B400490405 /* EXOOnepDatarule.h */,
@@ -394,7 +399,7 @@
 				6DA02B3118B688B400490405 /* EXOOnepMapRequest.m in Sources */,
 				6DA02B3A18B688B400490405 /* EXOOnepUsageRequest.m in Sources */,
 				6DA02B2318B688B400490405 /* EXOOnepDatarule.m in Sources */,
-				6DA02B2018B688B400490405 /* EXOOnepCreateDataruleRequest.m in Sources */,
+				6DA02B2018B688B400490405 /* EXOOnepDataruleResource.m in Sources */,
 				6DA02B2618B688B400490405 /* EXOOnepDataruleInterval.m in Sources */,
 				6DA02B2718B688B400490405 /* EXOOnepDataruleScript.m in Sources */,
 				6DA02B2518B688B400490405 /* EXOOnepDataruleDuration.m in Sources */,
@@ -403,25 +408,26 @@
 				6DA02B2D18B688B400490405 /* EXOOnepFlushRequest.m in Sources */,
 				6DA02B3218B688B400490405 /* EXOOnepReadRequest.m in Sources */,
 				6DA02B3518B688B400490405 /* EXOOnepResourceID.m in Sources */,
-				6DA02B1E18B688B400490405 /* EXOOnepCreateCloneRequest.m in Sources */,
+				6DA02B1E18B688B400490405 /* EXOOnepCloneResource.m in Sources */,
 				6DA02B3B18B688B400490405 /* EXOOnepWriteRequest.m in Sources */,
 				6DA02B2818B688B400490405 /* EXOOnepDataruleSimple.m in Sources */,
 				6DA02B2E18B688B400490405 /* EXOOnepInfoRequest.m in Sources */,
 				6DA02B3418B688B400490405 /* EXOOnepRequest.m in Sources */,
 				6DA02B3818B688B400490405 /* EXOOnepUnmapRequest.m in Sources */,
-				6DA02B1D18B688B400490405 /* EXOOnepCreateClientRequest.m in Sources */,
+				6DA02B1D18B688B400490405 /* EXOOnepClientResource.m in Sources */,
 				6DA02B2918B688B400490405 /* EXOOnepDataruleTimeout.m in Sources */,
 				6DA02B2218B688B400490405 /* EXOOnepCreateRequest.m in Sources */,
 				6DA02B3618B688B400490405 /* EXOOnepRevokeRequest.m in Sources */,
 				6DA02B2A18B688B400490405 /* EXOOnepDeactivateRequest.m in Sources */,
-				6DA02B2118B688B400490405 /* EXOOnepCreateDispatchRequest.m in Sources */,
+				6DA02B2118B688B400490405 /* EXOOnepDispatchResource.m in Sources */,
 				6DA02B3318B688B400490405 /* EXOOnepRecordRequest.m in Sources */,
-				6DA02B1F18B688B400490405 /* EXOOnepCreateDataportRequest.m in Sources */,
+				6DA02B1F18B688B400490405 /* EXOOnepDataportResource.m in Sources */,
 				6DA02B3918B688B400490405 /* EXOOnepUpdateRequest.m in Sources */,
 				6DA02B3718B688B400490405 /* EXOOnepShareRequest.m in Sources */,
 				6DA02B2F18B688B400490405 /* EXOOnepListingRequest.m in Sources */,
 				6DA02B1A18B688B400490405 /* EXOExositeSimpleDevice.m in Sources */,
 				6DA02B1B18B688B400490405 /* EXOOnepActivateRequest.m in Sources */,
+				6DA02B3E18B6998E00490405 /* EXOOnepResource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

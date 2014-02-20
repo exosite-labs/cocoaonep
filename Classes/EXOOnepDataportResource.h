@@ -5,7 +5,7 @@
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepCreateRequest.h"
+#import "EXOOnepResource.h"
 
 enum EXOOnepDataportFormat_e {
     EXOOnepDataportFormatString = 0,
@@ -14,7 +14,7 @@ enum EXOOnepDataportFormat_e {
 };
 typedef enum EXOOnepDataportFormat_e EXOOnepDataportFormat_t;
 
-@interface EXOOnepCreateDataportRequest : EXOOnepCreateRequest
+@interface EXOOnepDataportResource : EXOOnepResource
 @property(assign) EXOOnepDataportFormat_t format;
 @property(strong) NSArray *preprocess;
 @property(strong) EXOOnepResourceID *subscribe;
