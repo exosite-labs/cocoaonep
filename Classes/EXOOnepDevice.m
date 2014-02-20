@@ -72,12 +72,12 @@ static NSString *EXOOnepAPIPath = @"/api:v1/rpc/process";
     NSMutableArray *pcalls = [NSMutableArray array];
     for (EXOOnepRequest* req in calls) {
         // check type.
-        NSMutableDictionary *md = [[req asCall] mutableCopy];
+        NSMutableDictionary *md = [[req plistValue] mutableCopy];
         md[@"id"] = @(callID++); // id matches array index!
         [pcalls addObject:md];
     }
     
-    NSDictionary *params = @{@"auth": [self.auth asCall], @"calls": pcalls};
+    NSDictionary *params = @{@"auth": [self.auth plistValue], @"calls": pcalls};
     
     [self.manager POST:EXOOnepAPIPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject){
         if ([responseObject isKindOfClass:[NSArray class]]) {

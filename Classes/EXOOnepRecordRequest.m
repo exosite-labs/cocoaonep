@@ -22,7 +22,7 @@
     }
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     // Values array need to be checked and possbily have types changed.
     // It should be an array of arrays.  The inner ones should only have two elements; Date and Number, or Number and Number.
@@ -43,7 +43,7 @@
     }
     // TODO: ??? sliently drop bad entries? that's not very nice or helpful.  How to error this?
     
-    return @{ @"procedure": @"record", @"arguments": @[[self.rid asCall], nar, @{}]};
+    return @{ @"procedure": @"record", @"arguments": @[[self.rid plistValue], nar, @{}]};
 }
 
 @end

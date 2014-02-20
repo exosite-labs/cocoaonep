@@ -31,7 +31,7 @@
     return self;
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     return @{@"cik": self.CIK};
 }

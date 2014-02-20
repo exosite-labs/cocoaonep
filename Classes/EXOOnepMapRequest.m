@@ -22,9 +22,9 @@
     }
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
-    return @{ @"procedure": @"map", @"arguments": @[@"alias", [self.rid asCall], self.aliasName]};
+    return @{ @"procedure": @"map", @"arguments": @[@"alias", [self.rid plistValue], self.aliasName]};
 }
 
 @end

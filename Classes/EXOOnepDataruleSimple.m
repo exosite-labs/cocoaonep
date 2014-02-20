@@ -35,7 +35,7 @@
     return nil;
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     return @{@"simple": @{@"comparison": [self stringFromComparison:self.comparison], @"constant": self.constant, @"repeat": self.repeat?@"true":@"false"}};
 }

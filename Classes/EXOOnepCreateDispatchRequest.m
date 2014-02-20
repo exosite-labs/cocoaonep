@@ -9,7 +9,7 @@
 
 @implementation EXOOnepCreateDispatchRequest
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     NSMutableDictionary *args = [NSMutableDictionary dictionaryWithCapacity:13];
     args[@"locked"] = @(self.locked);
@@ -64,7 +64,7 @@
         args[@"subject"] = self.subject;
     }
     if (self.subscribe) {
-        args[@"subscribe"] = [self.subscribe asCall];
+        args[@"subscribe"] = [self.subscribe plistValue];
     }
 
     return @{ @"procedure": @"create", @"arguments": @[@"dispatch", args]};

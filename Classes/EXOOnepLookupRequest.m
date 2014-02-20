@@ -21,7 +21,7 @@
     }
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     NSString *which;
     switch (self.type) {

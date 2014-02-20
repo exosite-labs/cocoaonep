@@ -61,7 +61,7 @@ NSString *kEXOOnepErrorDomain = @"kEXOOnepErrorDomain";
     }
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     return @{};
 }
@@ -81,7 +81,7 @@ NSString *kEXOOnepErrorDomain = @"kEXOOnepErrorDomain";
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@: %p, %@>", NSStringFromClass([self class]), self, [self asCall]];
+    return [NSString stringWithFormat:@"<%@: %p, %@>", NSStringFromClass([self class]), self, [self plistValue]];
 }
 
 @end

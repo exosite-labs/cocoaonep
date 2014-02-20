@@ -51,9 +51,9 @@
     }
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
-    return @{@"procedure": @"write", @"arguments": @[[self.rid asCall], [self.value stringValue]]};
+    return @{@"procedure": @"write", @"arguments": @[[self.rid plistValue], [self.value stringValue]]};
 }
 
 - (id)copyWithZone:(NSZone *)zone

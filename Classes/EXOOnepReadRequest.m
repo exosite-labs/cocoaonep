@@ -17,7 +17,7 @@
     return self;
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     NSMutableDictionary *args = [NSMutableDictionary dictionary];
     if (self.starttime) {
@@ -40,7 +40,7 @@
             args[@"selection"] = @"givenwindow";
             break;
     }
-    return @{@"procedure": @"read", @"arguments": @[[self.rid asCall], args]};
+    return @{@"procedure": @"read", @"arguments": @[[self.rid plistValue], args]};
 }
 
 - (void)doResult:(NSDictionary *)result error:(NSError *)error

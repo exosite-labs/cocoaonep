@@ -9,8 +9,8 @@
 
 @implementation EXOOnepCreateCloneRequest
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
-    return @{ @"procedure": @"create", @"arguments": @[@"clone", @{@"rid": [self.rid asCall], @"code": self.code, @"noaliases": @(self.noaliases), @"nohistorical": @(self.nohistorical)}]};
+    return @{ @"procedure": @"create", @"arguments": @[@"clone", @{@"rid": [self.rid plistValue], @"code": self.code, @"noaliases": @(self.noaliases), @"nohistorical": @(self.nohistorical)}]};
 }
 @end

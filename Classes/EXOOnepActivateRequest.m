@@ -21,7 +21,7 @@
     }
 }
 
-- (NSDictionary*)asCall
+- (NSDictionary*)plistValue
 {
     return @{@"procedure": @"activate", @"arguments": @[(self.asShare?@"share":@"client"), self.code]};
 }

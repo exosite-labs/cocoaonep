@@ -14,5 +14,5 @@
 
 - (instancetype)initWithCIK:(NSString*)cik;
 
-- (NSDictionary*)asCall;
+- (NSDictionary*)plistValue;
 @end

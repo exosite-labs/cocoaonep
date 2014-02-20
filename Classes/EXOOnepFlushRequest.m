@@ -42,7 +42,7 @@
     }
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     NSMutableDictionary *args = [NSMutableDictionary dictionaryWithCapacity:2];
     if (self.newerthan) {
@@ -51,7 +51,7 @@
     if (self.olderthan) {
         args[@"olderthan"] = @([self.olderthan timeIntervalSince1970]);
     }
-    return @{ @"procedure": @"flush", @"arguments": @[[self.rid asCall], args]};
+    return @{ @"procedure": @"flush", @"arguments": @[[self.rid plistValue], args]};
 }
 
 - (BOOL)isEqual:(id)object

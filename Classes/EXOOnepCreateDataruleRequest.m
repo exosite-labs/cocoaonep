@@ -9,7 +9,7 @@
 
 @implementation EXOOnepCreateDataruleRequest
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     NSMutableDictionary *args = [NSMutableDictionary dictionary];
     switch (self.format) {
@@ -44,10 +44,10 @@
         args[@"retention"] = reten;
     }
     if (self.rule) {
-        args[@"rule"] = [self.rule asCall];
+        args[@"rule"] = [self.rule plistValue];
     }
     if (self.subscribe) {
-        args[@"subscribe"] = [self.subscribe asCall];
+        args[@"subscribe"] = [self.subscribe plistValue];
     }
     
     return @{ @"procedure": @"create", @"arguments": @[@"datarule", args]};

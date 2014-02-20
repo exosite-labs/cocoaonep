@@ -36,14 +36,14 @@
     return ret;
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     @throw @"Bad prgrammer";
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@: %p, %@>", NSStringFromClass([self class]), self, [self asCall]];
+    return [NSString stringWithFormat:@"<%@: %p, %@>", NSStringFromClass([self class]), self, [self plistValue]];
 }
 
 - (id)copyWithZone:(NSZone *)zone

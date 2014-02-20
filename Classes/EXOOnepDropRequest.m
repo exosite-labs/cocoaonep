@@ -38,9 +38,9 @@
     }
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
-    return @{ @"procedure": @"drop", @"arguments": @[[self.rid asCall]]};
+    return @{ @"procedure": @"drop", @"arguments": @[[self.rid plistValue]]};
 }
 
 - (id)copyWithZone:(NSZone *)zone

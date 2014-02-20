@@ -33,7 +33,7 @@
     return nil;
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     return @{@"timeout": @{@"timeout": self.timeout, @"repeat": self.repeat?@"true":@"false"}};
 }

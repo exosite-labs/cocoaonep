@@ -47,7 +47,7 @@
     }
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     NSMutableArray *types = [NSMutableArray arrayWithCapacity:4];
     if (self.list & EXOOnepListTypeClient) {

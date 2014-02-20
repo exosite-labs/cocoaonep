@@ -21,10 +21,10 @@
     }
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     NSMutableArray *args = [NSMutableArray arrayWithCapacity:4];
-    args[0] = [self.rid asCall];
+    args[0] = [self.rid plistValue];
     switch (self.metric) {
         case EXOOnepUsageMetricsClient:
             args[1] = @"client";

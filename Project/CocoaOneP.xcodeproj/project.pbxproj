@@ -85,71 +85,71 @@
 		6DA02AD618B688B300490405 /* EXOExositeSimpleDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOExositeSimpleDevice.h; sourceTree = "<group>"; };
 		6DA02AD718B688B300490405 /* EXOExositeSimpleDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOExositeSimpleDevice.m; sourceTree = "<group>"; };
 		6DA02AD818B688B300490405 /* EXOOnepActivateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepActivateRequest.h; sourceTree = "<group>"; };
-		6DA02AD918B688B300490405 /* EXOOnepActivateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepActivateRequest.m; sourceTree = "<group>"; };
-		6DA02ADA18B688B400490405 /* EXOOnepAuthKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepAuthKey.h; sourceTree = "<group>"; };
-		6DA02ADB18B688B400490405 /* EXOOnepAuthKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepAuthKey.m; sourceTree = "<group>"; };
+		6DA02AD918B688B300490405 /* EXOOnepActivateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepActivateRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6DA02ADA18B688B400490405 /* EXOOnepAuthKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EXOOnepAuthKey.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		6DA02ADB18B688B400490405 /* EXOOnepAuthKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepAuthKey.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02ADC18B688B400490405 /* EXOOnepCreateClientRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepCreateClientRequest.h; sourceTree = "<group>"; };
-		6DA02ADD18B688B400490405 /* EXOOnepCreateClientRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepCreateClientRequest.m; sourceTree = "<group>"; };
+		6DA02ADD18B688B400490405 /* EXOOnepCreateClientRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepCreateClientRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02ADE18B688B400490405 /* EXOOnepCreateCloneRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepCreateCloneRequest.h; sourceTree = "<group>"; };
-		6DA02ADF18B688B400490405 /* EXOOnepCreateCloneRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepCreateCloneRequest.m; sourceTree = "<group>"; };
+		6DA02ADF18B688B400490405 /* EXOOnepCreateCloneRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepCreateCloneRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AE018B688B400490405 /* EXOOnepCreateDataportRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepCreateDataportRequest.h; sourceTree = "<group>"; };
-		6DA02AE118B688B400490405 /* EXOOnepCreateDataportRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepCreateDataportRequest.m; sourceTree = "<group>"; };
+		6DA02AE118B688B400490405 /* EXOOnepCreateDataportRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepCreateDataportRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AE218B688B400490405 /* EXOOnepCreateDataruleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepCreateDataruleRequest.h; sourceTree = "<group>"; };
-		6DA02AE318B688B400490405 /* EXOOnepCreateDataruleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepCreateDataruleRequest.m; sourceTree = "<group>"; };
+		6DA02AE318B688B400490405 /* EXOOnepCreateDataruleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepCreateDataruleRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AE418B688B400490405 /* EXOOnepCreateDispatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepCreateDispatchRequest.h; sourceTree = "<group>"; };
-		6DA02AE518B688B400490405 /* EXOOnepCreateDispatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepCreateDispatchRequest.m; sourceTree = "<group>"; };
+		6DA02AE518B688B400490405 /* EXOOnepCreateDispatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepCreateDispatchRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AE618B688B400490405 /* EXOOnepCreateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepCreateRequest.h; sourceTree = "<group>"; };
 		6DA02AE718B688B400490405 /* EXOOnepCreateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepCreateRequest.m; sourceTree = "<group>"; };
-		6DA02AE818B688B400490405 /* EXOOnepDatarule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepDatarule.h; sourceTree = "<group>"; };
-		6DA02AE918B688B400490405 /* EXOOnepDatarule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepDatarule.m; sourceTree = "<group>"; };
+		6DA02AE818B688B400490405 /* EXOOnepDatarule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EXOOnepDatarule.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		6DA02AE918B688B400490405 /* EXOOnepDatarule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepDatarule.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AEA18B688B400490405 /* EXOOnepDataruleCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepDataruleCount.h; sourceTree = "<group>"; };
-		6DA02AEB18B688B400490405 /* EXOOnepDataruleCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepDataruleCount.m; sourceTree = "<group>"; };
+		6DA02AEB18B688B400490405 /* EXOOnepDataruleCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepDataruleCount.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AEC18B688B400490405 /* EXOOnepDataruleDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepDataruleDuration.h; sourceTree = "<group>"; };
-		6DA02AED18B688B400490405 /* EXOOnepDataruleDuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepDataruleDuration.m; sourceTree = "<group>"; };
+		6DA02AED18B688B400490405 /* EXOOnepDataruleDuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepDataruleDuration.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AEE18B688B400490405 /* EXOOnepDataruleInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepDataruleInterval.h; sourceTree = "<group>"; };
-		6DA02AEF18B688B400490405 /* EXOOnepDataruleInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepDataruleInterval.m; sourceTree = "<group>"; };
+		6DA02AEF18B688B400490405 /* EXOOnepDataruleInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepDataruleInterval.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AF018B688B400490405 /* EXOOnepDataruleScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepDataruleScript.h; sourceTree = "<group>"; };
-		6DA02AF118B688B400490405 /* EXOOnepDataruleScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepDataruleScript.m; sourceTree = "<group>"; };
+		6DA02AF118B688B400490405 /* EXOOnepDataruleScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepDataruleScript.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AF218B688B400490405 /* EXOOnepDataruleSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepDataruleSimple.h; sourceTree = "<group>"; };
-		6DA02AF318B688B400490405 /* EXOOnepDataruleSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepDataruleSimple.m; sourceTree = "<group>"; };
+		6DA02AF318B688B400490405 /* EXOOnepDataruleSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepDataruleSimple.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AF418B688B400490405 /* EXOOnepDataruleTimeout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepDataruleTimeout.h; sourceTree = "<group>"; };
-		6DA02AF518B688B400490405 /* EXOOnepDataruleTimeout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepDataruleTimeout.m; sourceTree = "<group>"; };
+		6DA02AF518B688B400490405 /* EXOOnepDataruleTimeout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepDataruleTimeout.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AF618B688B400490405 /* EXOOnepDeactivateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepDeactivateRequest.h; sourceTree = "<group>"; };
-		6DA02AF718B688B400490405 /* EXOOnepDeactivateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepDeactivateRequest.m; sourceTree = "<group>"; };
+		6DA02AF718B688B400490405 /* EXOOnepDeactivateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepDeactivateRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AF818B688B400490405 /* EXOOnepDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepDevice.h; sourceTree = "<group>"; };
-		6DA02AF918B688B400490405 /* EXOOnepDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepDevice.m; sourceTree = "<group>"; };
+		6DA02AF918B688B400490405 /* EXOOnepDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepDevice.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AFA18B688B400490405 /* EXOOnepDropRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepDropRequest.h; sourceTree = "<group>"; };
-		6DA02AFB18B688B400490405 /* EXOOnepDropRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepDropRequest.m; sourceTree = "<group>"; };
+		6DA02AFB18B688B400490405 /* EXOOnepDropRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepDropRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AFC18B688B400490405 /* EXOOnepFlushRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepFlushRequest.h; sourceTree = "<group>"; };
-		6DA02AFD18B688B400490405 /* EXOOnepFlushRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepFlushRequest.m; sourceTree = "<group>"; };
+		6DA02AFD18B688B400490405 /* EXOOnepFlushRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepFlushRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02AFE18B688B400490405 /* EXOOnepInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepInfoRequest.h; sourceTree = "<group>"; };
-		6DA02AFF18B688B400490405 /* EXOOnepInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepInfoRequest.m; sourceTree = "<group>"; };
+		6DA02AFF18B688B400490405 /* EXOOnepInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepInfoRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02B0018B688B400490405 /* EXOOnepListingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepListingRequest.h; sourceTree = "<group>"; };
-		6DA02B0118B688B400490405 /* EXOOnepListingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepListingRequest.m; sourceTree = "<group>"; };
+		6DA02B0118B688B400490405 /* EXOOnepListingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepListingRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02B0218B688B400490405 /* EXOOnepLookupRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepLookupRequest.h; sourceTree = "<group>"; };
-		6DA02B0318B688B400490405 /* EXOOnepLookupRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepLookupRequest.m; sourceTree = "<group>"; };
+		6DA02B0318B688B400490405 /* EXOOnepLookupRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepLookupRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02B0418B688B400490405 /* EXOOnepMapRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepMapRequest.h; sourceTree = "<group>"; };
-		6DA02B0518B688B400490405 /* EXOOnepMapRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepMapRequest.m; sourceTree = "<group>"; };
+		6DA02B0518B688B400490405 /* EXOOnepMapRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepMapRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02B0618B688B400490405 /* EXOOnepReadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepReadRequest.h; sourceTree = "<group>"; };
-		6DA02B0718B688B400490405 /* EXOOnepReadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepReadRequest.m; sourceTree = "<group>"; };
+		6DA02B0718B688B400490405 /* EXOOnepReadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepReadRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02B0818B688B400490405 /* EXOOnepRecordRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepRecordRequest.h; sourceTree = "<group>"; };
-		6DA02B0918B688B400490405 /* EXOOnepRecordRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepRecordRequest.m; sourceTree = "<group>"; };
-		6DA02B0A18B688B400490405 /* EXOOnepRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepRequest.h; sourceTree = "<group>"; };
-		6DA02B0B18B688B400490405 /* EXOOnepRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepRequest.m; sourceTree = "<group>"; };
-		6DA02B0C18B688B400490405 /* EXOOnepResourceID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepResourceID.h; sourceTree = "<group>"; };
-		6DA02B0D18B688B400490405 /* EXOOnepResourceID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepResourceID.m; sourceTree = "<group>"; };
+		6DA02B0918B688B400490405 /* EXOOnepRecordRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepRecordRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6DA02B0A18B688B400490405 /* EXOOnepRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EXOOnepRequest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		6DA02B0B18B688B400490405 /* EXOOnepRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6DA02B0C18B688B400490405 /* EXOOnepResourceID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EXOOnepResourceID.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		6DA02B0D18B688B400490405 /* EXOOnepResourceID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepResourceID.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02B0E18B688B400490405 /* EXOOnepRevokeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepRevokeRequest.h; sourceTree = "<group>"; };
-		6DA02B0F18B688B400490405 /* EXOOnepRevokeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepRevokeRequest.m; sourceTree = "<group>"; };
+		6DA02B0F18B688B400490405 /* EXOOnepRevokeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepRevokeRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02B1018B688B400490405 /* EXOOnepShareRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepShareRequest.h; sourceTree = "<group>"; };
-		6DA02B1118B688B400490405 /* EXOOnepShareRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepShareRequest.m; sourceTree = "<group>"; };
+		6DA02B1118B688B400490405 /* EXOOnepShareRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepShareRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02B1218B688B400490405 /* EXOOnepUnmapRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepUnmapRequest.h; sourceTree = "<group>"; };
-		6DA02B1318B688B400490405 /* EXOOnepUnmapRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepUnmapRequest.m; sourceTree = "<group>"; };
+		6DA02B1318B688B400490405 /* EXOOnepUnmapRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepUnmapRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02B1418B688B400490405 /* EXOOnepUpdateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepUpdateRequest.h; sourceTree = "<group>"; };
 		6DA02B1518B688B400490405 /* EXOOnepUpdateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepUpdateRequest.m; sourceTree = "<group>"; };
 		6DA02B1618B688B400490405 /* EXOOnepUsageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepUsageRequest.h; sourceTree = "<group>"; };
-		6DA02B1718B688B400490405 /* EXOOnepUsageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepUsageRequest.m; sourceTree = "<group>"; };
+		6DA02B1718B688B400490405 /* EXOOnepUsageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepUsageRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6DA02B1818B688B400490405 /* EXOOnepWriteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOOnepWriteRequest.h; sourceTree = "<group>"; };
-		6DA02B1918B688B400490405 /* EXOOnepWriteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOOnepWriteRequest.m; sourceTree = "<group>"; };
+		6DA02B1918B688B400490405 /* EXOOnepWriteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EXOOnepWriteRequest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,10 +209,10 @@
 			children = (
 				6DA02AD618B688B300490405 /* EXOExositeSimpleDevice.h */,
 				6DA02AD718B688B300490405 /* EXOExositeSimpleDevice.m */,
-				6DA02AD818B688B300490405 /* EXOOnepActivateRequest.h */,
-				6DA02AD918B688B300490405 /* EXOOnepActivateRequest.m */,
 				6DA02ADA18B688B400490405 /* EXOOnepAuthKey.h */,
 				6DA02ADB18B688B400490405 /* EXOOnepAuthKey.m */,
+				6DA02AD818B688B300490405 /* EXOOnepActivateRequest.h */,
+				6DA02AD918B688B300490405 /* EXOOnepActivateRequest.m */,
 				6DA02ADC18B688B400490405 /* EXOOnepCreateClientRequest.h */,
 				6DA02ADD18B688B400490405 /* EXOOnepCreateClientRequest.m */,
 				6DA02ADE18B688B400490405 /* EXOOnepCreateCloneRequest.h */,

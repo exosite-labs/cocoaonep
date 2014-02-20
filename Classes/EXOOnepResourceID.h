@@ -17,5 +17,5 @@
 - (instancetype)initWithAlias:(NSString*)alias;
 - (instancetype)initWithRID:(NSString*)rid;
 
-- (id)asCall;
+- (id)plistValue;
 @end

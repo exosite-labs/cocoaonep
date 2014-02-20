@@ -9,7 +9,7 @@
 
 @implementation EXOOnepCreateDataportRequest
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     NSMutableDictionary *args = [NSMutableDictionary dictionary];
     switch (self.format) {
@@ -34,7 +34,7 @@
         args[@"public"] = @"true";
     }
     if (self.subscribe) {
-        args[@"subscribe"] = [self.subscribe asCall];
+        args[@"subscribe"] = [self.subscribe plistValue];
     }
     NSMutableDictionary *reten = [NSMutableDictionary dictionary];
     if (self.retentionCount) {

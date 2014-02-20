@@ -37,7 +37,7 @@
     return nil;
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     return @{@"duration": @{@"comparison": [self stringFromComparison:self.comparison], @"constant": self.constant, @"timeout": self.timeout, @"repeat": self.repeat?@"true":@"false"}};
 }

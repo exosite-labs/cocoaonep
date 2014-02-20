@@ -9,7 +9,7 @@
 
 @implementation EXOOnepCreateClientRequest
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     NSMutableDictionary *limits = [NSMutableDictionary dictionaryWithCapacity:15];
     if (self.limitClient) {

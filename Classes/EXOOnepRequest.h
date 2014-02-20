@@ -27,6 +27,6 @@ typedef void(^EXOOnepRequestComplete)(NSError *err);
 - (NSInteger)codeFromStatus:(NSString*)status;
 - (NSError*)errorFromStatus:(NSDictionary*)status;
 - (void)doResult:(NSDictionary*)result error:(NSError*)error;
-- (NSDictionary*)asCall;
+- (NSDictionary*)plistValue;
 
 @end

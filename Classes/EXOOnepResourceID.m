@@ -53,7 +53,7 @@
     return self;
 }
 
-- (id)asCall
+- (id)plistValue
 {
     if (self.rid) {
         return self.rid;

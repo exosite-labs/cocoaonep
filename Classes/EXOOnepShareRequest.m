@@ -22,7 +22,7 @@
 }
 
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     NSMutableDictionary *args = [NSMutableDictionary dictionaryWithCapacity:2];
     if (self.duration) {
@@ -33,6 +33,6 @@
     if (self.count) {
         args[@"count"] = self.count;
     }
-    return @{ @"procedure": @"share", @"arguments": @[[self.rid asCall], args]};
+    return @{ @"procedure": @"share", @"arguments": @[[self.rid plistValue], args]};
 }
 @end

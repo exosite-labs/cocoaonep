@@ -21,11 +21,11 @@
     }
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
 #if 0
     // FIXME: Setting specific subsections to get info on fails to get replies. Getting everything works. Is this here or there at fault?
-    return @{@"procedure": @"info", @"arguments": @[[self.rid asCall], @{
+    return @{@"procedure": @"info", @"arguments": @[[self.rid plistValue], @{
                                                         @"aliases": self.aliases?@"true":@"false",
                                                         @"basic": self.basic?@"true":@"false",
                                                         @"comments": self.comments?@"true":@"false",
@@ -38,7 +38,7 @@
                                                         @"usage": self.usage?@"true":@"false",
                                                         }]};
 #else
-    return @{@"procedure": @"info", @"arguments": @[[self.rid asCall], @{}]};
+    return @{@"procedure": @"info", @"arguments": @[[self.rid plistValue], @{}]};
 #endif
 }
 

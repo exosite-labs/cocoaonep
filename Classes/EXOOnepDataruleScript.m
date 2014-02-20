@@ -32,7 +32,7 @@
 }
 
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     return @{@"script": self.script};
 }

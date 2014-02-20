@@ -21,7 +21,7 @@
     }
 }
 
-- (NSDictionary *)asCall
+- (NSDictionary *)plistValue
 {
     return @{ @"procedure": @"unmap", @"arguments": @[@"alias", self.alias]};
 }

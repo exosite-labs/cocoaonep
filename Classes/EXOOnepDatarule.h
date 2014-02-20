@@ -19,5 +19,5 @@ typedef enum EXOOnepDataruleComparison_e EXOOnepDataruleComparison_t;
 
 @interface EXOOnepDatarule : NSObject <NSCopying>
 - (NSString*)stringFromComparison:(EXOOnepDataruleComparison_t)comp;
-- (NSDictionary*)asCall;
+- (NSDictionary*)plistValue;
 @end
