@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6DA02A4B18B6859000490405 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA02A4A18B6859000490405 /* Foundation.framework */; };
+		6DA02A5918B6859000490405 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA02A5818B6859000490405 /* XCTest.framework */; };
+		6DA02A5A18B6859000490405 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA02A4A18B6859000490405 /* Foundation.framework */; };
+		6DA02A5C18B6859000490405 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA02A5B18B6859000490405 /* UIKit.framework */; };
+		6DA02A5F18B6859000490405 /* libCocoaOneP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA02A4718B6859000490405 /* libCocoaOneP.a */; };
+		6DA02A6518B6859000490405 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6DA02A6318B6859000490405 /* InfoPlist.strings */; };
+		6DA02A6718B6859000490405 /* CocoaOnePTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A6618B6859000490405 /* CocoaOnePTests.m */; };
+		6DA02AB418B6866300490405 /* EXOExositeSimpleDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A7118B6866300490405 /* EXOExositeSimpleDevice.m */; };
+		6DA02AB518B6866300490405 /* EXOOnepActivateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A7318B6866300490405 /* EXOOnepActivateRequest.m */; };
+		6DA02AB618B6866300490405 /* EXOOnepAuthKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A7518B6866300490405 /* EXOOnepAuthKey.m */; };
+		6DA02AB718B6866300490405 /* EXOOnepCreateClientRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A7718B6866300490405 /* EXOOnepCreateClientRequest.m */; };
+		6DA02AB818B6866300490405 /* EXOOnepCreateCloneRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A7918B6866300490405 /* EXOOnepCreateCloneRequest.m */; };
+		6DA02AB918B6866300490405 /* EXOOnepCreateDataportRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A7B18B6866300490405 /* EXOOnepCreateDataportRequest.m */; };
+		6DA02ABA18B6866300490405 /* EXOOnepCreateDataruleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A7D18B6866300490405 /* EXOOnepCreateDataruleRequest.m */; };
+		6DA02ABB18B6866300490405 /* EXOOnepCreateDispatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A7F18B6866300490405 /* EXOOnepCreateDispatchRequest.m */; };
+		6DA02ABC18B6866300490405 /* EXOOnepCreateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A8118B6866300490405 /* EXOOnepCreateRequest.m */; };
+		6DA02ABD18B6866300490405 /* EXOOnepDatarule.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A8318B6866300490405 /* EXOOnepDatarule.m */; };
+		6DA02ABE18B6866300490405 /* EXOOnepDataruleCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A8518B6866300490405 /* EXOOnepDataruleCount.m */; };
+		6DA02ABF18B6866300490405 /* EXOOnepDataruleDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A8718B6866300490405 /* EXOOnepDataruleDuration.m */; };
+		6DA02AC018B6866300490405 /* EXOOnepDataruleInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A8918B6866300490405 /* EXOOnepDataruleInterval.m */; };
+		6DA02AC118B6866300490405 /* EXOOnepDataruleScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A8B18B6866300490405 /* EXOOnepDataruleScript.m */; };
+		6DA02AC218B6866300490405 /* EXOOnepDataruleSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A8D18B6866300490405 /* EXOOnepDataruleSimple.m */; };
+		6DA02AC318B6866300490405 /* EXOOnepDataruleTimeout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A8F18B6866300490405 /* EXOOnepDataruleTimeout.m */; };
+		6DA02AC418B6866300490405 /* EXOOnepDeactivateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A9118B6866300490405 /* EXOOnepDeactivateRequest.m */; };
+		6DA02AC518B6866300490405 /* EXOOnepDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A9318B6866300490405 /* EXOOnepDevice.m */; };
+		6DA02AC618B6866300490405 /* EXOOnepDropRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A9518B6866300490405 /* EXOOnepDropRequest.m */; };
+		6DA02AC718B6866300490405 /* EXOOnepFlushRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A9718B6866300490405 /* EXOOnepFlushRequest.m */; };
+		6DA02AC818B6866300490405 /* EXOOnepInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A9918B6866300490405 /* EXOOnepInfoRequest.m */; };
+		6DA02AC918B6866300490405 /* EXOOnepListingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A9B18B6866300490405 /* EXOOnepListingRequest.m */; };
+		6DA02ACA18B6866300490405 /* EXOOnepLookupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A9D18B6866300490405 /* EXOOnepLookupRequest.m */; };
+		6DA02ACB18B6866300490405 /* EXOOnepMapRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02A9F18B6866300490405 /* EXOOnepMapRequest.m */; };
+		6DA02ACC18B6866300490405 /* EXOOnepReadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AA118B6866300490405 /* EXOOnepReadRequest.m */; };
+		6DA02ACD18B6866300490405 /* EXOOnepRecordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AA318B6866300490405 /* EXOOnepRecordRequest.m */; };
+		6DA02ACE18B6866300490405 /* EXOOnepRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AA518B6866300490405 /* EXOOnepRequest.m */; };
+		6DA02ACF18B6866300490405 /* EXOOnepResourceID.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AA718B6866300490405 /* EXOOnepResourceID.m */; };
+		6DA02AD018B6866300490405 /* EXOOnepRevokeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AA918B6866300490405 /* EXOOnepRevokeRequest.m */; };
+		6DA02AD118B6866300490405 /* EXOOnepShareRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AAB18B6866300490405 /* EXOOnepShareRequest.m */; };
+		6DA02AD218B6866300490405 /* EXOOnepUnmapRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AAD18B6866300490405 /* EXOOnepUnmapRequest.m */; };
+		6DA02AD318B6866300490405 /* EXOOnepUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AAF18B6866300490405 /* EXOOnepUpdateRequest.m */; };
+		6DA02AD418B6866300490405 /* EXOOnepUsageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AB118B6866300490405 /* EXOOnepUsageRequest.m */; };
+		6DA02AD518B6866300490405 /* EXOOnepWriteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA02AB318B6866300490405 /* EXOOnepWriteRequest.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6DA02A5D18B6859000490405 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA02A3F18B6859000490405 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DA02A4618B6859000490405;
+			remoteInfo = CocoaOneP;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6DA02A4518B6859000490405 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6DA02A4718B6859000490405 /* libCocoaOneP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoaOneP.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DA02A4A18B6859000490405 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6DA02A4E18B6859000490405 /* CocoaOneP-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CocoaOneP-Prefix.pch"; path = "../CocoaOneP-Prefix.pch"; sourceTree = "<group>"; };
+		6DA02A5718B6859000490405 /* CocoaOnePTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaOnePTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DA02A5818B6859000490405 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6DA02A5B18B6859000490405 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		6DA02A6218B6859000490405 /* CocoaOnePTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "CocoaOnePTests-Info.plist"; path = "CocoaOnePTests/CocoaOnePTests-Info.plist"; sourceTree = "<group>"; };
+		6DA02A6418B6859000490405 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6DA02A6618B6859000490405 /* CocoaOnePTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CocoaOnePTests.m; sourceTree = "<group>"; };
+		6DA02A7018B6866300490405 /* EXOExositeSimpleDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOExositeSimpleDevice.h; path = ../../Classes/EXOExositeSimpleDevice.h; sourceTree = "<group>"; };
+		6DA02A7118B6866300490405 /* EXOExositeSimpleDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOExositeSimpleDevice.m; path = ../../Classes/EXOExositeSimpleDevice.m; sourceTree = "<group>"; };
+		6DA02A7218B6866300490405 /* EXOOnepActivateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepActivateRequest.h; path = ../../Classes/EXOOnepActivateRequest.h; sourceTree = "<group>"; };
+		6DA02A7318B6866300490405 /* EXOOnepActivateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepActivateRequest.m; path = ../../Classes/EXOOnepActivateRequest.m; sourceTree = "<group>"; };
+		6DA02A7418B6866300490405 /* EXOOnepAuthKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepAuthKey.h; path = ../../Classes/EXOOnepAuthKey.h; sourceTree = "<group>"; };
+		6DA02A7518B6866300490405 /* EXOOnepAuthKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepAuthKey.m; path = ../../Classes/EXOOnepAuthKey.m; sourceTree = "<group>"; };
+		6DA02A7618B6866300490405 /* EXOOnepCreateClientRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepCreateClientRequest.h; path = ../../Classes/EXOOnepCreateClientRequest.h; sourceTree = "<group>"; };
+		6DA02A7718B6866300490405 /* EXOOnepCreateClientRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepCreateClientRequest.m; path = ../../Classes/EXOOnepCreateClientRequest.m; sourceTree = "<group>"; };
+		6DA02A7818B6866300490405 /* EXOOnepCreateCloneRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepCreateCloneRequest.h; path = ../../Classes/EXOOnepCreateCloneRequest.h; sourceTree = "<group>"; };
+		6DA02A7918B6866300490405 /* EXOOnepCreateCloneRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepCreateCloneRequest.m; path = ../../Classes/EXOOnepCreateCloneRequest.m; sourceTree = "<group>"; };
+		6DA02A7A18B6866300490405 /* EXOOnepCreateDataportRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepCreateDataportRequest.h; path = ../../Classes/EXOOnepCreateDataportRequest.h; sourceTree = "<group>"; };
+		6DA02A7B18B6866300490405 /* EXOOnepCreateDataportRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepCreateDataportRequest.m; path = ../../Classes/EXOOnepCreateDataportRequest.m; sourceTree = "<group>"; };
+		6DA02A7C18B6866300490405 /* EXOOnepCreateDataruleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepCreateDataruleRequest.h; path = ../../Classes/EXOOnepCreateDataruleRequest.h; sourceTree = "<group>"; };
+		6DA02A7D18B6866300490405 /* EXOOnepCreateDataruleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepCreateDataruleRequest.m; path = ../../Classes/EXOOnepCreateDataruleRequest.m; sourceTree = "<group>"; };
+		6DA02A7E18B6866300490405 /* EXOOnepCreateDispatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepCreateDispatchRequest.h; path = ../../Classes/EXOOnepCreateDispatchRequest.h; sourceTree = "<group>"; };
+		6DA02A7F18B6866300490405 /* EXOOnepCreateDispatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepCreateDispatchRequest.m; path = ../../Classes/EXOOnepCreateDispatchRequest.m; sourceTree = "<group>"; };
+		6DA02A8018B6866300490405 /* EXOOnepCreateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepCreateRequest.h; path = ../../Classes/EXOOnepCreateRequest.h; sourceTree = "<group>"; };
+		6DA02A8118B6866300490405 /* EXOOnepCreateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepCreateRequest.m; path = ../../Classes/EXOOnepCreateRequest.m; sourceTree = "<group>"; };
+		6DA02A8218B6866300490405 /* EXOOnepDatarule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepDatarule.h; path = ../../Classes/EXOOnepDatarule.h; sourceTree = "<group>"; };
+		6DA02A8318B6866300490405 /* EXOOnepDatarule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepDatarule.m; path = ../../Classes/EXOOnepDatarule.m; sourceTree = "<group>"; };
+		6DA02A8418B6866300490405 /* EXOOnepDataruleCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepDataruleCount.h; path = ../../Classes/EXOOnepDataruleCount.h; sourceTree = "<group>"; };
+		6DA02A8518B6866300490405 /* EXOOnepDataruleCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepDataruleCount.m; path = ../../Classes/EXOOnepDataruleCount.m; sourceTree = "<group>"; };
+		6DA02A8618B6866300490405 /* EXOOnepDataruleDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepDataruleDuration.h; path = ../../Classes/EXOOnepDataruleDuration.h; sourceTree = "<group>"; };
+		6DA02A8718B6866300490405 /* EXOOnepDataruleDuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepDataruleDuration.m; path = ../../Classes/EXOOnepDataruleDuration.m; sourceTree = "<group>"; };
+		6DA02A8818B6866300490405 /* EXOOnepDataruleInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepDataruleInterval.h; path = ../../Classes/EXOOnepDataruleInterval.h; sourceTree = "<group>"; };
+		6DA02A8918B6866300490405 /* EXOOnepDataruleInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepDataruleInterval.m; path = ../../Classes/EXOOnepDataruleInterval.m; sourceTree = "<group>"; };
+		6DA02A8A18B6866300490405 /* EXOOnepDataruleScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepDataruleScript.h; path = ../../Classes/EXOOnepDataruleScript.h; sourceTree = "<group>"; };
+		6DA02A8B18B6866300490405 /* EXOOnepDataruleScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepDataruleScript.m; path = ../../Classes/EXOOnepDataruleScript.m; sourceTree = "<group>"; };
+		6DA02A8C18B6866300490405 /* EXOOnepDataruleSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepDataruleSimple.h; path = ../../Classes/EXOOnepDataruleSimple.h; sourceTree = "<group>"; };
+		6DA02A8D18B6866300490405 /* EXOOnepDataruleSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepDataruleSimple.m; path = ../../Classes/EXOOnepDataruleSimple.m; sourceTree = "<group>"; };
+		6DA02A8E18B6866300490405 /* EXOOnepDataruleTimeout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepDataruleTimeout.h; path = ../../Classes/EXOOnepDataruleTimeout.h; sourceTree = "<group>"; };
+		6DA02A8F18B6866300490405 /* EXOOnepDataruleTimeout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepDataruleTimeout.m; path = ../../Classes/EXOOnepDataruleTimeout.m; sourceTree = "<group>"; };
+		6DA02A9018B6866300490405 /* EXOOnepDeactivateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepDeactivateRequest.h; path = ../../Classes/EXOOnepDeactivateRequest.h; sourceTree = "<group>"; };
+		6DA02A9118B6866300490405 /* EXOOnepDeactivateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepDeactivateRequest.m; path = ../../Classes/EXOOnepDeactivateRequest.m; sourceTree = "<group>"; };
+		6DA02A9218B6866300490405 /* EXOOnepDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepDevice.h; path = ../../Classes/EXOOnepDevice.h; sourceTree = "<group>"; };
+		6DA02A9318B6866300490405 /* EXOOnepDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepDevice.m; path = ../../Classes/EXOOnepDevice.m; sourceTree = "<group>"; };
+		6DA02A9418B6866300490405 /* EXOOnepDropRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepDropRequest.h; path = ../../Classes/EXOOnepDropRequest.h; sourceTree = "<group>"; };
+		6DA02A9518B6866300490405 /* EXOOnepDropRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepDropRequest.m; path = ../../Classes/EXOOnepDropRequest.m; sourceTree = "<group>"; };
+		6DA02A9618B6866300490405 /* EXOOnepFlushRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepFlushRequest.h; path = ../../Classes/EXOOnepFlushRequest.h; sourceTree = "<group>"; };
+		6DA02A9718B6866300490405 /* EXOOnepFlushRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepFlushRequest.m; path = ../../Classes/EXOOnepFlushRequest.m; sourceTree = "<group>"; };
+		6DA02A9818B6866300490405 /* EXOOnepInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepInfoRequest.h; path = ../../Classes/EXOOnepInfoRequest.h; sourceTree = "<group>"; };
+		6DA02A9918B6866300490405 /* EXOOnepInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepInfoRequest.m; path = ../../Classes/EXOOnepInfoRequest.m; sourceTree = "<group>"; };
+		6DA02A9A18B6866300490405 /* EXOOnepListingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepListingRequest.h; path = ../../Classes/EXOOnepListingRequest.h; sourceTree = "<group>"; };
+		6DA02A9B18B6866300490405 /* EXOOnepListingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepListingRequest.m; path = ../../Classes/EXOOnepListingRequest.m; sourceTree = "<group>"; };
+		6DA02A9C18B6866300490405 /* EXOOnepLookupRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepLookupRequest.h; path = ../../Classes/EXOOnepLookupRequest.h; sourceTree = "<group>"; };
+		6DA02A9D18B6866300490405 /* EXOOnepLookupRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepLookupRequest.m; path = ../../Classes/EXOOnepLookupRequest.m; sourceTree = "<group>"; };
+		6DA02A9E18B6866300490405 /* EXOOnepMapRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepMapRequest.h; path = ../../Classes/EXOOnepMapRequest.h; sourceTree = "<group>"; };
+		6DA02A9F18B6866300490405 /* EXOOnepMapRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepMapRequest.m; path = ../../Classes/EXOOnepMapRequest.m; sourceTree = "<group>"; };
+		6DA02AA018B6866300490405 /* EXOOnepReadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepReadRequest.h; path = ../../Classes/EXOOnepReadRequest.h; sourceTree = "<group>"; };
+		6DA02AA118B6866300490405 /* EXOOnepReadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepReadRequest.m; path = ../../Classes/EXOOnepReadRequest.m; sourceTree = "<group>"; };
+		6DA02AA218B6866300490405 /* EXOOnepRecordRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepRecordRequest.h; path = ../../Classes/EXOOnepRecordRequest.h; sourceTree = "<group>"; };
+		6DA02AA318B6866300490405 /* EXOOnepRecordRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepRecordRequest.m; path = ../../Classes/EXOOnepRecordRequest.m; sourceTree = "<group>"; };
+		6DA02AA418B6866300490405 /* EXOOnepRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepRequest.h; path = ../../Classes/EXOOnepRequest.h; sourceTree = "<group>"; };
+		6DA02AA518B6866300490405 /* EXOOnepRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepRequest.m; path = ../../Classes/EXOOnepRequest.m; sourceTree = "<group>"; };
+		6DA02AA618B6866300490405 /* EXOOnepResourceID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepResourceID.h; path = ../../Classes/EXOOnepResourceID.h; sourceTree = "<group>"; };
+		6DA02AA718B6866300490405 /* EXOOnepResourceID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepResourceID.m; path = ../../Classes/EXOOnepResourceID.m; sourceTree = "<group>"; };
+		6DA02AA818B6866300490405 /* EXOOnepRevokeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepRevokeRequest.h; path = ../../Classes/EXOOnepRevokeRequest.h; sourceTree = "<group>"; };
+		6DA02AA918B6866300490405 /* EXOOnepRevokeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepRevokeRequest.m; path = ../../Classes/EXOOnepRevokeRequest.m; sourceTree = "<group>"; };
+		6DA02AAA18B6866300490405 /* EXOOnepShareRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepShareRequest.h; path = ../../Classes/EXOOnepShareRequest.h; sourceTree = "<group>"; };
+		6DA02AAB18B6866300490405 /* EXOOnepShareRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepShareRequest.m; path = ../../Classes/EXOOnepShareRequest.m; sourceTree = "<group>"; };
+		6DA02AAC18B6866300490405 /* EXOOnepUnmapRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepUnmapRequest.h; path = ../../Classes/EXOOnepUnmapRequest.h; sourceTree = "<group>"; };
+		6DA02AAD18B6866300490405 /* EXOOnepUnmapRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepUnmapRequest.m; path = ../../Classes/EXOOnepUnmapRequest.m; sourceTree = "<group>"; };
+		6DA02AAE18B6866300490405 /* EXOOnepUpdateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepUpdateRequest.h; path = ../../Classes/EXOOnepUpdateRequest.h; sourceTree = "<group>"; };
+		6DA02AAF18B6866300490405 /* EXOOnepUpdateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepUpdateRequest.m; path = ../../Classes/EXOOnepUpdateRequest.m; sourceTree = "<group>"; };
+		6DA02AB018B6866300490405 /* EXOOnepUsageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepUsageRequest.h; path = ../../Classes/EXOOnepUsageRequest.h; sourceTree = "<group>"; };
+		6DA02AB118B6866300490405 /* EXOOnepUsageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepUsageRequest.m; path = ../../Classes/EXOOnepUsageRequest.m; sourceTree = "<group>"; };
+		6DA02AB218B6866300490405 /* EXOOnepWriteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXOOnepWriteRequest.h; path = ../../Classes/EXOOnepWriteRequest.h; sourceTree = "<group>"; };
+		6DA02AB318B6866300490405 /* EXOOnepWriteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EXOOnepWriteRequest.m; path = ../../Classes/EXOOnepWriteRequest.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6DA02A4418B6859000490405 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DA02A4B18B6859000490405 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DA02A5418B6859000490405 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DA02A5918B6859000490405 /* XCTest.framework in Frameworks */,
+				6DA02A5C18B6859000490405 /* UIKit.framework in Frameworks */,
+				6DA02A5A18B6859000490405 /* Foundation.framework in Frameworks */,
+				6DA02A5F18B6859000490405 /* libCocoaOneP.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6DA02A3E18B6859000490405 = {
+			isa = PBXGroup;
+			children = (
+				6DA02A4C18B6859000490405 /* CocoaOneP */,
+				6DA02A6018B6859000490405 /* CocoaOnePTests */,
+				6DA02A4918B6859000490405 /* Frameworks */,
+				6DA02A4818B6859000490405 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6DA02A4818B6859000490405 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DA02A4718B6859000490405 /* libCocoaOneP.a */,
+				6DA02A5718B6859000490405 /* CocoaOnePTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6DA02A4918B6859000490405 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6DA02A4A18B6859000490405 /* Foundation.framework */,
+				6DA02A5818B6859000490405 /* XCTest.framework */,
+				6DA02A5B18B6859000490405 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6DA02A4C18B6859000490405 /* CocoaOneP */ = {
+			isa = PBXGroup;
+			children = (
+				6DA02A7018B6866300490405 /* EXOExositeSimpleDevice.h */,
+				6DA02A7118B6866300490405 /* EXOExositeSimpleDevice.m */,
+				6DA02A7218B6866300490405 /* EXOOnepActivateRequest.h */,
+				6DA02A7318B6866300490405 /* EXOOnepActivateRequest.m */,
+				6DA02A7418B6866300490405 /* EXOOnepAuthKey.h */,
+				6DA02A7518B6866300490405 /* EXOOnepAuthKey.m */,
+				6DA02A7618B6866300490405 /* EXOOnepCreateClientRequest.h */,
+				6DA02A7718B6866300490405 /* EXOOnepCreateClientRequest.m */,
+				6DA02A7818B6866300490405 /* EXOOnepCreateCloneRequest.h */,
+				6DA02A7918B6866300490405 /* EXOOnepCreateCloneRequest.m */,
+				6DA02A7A18B6866300490405 /* EXOOnepCreateDataportRequest.h */,
+				6DA02A7B18B6866300490405 /* EXOOnepCreateDataportRequest.m */,
+				6DA02A7C18B6866300490405 /* EXOOnepCreateDataruleRequest.h */,
+				6DA02A7D18B6866300490405 /* EXOOnepCreateDataruleRequest.m */,
+				6DA02A7E18B6866300490405 /* EXOOnepCreateDispatchRequest.h */,
+				6DA02A7F18B6866300490405 /* EXOOnepCreateDispatchRequest.m */,
+				6DA02A8018B6866300490405 /* EXOOnepCreateRequest.h */,
+				6DA02A8118B6866300490405 /* EXOOnepCreateRequest.m */,
+				6DA02A8218B6866300490405 /* EXOOnepDatarule.h */,
+				6DA02A8318B6866300490405 /* EXOOnepDatarule.m */,
+				6DA02A8418B6866300490405 /* EXOOnepDataruleCount.h */,
+				6DA02A8518B6866300490405 /* EXOOnepDataruleCount.m */,
+				6DA02A8618B6866300490405 /* EXOOnepDataruleDuration.h */,
+				6DA02A8718B6866300490405 /* EXOOnepDataruleDuration.m */,
+				6DA02A8818B6866300490405 /* EXOOnepDataruleInterval.h */,
+				6DA02A8918B6866300490405 /* EXOOnepDataruleInterval.m */,
+				6DA02A8A18B6866300490405 /* EXOOnepDataruleScript.h */,
+				6DA02A8B18B6866300490405 /* EXOOnepDataruleScript.m */,
+				6DA02A8C18B6866300490405 /* EXOOnepDataruleSimple.h */,
+				6DA02A8D18B6866300490405 /* EXOOnepDataruleSimple.m */,
+				6DA02A8E18B6866300490405 /* EXOOnepDataruleTimeout.h */,
+				6DA02A8F18B6866300490405 /* EXOOnepDataruleTimeout.m */,
+				6DA02A9018B6866300490405 /* EXOOnepDeactivateRequest.h */,
+				6DA02A9118B6866300490405 /* EXOOnepDeactivateRequest.m */,
+				6DA02A9218B6866300490405 /* EXOOnepDevice.h */,
+				6DA02A9318B6866300490405 /* EXOOnepDevice.m */,
+				6DA02A9418B6866300490405 /* EXOOnepDropRequest.h */,
+				6DA02A9518B6866300490405 /* EXOOnepDropRequest.m */,
+				6DA02A9618B6866300490405 /* EXOOnepFlushRequest.h */,
+				6DA02A9718B6866300490405 /* EXOOnepFlushRequest.m */,
+				6DA02A9818B6866300490405 /* EXOOnepInfoRequest.h */,
+				6DA02A9918B6866300490405 /* EXOOnepInfoRequest.m */,
+				6DA02A9A18B6866300490405 /* EXOOnepListingRequest.h */,
+				6DA02A9B18B6866300490405 /* EXOOnepListingRequest.m */,
+				6DA02A9C18B6866300490405 /* EXOOnepLookupRequest.h */,
+				6DA02A9D18B6866300490405 /* EXOOnepLookupRequest.m */,
+				6DA02A9E18B6866300490405 /* EXOOnepMapRequest.h */,
+				6DA02A9F18B6866300490405 /* EXOOnepMapRequest.m */,
+				6DA02AA018B6866300490405 /* EXOOnepReadRequest.h */,
+				6DA02AA118B6866300490405 /* EXOOnepReadRequest.m */,
+				6DA02AA218B6866300490405 /* EXOOnepRecordRequest.h */,
+				6DA02AA318B6866300490405 /* EXOOnepRecordRequest.m */,
+				6DA02AA418B6866300490405 /* EXOOnepRequest.h */,
+				6DA02AA518B6866300490405 /* EXOOnepRequest.m */,
+				6DA02AA618B6866300490405 /* EXOOnepResourceID.h */,
+				6DA02AA718B6866300490405 /* EXOOnepResourceID.m */,
+				6DA02AA818B6866300490405 /* EXOOnepRevokeRequest.h */,
+				6DA02AA918B6866300490405 /* EXOOnepRevokeRequest.m */,
+				6DA02AAA18B6866300490405 /* EXOOnepShareRequest.h */,
+				6DA02AAB18B6866300490405 /* EXOOnepShareRequest.m */,
+				6DA02AAC18B6866300490405 /* EXOOnepUnmapRequest.h */,
+				6DA02AAD18B6866300490405 /* EXOOnepUnmapRequest.m */,
+				6DA02AAE18B6866300490405 /* EXOOnepUpdateRequest.h */,
+				6DA02AAF18B6866300490405 /* EXOOnepUpdateRequest.m */,
+				6DA02AB018B6866300490405 /* EXOOnepUsageRequest.h */,
+				6DA02AB118B6866300490405 /* EXOOnepUsageRequest.m */,
+				6DA02AB218B6866300490405 /* EXOOnepWriteRequest.h */,
+				6DA02AB318B6866300490405 /* EXOOnepWriteRequest.m */,
+				6DA02A4D18B6859000490405 /* Supporting Files */,
+			);
+			path = CocoaOneP;
+			sourceTree = "<group>";
+		};
+		6DA02A4D18B6859000490405 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6DA02A4E18B6859000490405 /* CocoaOneP-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6DA02A6018B6859000490405 /* CocoaOnePTests */ = {
+			isa = PBXGroup;
+			children = (
+				6DA02A6618B6859000490405 /* CocoaOnePTests.m */,
+				6DA02A6118B6859000490405 /* Supporting Files */,
+			);
+			path = CocoaOnePTests;
+			sourceTree = "<group>";
+		};
+		6DA02A6118B6859000490405 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6DA02A6218B6859000490405 /* CocoaOnePTests-Info.plist */,
+				6DA02A6318B6859000490405 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6DA02A4618B6859000490405 /* CocoaOneP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DA02A6A18B6859000490405 /* Build configuration list for PBXNativeTarget "CocoaOneP" */;
+			buildPhases = (
+				6DA02A4318B6859000490405 /* Sources */,
+				6DA02A4418B6859000490405 /* Frameworks */,
+				6DA02A4518B6859000490405 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CocoaOneP;
+			productName = CocoaOneP;
+			productReference = 6DA02A4718B6859000490405 /* libCocoaOneP.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		6DA02A5618B6859000490405 /* CocoaOnePTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DA02A6D18B6859000490405 /* Build configuration list for PBXNativeTarget "CocoaOnePTests" */;
+			buildPhases = (
+				6DA02A5318B6859000490405 /* Sources */,
+				6DA02A5418B6859000490405 /* Frameworks */,
+				6DA02A5518B6859000490405 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6DA02A5E18B6859000490405 /* PBXTargetDependency */,
+			);
+			name = CocoaOnePTests;
+			productName = CocoaOnePTests;
+			productReference = 6DA02A5718B6859000490405 /* CocoaOnePTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6DA02A3F18B6859000490405 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Exosite;
+			};
+			buildConfigurationList = 6DA02A4218B6859000490405 /* Build configuration list for PBXProject "CocoaOneP" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6DA02A3E18B6859000490405;
+			productRefGroup = 6DA02A4818B6859000490405 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6DA02A4618B6859000490405 /* CocoaOneP */,
+				6DA02A5618B6859000490405 /* CocoaOnePTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6DA02A5518B6859000490405 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DA02A6518B6859000490405 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6DA02A4318B6859000490405 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DA02AC618B6866300490405 /* EXOOnepDropRequest.m in Sources */,
+				6DA02ACA18B6866300490405 /* EXOOnepLookupRequest.m in Sources */,
+				6DA02AC518B6866300490405 /* EXOOnepDevice.m in Sources */,
+				6DA02ACB18B6866300490405 /* EXOOnepMapRequest.m in Sources */,
+				6DA02AD418B6866300490405 /* EXOOnepUsageRequest.m in Sources */,
+				6DA02ABD18B6866300490405 /* EXOOnepDatarule.m in Sources */,
+				6DA02ABA18B6866300490405 /* EXOOnepCreateDataruleRequest.m in Sources */,
+				6DA02AC018B6866300490405 /* EXOOnepDataruleInterval.m in Sources */,
+				6DA02AC118B6866300490405 /* EXOOnepDataruleScript.m in Sources */,
+				6DA02ABF18B6866300490405 /* EXOOnepDataruleDuration.m in Sources */,
+				6DA02ABE18B6866300490405 /* EXOOnepDataruleCount.m in Sources */,
+				6DA02AB618B6866300490405 /* EXOOnepAuthKey.m in Sources */,
+				6DA02AC718B6866300490405 /* EXOOnepFlushRequest.m in Sources */,
+				6DA02ACC18B6866300490405 /* EXOOnepReadRequest.m in Sources */,
+				6DA02ACF18B6866300490405 /* EXOOnepResourceID.m in Sources */,
+				6DA02AB818B6866300490405 /* EXOOnepCreateCloneRequest.m in Sources */,
+				6DA02AD518B6866300490405 /* EXOOnepWriteRequest.m in Sources */,
+				6DA02AC218B6866300490405 /* EXOOnepDataruleSimple.m in Sources */,
+				6DA02AC818B6866300490405 /* EXOOnepInfoRequest.m in Sources */,
+				6DA02ACE18B6866300490405 /* EXOOnepRequest.m in Sources */,
+				6DA02AD218B6866300490405 /* EXOOnepUnmapRequest.m in Sources */,
+				6DA02AB718B6866300490405 /* EXOOnepCreateClientRequest.m in Sources */,
+				6DA02AC318B6866300490405 /* EXOOnepDataruleTimeout.m in Sources */,
+				6DA02ABC18B6866300490405 /* EXOOnepCreateRequest.m in Sources */,
+				6DA02AD018B6866300490405 /* EXOOnepRevokeRequest.m in Sources */,
+				6DA02AC418B6866300490405 /* EXOOnepDeactivateRequest.m in Sources */,
+				6DA02ABB18B6866300490405 /* EXOOnepCreateDispatchRequest.m in Sources */,
+				6DA02ACD18B6866300490405 /* EXOOnepRecordRequest.m in Sources */,
+				6DA02AB918B6866300490405 /* EXOOnepCreateDataportRequest.m in Sources */,
+				6DA02AD318B6866300490405 /* EXOOnepUpdateRequest.m in Sources */,
+				6DA02AD118B6866300490405 /* EXOOnepShareRequest.m in Sources */,
+				6DA02AC918B6866300490405 /* EXOOnepListingRequest.m in Sources */,
+				6DA02AB418B6866300490405 /* EXOExositeSimpleDevice.m in Sources */,
+				6DA02AB518B6866300490405 /* EXOOnepActivateRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DA02A5318B6859000490405 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DA02A6718B6859000490405 /* CocoaOnePTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6DA02A5E18B6859000490405 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6DA02A4618B6859000490405 /* CocoaOneP */;
+			targetProxy = 6DA02A5D18B6859000490405 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6DA02A6318B6859000490405 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6DA02A6418B6859000490405 /* en */,
+			);
+			name = InfoPlist.strings;
+			path = CocoaOnePTests;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6DA02A6818B6859000490405 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6DA02A6918B6859000490405 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6DA02A6B18B6859000490405 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CocoaOneP.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CocoaOneP/CocoaOneP-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6DA02A6C18B6859000490405 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CocoaOneP.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CocoaOneP/CocoaOneP-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		6DA02A6E18B6859000490405 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CocoaOneP/CocoaOneP-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CocoaOnePTests/CocoaOnePTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		6DA02A6F18B6859000490405 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CocoaOneP/CocoaOneP-Prefix.pch";
+				INFOPLIST_FILE = "CocoaOnePTests/CocoaOnePTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6DA02A4218B6859000490405 /* Build configuration list for PBXProject "CocoaOneP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DA02A6818B6859000490405 /* Debug */,
+				6DA02A6918B6859000490405 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DA02A6A18B6859000490405 /* Build configuration list for PBXNativeTarget "CocoaOneP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DA02A6B18B6859000490405 /* Debug */,
+				6DA02A6C18B6859000490405 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DA02A6D18B6859000490405 /* Build configuration list for PBXNativeTarget "CocoaOnePTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DA02A6E18B6859000490405 /* Debug */,
+				6DA02A6F18B6859000490405 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6DA02A3F18B6859000490405 /* Project object */;
+}
