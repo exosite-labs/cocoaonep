@@ -10,4 +10,9 @@
 
 @implementation EXOOnepResource
 
+- (NSArray *)plistValue
+{
+    return @[];
+}
+
 @end
