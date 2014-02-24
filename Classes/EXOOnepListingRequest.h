@@ -28,8 +28,12 @@ typedef enum EXOOnepFilterType_e EXOOnepFilterType_t;
 
 typedef void(^EXOOnepListingRequestComplete)(NSDictionary *results, NSError *err);
 
-@interface EXOOnepListingRequest : EXOOnepRequest
-@property(assign) EXOOnepListType_t list;
-@property(assign) EXOOnepFilterType_t filter;
-@property(copy) EXOOnepListingRequestComplete complete;
+@interface EXOOnepListingRequest : EXOOnepRequest <NSCopying>
+@property(nonatomic,assign,readonly) EXOOnepListType_t list;
+@property(nonatomic,assign,readonly) EXOOnepFilterType_t filter;
+@property(nonatomic,copy,readonly) EXOOnepListingRequestComplete complete;
+
++ (EXOOnepListingRequest*)listingByRID:(EXOOnepResourceID *)rid list:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete;
+- (instancetype)initWithRID:(EXOOnepResourceID *)rid list:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete;
+
 @end

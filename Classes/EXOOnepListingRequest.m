@@ -7,15 +7,34 @@
 
 #import "EXOOnepListingRequest.h"
 
+@interface EXOOnepListingRequest ()
+@property(nonatomic,assign) EXOOnepListType_t list;
+@property(nonatomic,assign) EXOOnepFilterType_t filter;
+@property(nonatomic,copy) EXOOnepListingRequestComplete complete;
+
+@end
+
 @implementation EXOOnepListingRequest
+
++ (EXOOnepListingRequest *)listingByRID:(EXOOnepResourceID *)rid list:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete
+{
+    return [[EXOOnepListingRequest alloc] initWithRID:rid list:list filter:filter complete:complete];
+}
+
+- (instancetype)initWithRID:(EXOOnepResourceID *)rid list:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete
+{
+    if (self = [super init]) {
+        self.rid = rid;
+        self.list = list;
+        self.filter = filter;
+        self.complete = complete;
+    }
+    return self;
+}
 
 - (id)init
 {
-    if (self = [super init]) {
-        self.list = EXOOnepListTypeAll;
-        self.filter = EXOOnepFilterTypeAll;
-    }
-    return self;
+    return nil;
 }
 
 - (void)doResult:(NSDictionary *)result error:(NSError *)error
@@ -80,7 +99,26 @@
         [filters addObject:@"tagged"];
     }
     
-    return @{@"procedure": @"listing", @"arguments": @[types, filters]};
+    return @{@"procedure": @"listing", @"arguments": @[[types copy], [filters copy]]};
+}
+
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+    EXOOnepListingRequest *obj = (EXOOnepListingRequest*)object;
+    return [self.rid isEqual:obj.rid ] && self.list == obj.list && self.filter == obj.filter;
+}
+
+- (NSUInteger)hash
+{
+    return self.rid.hash ^ self.list ^ self.filter;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
 }
 
 @end
