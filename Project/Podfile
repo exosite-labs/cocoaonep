@@ -1,7 +1,4 @@
+xcodeproj "CocoaOnePExample/CocoaOnePExample.xcodeproj"
+
 pod "CocoaOneP", :path => "../CocoaOneP.podspec"
 
-target "Demo" do
-end
-
-target "DemoTests" do
-end

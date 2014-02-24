@@ -1,18 +1,18 @@
 //
-//  CocoaOnePTests.m
-//  CocoaOnePTests
+//  CocoaOnePExampleTests.m
+//  CocoaOnePExampleTests
 //
-//  Created by Michael Conrad Tadpol Tilstra.
+//  Created by Michael Conrad Tadpol Tilstra on 2/24/14.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface CocoaOnePTests : XCTestCase
+@interface CocoaOnePExampleTests : XCTestCase
 
 @end
 
-@implementation CocoaOnePTests
+@implementation CocoaOnePExampleTests
 
 - (void)setUp
 {
