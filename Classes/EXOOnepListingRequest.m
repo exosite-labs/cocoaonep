@@ -44,24 +44,7 @@
         if (err) {
             self.complete(nil, err);
         } else {
-            // TODO: results is array "in order of requested", Want to map that to a dictionary with the parts named.
-            NSArray *Aret = result[@"result"];
-            // ??? is the array always four items?
-            NSMutableDictionary *Dret = [NSMutableDictionary dictionaryWithCapacity:4];
-            if (self.list & EXOOnepListTypeClient) {
-                Dret[@"client"] = Aret[0];
-            }
-            if (self.list & EXOOnepListTypeDataport) {
-                Dret[@"dataport"] = Aret[1];
-            }
-            if (self.list & EXOOnepListTypeDatarule) {
-                Dret[@"datarule"] = Aret[2];
-            }
-            if (self.list & EXOOnepListTypeDispatch) {
-                Dret[@"dispatch"] = Aret[3];
-            }
-
-            self.complete([Dret copy], nil);
+            self.complete(result[@"result"], nil);
         }
     }
 }
@@ -82,22 +65,25 @@
         [types addObject:@"dispatch"];
     }
     
-    NSMutableArray *filters = [NSMutableArray arrayWithCapacity:5];
+    NSMutableDictionary *filters = [NSMutableDictionary dictionary];
     if (self.filter & EXOOnepFilterTypeActivated) {
-        [filters addObject:@"activated"];
+        filters[@"activated"] = @"true";
     }
     if (self.filter & EXOOnepFilterTypeAliased) {
-        [filters addObject:@"aliased"];
+        filters[@"aliased"] = @"true";
     }
     if (self.filter & EXOOnepFilterTypeOwned) {
-        [filters addObject:@"owned"];
+        filters[@"owned"] = @"true";
     }
     if (self.filter & EXOOnepFilterTypePublic) {
-        [filters addObject:@"public"];
+        filters[@"public"] = @"true";
     }
+    // FIXME: tags are actually an array of strings.
+#if 0
     if (self.filter & EXOOnepFilterTypeTagged) {
-        [filters addObject:@"tagged"];
+        filters[@"tagged"] = @"true";
     }
+#endif
     
     return @{@"procedure": @"listing", @"arguments": @[[types copy], [filters copy]]};
 }
