@@ -38,8 +38,6 @@ typedef void(^EXOOnepRPCComplete)(NSError*err);
 @property(nonatomic,copy,readonly) NSURL *host;
 // TODO: Add work queue option. (?)
 
-// TODO: (maybe) Write some mid/high level methods. (create dataport with alias for example?)
-
 + (EXOOnepDevice *)deviceWithAuth:(EXOOnepAuthKey *)auth;
 + (EXOOnepDevice*)deviceWithAuth:(EXOOnepAuthKey*)auth Host:(NSURL*)host;
 
