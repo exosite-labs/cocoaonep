@@ -8,7 +8,7 @@
 #import "EXOOnepAuthKey.h"
 
 @interface EXOOnepAuthKey ()
-@property(copy) NSString *CIK;
+@property(copy) NSDictionary *auth;
 @end
 
 @implementation EXOOnepAuthKey
@@ -18,6 +18,16 @@
     return [[EXOOnepAuthKey alloc] initWithCIK:cik];
 }
 
++ (EXOOnepAuthKey *)authWithCIK:(NSString *)cik client:(NSString *)clientid
+{
+    return [[EXOOnepAuthKey alloc] initWithAuth:@{@"cik": [cik copy], @"client_id": [clientid copy]}];
+}
+
++ (EXOOnepAuthKey *)authWithCIK:(NSString *)cik resource:(NSString *)rid
+{
+    return [[EXOOnepAuthKey alloc] initWithAuth:@{@"cik": [cik copy], @"resource_id": [rid copy]}];
+}
+
 - (instancetype)init
 {
     return nil;
@@ -25,20 +35,25 @@
 
 - (instancetype)initWithCIK:(NSString *)cik
 {
+    return [self initWithAuth:@{@"cik": [cik copy]}];
+}
+
+- (instancetype)initWithAuth:(NSDictionary*)auth
+{
     if (self = [super init]) {
-        self.CIK = cik;
+        self.auth = auth;
     }
     return self;
 }
 
 - (NSDictionary *)plistValue
 {
-    return @{@"cik": self.CIK};
+    return [self.auth copy];
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@: %p, CIK: %@>", NSStringFromClass([self class]), self, self.CIK];
+    return [NSString stringWithFormat:@"<%@: %p, auth: %@>", NSStringFromClass([self class]), self, self.auth];
 }
 
 - (BOOL)isEqual:(id)object
@@ -46,12 +61,12 @@
     if (![object isKindOfClass:[self class]]) {
         return NO;
     }
-    return [self.CIK isEqualToString:[object CIK]];
+    return [self.auth isEqualToDictionary:[object auth]];
 }
 
 - (NSUInteger)hash
 {
-    return self.CIK.hash;
+    return self.auth.hash;
 }
 
 - (id)copyWithZone:(NSZone *)zone

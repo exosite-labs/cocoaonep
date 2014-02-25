@@ -8,9 +8,10 @@
 #import <Foundation/Foundation.h>
 
 @interface EXOOnepAuthKey : NSObject <NSCopying>
-// Other Auth mode coming later. (with client_id or resource_id)
 
 + (EXOOnepAuthKey*)authWithCIK:(NSString*)cik;
++ (EXOOnepAuthKey*)authWithCIK:(NSString*)cik client:(NSString*)clientid;
++ (EXOOnepAuthKey*)authWithCIK:(NSString*)cik resource:(NSString*)rid;
 
 - (instancetype)initWithCIK:(NSString*)cik;
 
