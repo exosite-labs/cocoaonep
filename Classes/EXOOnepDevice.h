@@ -34,16 +34,16 @@ extern NSString *EXOOnepDeviceErrorDomain;
 typedef void(^EXOOnepRPCComplete)(NSError*err);
 
 @interface EXOOnepDevice : NSObject
-@property(nonatomic,copy,readonly) EXOOnepAuthKey *auth;
 @property(nonatomic,copy,readonly) NSURL *host;
-// TODO: Add work queue option. (?)
+@property(nonatomic,copy) NSOperationQueue *queue;
+@property(nonatomic,copy) EXOOnepAuthKey *auth;
 
-+ (EXOOnepDevice *)deviceWithAuth:(EXOOnepAuthKey *)auth;
-+ (EXOOnepDevice*)deviceWithAuth:(EXOOnepAuthKey*)auth Host:(NSURL*)host;
++ (EXOOnepDevice*)device;
++ (EXOOnepDevice*)deviceWithHost:(NSURL*)host;
 
-- (instancetype)initWithAuth:(EXOOnepAuthKey*)auth Host:(NSURL*)host;
+- (instancetype)initWithAuth:(EXOOnepAuthKey *)auth Host:(NSURL *)host;
 
-// The base of it all.
 - (void)doRPCwithRequests:(NSArray*)calls complete:(EXOOnepRPCComplete)complete;
+- (void)doRPCwithAuth:(EXOOnepAuthKey*)auth requests:(NSArray*)calls complete:(EXOOnepRPCComplete)complete;
 
 @end

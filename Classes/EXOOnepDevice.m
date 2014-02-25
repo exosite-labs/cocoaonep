@@ -13,7 +13,6 @@ NSString *EXOOnepDeviceErrorDomain = @"EXOOnepDeviceErrorDomain";
 static NSString *EXOOnepAPIPath = @"/api:v1/rpc/process";
 
 @interface EXOOnepDevice ()
-@property(nonatomic,copy) EXOOnepAuthKey *auth;
 @property(nonatomic,copy) NSURL *host;
 @property(strong) AFHTTPRequestOperationManager *manager;
 
@@ -21,14 +20,14 @@ static NSString *EXOOnepAPIPath = @"/api:v1/rpc/process";
 
 @implementation EXOOnepDevice
 
-+ (EXOOnepDevice *)deviceWithAuth:(EXOOnepAuthKey *)auth
++ (EXOOnepDevice *)device
 {
-    return [[EXOOnepDevice alloc] initWithAuth:auth Host:nil];
+    return [[EXOOnepDevice alloc] initWithAuth:nil Host:nil];
 }
 
-+ (EXOOnepDevice *)deviceWithAuth:(EXOOnepAuthKey *)auth Host:(NSURL *)host
++ (EXOOnepDevice *)deviceWithHost:(NSURL *)host
 {
-    return [[EXOOnepDevice alloc] initWithAuth:auth Host:host];
+    return [[EXOOnepDevice alloc] initWithAuth:nil Host:host];
 }
 
 - (instancetype)initWithAuth:(EXOOnepAuthKey *)auth Host:(NSURL *)host
@@ -64,7 +63,23 @@ static NSString *EXOOnepAPIPath = @"/api:v1/rpc/process";
 
 - (void)doRPCwithRequests:(NSArray *)calls complete:(EXOOnepRPCComplete)complete
 {
+    return [self doRPCwithAuth:self.auth requests:calls complete:complete];
+}
+
+- (void)doRPCwithAuth:(EXOOnepAuthKey*)auth requests:(NSArray*)calls complete:(EXOOnepRPCComplete)complete;
+{
     EXOOnepRPCComplete lcomplete = [complete copy];
+    if (auth == nil && self.auth == nil) {
+        NSError *err = [NSError errorWithDomain:EXOOnepDeviceErrorDomain code:-2 userInfo:@{NSLocalizedDescriptionKey: @"Missing EXOOnepAuthKey"}];
+        if (lcomplete) {
+            lcomplete(err);
+        }
+        return;
+    }
+    
+    if (self.queue) {
+        self.manager.operationQueue = self.queue;
+    }
     
     // calls should be an array of Requests.
     NSUInteger callID = 0;
