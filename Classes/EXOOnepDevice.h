@@ -35,7 +35,7 @@ typedef void(^EXOOnepRPCComplete)(NSError*err);
 
 @interface EXOOnepDevice : NSObject
 @property(nonatomic,copy,readonly) NSURL *host;
-@property(nonatomic,copy) NSOperationQueue *queue;
+@property(nonatomic,strong) NSOperationQueue *queue;
 @property(nonatomic,copy) EXOOnepAuthKey *auth;
 
 + (EXOOnepDevice*)device;

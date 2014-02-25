@@ -69,7 +69,10 @@ static NSString *EXOOnepAPIPath = @"/api:v1/rpc/process";
 - (void)doRPCwithAuth:(EXOOnepAuthKey*)auth requests:(NSArray*)calls complete:(EXOOnepRPCComplete)complete;
 {
     EXOOnepRPCComplete lcomplete = [complete copy];
-    if (auth == nil && self.auth == nil) {
+    if (auth == nil) {
+        auth = self.auth;
+    }
+    if (auth == nil) {
         NSError *err = [NSError errorWithDomain:EXOOnepDeviceErrorDomain code:-2 userInfo:@{NSLocalizedDescriptionKey: @"Missing EXOOnepAuthKey"}];
         if (lcomplete) {
             lcomplete(err);
@@ -92,7 +95,7 @@ static NSString *EXOOnepAPIPath = @"/api:v1/rpc/process";
         [pcalls addObject:md];
     }
     
-    NSDictionary *params = @{@"auth": [self.auth plistValue], @"calls": pcalls};
+    NSDictionary *params = @{@"auth": [auth plistValue], @"calls": pcalls};
     
     [self.manager POST:EXOOnepAPIPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject){
         if ([responseObject isKindOfClass:[NSArray class]]) {
