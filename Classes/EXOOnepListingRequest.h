@@ -17,6 +17,7 @@ enum EXOOnepListType_e {
 typedef enum EXOOnepListType_e EXOOnepListType_t;
 
 enum EXOOnepFilterType_e {
+    EXOOnepFilterTypeDefault = 0x00,
     EXOOnepFilterTypeActivated = 0x01,
     EXOOnepFilterTypeAliased = 0x02,
     EXOOnepFilterTypeOwned = 0x04,
@@ -33,7 +34,7 @@ typedef void(^EXOOnepListingRequestComplete)(NSDictionary *results, NSError *err
 @property(nonatomic,assign,readonly) EXOOnepFilterType_t filter;
 @property(nonatomic,copy,readonly) EXOOnepListingRequestComplete complete;
 
-+ (EXOOnepListingRequest*)listingByRID:(EXOOnepResourceID *)rid list:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete;
-- (instancetype)initWithRID:(EXOOnepResourceID *)rid list:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete;
++ (EXOOnepListingRequest*)listingByType:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete;
+- (instancetype)initWithType:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete;
 
 @end

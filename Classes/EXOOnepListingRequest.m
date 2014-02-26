@@ -16,15 +16,14 @@
 
 @implementation EXOOnepListingRequest
 
-+ (EXOOnepListingRequest *)listingByRID:(EXOOnepResourceID *)rid list:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete
++ (EXOOnepListingRequest *)listingByType:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete
 {
-    return [[EXOOnepListingRequest alloc] initWithRID:rid list:list filter:filter complete:complete];
+    return [[EXOOnepListingRequest alloc] initWithType:list filter:filter complete:complete];
 }
 
-- (instancetype)initWithRID:(EXOOnepResourceID *)rid list:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete
+- (instancetype)initWithType:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete
 {
     if (self = [super init]) {
-        self.rid = rid;
         self.list = list;
         self.filter = filter;
         self.complete = complete;
@@ -85,7 +84,7 @@
     }
 #endif
     
-    return @{@"procedure": @"listing", @"arguments": @[[types copy], [filters copy]]};
+    return @{@"procedure": @"listing", @"arguments": @[[types copy], @{}]};
 }
 
 - (BOOL)isEqual:(id)object
