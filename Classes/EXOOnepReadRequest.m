@@ -31,6 +31,7 @@
 - (id)initWithRID:(EXOOnepResourceID *)rid startTime:(NSDate *)starttime endTime:(NSDate *)endtime ascending:(BOOL)ascending limit:(NSUInteger)limit selection:(EXOOnepReadSelectionType_t)selection complete:(EXOOnepReadRequestComplete)complete
 {
     if (self = [super init]) {
+        self.rid = rid;
         self.starttime = starttime;
         self.endtime = endtime;
         self.sortAscending = ascending;
