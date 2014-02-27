@@ -7,14 +7,43 @@
 
 #import "EXOOnepReadRequest.h"
 
+@interface EXOOnepReadRequest ()
+@property(nonatomic,strong) NSDate *starttime;
+@property(nonatomic,strong) NSDate *endtime;
+@property(nonatomic,assign) BOOL sortAscending;
+@property(nonatomic,assign) NSUInteger limit;
+@property(nonatomic,assign) EXOOnepReadSelectionType_t selection;
+@property(nonatomic,copy) EXOOnepReadRequestComplete complete;
+@end
+
 @implementation EXOOnepReadRequest
+
++ (EXOOnepReadRequest *)readWithRID:(EXOOnepResourceID *)rid complete:(EXOOnepReadRequestComplete)complete
+{
+    return [[EXOOnepReadRequest alloc] initWithRID:rid startTime:nil endTime:nil ascending:YES limit:1 selection:EXOOnepReadSelectionTypeAll complete:complete];
+}
+
++ (EXOOnepReadRequest *)readWithRID:(EXOOnepResourceID *)rid startTime:(NSDate *)starttime endTime:(NSDate *)endtime ascending:(BOOL)ascending limit:(NSUInteger)limit selection:(EXOOnepReadSelectionType_t)selection complete:(EXOOnepReadRequestComplete)complete
+{
+    return [[EXOOnepReadRequest alloc] initWithRID:rid startTime:starttime endTime:endtime ascending:ascending limit:limit selection:selection complete:complete];
+}
+
+- (id)initWithRID:(EXOOnepResourceID *)rid startTime:(NSDate *)starttime endTime:(NSDate *)endtime ascending:(BOOL)ascending limit:(NSUInteger)limit selection:(EXOOnepReadSelectionType_t)selection complete:(EXOOnepReadRequestComplete)complete
+{
+    if (self = [super init]) {
+        self.starttime = starttime;
+        self.endtime = endtime;
+        self.sortAscending = ascending;
+        self.limit = limit;
+        self.selection = selection;
+        self.complete = complete;
+    }
+    return self;
+}
 
 - (id)init
 {
-    if (self = [super init]) {
-        self.limit = 1; // By default just one
-    }
-    return self;
+    return nil;
 }
 
 - (NSDictionary *)plistValue
@@ -40,7 +69,7 @@
             args[@"selection"] = @"givenwindow";
             break;
     }
-    return @{@"procedure": @"read", @"arguments": @[[self.rid plistValue], args]};
+    return @{@"procedure": @"read", @"arguments": @[[self.rid plistValue], [args copy]]};
 }
 
 - (void)doResult:(NSDictionary *)result error:(NSError *)error
@@ -62,6 +91,30 @@
             self.complete(given, nil);
         }
     }
+}
+
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+    EXOOnepReadRequest *obj = (EXOOnepReadRequest *)object;
+    return ([self.starttime isEqualToDate:obj.starttime] &&
+            [self.endtime isEqualToDate:obj.endtime] &&
+            self.sortAscending == obj.sortAscending &&
+            self.limit == obj.limit &&
+            self.selection == obj.selection);
+    
+}
+
+- (NSUInteger)hash
+{
+    return self.starttime.hash ^ self.endtime.hash ^ self.sortAscending ^ self.limit ^ self.selection;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
 }
 
 @end
