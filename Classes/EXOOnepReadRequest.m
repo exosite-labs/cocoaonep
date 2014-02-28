@@ -20,7 +20,7 @@
 
 + (EXOOnepReadRequest *)readWithRID:(EXOOnepResourceID *)rid complete:(EXOOnepReadRequestComplete)complete
 {
-    return [[EXOOnepReadRequest alloc] initWithRID:rid startTime:nil endTime:nil ascending:YES limit:1 selection:EXOOnepReadSelectionTypeAll complete:complete];
+    return [[EXOOnepReadRequest alloc] initWithRID:rid startTime:nil endTime:nil ascending:NO limit:1 selection:EXOOnepReadSelectionTypeAll complete:complete];
 }
 
 + (EXOOnepReadRequest *)readWithRID:(EXOOnepResourceID *)rid startTime:(NSDate *)starttime endTime:(NSDate *)endtime ascending:(BOOL)ascending limit:(NSUInteger)limit selection:(EXOOnepReadSelectionType_t)selection complete:(EXOOnepReadRequestComplete)complete
