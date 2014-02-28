@@ -24,6 +24,20 @@
     return [[EXOOnepWriteRequest alloc] initWithRID:rid value:value complete:complete];
 }
 
++ (EXOOnepWriteRequest*)writeWithRID:(EXOOnepResourceID *)rid plist:(id)value complete:(EXOOnepRequestComplete)complete
+{
+    NSError *err=nil;
+    NSData *json = [NSJSONSerialization dataWithJSONObject:value options:0 error:&err];
+    if (!json) {
+        if (complete) {
+            complete(err);
+            return nil;
+        }
+    }
+    NSString *sval = [NSString stringWithUTF8String:json.bytes];
+    return [[EXOOnepWriteRequest alloc] initWithRID:rid value:sval complete:complete];
+}
+
 - (instancetype)initWithRID:(EXOOnepResourceID *)rid value:(id)value complete:(EXOOnepRequestComplete)complete
 {
     if (self = [super init]) {

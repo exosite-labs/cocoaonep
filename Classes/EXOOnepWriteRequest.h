@@ -14,6 +14,7 @@
 
 + (EXOOnepWriteRequest*)writeWithRID:(EXOOnepResourceID*)rid string:(NSString*)value complete:(EXOOnepRequestComplete)complete;
 + (EXOOnepWriteRequest*)writeWithRID:(EXOOnepResourceID*)rid number:(NSNumber*)value complete:(EXOOnepRequestComplete)complete;
++ (EXOOnepWriteRequest*)writeWithRID:(EXOOnepResourceID*)rid plist:(id)value complete:(EXOOnepRequestComplete)complete;
 
 - (instancetype)initWithRID:(EXOOnepResourceID*)rid value:(id)value complete:(EXOOnepRequestComplete)complete;
 
