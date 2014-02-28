@@ -8,7 +8,7 @@
 #import "EXOOnepWriteRequest.h"
 
 @interface EXOOnepWriteRequest ()
-@property(nonatomic,strong) id value;
+@property(nonatomic,copy) NSString *value;
 @property(nonatomic,copy) EXOOnepRequestComplete complete;
 @end
 
@@ -21,7 +21,7 @@
 
 + (EXOOnepWriteRequest *)writeWithRID:(EXOOnepResourceID *)rid number:(NSNumber *)value complete:(EXOOnepRequestComplete)complete
 {
-    return [[EXOOnepWriteRequest alloc] initWithRID:rid value:value complete:complete];
+    return [[EXOOnepWriteRequest alloc] initWithRID:rid value:[value stringValue] complete:complete];
 }
 
 + (EXOOnepWriteRequest*)writeWithRID:(EXOOnepResourceID *)rid plist:(id)value complete:(EXOOnepRequestComplete)complete
@@ -31,14 +31,14 @@
     if (!json) {
         if (complete) {
             complete(err);
-            return nil;
         }
+        return nil;
     }
-    NSString *sval = [NSString stringWithUTF8String:json.bytes];
+    NSString *sval = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
     return [[EXOOnepWriteRequest alloc] initWithRID:rid value:sval complete:complete];
 }
 
-- (instancetype)initWithRID:(EXOOnepResourceID *)rid value:(id)value complete:(EXOOnepRequestComplete)complete
+- (instancetype)initWithRID:(EXOOnepResourceID *)rid value:(NSString*)value complete:(EXOOnepRequestComplete)complete
 {
     if (self = [super init]) {
         self.rid = rid;
@@ -67,7 +67,7 @@
 
 - (NSDictionary *)plistValue
 {
-    return @{@"procedure": @"write", @"arguments": @[[self.rid plistValue], [self.value stringValue]]};
+    return @{@"procedure": @"write", @"arguments": @[[self.rid plistValue], self.value]};
 }
 
 - (id)copyWithZone:(NSZone *)zone
