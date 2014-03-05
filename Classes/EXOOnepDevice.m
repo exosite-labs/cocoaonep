@@ -66,7 +66,7 @@ static NSString *EXOOnepAPIPath = @"/api:v1/rpc/process";
     return [self doRPCwithAuth:self.auth requests:calls complete:complete];
 }
 
-- (void)doRPCwithAuth:(EXOOnepAuthKey*)auth requests:(NSArray*)calls complete:(EXOOnepRPCComplete)complete;
+- (void)doRPCwithAuth:(EXOOnepAuthKey*)auth requests:(NSArray*)calls complete:(EXOOnepRPCComplete)complete
 {
     EXOOnepRPCComplete lcomplete = [complete copy];
     if (auth == nil) {
@@ -141,6 +141,81 @@ static NSString *EXOOnepAPIPath = @"/api:v1/rpc/process";
     
 }
 
+- (NSOperation *)operationWithAuth:(EXOOnepAuthKey *)auth requests:(NSArray *)calls complete:(EXOOnepRPCComplete)complete
+{
+    EXOOnepRPCComplete lcomplete = [complete copy];
+    if (auth == nil) {
+        auth = self.auth;
+    }
+    if (auth == nil) {
+        NSError *err = [NSError errorWithDomain:EXOOnepDeviceErrorDomain code:-2 userInfo:@{NSLocalizedDescriptionKey: @"Missing EXOOnepAuthKey"}];
+        if (lcomplete) {
+            lcomplete(err);
+        }
+        return nil;
+    }
+    
+    // calls should be an array of Requests.
+    NSUInteger callID = 0;
+    
+    NSMutableArray *pcalls = [NSMutableArray array];
+    for (EXOOnepRequest* req in calls) {
+        // check type.
+        NSMutableDictionary *md = [[req plistValue] mutableCopy];
+        md[@"id"] = @(callID++); // id matches array index!
+        [pcalls addObject:md];
+    }
+    
+    NSDictionary *params = @{@"auth": [auth plistValue], @"calls": pcalls};
+    
+    NSError *err=nil;
+    NSURLRequest *req = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:EXOOnepAPIPath parameters:params error:&err];
+    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:req];
+    op.responseSerializer = [AFJSONResponseSerializer serializer];
+    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            // Success! (well, at this level anyways.)
+            NSArray *responses = responseObject;
+            for (NSDictionary *rsp in responses) {
+                NSInteger callIndex = [rsp[@"id"] integerValue];
+                if (calls[callIndex]) {
+                    // ??? double check id?
+                    EXOOnepRequest *rq = calls[callIndex];
+                    [rq doResult:rsp error:nil];
+                }
+            }
+            if (lcomplete) {
+                lcomplete(nil);
+            }
+        } else if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            // An error, one way or the other.
+            NSDictionary *errRsp = responseObject;
+            NSDictionary *errInf = errRsp[@"error"];
+            NSInteger ec = [errInf[@"code"] integerValue];
+            NSString *desc = [NSString stringWithFormat:@"msg: %@  context: %@", errInf[@"message"], errInf[@"context"]];
+            NSError *error = [NSError errorWithDomain:EXOOnepDeviceErrorDomain code:ec userInfo:@{NSLocalizedDescriptionKey: desc}];
+            NSLog(@"Error for %@:  %@", operation, error);
+            if (lcomplete) {
+                lcomplete(error);
+            }
+        } else {
+            // another error!
+            NSError *error = [NSError errorWithDomain:EXOOnepDeviceErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Unknown response type"}];
+            NSLog(@"Error for %@:  %@  got: %@", operation, error, responseObject);
+            if (lcomplete) {
+                lcomplete(error);
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"Error for %@:  %@ ::: %@", operation, error, params);
+        if (lcomplete) {
+            lcomplete(error);
+        }
+    }];
+    
+    return op;
+}
 
 - (BOOL)isEqual:(id)object
 {

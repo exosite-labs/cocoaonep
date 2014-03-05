@@ -46,4 +46,6 @@ typedef void(^EXOOnepRPCComplete)(NSError*err);
 - (void)doRPCwithRequests:(NSArray*)calls complete:(EXOOnepRPCComplete)complete;
 - (void)doRPCwithAuth:(EXOOnepAuthKey*)auth requests:(NSArray*)calls complete:(EXOOnepRPCComplete)complete;
 
+- (NSOperation*)operationWithAuth:(EXOOnepAuthKey*)auth requests:(NSArray*)calls;
+
 @end
