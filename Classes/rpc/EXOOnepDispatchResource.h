@@ -1,31 +1,31 @@
 //
-//  EXOOnepCreateDispatchRequest.h
+//  EXORpcCreateDispatchRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepResource.h"
+#import "EXORpcResource.h"
 
-enum EXOOnepDispactMethod_e {
-    EXOOnepDispactMethodEmail,
-    EXOOnepDispactMethodHttpGet,
-    EXOOnepDispactMethodHttpPost,
-    EXOOnepDispactMethodHttpPut,
-    EXOOnepDispactMethodSms,
-    EXOOnepDispactMethodXmpp,
+enum EXORpcDispactMethod_e {
+    EXORpcDispactMethodEmail,
+    EXORpcDispactMethodHttpGet,
+    EXORpcDispactMethodHttpPost,
+    EXORpcDispactMethodHttpPut,
+    EXORpcDispactMethodSms,
+    EXORpcDispactMethodXmpp,
 };
-typedef enum EXOOnepDispactMethod_e EXOOnepDispactMethod_t;
+typedef enum EXORpcDispactMethod_e EXORpcDispactMethod_t;
 
-@interface EXOOnepDispatchResource : EXOOnepResource
+@interface EXORpcDispatchResource : EXORpcResource
 @property(assign) BOOL locked;
 @property(copy) NSString *message;
-@property(assign) EXOOnepDispactMethod_t method;
+@property(assign) EXORpcDispactMethod_t method;
 @property(strong) NSArray *preprocess;
 @property(copy) NSString *recipient;
 @property(copy) NSNumber *retentionCount;
 @property(copy) NSNumber *retentionDuration;
 @property(copy) NSString *subject;
-@property(strong) EXOOnepResourceID *subscribe;
+@property(strong) EXORpcResourceID *subscribe;
 
 @end

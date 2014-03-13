@@ -1,23 +1,23 @@
 //
-//  EXOOnepLookupRequest.h
+//  EXORpcLookupRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepRequest.h"
+#import "EXORpcRequest.h"
 
-enum EXOOnepLookupType_e {
-    EXOOnepLookupTypeAlias,
-    EXOOnepLookupTypeOwner,
-    EXOOnepLookupTypeShared
+enum EXORpcLookupType_e {
+    EXORpcLookupTypeAlias,
+    EXORpcLookupTypeOwner,
+    EXORpcLookupTypeShared
 };
-typedef enum EXOOnepLookupType_e EXOOnepLookupType_t;
+typedef enum EXORpcLookupType_e EXORpcLookupType_t;
 
-typedef void(^EXOOnepLookupRequestComplete)(NSString *resut, NSError *err);
+typedef void(^EXORpcLookupRequestComplete)(NSString *resut, NSError *err);
 
-@interface EXOOnepLookupRequest : EXOOnepRequest
-@property(assign) EXOOnepLookupType_t type;
+@interface EXORpcLookupRequest : EXORpcRequest
+@property(assign) EXORpcLookupType_t type;
 @property(copy) NSString *item;
-@property(copy) EXOOnepLookupRequestComplete complete;
+@property(copy) EXORpcLookupRequestComplete complete;
 @end

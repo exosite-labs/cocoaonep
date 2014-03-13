@@ -1,15 +1,15 @@
 //
-//  EXOOnepDropRequest.h
+//  EXORpcDropRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepRequest.h"
+#import "EXORpcRequest.h"
 
-@interface EXOOnepDropRequest : EXOOnepRequest <NSCopying>
-@property(nonatomic,copy,readonly) EXOOnepRequestComplete complete;
+@interface EXORpcDropRequest : EXORpcRequest <NSCopying>
+@property(nonatomic,copy,readonly) EXORpcRequestComplete complete;
 
-+ (EXOOnepDropRequest*) dropWithRID:(EXOOnepResourceID *)rid complete:(EXOOnepRequestComplete)complete;
-- (instancetype)initWithRID:(EXOOnepResourceID *)rid complete:(EXOOnepRequestComplete)complete;
++ (EXORpcDropRequest*) dropWithRID:(EXORpcResourceID *)rid complete:(EXORpcRequestComplete)complete;
+- (instancetype)initWithRID:(EXORpcResourceID *)rid complete:(EXORpcRequestComplete)complete;
 @end

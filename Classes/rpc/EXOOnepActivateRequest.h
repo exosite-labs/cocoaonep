@@ -1,14 +1,14 @@
 //
-//  EXOOnepActivateRequest.h
+//  EXORpcActivateRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepRequest.h"
+#import "EXORpcRequest.h"
 
-@interface EXOOnepActivateRequest : EXOOnepRequest
+@interface EXORpcActivateRequest : EXORpcRequest
 @property(assign) BOOL asShare;
 @property(copy) NSString *code;
-@property(copy) EXOOnepRequestComplete complete;
+@property(copy) EXORpcRequestComplete complete;
 @end

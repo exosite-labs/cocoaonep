@@ -1,18 +1,18 @@
 //
-//  EXOOnepFlushRequest.h
+//  EXORpcFlushRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepRequest.h"
+#import "EXORpcRequest.h"
 
-@interface EXOOnepFlushRequest : EXOOnepRequest <NSCopying>
+@interface EXORpcFlushRequest : EXORpcRequest <NSCopying>
 @property(nonatomic,copy,readonly) NSDate *newerthan;
 @property(nonatomic,copy,readonly) NSDate *olderthan;
-@property(nonatomic,copy,readonly) EXOOnepRequestComplete complete;
+@property(nonatomic,copy,readonly) EXORpcRequestComplete complete;
 
-+ (EXOOnepFlushRequest*)flushRID:(EXOOnepResourceID *)rid newerThan:(NSDate*)newerthan olderThan:(NSDate*)olderthan complete:(EXOOnepRequestComplete)complete;
-- (instancetype)initWithRID:(EXOOnepResourceID *)rid newerThan:(NSDate*)newerthan olderThan:(NSDate*)olderthan complete:(EXOOnepRequestComplete)complete;
++ (EXORpcFlushRequest*)flushRID:(EXORpcResourceID *)rid newerThan:(NSDate*)newerthan olderThan:(NSDate*)olderthan complete:(EXORpcRequestComplete)complete;
+- (instancetype)initWithRID:(EXORpcResourceID *)rid newerThan:(NSDate*)newerthan olderThan:(NSDate*)olderthan complete:(EXORpcRequestComplete)complete;
 
 @end

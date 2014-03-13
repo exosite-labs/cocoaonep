@@ -5,9 +5,9 @@
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepRequest.h"
+#import "EXORpcRequest.h"
 
-@interface EXOOnepMapRequest : EXOOnepRequest
+@interface EXORpcMapRequest : EXORpcRequest
 @property(strong) NSString *aliasName;
-@property(copy) EXOOnepRequestComplete complete;
+@property(copy) EXORpcRequestComplete complete;
 @end

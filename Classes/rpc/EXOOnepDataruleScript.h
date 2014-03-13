@@ -1,15 +1,15 @@
 //
-//  EXOOnepDataruleScript.h
+//  EXORpcDataruleScript.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepDatarule.h"
+#import "EXORpcDatarule.h"
 
-@interface EXOOnepDataruleScript : EXOOnepDatarule <NSCopying>
+@interface EXORpcDataruleScript : EXORpcDatarule <NSCopying>
 @property(nonatomic,copy,readonly) NSString *script;
 
-+ (EXOOnepDataruleScript*)dataruleScriptWithScript:(NSString*)script;
++ (EXORpcDataruleScript*)dataruleScriptWithScript:(NSString*)script;
 - (instancetype)initWithScript:(NSString*)script;
 @end

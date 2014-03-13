@@ -1,13 +1,13 @@
 //
-//  EXOOnepCreateClientRequest.h
+//  EXORpcCreateClientRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepResource.h"
+#import "EXORpcResource.h"
 
-@interface EXOOnepClientResource : EXOOnepResource
+@interface EXORpcClientResource : EXORpcResource
 @property(assign) BOOL locked;
 
 @property(copy) NSNumber *limitClient;

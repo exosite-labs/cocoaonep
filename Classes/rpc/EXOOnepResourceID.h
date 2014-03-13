@@ -1,5 +1,5 @@
 //
-//  EXOOnepResourceID.h
+//  EXORpcResourceID.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
@@ -7,11 +7,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EXOOnepResourceID : NSObject <NSCopying>
+@interface EXORpcResourceID : NSObject <NSCopying>
 
-+ (EXOOnepResourceID*)resourceIDByAlias:(NSString*)alias;
-+ (EXOOnepResourceID*)resourceIDByRID:(NSString*)rid;
-+ (EXOOnepResourceID*)resourceIDAsSelf;
++ (EXORpcResourceID*)resourceIDByAlias:(NSString*)alias;
++ (EXORpcResourceID*)resourceIDByRID:(NSString*)rid;
++ (EXORpcResourceID*)resourceIDAsSelf;
 
 - (instancetype)init;
 - (instancetype)initWithAlias:(NSString*)alias;

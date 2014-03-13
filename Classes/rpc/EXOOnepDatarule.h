@@ -1,5 +1,5 @@
 //
-//  EXOOnepDatarule.h
+//  EXORpcDatarule.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
@@ -7,17 +7,17 @@
 
 #import <Foundation/Foundation.h>
 
-enum EXOOnepDataruleComparison_e {
-    EXOOnepDataruleComparisonGreaterThan,
-    EXOOnepDataruleComparisonLessThan,
-    EXOOnepDataruleComparisonEqual,
-    EXOOnepDataruleComparisonGreaterOrEqual,
-    EXOOnepDataruleComparisonLessOrEqual,
-    EXOOnepDataruleComparisonNotEqual
+enum EXORpcDataruleComparison_e {
+    EXORpcDataruleComparisonGreaterThan,
+    EXORpcDataruleComparisonLessThan,
+    EXORpcDataruleComparisonEqual,
+    EXORpcDataruleComparisonGreaterOrEqual,
+    EXORpcDataruleComparisonLessOrEqual,
+    EXORpcDataruleComparisonNotEqual
 };
-typedef enum EXOOnepDataruleComparison_e EXOOnepDataruleComparison_t;
+typedef enum EXORpcDataruleComparison_e EXORpcDataruleComparison_t;
 
-@interface EXOOnepDatarule : NSObject <NSCopying>
-- (NSString*)stringFromComparison:(EXOOnepDataruleComparison_t)comp;
+@interface EXORpcDatarule : NSObject <NSCopying>
+- (NSString*)stringFromComparison:(EXORpcDataruleComparison_t)comp;
 - (NSDictionary*)plistValue;
 @end

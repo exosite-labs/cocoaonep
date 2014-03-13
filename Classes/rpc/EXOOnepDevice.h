@@ -1,51 +1,51 @@
 //
-//  EXOOnepDevice.h
+//  EXORpcDevice.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "EXOOnepAuthKey.h"
-#import "EXOOnepReadRequest.h"
-#import "EXOOnepWriteRequest.h"
-#import "EXOOnepActivateRequest.h"
-#import "EXOOnepClientResource.h"
-#import "EXOOnepDataportResource.h"
-#import "EXOOnepDataruleResource.h"
-#import "EXOOnepDispatchResource.h"
-#import "EXOOnepCloneResource.h"
-#import "EXOOnepDeactivateRequest.h"
-#import "EXOOnepDropRequest.h"
-#import "EXOOnepFlushRequest.h"
-#import "EXOOnepInfoRequest.h"
-#import "EXOOnepListingRequest.h"
-#import "EXOOnepLookupRequest.h"
-#import "EXOOnepMapRequest.h"
-#import "EXOOnepRecordRequest.h"
-#import "EXOOnepRevokeRequest.h"
-#import "EXOOnepShareRequest.h"
-#import "EXOOnepUnmapRequest.h"
-#import "EXOOnepUpdateRequest.h"
-#import "EXOOnepUsageRequest.h"
+#import "EXORpcAuthKey.h"
+#import "EXORpcReadRequest.h"
+#import "EXORpcWriteRequest.h"
+#import "EXORpcActivateRequest.h"
+#import "EXORpcClientResource.h"
+#import "EXORpcDataportResource.h"
+#import "EXORpcDataruleResource.h"
+#import "EXORpcDispatchResource.h"
+#import "EXORpcCloneResource.h"
+#import "EXORpcDeactivateRequest.h"
+#import "EXORpcDropRequest.h"
+#import "EXORpcFlushRequest.h"
+#import "EXORpcInfoRequest.h"
+#import "EXORpcListingRequest.h"
+#import "EXORpcLookupRequest.h"
+#import "EXORpcMapRequest.h"
+#import "EXORpcRecordRequest.h"
+#import "EXORpcRevokeRequest.h"
+#import "EXORpcShareRequest.h"
+#import "EXORpcUnmapRequest.h"
+#import "EXORpcUpdateRequest.h"
+#import "EXORpcUsageRequest.h"
 
-extern NSString *EXOOnepDeviceErrorDomain;
+extern NSString *EXORpcDeviceErrorDomain;
 
-typedef void(^EXOOnepRPCComplete)(NSError*err);
+typedef void(^EXORpcRPCComplete)(NSError*err);
 
-@interface EXOOnepDevice : NSObject
+@interface EXORpcDevice : NSObject
 @property(nonatomic,copy,readonly) NSURL *host;
 @property(nonatomic,strong) NSOperationQueue *queue;
-@property(nonatomic,copy) EXOOnepAuthKey *auth;
+@property(nonatomic,copy) EXORpcAuthKey *auth;
 
-+ (EXOOnepDevice*)device;
-+ (EXOOnepDevice*)deviceWithHost:(NSURL*)host;
++ (EXORpcDevice*)device;
++ (EXORpcDevice*)deviceWithHost:(NSURL*)host;
 
-- (instancetype)initWithAuth:(EXOOnepAuthKey *)auth Host:(NSURL *)host;
+- (instancetype)initWithAuth:(EXORpcAuthKey *)auth Host:(NSURL *)host;
 
-- (void)doRPCwithRequests:(NSArray*)calls complete:(EXOOnepRPCComplete)complete;
-- (void)doRPCwithAuth:(EXOOnepAuthKey*)auth requests:(NSArray*)calls complete:(EXOOnepRPCComplete)complete;
+- (void)doRPCwithRequests:(NSArray*)calls complete:(EXORpcRPCComplete)complete;
+- (void)doRPCwithAuth:(EXORpcAuthKey*)auth requests:(NSArray*)calls complete:(EXORpcRPCComplete)complete;
 
-- (NSOperation *)operationWithAuth:(EXOOnepAuthKey *)auth requests:(NSArray *)calls complete:(EXOOnepRPCComplete)complete;
+- (NSOperation *)operationWithAuth:(EXORpcAuthKey *)auth requests:(NSArray *)calls complete:(EXORpcRPCComplete)complete;
 
 @end

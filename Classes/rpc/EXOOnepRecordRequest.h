@@ -1,13 +1,13 @@
 //
-//  EXOOnepRecordRequest.h
+//  EXORpcRecordRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepRequest.h"
+#import "EXORpcRequest.h"
 
-@interface EXOOnepRecordRequest : EXOOnepRequest
+@interface EXORpcRecordRequest : EXORpcRequest
 @property(strong) NSArray *values;
-@property(copy) EXOOnepRequestComplete complete;
+@property(copy) EXORpcRequestComplete complete;
 @end

@@ -1,21 +1,21 @@
 //
-//  EXOOnepCreateRequest.h
+//  EXORpcCreateRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepRequest.h"
-#import "EXOOnepResource.h"
+#import "EXORpcRequest.h"
+#import "EXORpcResource.h"
 
-typedef void(^EXOOnepCreateRequestComplete)(EXOOnepResourceID *RID, NSError *error);
+typedef void(^EXORpcCreateRequestComplete)(EXORpcResourceID *RID, NSError *error);
 
-@interface EXOOnepCreateRequest : EXOOnepRequest <NSCopying>
-@property(nonatomic,copy,readonly) EXOOnepResource *resource;
-@property(nonatomic,copy,readonly) EXOOnepCreateRequestComplete complete;
+@interface EXORpcCreateRequest : EXORpcRequest <NSCopying>
+@property(nonatomic,copy,readonly) EXORpcResource *resource;
+@property(nonatomic,copy,readonly) EXORpcCreateRequestComplete complete;
 
-+ (EXOOnepCreateRequest*)createWithResource:(EXOOnepResource*)resource complete:(EXOOnepCreateRequestComplete)complete;
-- (instancetype)initWithResource:(EXOOnepResource*)resource complete:(EXOOnepCreateRequestComplete)complete;
++ (EXORpcCreateRequest*)createWithResource:(EXORpcResource*)resource complete:(EXORpcCreateRequestComplete)complete;
+- (instancetype)initWithResource:(EXORpcResource*)resource complete:(EXORpcCreateRequestComplete)complete;
 - (NSDictionary *)plistValue;
 
 @end

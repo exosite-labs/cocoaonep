@@ -1,23 +1,23 @@
 //
-//  EXOOnepCreateDataportRequest.h
+//  EXORpcCreateDataportRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepResource.h"
+#import "EXORpcResource.h"
 
-enum EXOOnepDataportFormat_e {
-    EXOOnepDataportFormatString = 0,
-    EXOOnepDataportFormatFloat,
-    EXOOnepDataportFormatInteger,
+enum EXORpcDataportFormat_e {
+    EXORpcDataportFormatString = 0,
+    EXORpcDataportFormatFloat,
+    EXORpcDataportFormatInteger,
 };
-typedef enum EXOOnepDataportFormat_e EXOOnepDataportFormat_t;
+typedef enum EXORpcDataportFormat_e EXORpcDataportFormat_t;
 
-@interface EXOOnepDataportResource : EXOOnepResource
-@property(assign) EXOOnepDataportFormat_t format;
+@interface EXORpcDataportResource : EXORpcResource
+@property(assign) EXORpcDataportFormat_t format;
 @property(strong) NSArray *preprocess;
-@property(strong) EXOOnepResourceID *subscribe;
+@property(strong) EXORpcResourceID *subscribe;
 @property(copy) NSNumber *retentionCount;
 @property(copy) NSNumber *retentionDuration;
 

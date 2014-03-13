@@ -1,40 +1,40 @@
 //
-//  EXOOnepListingRequest.h
+//  EXORpcListingRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepRequest.h"
+#import "EXORpcRequest.h"
 
-enum EXOOnepListType_e {
-    EXOOnepListTypeClient = 0x01,
-    EXOOnepListTypeDataport = 0x02,
-    EXOOnepListTypeDatarule = 0x04,
-    EXOOnepListTypeDispatch = 0x08,
-    EXOOnepListTypeAll = 0xff
+enum EXORpcListType_e {
+    EXORpcListTypeClient = 0x01,
+    EXORpcListTypeDataport = 0x02,
+    EXORpcListTypeDatarule = 0x04,
+    EXORpcListTypeDispatch = 0x08,
+    EXORpcListTypeAll = 0xff
 };
-typedef enum EXOOnepListType_e EXOOnepListType_t;
+typedef enum EXORpcListType_e EXORpcListType_t;
 
-enum EXOOnepFilterType_e {
-    EXOOnepFilterTypeDefault = 0x00,
-    EXOOnepFilterTypeActivated = 0x01,
-    EXOOnepFilterTypeAliased = 0x02,
-    EXOOnepFilterTypeOwned = 0x04,
-    EXOOnepFilterTypePublic = 0x08,
-    EXOOnepFilterTypeTagged = 0x10,
-    EXOOnepFilterTypeAll = 0xff
+enum EXORpcFilterType_e {
+    EXORpcFilterTypeDefault = 0x00,
+    EXORpcFilterTypeActivated = 0x01,
+    EXORpcFilterTypeAliased = 0x02,
+    EXORpcFilterTypeOwned = 0x04,
+    EXORpcFilterTypePublic = 0x08,
+    EXORpcFilterTypeTagged = 0x10,
+    EXORpcFilterTypeAll = 0xff
 };
-typedef enum EXOOnepFilterType_e EXOOnepFilterType_t;
+typedef enum EXORpcFilterType_e EXORpcFilterType_t;
 
-typedef void(^EXOOnepListingRequestComplete)(NSDictionary *results, NSError *err);
+typedef void(^EXORpcListingRequestComplete)(NSDictionary *results, NSError *err);
 
-@interface EXOOnepListingRequest : EXOOnepRequest <NSCopying>
-@property(nonatomic,assign,readonly) EXOOnepListType_t list;
-@property(nonatomic,assign,readonly) EXOOnepFilterType_t filter;
-@property(nonatomic,copy,readonly) EXOOnepListingRequestComplete complete;
+@interface EXORpcListingRequest : EXORpcRequest <NSCopying>
+@property(nonatomic,assign,readonly) EXORpcListType_t list;
+@property(nonatomic,assign,readonly) EXORpcFilterType_t filter;
+@property(nonatomic,copy,readonly) EXORpcListingRequestComplete complete;
 
-+ (EXOOnepListingRequest*)listingByType:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete;
-- (instancetype)initWithType:(EXOOnepListType_t)list filter:(EXOOnepFilterType_t)filter complete:(EXOOnepListingRequestComplete)complete;
++ (EXORpcListingRequest*)listingByType:(EXORpcListType_t)list filter:(EXORpcFilterType_t)filter complete:(EXORpcListingRequestComplete)complete;
+- (instancetype)initWithType:(EXORpcListType_t)list filter:(EXORpcFilterType_t)filter complete:(EXORpcListingRequestComplete)complete;
 
 @end

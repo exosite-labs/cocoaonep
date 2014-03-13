@@ -1,17 +1,17 @@
 //
-//  EXOOnepDataruleSimple.h
+//  EXORpcDataruleSimple.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepDatarule.h"
+#import "EXORpcDatarule.h"
 
-@interface EXOOnepDataruleSimple : EXOOnepDatarule <NSCopying>
-@property(nonatomic,assign,readonly) EXOOnepDataruleComparison_t comparison;
+@interface EXORpcDataruleSimple : EXORpcDatarule <NSCopying>
+@property(nonatomic,assign,readonly) EXORpcDataruleComparison_t comparison;
 @property(nonatomic,copy,readonly) NSNumber *constant;
 @property(nonatomic,assign,readonly) BOOL repeat;
 
-+ (EXOOnepDataruleSimple*)dataruleSimpleWithCompare:(EXOOnepDataruleComparison_t)comparison constant:(NSNumber*)constant repeat:(BOOL)repeat;
-- (instancetype)initWithCompare:(EXOOnepDataruleComparison_t)comparison constant:(NSNumber*)constant repeat:(BOOL)repeat;
++ (EXORpcDataruleSimple*)dataruleSimpleWithCompare:(EXORpcDataruleComparison_t)comparison constant:(NSNumber*)constant repeat:(BOOL)repeat;
+- (instancetype)initWithCompare:(EXORpcDataruleComparison_t)comparison constant:(NSNumber*)constant repeat:(BOOL)repeat;
 @end

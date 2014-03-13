@@ -1,27 +1,27 @@
 //
-//  EXOOnepRequest.h
+//  EXORpcRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "EXOOnepResourceID.h"
+#import "EXORpcResourceID.h"
 
-extern NSString *kEXOOnepErrorDomain;
+extern NSString *kEXORpcErrorDomain;
 
-#define kEXOOnepErrorTypeUnknown    -1
-#define kEXOOnepErrorTypeOk         0
-#define kEXOOnepErrorTypeInvalid    1
-#define kEXOOnepErrorTypeNoAuth     2
+#define kEXORpcErrorTypeUnknown    -1
+#define kEXORpcErrorTypeOk         0
+#define kEXORpcErrorTypeInvalid    1
+#define kEXORpcErrorTypeNoAuth     2
 
 
-typedef void(^EXOOnepRequestComplete)(NSError *err);
+typedef void(^EXORpcRequestComplete)(NSError *err);
 
-@interface EXOOnepRequest : NSObject
-@property(nonatomic,copy) EXOOnepResourceID *rid;
+@interface EXORpcRequest : NSObject
+@property(nonatomic,copy) EXORpcResourceID *rid;
 
-- (instancetype)initWithRID:(EXOOnepResourceID*)rid;
+- (instancetype)initWithRID:(EXORpcResourceID*)rid;
 - (id)init;
 
 - (NSInteger)codeFromStatus:(NSString*)status;

@@ -1,24 +1,24 @@
 //
-//  EXOOnepCreateDataruleRequest.h
+//  EXORpcCreateDataruleRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepResource.h"
-#import "EXOOnepDataportResource.h"
-#import "EXOOnepDataruleSimple.h"
-#import "EXOOnepDataruleTimeout.h"
-#import "EXOOnepDataruleInterval.h"
-#import "EXOOnepDataruleDuration.h"
-#import "EXOOnepDataruleCount.h"
-#import "EXOOnepDataruleScript.h"
+#import "EXORpcResource.h"
+#import "EXORpcDataportResource.h"
+#import "EXORpcDataruleSimple.h"
+#import "EXORpcDataruleTimeout.h"
+#import "EXORpcDataruleInterval.h"
+#import "EXORpcDataruleDuration.h"
+#import "EXORpcDataruleCount.h"
+#import "EXORpcDataruleScript.h"
 
-@interface EXOOnepDataruleResource : EXOOnepResource
-@property(assign) EXOOnepDataportFormat_t format;
+@interface EXORpcDataruleResource : EXORpcResource
+@property(assign) EXORpcDataportFormat_t format;
 @property(copy) NSNumber *retentionCount;
 @property(copy) NSNumber *retentionDuration;
-@property(strong) EXOOnepDatarule *rule;
-@property(strong) EXOOnepResourceID *subscribe;
+@property(strong) EXORpcDatarule *rule;
+@property(strong) EXORpcResourceID *subscribe;
 
 @end

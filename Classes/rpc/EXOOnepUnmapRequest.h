@@ -1,13 +1,13 @@
 //
-//  EXOOnepUnmapRequest.h
+//  EXORpcUnmapRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepRequest.h"
+#import "EXORpcRequest.h"
 
-@interface EXOOnepUnmapRequest : EXOOnepRequest
+@interface EXORpcUnmapRequest : EXORpcRequest
 @property(strong) NSString *alias;
-@property(copy) EXOOnepRequestComplete complete;
+@property(copy) EXORpcRequestComplete complete;
 @end

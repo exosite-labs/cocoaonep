@@ -1,16 +1,16 @@
 //
-//  EXOOnepShareRequest.h
+//  EXORpcShareRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepRequest.h"
+#import "EXORpcRequest.h"
 
-typedef void(^EXOOnepShareRequestComplete)(NSString *shareCode, NSError *err);
+typedef void(^EXORpcShareRequestComplete)(NSString *shareCode, NSError *err);
 
-@interface EXOOnepShareRequest : EXOOnepRequest
+@interface EXORpcShareRequest : EXORpcRequest
 @property(strong) NSDate *duration;
 @property(strong) NSNumber *count;
-@property(copy) EXOOnepShareRequestComplete complete;
+@property(copy) EXORpcShareRequestComplete complete;
 @end

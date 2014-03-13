@@ -1,34 +1,34 @@
 //
-//  EXOOnepInfoRequest.h
+//  EXORpcInfoRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOOnepRequest.h"
+#import "EXORpcRequest.h"
 
-enum EXOOnepInfoRequestTypes_e {
-    EXOOnepInfoRequestTypeAliases = 1 << 0,
-    EXOOnepInfoRequestTypeBasic = 1 << 1,
-    EXOOnepInfoRequestTypeComments = 1 << 2,
-    EXOOnepInfoRequestTypeCounts = 1 << 3,
-    EXOOnepInfoRequestTypeDescription = 1 << 4,
-    EXOOnepInfoRequestTypeKey = 1 << 5,
-    EXOOnepInfoRequestTypeShares = 1 << 6,
-    EXOOnepInfoRequestTypeTagged = 1 << 7,
-    EXOOnepInfoRequestTypeTags = 1 << 8,
-    EXOOnepInfoRequestTypeUsage = 1 << 9,
-    EXOOnepInfoRequestTypeAll = 0,
+enum EXORpcInfoRequestTypes_e {
+    EXORpcInfoRequestTypeAliases = 1 << 0,
+    EXORpcInfoRequestTypeBasic = 1 << 1,
+    EXORpcInfoRequestTypeComments = 1 << 2,
+    EXORpcInfoRequestTypeCounts = 1 << 3,
+    EXORpcInfoRequestTypeDescription = 1 << 4,
+    EXORpcInfoRequestTypeKey = 1 << 5,
+    EXORpcInfoRequestTypeShares = 1 << 6,
+    EXORpcInfoRequestTypeTagged = 1 << 7,
+    EXORpcInfoRequestTypeTags = 1 << 8,
+    EXORpcInfoRequestTypeUsage = 1 << 9,
+    EXORpcInfoRequestTypeAll = 0,
     };
-typedef enum EXOOnepInfoRequestTypes_e EXOOnepInfoRequestTypes_t;
+typedef enum EXORpcInfoRequestTypes_e EXORpcInfoRequestTypes_t;
 
-typedef void(^EXOOnepInfoRequestComplete)(NSDictionary *res, NSError *err);
+typedef void(^EXORpcInfoRequestComplete)(NSDictionary *res, NSError *err);
 
-@interface EXOOnepInfoRequest : EXOOnepRequest <NSCopying>
-@property(nonatomic,assign,readonly) EXOOnepInfoRequestTypes_t types;
-@property(nonatomic,copy,readonly) EXOOnepInfoRequestComplete complete;
+@interface EXORpcInfoRequest : EXORpcRequest <NSCopying>
+@property(nonatomic,assign,readonly) EXORpcInfoRequestTypes_t types;
+@property(nonatomic,copy,readonly) EXORpcInfoRequestComplete complete;
 
-+ (EXOOnepInfoRequest*)infoByRID:(EXOOnepResourceID *)rid types:(EXOOnepInfoRequestTypes_t)types complete:(EXOOnepInfoRequestComplete)complete;
-- (instancetype)initWithRID:(EXOOnepResourceID *)rid types:(EXOOnepInfoRequestTypes_t)types complete:(EXOOnepInfoRequestComplete)complete;
++ (EXORpcInfoRequest*)infoByRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestTypes_t)types complete:(EXORpcInfoRequestComplete)complete;
+- (instancetype)initWithRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestTypes_t)types complete:(EXORpcInfoRequestComplete)complete;
 
 @end

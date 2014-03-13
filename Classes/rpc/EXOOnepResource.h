@@ -1,5 +1,5 @@
 //
-//  EXOOnepResource.h
+//  EXORpcResource.h
 //  CocoaOneP
 //
 //  Created by Michael Conrad Tadpol Tilstra.
@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EXOOnepResourceID.h"
+#import "EXORpcResourceID.h"
 
-@interface EXOOnepResource : NSObject
+@interface EXORpcResource : NSObject
 @property(copy) NSString *meta;
 @property(copy) NSString *name;
 @property(assign) BOOL public;
