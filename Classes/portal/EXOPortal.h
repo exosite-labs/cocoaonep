@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "EXOPortalAuth.h"
 #import "EXOPortalDomain.h"
+#import "EXOPortalPortal.h"
 
 typedef void(^EXOPortalDomainsBlock)(NSArray *domains, NSError *err);
+typedef void(^EXOPortalPortalsBlock)(NSArray *domains, NSError *err);
 
 @interface EXOPortal : NSObject
 @property(copy,nonatomic,readonly) NSURL *domain;
@@ -23,6 +25,9 @@ typedef void(^EXOPortalDomainsBlock)(NSArray *domains, NSError *err);
 
 
 - (void)domains:(EXOPortalDomainsBlock)complete;
-- (NSOperation*)operationDomains:(EXOPortalDomainsBlock)complete;
+- (NSOperation*)operationForDomains:(EXOPortalDomainsBlock)complete;
+
+- (void)portals:(EXOPortalPortalsBlock)complete;
+- (NSOperation*)operationForPortals:(EXOPortalPortalsBlock)complete;
 
 @end

@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EXOPortalDomain : NSObject
+@interface EXOPortalDomain : NSObject <NSCopying>
 @property(copy,nonatomic,readonly) NSString *role;
 @property(copy,nonatomic,readonly) NSString *name;
 @property(copy,nonatomic,readonly) NSString *domain;

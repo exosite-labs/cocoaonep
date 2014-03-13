@@ -61,4 +61,32 @@
     }
     return self;
 }
+
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+    return ([self.name isEqual:[object name]] &&
+            [self.role isEqual:[object role]] &&
+            [self.domain isEqual:[object domain]] &&
+            [self.token isEqual:[object token]]
+            );
+}
+
+- (NSUInteger)hash
+{
+    return (self.name.hash ^ self.role.hash ^ self.domain.hash ^ self.token.hash);
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p, name: %@ role: %@ domain: %@ token: %@ >", NSStringFromClass([self class]), self, self.name, self.role, self.domain, self.token];
+}
+
 @end
