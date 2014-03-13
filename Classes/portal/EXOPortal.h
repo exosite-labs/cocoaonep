@@ -12,7 +12,7 @@
 #import "EXOPortalPortal.h"
 
 typedef void(^EXOPortalDomainsBlock)(NSArray *domains, NSError *err);
-typedef void(^EXOPortalPortalsBlock)(NSArray *domains, NSError *err);
+typedef void(^EXOPortalPortalsBlock)(NSArray *portals, NSError *err);
 
 @interface EXOPortal : NSObject
 @property(copy,nonatomic,readonly) NSURL *domain;
