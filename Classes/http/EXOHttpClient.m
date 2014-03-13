@@ -1,35 +1,46 @@
 //
-//  EXOExositeSimpleDevice.m
+//  EXOHttpClient.m
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXOExositeSimpleDevice.h"
+#import "EXOHttpClient.h"
 #import <AFNetworking.h>
 
-static NSString *EXOExositeURL = @"https://m2.exosite.com/onep:v1/stack/alias";
+static NSString *EXOHttpClientAPI = @"/onep:v1/stack/alias";
 
-@interface EXOExositeSimpleDevice ()
+@interface EXOHttpClient ()
 @property(strong) AFHTTPRequestOperationManager *manager;
 @property(nonatomic,copy) NSString *CIK;
+@property(nonatomic,copy) NSURL *host;
 @end
 
-@implementation EXOExositeSimpleDevice
+@implementation EXOHttpClient
 
 - (id)init
 {
     return nil;
 }
 
-- (id)initWithCIK:(NSString*)CIK
+- (instancetype)initWithCIK:(NSString *)CIK
+{
+    return [self initWithCIK:CIK host:nil];
+}
+
+- (instancetype)initWithCIK:(NSString*)CIK host:(NSURL *)host
 {
     if (self = [super init]) {
         if (CIK == nil) {
             return nil;
         }
         self.CIK = [CIK copy];
-        self.manager = [AFHTTPRequestOperationManager manager];
+        if (host) {
+            self.host = host;
+        } else {
+            self.host = [NSURL URLWithString:@"https://m2.exosite.com/"];
+        }
+        self.manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.host];
         self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
         [self.manager.requestSerializer setValue:self.CIK forHTTPHeaderField:@"X-Exosite-CIK"];
     }
@@ -37,11 +48,11 @@ static NSString *EXOExositeURL = @"https://m2.exosite.com/onep:v1/stack/alias";
 }
 
 
-- (void)writeAliases:(NSDictionary*)data complete:(EXOExositeSimpleClientWriteComplete)complete
+- (void)writeAliases:(NSDictionary*)data complete:(EXOHttpClientWriteComplete)complete
 {
-    EXOExositeSimpleClientWriteComplete lcomplete = [complete copy];
+    EXOHttpClientWriteComplete lcomplete = [complete copy];
     
-    [self.manager POST:EXOExositeURL parameters:data success:^(AFHTTPRequestOperation *op, id obj){
+    [self.manager POST:EXOHttpClientAPI parameters:data success:^(AFHTTPRequestOperation *op, id obj){
         NSLog(@"got a %@ with %@", [obj class], obj);
         if(lcomplete) lcomplete(nil);
     } failure:^(AFHTTPRequestOperation *operation , NSError *error){
@@ -50,15 +61,15 @@ static NSString *EXOExositeURL = @"https://m2.exosite.com/onep:v1/stack/alias";
     }];
 }
 
-- (void)readAliases:(NSArray*)aliases complete:(EXOExositeSimpleClientReadComplete)complete
+- (void)readAliases:(NSArray*)aliases complete:(EXOHttpClientReadComplete)complete
 {
-    EXOExositeSimpleClientReadComplete lcomplete = [complete copy];
+    EXOHttpClientReadComplete lcomplete = [complete copy];
     NSMutableDictionary *mdict = [NSMutableDictionary dictionaryWithCapacity:aliases.count];
     for (id obj in aliases) {
         [mdict setObject:[NSNull null] forKey:obj];
     }
     
-    [self.manager GET:EXOExositeURL parameters:mdict success:^(AFHTTPRequestOperation *op, id obj){
+    [self.manager GET:EXOHttpClientAPI parameters:mdict success:^(AFHTTPRequestOperation *op, id obj){
         NSLog(@"got a %@ with %@", [obj class], obj);
         // ??? what class is the result obj?
         if(lcomplete) lcomplete(obj, nil);
