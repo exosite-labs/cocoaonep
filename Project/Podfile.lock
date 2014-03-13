@@ -22,12 +22,16 @@ PODS:
     - AFNetworking (~> 2.2)
     - CocoaOneP/All
     - CocoaOneP/HTTP
+    - CocoaOneP/Portal
     - CocoaOneP/RPC
   - CocoaOneP/All (0.2.0):
     - AFNetworking (~> 2.2)
     - CocoaOneP/HTTP
+    - CocoaOneP/Portal
     - CocoaOneP/RPC
   - CocoaOneP/HTTP (0.2.0):
+    - AFNetworking (~> 2.2)
+  - CocoaOneP/Portal (0.2.0):
     - AFNetworking (~> 2.2)
   - CocoaOneP/RPC (0.2.0):
     - AFNetworking (~> 2.2)
@@ -41,6 +45,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: e8cfd8f3fe3bfe19124a0cc63f4d45752d892a56
-  CocoaOneP: 2be8f417666d6fc26b18777cc35bef67914c6ac4
+  CocoaOneP: dbd9238f0e61d92eb41d974bc86860745ba82358
 
 COCOAPODS: 0.29.0
