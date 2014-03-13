@@ -30,4 +30,10 @@ typedef void(^EXOPortalPortalsBlock)(NSArray *domains, NSError *err);
 - (void)portals:(EXOPortalPortalsBlock)complete;
 - (NSOperation*)operationForPortals:(EXOPortalPortalsBlock)complete;
 
+// TODO: New Account
+
+// TODO: Reset Password
+
+// TODO: Create New Device
+
 @end
