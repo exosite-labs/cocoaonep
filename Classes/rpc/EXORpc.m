@@ -1,33 +1,33 @@
 //
-//  EXORpcDevice.m
+//  EXORpc.m
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
 //
 
-#import "EXORpcDevice.h"
+#import "EXORpc.h"
 #import <AFNetworking.h>
 
 NSString *EXORpcDeviceErrorDomain = @"EXORpcDeviceErrorDomain";
 
 static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
 
-@interface EXORpcDevice ()
+@interface EXORpc ()
 @property(nonatomic,copy) NSURL *host;
 @property(strong) AFHTTPRequestOperationManager *manager;
 
 @end
 
-@implementation EXORpcDevice
+@implementation EXORpc
 
-+ (EXORpcDevice *)device
++ (EXORpc *)rpc
 {
-    return [[EXORpcDevice alloc] initWithAuth:nil Host:nil];
+    return [[EXORpc alloc] initWithAuth:nil Host:nil];
 }
 
-+ (EXORpcDevice *)deviceWithHost:(NSURL *)host
++ (EXORpc *)rpcWithHost:(NSURL *)host
 {
-    return [[EXORpcDevice alloc] initWithAuth:nil Host:host];
+    return [[EXORpc alloc] initWithAuth:nil Host:host];
 }
 
 - (instancetype)initWithAuth:(EXORpcAuthKey *)auth Host:(NSURL *)host

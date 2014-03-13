@@ -1,5 +1,5 @@
 //
-//  EXORpcDevice.h
+//  EXORpc.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
 //  Copyright (c) 2014 Exosite. All rights reserved.
@@ -33,13 +33,13 @@ extern NSString *EXORpcDeviceErrorDomain;
 
 typedef void(^EXORpcRPCComplete)(NSError*err);
 
-@interface EXORpcDevice : NSObject
+@interface EXORpc : NSObject
 @property(nonatomic,copy,readonly) NSURL *host;
 @property(nonatomic,strong) NSOperationQueue *queue;
 @property(nonatomic,copy) EXORpcAuthKey *auth;
 
-+ (EXORpcDevice*)device;
-+ (EXORpcDevice*)deviceWithHost:(NSURL*)host;
++ (EXORpc*)rpc;
++ (EXORpc*)rpcWithHost:(NSURL*)host;
 
 - (instancetype)initWithAuth:(EXORpcAuthKey *)auth Host:(NSURL *)host;
 
