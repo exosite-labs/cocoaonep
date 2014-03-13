@@ -11,13 +11,14 @@
 @property(copy,nonatomic) NSString *role;
 @property(copy,nonatomic) NSString *name;
 @property(copy,nonatomic) NSString *domain;
+@property(copy,nonatomic) NSString *token;
 @end
 
 @implementation EXOPortalDomain
 
-+ (EXOPortalDomain *)domainWithRole:(NSString *)role name:(NSString *)name domain:(NSString *)domain
++ (EXOPortalDomain *)domainWithRole:(NSString *)role name:(NSString *)name domain:(NSString *)domain token:(NSString*)token
 {
-    return [[EXOPortalDomain alloc] initWithRole:role name:name domain:domain];
+    return [[EXOPortalDomain alloc] initWithRole:role name:name domain:domain token:token];
 }
 
 + (EXOPortalDomain *)domainWithDictionary:(NSDictionary *)dict
@@ -25,6 +26,7 @@
     id tname = dict[@"name"];
     id trole = dict[@"role"];
     id tdomain = dict[@"domain"];
+    id ttoken = dict[@"token"];
     
     if (tname == nil  || trole == nil || tdomain == nil) {
         return nil;
@@ -42,16 +44,20 @@
     if (![tdomain isKindOfClass:[NSString class]]) {
         return nil;
     }
+    if (ttoken && ![ttoken isKindOfClass:[NSString class]]) {
+        return nil;
+    }
     
-    return [[EXOPortalDomain alloc] initWithRole:trole name:tname domain:tdomain];
+    return [[EXOPortalDomain alloc] initWithRole:trole name:tname domain:tdomain token:ttoken];
 }
 
-- (instancetype)initWithRole:(NSString *)role name:(NSString *)name domain:(NSString *)domain
+- (instancetype)initWithRole:(NSString *)role name:(NSString *)name domain:(NSString *)domain token:(NSString*)token
 {
     if (self = [super init]) {
         self.name = name;
         self.role = role;
         self.domain = domain;
+        self.token = token;
     }
     return self;
 }

@@ -11,11 +11,12 @@
 @property(copy,nonatomic,readonly) NSString *role;
 @property(copy,nonatomic,readonly) NSString *name;
 @property(copy,nonatomic,readonly) NSString *domain;
+@property(copy,nonatomic,readonly) NSString *token;
 
-+ (EXOPortalDomain*)domainWithRole:(NSString*)role name:(NSString*)name domain:(NSString*)domain;
++ (EXOPortalDomain*)domainWithRole:(NSString*)role name:(NSString*)name domain:(NSString*)domain token:(NSString*)token;
 
 + (EXOPortalDomain*)domainWithDictionary:(NSDictionary*)dict;
 
-- (instancetype)initWithRole:(NSString*)role name:(NSString*)name domain:(NSString*)domain;
+- (instancetype)initWithRole:(NSString*)role name:(NSString*)name domain:(NSString*)domain token:(NSString*)token;
 
 @end
