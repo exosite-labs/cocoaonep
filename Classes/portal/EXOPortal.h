@@ -12,6 +12,10 @@
 #import "EXOPortalPortal.h"
 #import "EXOPortalNewUser.h"
 
+extern NSString *EXOPortalErrorDomain;
+#define kEXOPortalWrongType   11
+#define kEXOPortalParseFailed 12
+
 typedef void(^EXOPortalBlock)(NSError *err);
 typedef void(^EXOPortalDomainsBlock)(NSArray *domains, NSError *err);
 typedef void(^EXOPortalPortalsBlock)(NSArray *portals, NSError *err);
@@ -35,9 +39,8 @@ typedef void(^EXOPortalPortalsBlock)(NSArray *portals, NSError *err);
 - (void)newUser:(EXOPortalNewUser*)user complete:(EXOPortalBlock)complete;
 - (NSOperation*)operationForNewUser:(EXOPortalNewUser*)user complete:(EXOPortalBlock)complete;
 
-// TODO: Reset Password
-- (void)resetPassword:(NSString*)account;
-- (NSOperation*)operationForResetPassword:(NSString*)account;
+- (void)resetPassword:(NSString*)account complete:(EXOPortalBlock)complete;;
+- (NSOperation*)operationForResetPassword:(NSString*)account complete:(EXOPortalBlock)complete;;
 
 // TODO: Create New Device
 

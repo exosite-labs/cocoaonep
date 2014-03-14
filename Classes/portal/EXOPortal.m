@@ -15,6 +15,7 @@ static NSString *EXOPortalNewUserAPI = @"/api/portals/v1/user";
 static NSString *EXOPortalResetPasswordAPI = @"/api/portals/v1/user/password";
 static NSString *EXOPortalNewDeviceAPI = @"/api/portals/v1/device";
 
+NSString *EXOPortalErrorDomain = @"EXOPortalErrorDomain";
 
 @interface EXOPortal ()
 @property(copy,nonatomic) NSURL *domain;
@@ -68,7 +69,7 @@ static NSString *EXOPortalNewDeviceAPI = @"/api/portals/v1/device";
     EXOPortalDomainsBlock lcomplete = [complete copy];
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (![responseObject isKindOfClass:[NSArray class]]) {
-            NSError *error = [NSError errorWithDomain:@" " code:1 userInfo:nil]; // FIXME: get real errors.
+            NSError *error = [NSError errorWithDomain:EXOPortalErrorDomain code:kEXOPortalWrongType userInfo:@{NSLocalizedDescriptionKey: @"Expected an Array"}];
             if (lcomplete) {
                 lcomplete(nil, error);
             }
@@ -77,7 +78,7 @@ static NSString *EXOPortalNewDeviceAPI = @"/api/portals/v1/device";
         NSMutableArray *ret = [NSMutableArray new];
         for (NSDictionary *dict in (NSArray*)responseObject) {
             if (![dict isKindOfClass:[NSDictionary class]]) {
-                NSError *error = [NSError errorWithDomain:@" " code:1 userInfo:nil]; // FIXME: get real errors.
+                NSError *error = [NSError errorWithDomain:EXOPortalErrorDomain code:kEXOPortalWrongType userInfo:@{NSLocalizedDescriptionKey: @"Expected a Dictionary"}];
                 if (lcomplete) {
                     lcomplete(nil, error);
                 }
@@ -85,8 +86,7 @@ static NSString *EXOPortalNewDeviceAPI = @"/api/portals/v1/device";
             }
             EXOPortalDomain *dm = [EXOPortalDomain domainWithDictionary:dict];
             if (dm == nil) {
-                // parse error.
-                NSError *error = [NSError errorWithDomain:@" " code:1 userInfo:nil]; // FIXME: get real errors.
+                NSError *error = [NSError errorWithDomain:EXOPortalErrorDomain code:kEXOPortalParseFailed userInfo:@{NSLocalizedDescriptionKey: @"Failed to parse as domain"}];
                 if (lcomplete) {
                     lcomplete(nil, error);
                 }
@@ -127,7 +127,7 @@ static NSString *EXOPortalNewDeviceAPI = @"/api/portals/v1/device";
     EXOPortalPortalsBlock lcomplete = [complete copy];
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (![responseObject isKindOfClass:[NSArray class]]) {
-            NSError *error = [NSError errorWithDomain:@" " code:1 userInfo:nil]; // FIXME: get real errors.
+            NSError *error = [NSError errorWithDomain:EXOPortalErrorDomain code:kEXOPortalWrongType userInfo:@{NSLocalizedDescriptionKey: @"Expected an Array"}];
             if (lcomplete) {
                 lcomplete(nil, error);
             }
@@ -136,7 +136,7 @@ static NSString *EXOPortalNewDeviceAPI = @"/api/portals/v1/device";
         NSMutableArray *ret = [NSMutableArray new];
         for (NSDictionary *dict in (NSArray*)responseObject) {
             if (![dict isKindOfClass:[NSDictionary class]]) {
-                NSError *error = [NSError errorWithDomain:@" " code:1 userInfo:nil]; // FIXME: get real errors.
+                NSError *error = [NSError errorWithDomain:EXOPortalErrorDomain code:kEXOPortalWrongType userInfo:@{NSLocalizedDescriptionKey: @"Expected a Dictionary"}];
                 if (lcomplete) {
                     lcomplete(nil, error);
                 }
@@ -144,8 +144,7 @@ static NSString *EXOPortalNewDeviceAPI = @"/api/portals/v1/device";
             }
             EXOPortalPortal *dm = [EXOPortalPortal portalWithDictionary:dict];
             if (dm == nil) {
-                // parse error.
-                NSError *error = [NSError errorWithDomain:@" " code:1 userInfo:nil]; // FIXME: get real errors.
+                NSError *error = [NSError errorWithDomain:EXOPortalErrorDomain code:kEXOPortalParseFailed userInfo:@{NSLocalizedDescriptionKey: @"Failed to parse as portal"}];
                 if (lcomplete) {
                     lcomplete(nil, error);
                 }
@@ -186,7 +185,7 @@ static NSString *EXOPortalNewDeviceAPI = @"/api/portals/v1/device";
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error = nil;
         if (operation.response.statusCode != 200) {
-            error = [NSError errorWithDomain:@"" code:0 userInfo:nil]; // FIXME:
+            error = [NSError errorWithDomain:EXOPortalErrorDomain code:operation.response.statusCode userInfo:@{NSLocalizedDescriptionKey: [responseObject description]}];
         }
         if (lcomplete) {
             lcomplete(error);
@@ -200,6 +199,41 @@ static NSString *EXOPortalNewDeviceAPI = @"/api/portals/v1/device";
     return op;
 }
 
+- (void)resetPassword:(NSString *)account complete:(EXOPortalBlock)complete
+{
+    NSOperation *op = [self operationForResetPassword:account complete:complete];
+    [[NSOperationQueue mainQueue] addOperation:op];
+}
+
+- (NSOperation *)operationForResetPassword:(NSString *)account complete:(EXOPortalBlock)complete
+{
+    NSURL *URL = [NSURL URLWithString:EXOPortalResetPasswordAPI relativeToURL:self.domain];
+    
+    AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
+    NSError *err=nil;
+    NSDictionary *params = @{@"action":@"reset", @"email": [account copy]};
+    NSURLRequest *request = [serializer requestWithMethod:@"POST" URLString:[URL absoluteString] parameters:params error:&err];
+    
+    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    op.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    EXOPortalBlock lcomplete = [complete copy];
+    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error = nil;
+        if (operation.response.statusCode != 200) {
+            error = [NSError errorWithDomain:EXOPortalErrorDomain code:operation.response.statusCode userInfo:@{NSLocalizedDescriptionKey: [responseObject description]}];
+        }
+        if (lcomplete) {
+            lcomplete(error);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (lcomplete) {
+            lcomplete(error);
+        }
+    }];
+    
+    return op;
+}
 
 
 - (NSString *)description
