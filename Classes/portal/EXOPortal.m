@@ -235,6 +235,53 @@ NSString *EXOPortalErrorDomain = @"EXOPortalErrorDomain";
     return op;
 }
 
+- (void)newDevice:(EXOPortalNewDevice *)newDevice complete:(EXOPortalNewDeviceBlock)complete
+{
+    NSOperation *op = [self operationForNewDevice:newDevice complete:complete];
+    [[NSOperationQueue mainQueue] addOperation:op];
+}
+
+- (NSOperation *)operationForNewDevice:(EXOPortalNewDevice *)newDevice complete:(EXOPortalNewDeviceBlock)complete
+{
+    NSURL *URL = [NSURL URLWithString:EXOPortalNewDeviceAPI relativeToURL:self.domain];
+    
+    AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
+    NSError *err=nil;
+    NSURLRequest *request = [serializer requestWithMethod:@"POST" URLString:[URL absoluteString] parameters:[newDevice plistValue] error:&err];
+    
+    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    op.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    EXOPortalNewDeviceBlock lcomplete = [complete copy];
+    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+            NSError *error = [NSError errorWithDomain:EXOPortalErrorDomain code:kEXOPortalWrongType userInfo:@{NSLocalizedDescriptionKey: @"Expected a Dictionary"}];
+            if (lcomplete) {
+                lcomplete(nil, error);
+            }
+            return;
+        }
+
+        if (operation.response.statusCode != 200) {
+            NSError *error = [NSError errorWithDomain:EXOPortalErrorDomain code:operation.response.statusCode userInfo:@{NSLocalizedDescriptionKey: [responseObject description]}];
+            if (lcomplete) {
+                lcomplete(responseObject, error);
+            }
+            return;
+        }
+        if (lcomplete) {
+            lcomplete(responseObject, nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (lcomplete) {
+            lcomplete(nil, error);
+        }
+    }];
+    
+    return op;
+}
+
 
 - (NSString *)description
 {
