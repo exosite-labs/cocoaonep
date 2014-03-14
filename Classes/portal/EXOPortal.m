@@ -11,6 +11,10 @@
 
 static NSString *EXOPortalDomainAPI = @"/api/portals/v1/domain/";
 static NSString *EXOPortalPortalsAPI = @"/api/portals/v1/portal/";
+static NSString *EXOPortalNewUserAPI = @"/api/portals/v1/user";
+static NSString *EXOPortalResetPasswordAPI = @"/api/portals/v1/user/password";
+static NSString *EXOPortalNewDeviceAPI = @"/api/portals/v1/device";
+
 
 @interface EXOPortal ()
 @property(copy,nonatomic) NSURL *domain;
@@ -120,7 +124,7 @@ static NSString *EXOPortalPortalsAPI = @"/api/portals/v1/portal/";
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     op.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    EXOPortalDomainsBlock lcomplete = [complete copy];
+    EXOPortalPortalsBlock lcomplete = [complete copy];
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (![responseObject isKindOfClass:[NSArray class]]) {
             NSError *error = [NSError errorWithDomain:@" " code:1 userInfo:nil]; // FIXME: get real errors.
@@ -159,6 +163,48 @@ static NSString *EXOPortalPortalsAPI = @"/api/portals/v1/portal/";
     }];
     
     return op;
+}
+
+- (void)newUser:(EXOPortalNewUser *)user complete:(EXOPortalBlock)complete
+{
+    NSOperation *op = [self operationForNewUser:user complete:complete];
+    [[NSOperationQueue mainQueue] addOperation:op];
+}
+
+- (NSOperation *)operationForNewUser:(EXOPortalNewUser *)user complete:(EXOPortalBlock)complete
+{
+    NSURL *URL = [NSURL URLWithString:EXOPortalNewUserAPI relativeToURL:self.domain];
+    
+    AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
+    NSError *err=nil;
+    NSURLRequest *request = [serializer requestWithMethod:@"POST" URLString:[URL absoluteString] parameters:[user plistValue] error:&err];
+    
+    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    op.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    EXOPortalBlock lcomplete = [complete copy];
+    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error = nil;
+        if (operation.response.statusCode != 200) {
+            error = [NSError errorWithDomain:@"" code:0 userInfo:nil]; // FIXME:
+        }
+        if (lcomplete) {
+            lcomplete(error);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (lcomplete) {
+            lcomplete(error);
+        }
+    }];
+    
+    return op;
+}
+
+
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p, domain: %@ auth: %@ >", NSStringFromClass([self class]), self, self.domain, self.auth];
 }
 
 @end

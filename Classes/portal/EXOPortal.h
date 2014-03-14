@@ -10,7 +10,9 @@
 #import "EXOPortalAuth.h"
 #import "EXOPortalDomain.h"
 #import "EXOPortalPortal.h"
+#import "EXOPortalNewUser.h"
 
+typedef void(^EXOPortalBlock)(NSError *err);
 typedef void(^EXOPortalDomainsBlock)(NSArray *domains, NSError *err);
 typedef void(^EXOPortalPortalsBlock)(NSArray *portals, NSError *err);
 
@@ -30,10 +32,14 @@ typedef void(^EXOPortalPortalsBlock)(NSArray *portals, NSError *err);
 - (void)portals:(EXOPortalPortalsBlock)complete;
 - (NSOperation*)operationForPortals:(EXOPortalPortalsBlock)complete;
 
-// TODO: New Account
+- (void)newUser:(EXOPortalNewUser*)user complete:(EXOPortalBlock)complete;
+- (NSOperation*)operationForNewUser:(EXOPortalNewUser*)user complete:(EXOPortalBlock)complete;
 
 // TODO: Reset Password
+- (void)resetPassword:(NSString*)account;
+- (NSOperation*)operationForResetPassword:(NSString*)account;
 
 // TODO: Create New Device
+
 
 @end
