@@ -2,3 +2,4 @@ xcodeproj "CocoaOnePExample/CocoaOnePExample.xcodeproj"
 
 pod "CocoaOneP", :path => "../CocoaOneP.podspec"
 
+link_with 'CocoaOnePExample', 'CocoaOnePExampleTests'

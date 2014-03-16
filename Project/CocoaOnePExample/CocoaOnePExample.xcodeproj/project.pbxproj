@@ -22,7 +22,8 @@
 		6D5A028E18BB927500237215 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A026A18BB927500237215 /* Foundation.framework */; };
 		6D5A028F18BB927500237215 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A026E18BB927500237215 /* UIKit.framework */; };
 		6D5A029718BB927500237215 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D5A029518BB927500237215 /* InfoPlist.strings */; };
-		6D5A029918BB927500237215 /* CocoaOnePExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5A029818BB927500237215 /* CocoaOnePExampleTests.m */; };
+		6DCC288C18D5318900DF7CD8 /* EXORpcAuthKeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCC288B18D5318900DF7CD8 /* EXORpcAuthKeyTests.m */; };
+		881C3FDC37E849FA8A902F6E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D852725846A4619BFA2CA58 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,7 @@
 		6D5A028C18BB927500237215 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6D5A029418BB927500237215 /* CocoaOnePExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CocoaOnePExampleTests-Info.plist"; sourceTree = "<group>"; };
 		6D5A029618BB927500237215 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6D5A029818BB927500237215 /* CocoaOnePExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CocoaOnePExampleTests.m; sourceTree = "<group>"; };
+		6DCC288B18D5318900DF7CD8 /* EXORpcAuthKeyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcAuthKeyTests.m; sourceTree = "<group>"; };
 		E0E9FB18997D46AA84CE96FD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +80,7 @@
 				6D5A028D18BB927500237215 /* XCTest.framework in Frameworks */,
 				6D5A028F18BB927500237215 /* UIKit.framework in Frameworks */,
 				6D5A028E18BB927500237215 /* Foundation.framework in Frameworks */,
+				881C3FDC37E849FA8A902F6E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +148,7 @@
 		6D5A029218BB927500237215 /* CocoaOnePExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				6D5A029818BB927500237215 /* CocoaOnePExampleTests.m */,
+				6DCC288B18D5318900DF7CD8 /* EXORpcAuthKeyTests.m */,
 				6D5A029318BB927500237215 /* Supporting Files */,
 			);
 			path = CocoaOnePExampleTests;
@@ -187,9 +189,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D5A029F18BB927500237215 /* Build configuration list for PBXNativeTarget "CocoaOnePExampleTests" */;
 			buildPhases = (
+				782346CA7CA24C62A45C09DD /* Check Pods Manifest.lock */,
 				6D5A028718BB927500237215 /* Sources */,
 				6D5A028818BB927500237215 /* Frameworks */,
 				6D5A028918BB927500237215 /* Resources */,
+				6B59A894BF3941EEB349DC8B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -211,6 +215,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Exosite;
 				TargetAttributes = {
+					6D5A026618BB927500237215 = {
+						DevelopmentTeam = 8X9429E6C2;
+					};
 					6D5A028A18BB927500237215 = {
 						TestTargetID = 6D5A026618BB927500237215;
 					};
@@ -258,6 +265,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6B59A894BF3941EEB349DC8B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		782346CA7CA24C62A45C09DD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		9B2DA4B6E3D24F159F53B1DC /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -305,7 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D5A029918BB927500237215 /* CocoaOnePExampleTests.m in Sources */,
+				6DCC288C18D5318900DF7CD8 /* EXORpcAuthKeyTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +470,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocoaOnePExample/CocoaOnePExample-Prefix.pch";
 				INFOPLIST_FILE = "CocoaOnePExample/CocoaOnePExample-Info.plist";
@@ -447,6 +485,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocoaOnePExample/CocoaOnePExample-Prefix.pch";
 				INFOPLIST_FILE = "CocoaOnePExample/CocoaOnePExample-Info.plist";
@@ -457,6 +496,7 @@
 		};
 		6D5A02A018BB927500237215 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0E9FB18997D46AA84CE96FD /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CocoaOnePExample.app/CocoaOnePExample";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -479,6 +519,7 @@
 		};
 		6D5A02A118BB927500237215 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0E9FB18997D46AA84CE96FD /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CocoaOnePExample.app/CocoaOnePExample";
 				FRAMEWORK_SEARCH_PATHS = (
