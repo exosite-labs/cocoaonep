@@ -264,7 +264,7 @@ NSString *EXOPortalErrorDomain = @"EXOPortalErrorDomain";
             return;
         }
 
-        if (operation.response.statusCode != 200) {
+        if (operation.response.statusCode != 200) { // FIXME: can we actually get here?
             NSError *error = [NSError errorWithDomain:EXOPortalErrorDomain code:operation.response.statusCode userInfo:@{NSLocalizedDescriptionKey: [responseObject description]}];
             if (lcomplete) {
                 lcomplete(responseObject, error);
@@ -275,8 +275,14 @@ NSString *EXOPortalErrorDomain = @"EXOPortalErrorDomain";
             lcomplete(responseObject, nil);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSDictionary *dict = nil;
+        if (operation.responseData) {
+            NSError *err=nil;
+            dict = [NSJSONSerialization JSONObjectWithData:operation.responseData options:0 error:&err];
+        }
+        
         if (lcomplete) {
-            lcomplete(nil, error);
+            lcomplete(dict, error);
         }
     }];
     
