@@ -245,7 +245,8 @@ NSString *EXOPortalErrorDomain = @"EXOPortalErrorDomain";
 {
     NSURL *URL = [NSURL URLWithString:EXOPortalNewDeviceAPI relativeToURL:self.domain];
     
-    AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
+    AFJSONRequestSerializer *serializer = [AFJSONRequestSerializer serializer];
+    [serializer setAuthorizationHeaderFieldWithUsername:self.auth.username password:self.auth.password];
     NSError *err=nil;
     NSURLRequest *request = [serializer requestWithMethod:@"POST" URLString:[URL absoluteString] parameters:[newDevice plistValue] error:&err];
     
