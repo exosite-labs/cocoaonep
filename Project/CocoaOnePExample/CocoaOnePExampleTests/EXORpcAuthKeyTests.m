@@ -45,4 +45,21 @@
     
 }
 
+- (void)testComparing
+{
+    EXORpcAuthKey *authA, *authB;
+    
+    authA = [EXORpcAuthKey authWithCIK:@"ABCDEFG"];
+    authB = [EXORpcAuthKey authWithCIK:@"ABCDEFG"];
+    XCTAssertEqualObjects(authA, authB, @"Testing isEqual");
+    
+    authA = [EXORpcAuthKey authWithCIK:@"HIJKLMN" client:@"OPQRSTU"];
+    authB = [EXORpcAuthKey authWithCIK:@"HIJKLMN" client:@"OPQRSTU"];
+    XCTAssertEqualObjects(authA, authB, @"Testing isEqual");
+
+    authA = [EXORpcAuthKey authWithCIK:@"VWYXZ0123" resource:@"456789"];
+    authB = [EXORpcAuthKey authWithCIK:@"VWYXZ0123" resource:@"456789"];
+    XCTAssertEqualObjects(authA, authB, @"Testing isEqual");
+}
+
 @end
