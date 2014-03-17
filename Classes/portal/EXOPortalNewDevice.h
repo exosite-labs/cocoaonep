@@ -16,11 +16,11 @@
 @property(copy, nonatomic,readonly) NSString *timezone;
 @property(copy, nonatomic,readonly) NSString *location;
 
-+ (EXOPortalNewDevice*)deviceWithPortalRid:(NSString*)portal_rid vendor:(NSString*)vendor serialNumber:(NSString*)serialNumber name:(NSString*)name;
++ (EXOPortalNewDevice*)deviceWithPortalRid:(NSString*)portal_rid vendor:(NSString*)vendor model:(NSString*)model serialNumber:(NSString*)serialNumber name:(NSString*)name;
 
-+ (EXOPortalNewDevice*)deviceWithPortalRid:(NSString*)portal_rid vendor:(NSString*)vendor serialNumber:(NSString*)serialNumber name:(NSString*)name timezone:(NSString*)timezone location:(NSString*)location;
++ (EXOPortalNewDevice*)deviceWithPortalRid:(NSString*)portal_rid vendor:(NSString*)vendor model:(NSString*)model serialNumber:(NSString*)serialNumber name:(NSString*)name timezone:(NSString*)timezone location:(NSString*)location;
 
-- (instancetype)initWithPortalRid:(NSString*)portal_rid vendor:(NSString*)vendor serialNumber:(NSString*)serialNumber name:(NSString*)name timezone:(NSString*)timezone location:(NSString*)location;
+- (instancetype)initWithPortalRid:(NSString*)portal_rid vendor:(NSString*)vendor model:(NSString*)model serialNumber:(NSString*)serialNumber name:(NSString*)name timezone:(NSString*)timezone location:(NSString*)location;
 
 - (id)plistValue;
 

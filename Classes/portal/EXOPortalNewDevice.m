@@ -19,14 +19,14 @@
 
 @implementation EXOPortalNewDevice
 
-+ (EXOPortalNewDevice *)deviceWithPortalRid:(NSString *)portal_rid vendor:(NSString *)vendor serialNumber:(NSString *)serialNumber name:(NSString *)name timezone:(NSString *)timezone location:(NSString *)location
++ (EXOPortalNewDevice *)deviceWithPortalRid:(NSString *)portal_rid vendor:(NSString *)vendor model:(NSString*)model serialNumber:(NSString *)serialNumber name:(NSString *)name timezone:(NSString *)timezone location:(NSString *)location
 {
-    return [[EXOPortalNewDevice alloc] initWithPortalRid:portal_rid vendor:vendor serialNumber:serialNumber name:name timezone:timezone location:location];
+    return [[EXOPortalNewDevice alloc] initWithPortalRid:portal_rid vendor:vendor model:model serialNumber:serialNumber name:name timezone:timezone location:location];
 }
 
-+ (EXOPortalNewDevice *)deviceWithPortalRid:(NSString *)portal_rid vendor:(NSString *)vendor serialNumber:(NSString *)serialNumber name:(NSString *)name
++ (EXOPortalNewDevice *)deviceWithPortalRid:(NSString *)portal_rid vendor:(NSString *)vendor model:(NSString*)model serialNumber:(NSString *)serialNumber name:(NSString *)name
 {
-    return [[EXOPortalNewDevice alloc] initWithPortalRid:portal_rid vendor:vendor serialNumber:serialNumber name:name timezone:nil location:nil];
+    return [[EXOPortalNewDevice alloc] initWithPortalRid:portal_rid vendor:vendor model:model serialNumber:serialNumber name:name timezone:nil location:nil];
 }
 
 - (id)init
@@ -34,11 +34,12 @@
     return nil;
 }
 
-- (instancetype)initWithPortalRid:(NSString *)portal_rid vendor:(NSString *)vendor serialNumber:(NSString *)serialNumber name:(NSString *)name timezone:(NSString *)timezone location:(NSString *)location
+- (instancetype)initWithPortalRid:(NSString *)portal_rid vendor:(NSString *)vendor model:(NSString*)model serialNumber:(NSString *)serialNumber name:(NSString *)name timezone:(NSString *)timezone location:(NSString *)location
 {
     if (self = [super init]) {
         self.portal_rid = portal_rid;
         self.vendor = vendor;
+        self.model = model;
         self.serialNumber = serialNumber;
         self.name = name;
         self.timezone = timezone;
@@ -52,6 +53,7 @@
     NSMutableDictionary *ret = [NSMutableDictionary new];
     ret[@"portal_rid"] = self.portal_rid;
     ret[@"vendor"] = self.vendor;
+    ret[@"model"] = self.model;
     ret[@"serialnumber"] = self.serialNumber;
     ret[@"name"] = self.name;
     if (self.timezone) {
@@ -72,6 +74,7 @@
     EXOPortalNewDevice *obj = (EXOPortalNewDevice*)object;
     return ([self.portal_rid isEqual:obj.portal_rid] &&
             [self.vendor isEqual:obj.vendor] &&
+            [self.model isEqual:obj.model] &&
             [self.serialNumber isEqual:obj.serialNumber] &&
             [self.name isEqual:obj.name] &&
             [self.timezone isEqual:obj.timezone] &&
@@ -81,7 +84,7 @@
 
 - (NSUInteger)hash
 {
-    return (self.portal_rid.hash ^ self.vendor.hash ^ self.serialNumber.hash ^ self.name.hash ^ self.timezone.hash ^ self.location.hash);
+    return (self.portal_rid.hash ^ self.vendor.hash ^ self.model.hash ^ self.serialNumber.hash ^ self.name.hash ^ self.timezone.hash ^ self.location.hash);
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -91,7 +94,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@: %p, portal_rid: %@ vendor: %@ serialNumber: %@ name: %@ timezone: %@ location: %@ >", NSStringFromClass([self class]), self, self.portal_rid, self.vendor, self.serialNumber, self.name, self.timezone, self.location];
+    return [NSString stringWithFormat:@"<%@: %p, portal_rid: %@ vendor: %@ model: %@ serialNumber: %@ name: %@ timezone: %@ location: %@ >", NSStringFromClass([self class]), self, self.portal_rid, self.vendor, self.model, self.serialNumber, self.name, self.timezone, self.location];
 }
 
 @end
