@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "CocoaOneP"
-  s.version          = "0.2.0"
+  s.version          = "0.3.0"
   s.summary          = "A short description of CocoaOneP."
   s.description      = <<-DESC
                        An optional longer description of CocoaOneP
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.homepage         = "http://exosite.com/platform/data-platform/"
   s.license          = 'MIT'
   s.author           = { "Michael Conrad Tadpol Tilstra" => "miketilstra@exosite.com" }
-  s.source           = { :git => "http://EXAMPLE/NAME.git", :tag => s.version.to_s }
+  s.source           = { :git => "http://EXAMPLE/NAME.git", :tag => "v#{s.version}" }
   s.social_media_url = 'https://twitter.com/exosite'
 
   s.ios.deployment_target = '7.0'

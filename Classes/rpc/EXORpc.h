@@ -34,16 +34,14 @@ extern NSString *EXORpcDeviceErrorDomain;
 typedef void(^EXORpcRPCComplete)(NSError*err);
 
 @interface EXORpc : NSObject
-@property(nonatomic,copy,readonly) NSURL *host;
+@property(nonatomic,copy,readonly) NSURL *domain;
 @property(nonatomic,strong) NSOperationQueue *queue;
-@property(nonatomic,copy) EXORpcAuthKey *auth;
 
 + (EXORpc*)rpc;
-+ (EXORpc*)rpcWithHost:(NSURL*)host;
++ (EXORpc*)rpcWithDomain:(NSURL*)domain;
 
-- (instancetype)initWithAuth:(EXORpcAuthKey *)auth Host:(NSURL *)host;
+- (instancetype)initWithDomain:(NSURL *)domain;
 
-- (void)doRPCwithRequests:(NSArray*)calls complete:(EXORpcRPCComplete)complete;
 - (void)doRPCwithAuth:(EXORpcAuthKey*)auth requests:(NSArray*)calls complete:(EXORpcRPCComplete)complete;
 
 - (NSOperation *)operationWithAuth:(EXORpcAuthKey *)auth requests:(NSArray *)calls complete:(EXORpcRPCComplete)complete;
