@@ -1,23 +1,15 @@
-#
-# Be sure to run `pod spec lint NAME.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://guides.cocoapods.org/syntax/podspec.html
-#
 Pod::Spec.new do |s|
   s.name             = "CocoaOneP"
   s.version          = "0.3.0"
-  s.summary          = "A short description of CocoaOneP."
+  s.summary          = "Cocoa library for using the Exosite One Platform."
   s.description      = <<-DESC
-                       An optional longer description of CocoaOneP
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       # Cocoa library for using the Exosite One Platform.
                        DESC
   s.homepage         = "http://exosite.com/platform/data-platform/"
   s.license          = 'MIT'
   s.author           = { "Michael Conrad Tadpol Tilstra" => "miketilstra@exosite.com" }
-  s.source           = { :git => "http://EXAMPLE/NAME.git", :tag => "v#{s.version}" }
+  s.source           = { :git => "ssh://git@i.exosite.com:miketilstra/cocoaonep.git",
+                         :tag => "v#{s.version}" }
   s.social_media_url = 'https://twitter.com/exosite'
 
   s.ios.deployment_target = '7.0'
