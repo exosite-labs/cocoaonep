@@ -83,7 +83,7 @@
     if (![object isKindOfClass:[self class]]) {
         return NO;
     }
-    return self.types == [object types];
+    return self.types == [(EXORpcInfoRequest*)object types];
 }
 
 - (NSUInteger)hash
