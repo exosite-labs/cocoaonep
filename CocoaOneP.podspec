@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
                        # Cocoa library for using the Exosite One Platform.
                        DESC
   s.homepage         = "http://exosite.com/platform/data-platform/"
-  s.license          = 'MIT'
+  s.license          = 'BSD'
   s.author           = { "Michael Conrad Tadpol Tilstra" => "miketilstra@exosite.com" }
   s.source           = { :git => "ssh://git@i.exosite.com:miketilstra/cocoaonep.git",
                          :tag => "v#{s.version}" }
