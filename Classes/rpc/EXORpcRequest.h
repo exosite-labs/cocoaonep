@@ -18,6 +18,7 @@ extern NSString *kEXORpcErrorDomain;
 
 typedef void(^EXORpcRequestComplete)(NSError *err);
 
+// TODO: Make this and all its children immutable objects.
 @interface EXORpcRequest : NSObject
 @property(nonatomic,copy) EXORpcResourceID *rid;
 
