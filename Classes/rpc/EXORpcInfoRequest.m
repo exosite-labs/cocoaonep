@@ -45,34 +45,34 @@
 {
     NSMutableDictionary *args = [NSMutableDictionary new];
     if (self.types & EXORpcInfoRequestTypeAliases) {
-        args[@"aliases"] = @"true";
+        args[@"aliases"] = @YES;
     }
     if (self.types & EXORpcInfoRequestTypeBasic) {
-        args[@"basic"] = @"true";
+        args[@"basic"] = @YES;
     }
     if (self.types & EXORpcInfoRequestTypeComments) {
-        args[@"comments"] = @"true";
+        args[@"comments"] = @YES;
     }
     if (self.types & EXORpcInfoRequestTypeCounts) {
-        args[@"counts"] = @"true";
+        args[@"counts"] = @YES;
     }
     if (self.types & EXORpcInfoRequestTypeDescription) {
-        args[@"description"] = @"true";
+        args[@"description"] = @YES;
     }
     if (self.types & EXORpcInfoRequestTypeKey) {
-        args[@"key"] = @"true";
+        args[@"key"] = @YES;
     }
     if (self.types & EXORpcInfoRequestTypeShares) {
-        args[@"shares"] = @"true";
+        args[@"shares"] = @YES;
     }
     if (self.types & EXORpcInfoRequestTypeTagged) {
-        args[@"tagged"] = @"true";
+        args[@"tagged"] = @YES;
     }
     if (self.types & EXORpcInfoRequestTypeTags) {
-        args[@"tags"] = @"true";
+        args[@"tags"] = @YES;
     }
     if (self.types & EXORpcInfoRequestTypeUsage) {
-        args[@"usage"] = @"true";
+        args[@"usage"] = @YES;
     }
 
     return @{@"procedure": @"info", @"arguments": @[[self.rid plistValue], [args copy]]};
@@ -83,12 +83,12 @@
     if (![object isKindOfClass:[self class]]) {
         return NO;
     }
-    return self.types == [(EXORpcInfoRequest*)object types];
+    return self.types == [(EXORpcInfoRequest*)object types] && [self.rid isEqual:[object rid]];
 }
 
 - (NSUInteger)hash
 {
-    return self.types;
+    return self.types ^ self.rid.hash;
 }
 
 - (id)copyWithZone:(NSZone *)zone
