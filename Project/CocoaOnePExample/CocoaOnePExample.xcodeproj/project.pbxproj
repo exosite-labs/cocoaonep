@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		04EE159499A84CA2BAB4AE7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D852725846A4619BFA2CA58 /* libPods.a */; };
+		6D28F89D18F448E40060A270 /* EXORpcInfoRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D28F89C18F448E40060A270 /* EXORpcInfoRequestTests.m */; };
+		6D28F89F18F4492B0060A270 /* EXORpcResourceIDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D28F89E18F4492B0060A270 /* EXORpcResourceIDTests.m */; };
 		6D5A026B18BB927500237215 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A026A18BB927500237215 /* Foundation.framework */; };
 		6D5A026D18BB927500237215 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A026C18BB927500237215 /* CoreGraphics.framework */; };
 		6D5A026F18BB927500237215 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A026E18BB927500237215 /* UIKit.framework */; };
@@ -38,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		1D852725846A4619BFA2CA58 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D28F89C18F448E40060A270 /* EXORpcInfoRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcInfoRequestTests.m; sourceTree = "<group>"; };
+		6D28F89E18F4492B0060A270 /* EXORpcResourceIDTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcResourceIDTests.m; sourceTree = "<group>"; };
 		6D5A026718BB927500237215 /* CocoaOnePExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaOnePExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D5A026A18BB927500237215 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6D5A026C18BB927500237215 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -149,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				6DCC288B18D5318900DF7CD8 /* EXORpcAuthKeyTests.m */,
+				6D28F89E18F4492B0060A270 /* EXORpcResourceIDTests.m */,
+				6D28F89C18F448E40060A270 /* EXORpcInfoRequestTests.m */,
 				6D5A029318BB927500237215 /* Supporting Files */,
 			);
 			path = CocoaOnePExampleTests;
@@ -342,6 +348,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D28F89D18F448E40060A270 /* EXORpcInfoRequestTests.m in Sources */,
+				6D28F89F18F4492B0060A270 /* EXORpcResourceIDTests.m in Sources */,
 				6DCC288C18D5318900DF7CD8 /* EXORpcAuthKeyTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
