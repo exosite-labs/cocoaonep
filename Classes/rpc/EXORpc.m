@@ -67,7 +67,10 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
     
     NSMutableArray *pcalls = [NSMutableArray array];
     for (EXORpcRequest* req in calls) {
-        // check type.
+        if (![req isKindOfClass:[EXORpcRequest class]]) {
+            NSString *reason = [NSString stringWithFormat: @"Object <%p:%@> is not a child of %@", req, [req class], [EXORpcRequest class]];
+            @throw [NSException exceptionWithName:@"EXORpcException" reason:reason userInfo:nil];
+        }
         NSMutableDictionary *md = [[req plistValue] mutableCopy];
         md[@"id"] = @(callID++); // id matches array index!
         [pcalls addObject:md];
