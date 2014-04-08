@@ -9,7 +9,12 @@
 
 @implementation EXORpcDataruleResource
 
-- (NSArray *)plistValue
+- (NSString *)type
+{
+    return @"datarule";
+}
+
+- (id)plistValue
 {
     NSMutableDictionary *args = [NSMutableDictionary dictionary];
     switch (self.format) {
@@ -50,7 +55,7 @@
         args[@"subscribe"] = [self.subscribe plistValue];
     }
     
-    return @[@"datarule", [args copy]];
+    return [args copy];
 }
 
 @end

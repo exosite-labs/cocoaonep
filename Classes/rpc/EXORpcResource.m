@@ -15,4 +15,9 @@
     return @[];
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p, Type: %@, Name: %@, Meta: %@>", NSStringFromClass([self class]), self, self.type, self.name, self.meta];
+}
+
 @end

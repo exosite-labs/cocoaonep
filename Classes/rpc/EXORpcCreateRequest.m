@@ -36,7 +36,7 @@
 
 - (NSDictionary *)plistValue
 {
-    return @{@"procedure": @"create", @"arguments": self.resource};
+    return @{@"procedure": @"create", @"arguments": @[self.resource.type, [self.resource plistValue]]};
 }
 
 - (void)doResult:(NSDictionary *)result error:(NSError *)error

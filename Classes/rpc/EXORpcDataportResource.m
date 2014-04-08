@@ -9,7 +9,12 @@
 
 @implementation EXORpcDataportResource
 
-- (NSArray *)plistValue
+- (NSString *)type
+{
+    return @"dataport";
+}
+
+- (id)plistValue
 {
     NSMutableDictionary *args = [NSMutableDictionary dictionary];
     switch (self.format) {
@@ -55,7 +60,7 @@
     }
     args[@"visibility"] = @"parent"; // Undocumented.
     
-    return @[@"dataport", [args copy]];
+    return [args copy];
 }
 
 @end

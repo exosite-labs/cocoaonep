@@ -10,9 +10,10 @@
 #import "EXORpcResourceID.h"
 
 @interface EXORpcResource : NSObject
-@property(copy) NSString *meta;
-@property(copy) NSString *name;
-@property(assign) BOOL public;
+@property(copy,nonatomic) NSString *meta;
+@property(copy,nonatomic) NSString *name;
+@property(copy,nonatomic,readonly) NSString *type;
+@property(assign,nonatomic) BOOL public;
 
-- (NSArray *)plistValue;
+- (id)plistValue;
 @end

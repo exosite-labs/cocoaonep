@@ -9,8 +9,13 @@
 
 @implementation EXORpcCloneResource
 
-- (NSArray *)plistValue
+- (NSString *)type
 {
-    return @[@"clone", @{@"rid": [self.rid plistValue], @"code": self.code, @"noaliases": @(self.noaliases), @"nohistorical": @(self.nohistorical)}];
+    return @"clone";
+}
+
+- (NSDictionary *)plistValue
+{
+    return @{@"rid": [self.rid plistValue], @"code": self.code, @"noaliases": @(self.noaliases), @"nohistorical": @(self.nohistorical)};
 }
 @end

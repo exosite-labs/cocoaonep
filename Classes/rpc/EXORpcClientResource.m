@@ -9,7 +9,12 @@
 
 @implementation EXORpcClientResource
 
-- (NSArray *)plistValue
+- (NSString *)type
+{
+    return @"client";
+}
+
+- (id)plistValue
 {
     NSMutableDictionary *limits = [NSMutableDictionary dictionaryWithCapacity:15];
     if (self.limitClient) {
@@ -91,7 +96,7 @@
     NSMutableDictionary *args = [NSMutableDictionary dictionaryWithCapacity:5];
     args[@"limits"] = [limits copy];
     if (self.locked) {
-        args[@"locked"] = @"true";
+        args[@"locked"] = @YES;
     }
     if (self.meta) {
         args[@"meta"] = self.meta;
@@ -100,10 +105,10 @@
         args[@"name"] = self.name;
     }
     if (self.public) {
-        args[@"public"] = @"true";
+        args[@"public"] = @YES;
     }
 
-    return @[@"client", [args copy]];
+    return [args copy];
 }
 
 @end
