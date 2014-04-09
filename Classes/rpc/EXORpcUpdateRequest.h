@@ -8,14 +8,12 @@
 #import "EXORpcRequest.h"
 #import "EXORpcResource.h"
 
-typedef void(^EXORpcUpdateRequestComplete)(EXORpcResourceID *RID, NSError *error);
-
 @interface EXORpcUpdateRequest : EXORpcRequest
 @property(nonatomic,copy,readonly) EXORpcResource *resource;
-@property(nonatomic,copy,readonly) EXORpcUpdateRequestComplete complete;
+@property(nonatomic,copy,readonly) EXORpcRequestComplete complete;
 
-+ (EXORpcUpdateRequest*)updateWithRID:(EXORpcResourceID*)rid resource:(EXORpcResource*)resource complete:(EXORpcUpdateRequestComplete)complete;
-- (instancetype)initWithRID:(EXORpcResourceID*)rid resource:(EXORpcResource*)resource complete:(EXORpcUpdateRequestComplete)complete;
++ (EXORpcUpdateRequest*)updateWithRID:(EXORpcResourceID*)rid resource:(EXORpcResource*)resource complete:(EXORpcRequestComplete)complete;
+- (instancetype)initWithRID:(EXORpcResourceID*)rid resource:(EXORpcResource*)resource complete:(EXORpcRequestComplete)complete;
 - (NSDictionary *)plistValue;
 
 @end

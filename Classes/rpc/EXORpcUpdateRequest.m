@@ -9,12 +9,12 @@
 
 @interface EXORpcUpdateRequest ()
 @property(nonatomic,copy) EXORpcResource *resource;
-@property(nonatomic,copy) EXORpcUpdateRequestComplete complete;
+@property(nonatomic,copy) EXORpcRequestComplete complete;
 @end
 
 @implementation EXORpcUpdateRequest
 
-+ (EXORpcUpdateRequest *)updateWithRID:(EXORpcResourceID*)rid resource:(EXORpcResource *)resource complete:(EXORpcUpdateRequestComplete)complete
++ (EXORpcUpdateRequest *)updateWithRID:(EXORpcResourceID*)rid resource:(EXORpcResource *)resource complete:(EXORpcRequestComplete)complete
 {
     return [[EXORpcUpdateRequest alloc] initWithRID:rid resource:resource complete:complete];
 }
@@ -24,7 +24,7 @@
     return nil;
 }
 
-- (id)initWithRID:(EXORpcResourceID*)rid resource:(EXORpcResource *)resource complete:(EXORpcUpdateRequestComplete)complete
+- (id)initWithRID:(EXORpcResourceID*)rid resource:(EXORpcResource *)resource complete:(EXORpcRequestComplete)complete
 {
     self = [super init];
     if (self) {
@@ -44,13 +44,7 @@
 {
     if (self.complete) {
         NSError *err = [self errorFromStatus:result];
-        if (err) {
-            self.complete(nil, err);
-        } else {
-            NSString *rid = result[@"result"]; // FIXME: Add type checking.
-            EXORpcResourceID *trid = [EXORpcResourceID resourceIDByRID:rid];
-            self.complete(trid, nil);
-        }
+        self.complete(err);
     }
 }
 
