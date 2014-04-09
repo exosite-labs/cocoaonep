@@ -8,9 +8,14 @@
 #import "EXORpcResource.h"
 
 @interface EXORpcCloneResource : EXORpcResource
-@property(nonatomic,copy) EXORpcResourceID *rid;
-@property(strong) NSString *code;
-@property(assign) BOOL noaliases;
-@property(assign) BOOL nohistorical;
+@property(copy,nonatomic,readonly) EXORpcResourceID *rid;
+@property(copy,nonatomic,readonly) NSString *code;
+@property(assign,nonatomic,readonly) BOOL noaliases;
+@property(assign,nonatomic,readonly) BOOL nohistorical;
+
++ (EXORpcCloneResource*)resrouceWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public rid:(EXORpcResourceID*)rid code:(NSString*)code noaliases:(BOOL)noaliases nohistorical:(BOOL)nohistorical;
++ (EXORpcCloneResource*)resrouceWithName:(NSString *)name meta:(NSString *)meta rid:(EXORpcResourceID*)rid code:(NSString*)code;
+
+- (instancetype)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public rid:(EXORpcResourceID*)rid code:(NSString*)code noaliases:(BOOL)noaliases nohistorical:(BOOL)nohistorical;
 
 @end

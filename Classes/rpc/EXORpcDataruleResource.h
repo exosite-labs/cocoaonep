@@ -15,10 +15,14 @@
 #import "EXORpcDataruleScript.h"
 
 @interface EXORpcDataruleResource : EXORpcResource
-@property(assign) EXORpcDataportFormat_t format;
-@property(copy) NSNumber *retentionCount;
-@property(copy) NSNumber *retentionDuration;
-@property(strong) EXORpcDatarule *rule;
-@property(strong) EXORpcResourceID *subscribe;
+@property(assign,nonatomic,readonly) EXORpcDataportFormat_t format;
+@property(copy,nonatomic,readonly) NSNumber *retentionCount;
+@property(copy,nonatomic,readonly) NSNumber *retentionDuration;
+@property(copy,nonatomic,readonly) EXORpcDatarule *rule;
+@property(copy,nonatomic,readonly) EXORpcResourceID *subscribe;
+
++ (EXORpcDataruleResource*)resourceWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format retentionCount:(NSNumber*)retentionCount retentionDuration:(NSNumber*)retentionDuration rule:(EXORpcDatarule*)rule subscribe:(EXORpcResourceID*)subscribe;
+
+- (instancetype)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format retentionCount:(NSNumber*)retentionCount retentionDuration:(NSNumber*)retentionDuration rule:(EXORpcDatarule*)rule subscribe:(EXORpcResourceID*)subscribe;
 
 @end

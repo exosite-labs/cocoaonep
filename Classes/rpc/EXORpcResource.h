@@ -9,12 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "EXORpcResourceID.h"
 
-// TODO: Make this and all its children immutable objects.
-@interface EXORpcResource : NSObject
-@property(copy,nonatomic) NSString *meta;
-@property(copy,nonatomic) NSString *name;
+@interface EXORpcResource : NSObject <NSCopying>
+@property(copy,nonatomic,readonly) NSString *meta;
+@property(copy,nonatomic,readonly) NSString *name;
 @property(copy,nonatomic,readonly) NSString *type;
-@property(assign,nonatomic) BOOL public;
+@property(assign,nonatomic,readonly) BOOL public;
+
++ (EXORpcResource*)resourceWithName:(NSString*)name meta:(NSString*)meta public:(BOOL)public;
++ (EXORpcResource*)resourceWithName:(NSString*)name meta:(NSString*)meta;
+- (instancetype)initWithName:(NSString*)name meta:(NSString*)meta public:(BOOL)public;
+- (instancetype)initWithName:(NSString*)name meta:(NSString*)meta;
 
 - (id)plistValue;
 @end

@@ -7,7 +7,140 @@
 
 #import "EXORpcClientResource.h"
 
+@interface EXORpcClientResource ()
+@property(assign,nonatomic) BOOL locked;
+
+@property(copy,nonatomic) NSNumber *limitClient;
+@property(copy,nonatomic) NSNumber *limitDataport;
+@property(copy,nonatomic) NSNumber *limitDatarule;
+@property(copy,nonatomic) NSNumber *limitDisk;
+@property(copy,nonatomic) NSNumber *limitDispatch;
+@property(copy,nonatomic) NSNumber *limitIO;
+@property(copy,nonatomic) NSNumber *limitEmail;
+@property(copy,nonatomic) NSNumber *limitEmailBucket;
+@property(copy,nonatomic) NSNumber *limitHttp;
+@property(copy,nonatomic) NSNumber *limitHttpBucket;
+@property(copy,nonatomic) NSNumber *limitShare;
+@property(copy,nonatomic) NSNumber *limitSms;
+@property(copy,nonatomic) NSNumber *limitSmsBucket;
+@property(copy,nonatomic) NSNumber *limitXmpp;
+@property(copy,nonatomic) NSNumber *limitXmppBucket;
+@end
+
 @implementation EXORpcClientResource
+
++ (EXORpcClientResource *)resourceWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public locked:(BOOL)locked limits:(NSDictionary *)limits
+{
+    return [[EXORpcClientResource alloc] initWithName:name meta:meta public:public locked:locked limits:limits];
+}
+
++ (EXORpcClientResource *)resourceWithName:(NSString *)name meta:(NSString *)meta
+{
+    return [[EXORpcClientResource alloc] initWithName:name meta:meta public:YES locked:NO limits:nil];
+}
+
+- (id)init
+{
+    return nil;
+}
+
+- (instancetype)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public locked:(BOOL)locked limits:(NSDictionary *)limits
+{
+    if (self = [super initWithName:name meta:meta public:public]) {
+        self.locked = locked;
+        if (limits[@"client"]) {
+            self.limitClient = limits[@"client"];
+        }
+        if (limits[@"limitClient"]) {
+            self.limitClient = limits[@"limitClient"];
+        }
+        if (limits[@"dataport"]) {
+            self.limitDataport = limits[@"dataport"];
+        }
+        if (limits[@"limitDataport"]) {
+            self.limitDataport = limits[@"limitDataport"];
+        }
+        if (limits[@"datarule"]) {
+            self.limitDatarule = limits[@"datarule"];
+        }
+        if (limits[@"limitDatarule"]) {
+            self.limitDatarule = limits[@"limitDatarule"];
+        }
+        if (limits[@"disk"]) {
+            self.limitDisk = limits[@"disk"];
+        }
+        if (limits[@"limitDisk"]) {
+            self.limitDisk = limits[@"limitDisk"];
+        }
+        if (limits[@"dispatch"]) {
+            self.limitDispatch = limits[@"dispatch"];
+        }
+        if (limits[@"limitDispatch"]) {
+            self.limitDispatch = limits[@"limitDispatch"];
+        }
+        if (limits[@"IO"]) {
+            self.limitIO = limits[@"IO"];
+        }
+        if (limits[@"limitIO"]) {
+            self.limitIO = limits[@"limitIO"];
+        }
+        if (limits[@"email"]) {
+            self.limitEmail = limits[@"email"];
+        }
+        if (limits[@"limitEmail"]) {
+            self.limitEmail = limits[@"limitEmail"];
+        }
+        if (limits[@"emailBucket"]) {
+            self.limitEmailBucket = limits[@"emailBucket"];
+        }
+        if (limits[@"limitEmailBucket"]) {
+            self.limitEmailBucket = limits[@"limitEmailBucket"];
+        }
+        if (limits[@"http"]) {
+            self.limitHttp = limits[@"http"];
+        }
+        if (limits[@"limitHttp"]) {
+            self.limitHttp = limits[@"limitHttp"];
+        }
+        if (limits[@"httpBucket"]) {
+            self.limitHttpBucket = limits[@"httpBucket"];
+        }
+        if (limits[@"limitHttpBucket"]) {
+            self.limitHttpBucket = limits[@"limitHttpBucket"];
+        }
+        if (limits[@"share"]) {
+            self.limitShare = limits[@"share"];
+        }
+        if (limits[@"limitShare"]) {
+            self.limitShare = limits[@"limitShare"];
+        }
+        if (limits[@"sms"]) {
+            self.limitSms = limits[@"sms"];
+        }
+        if (limits[@"limitSms"]) {
+            self.limitSms = limits[@"limitSms"];
+        }
+        if (limits[@"smsBucket"]) {
+            self.limitSmsBucket = limits[@"smsBucket"];
+        }
+        if (limits[@"limitSmsBucket"]) {
+            self.limitSmsBucket = limits[@"limitSmsBucket"];
+        }
+        if (limits[@"xmpp"]) {
+            self.limitXmpp = limits[@"xmpp"];
+        }
+        if (limits[@"limitXmpp"]) {
+            self.limitXmpp = limits[@"limitXmpp"];
+        }
+        if (limits[@"xmppBucket"]) {
+            self.limitXmppBucket = limits[@"xmppBucket"];
+        }
+        if (limits[@"limitXmppBucket"]) {
+            self.limitXmppBucket = limits[@"limitXmppBucket"];
+        }
+    }
+    return self;
+}
 
 - (NSString *)type
 {

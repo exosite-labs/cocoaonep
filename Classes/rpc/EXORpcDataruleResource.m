@@ -7,7 +7,37 @@
 
 #import "EXORpcDataruleResource.h"
 
+@interface EXORpcDataruleResource ()
+@property(assign,nonatomic) EXORpcDataportFormat_t format;
+@property(copy,nonatomic) NSNumber *retentionCount;
+@property(copy,nonatomic) NSNumber *retentionDuration;
+@property(copy,nonatomic) EXORpcDatarule *rule;
+@property(copy,nonatomic) EXORpcResourceID *subscribe;
+@end
+
 @implementation EXORpcDataruleResource
+
++ (EXORpcDataruleResource *)resourceWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format retentionCount:(NSNumber *)retentionCount retentionDuration:(NSNumber *)retentionDuration rule:(EXORpcDatarule *)rule subscribe:(EXORpcResourceID *)subscribe
+{
+    return [[EXORpcDataruleResource alloc] initWithName:name meta:meta public:public format:format retentionCount:retentionCount retentionDuration:retentionDuration rule:rule subscribe:subscribe];
+}
+
+- (id)init
+{
+    return nil;
+}
+
+- (id)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format retentionCount:(NSNumber *)retentionCount retentionDuration:(NSNumber *)retentionDuration rule:(EXORpcDatarule *)rule subscribe:(EXORpcResourceID *)subscribe
+{
+    if (self = [super initWithName:name meta:meta public:public]) {
+        self.format = format;
+        self.retentionCount = retentionCount;
+        self.retentionDuration = retentionDuration;
+        self.rule = rule;
+        self.subscribe = subscribe;
+    }
+    return self;
+}
 
 - (NSString *)type
 {
