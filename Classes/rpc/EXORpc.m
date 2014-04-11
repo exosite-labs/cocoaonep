@@ -36,6 +36,7 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
         } else {
             self.domain = [NSURL URLWithString:@"https://m2.exosite.com/"];
         }
+        self.queue = [NSOperationQueue mainQueue];
     }
     return self;
 }
