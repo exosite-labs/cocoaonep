@@ -32,10 +32,12 @@
 extern NSString *EXORpcDeviceErrorDomain;
 
 typedef void(^EXORpcRPCComplete)(NSError*err);
+typedef void(^EXORpcActivityChange)(BOOL active);
 
 @interface EXORpc : NSObject
 @property(nonatomic,copy,readonly) NSURL *domain;
 @property(nonatomic,strong) NSOperationQueue *queue;
+@property(nonatomic,copy) EXORpcActivityChange activityChange;
 
 + (EXORpc*)rpc;
 + (EXORpc*)rpcWithDomain:(NSURL*)domain;

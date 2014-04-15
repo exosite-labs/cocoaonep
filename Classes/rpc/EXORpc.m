@@ -16,7 +16,10 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
 @property(nonatomic,copy) NSURL *domain;
 @end
 
-@implementation EXORpc
+@implementation EXORpc {
+    NSUInteger _spinCounter;
+    dispatch_queue_t _spinCounterQ;
+}
 
 + (EXORpc *)rpc
 {
@@ -37,6 +40,7 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
             self.domain = [NSURL URLWithString:@"https://m2.exosite.com/"];
         }
         self.queue = [NSOperationQueue mainQueue];
+        _spinCounterQ = dispatch_queue_create("com.exosite.rpc.spincounter", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -128,8 +132,42 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
             lcomplete(error);
         }
     }];
-    
+
+    // Now watch the isExecuting to know when to spin
+    [op addObserver:self forKeyPath:NSStringFromSelector(@selector(isExecuting)) options:0 context:NULL];
+    // And isFinished to know when to stop watching.
+    [op addObserver:self forKeyPath:NSStringFromSelector(@selector(isFinished)) options:0 context:NULL];
+
     return op;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:NSStringFromSelector(@selector(isExecuting))]) {
+        BOOL isExec = [object isExecuting];
+        dispatch_async(_spinCounterQ, ^{
+            if (isExec) {
+                _spinCounter++;
+                if (_spinCounter == 1) {
+                    if (self.activityChange) {
+                        self.activityChange(YES);
+                    }
+                }
+            } else {
+                _spinCounter--;
+                if (_spinCounter == 0) {
+                    if (self.activityChange) {
+                        self.activityChange(NO);
+                    }
+                }
+            }
+        });
+
+    } else if ([keyPath isEqualToString:NSStringFromSelector(@selector(isFinished))]) {
+        if ([object isFinished]) {
+            [object removeObserver:self forKeyPath:keyPath];
+        }
+    }
 }
 
 - (BOOL)isEqual:(id)object
