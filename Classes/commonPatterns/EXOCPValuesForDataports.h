@@ -11,6 +11,11 @@
 
 typedef void(^EXOCPValuesForDataportsComplete)(NSArray *results);
 
+/**
+ \brief Get a list of values for a list of dataports
+
+ This strives to use the minimum number of network connections to get all of the values.
+ */
 @interface EXOCPValuesForDataports : NSOperation
 
 /**
@@ -19,7 +24,6 @@ typedef void(^EXOCPValuesForDataportsComplete)(NSArray *results);
 @property (strong,nonatomic) EXORpc *onep;
 
 /**
- 
  An Array of arrays.  The inner array only has two items: an auth and a rid.
  So: @[ @[ EXORpcAuthKey, EXORpcResourceID ], ...]
  */

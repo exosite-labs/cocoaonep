@@ -72,20 +72,6 @@ NSString *kEXOCPValuesForDataportsResultKey = @"kEXOCPValuesForDataportsResultKe
     [self didChangeValueForKey:@"isFinished"];
 }
 
-- (void)appendResult:(NSArray*)result forAuth:(EXORpcAuthKey*)auth RID:(EXORpcResourceID*)rid
-{
-    dispatch_async(_collectionQ, ^{
-        [self.collect addObject:@{kEXOCPValuesForDataportsAuthKey: auth, kEXOCPValuesForDataportsRIDKey: rid, kEXOCPValuesForDataportsResultKey: result}];
-    });
-}
-
-- (void)appendError:(NSError*)error forAuth:(EXORpcAuthKey*)auth RID:(EXORpcResourceID*)rid
-{
-    dispatch_async(_collectionQ, ^{
-        [self.collect addObject:@{kEXOCPValuesForDataportsAuthKey: auth, kEXOCPValuesForDataportsRIDKey: rid, kEXOCPValuesForDataportsErrorKey: error}];
-    });
-}
-
 - (void)getThoseValues
 {
     NSMutableDictionary *grouped = [NSMutableDictionary new];
