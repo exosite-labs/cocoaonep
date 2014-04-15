@@ -26,6 +26,7 @@ Pod::Spec.new do |s|
     ss.dependency 'CocoaOneP/HTTP'
     ss.dependency 'CocoaOneP/RPC'
     ss.dependency 'CocoaOneP/Portal'
+    ss.dependency 'CocoaOneP/CommonPatterns'
   end
 
   s.subspec 'HTTP' do |ss|
@@ -38,6 +39,10 @@ Pod::Spec.new do |s|
 
   s.subspec 'Portal' do |ss|
     ss.source_files = 'Classes/portal'
+  end
+
+  s.subspec 'CommonPatterns' do |ss|
+    ss.source_files = 'Classes/commonPatterns'
   end
 end
 
