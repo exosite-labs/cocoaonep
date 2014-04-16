@@ -123,21 +123,24 @@ NSString *kEXOCPValuesForDataportsResultKey = @"kEXOCPValuesForDataportsResultKe
             }];
             [calls addObject:rr];
         }
-
+        NSBlockOperation *blocker = [NSBlockOperation blockOperationWithBlock:^{}];
+        [final addDependency:blocker];
         NSOperation *op = [self.onep operationWithAuth:key requests:calls complete:^(NSError *error) {
-            if (error) {
-                dispatch_async(_collectionQ, ^{
+            dispatch_async(_collectionQ, ^{
+                if (error) {
                     for (EXORpcResourceID *rid in grouped[key]) {
                         [self.collect addObject:@{kEXOCPValuesForDataportsAuthKey: key, kEXOCPValuesForDataportsRIDKey: rid, kEXOCPValuesForDataportsErrorKey: error}];
                     }
-                });
-            }
+                }
+                [self.onep.queue addOperation:blocker]; // Adding here forces final to wait until we're done.
+            });
+
         }];
         [ops addObject:op];
         [final addDependency:op];
     }
 
-    [[NSOperationQueue mainQueue] addOperations:ops waitUntilFinished:NO];
+    [self.onep.queue addOperations:ops waitUntilFinished:NO];
 }
 
 @end
