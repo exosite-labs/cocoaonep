@@ -74,6 +74,10 @@ NSString *kEXOCPValuesForDataportsResultKey = @"kEXOCPValuesForDataportsResultKe
 
 - (void)getThoseValues
 {
+    if (self.readTemplate == nil) {
+        self.readTemplate = [EXORpcReadRequest readWithRID:nil complete:nil];
+    }
+
     NSMutableDictionary *grouped = [NSMutableDictionary new];
     for (NSArray *item in self.dataports) {
         EXORpcAuthKey *auth = item[0];
@@ -99,7 +103,13 @@ NSString *kEXOCPValuesForDataportsResultKey = @"kEXOCPValuesForDataportsResultKe
     for (EXORpcAuthKey *key in grouped) {
         NSMutableArray *calls = [NSMutableArray new];
         for (EXORpcResourceID *rid in grouped[key]) {
-            EXORpcReadRequest *rr = [EXORpcReadRequest readWithRID:rid complete:^(NSArray *results, NSError *error) {
+            EXORpcReadRequest *rr = [EXORpcReadRequest readWithRID:rid
+                                                          startTime:self.readTemplate.starttime
+                                                            endTime:self.readTemplate.endtime
+                                                          ascending:self.readTemplate.sortAscending
+                                                              limit:self.readTemplate.limit
+                                                          selection:self.readTemplate.selection
+                                                           complete:^(NSArray *results, NSError *error) {
                 if (error) {
                     dispatch_async(_collectionQ, ^{
                         [self.collect addObject:@{kEXOCPValuesForDataportsAuthKey: key, kEXOCPValuesForDataportsRIDKey: rid, kEXOCPValuesForDataportsErrorKey: error}];

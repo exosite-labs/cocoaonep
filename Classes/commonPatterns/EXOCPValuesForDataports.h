@@ -30,6 +30,13 @@ typedef void(^EXOCPValuesForDataportsComplete)(NSArray *results);
 @property (strong,nonatomic) NSArray *dataports;
 
 /**
+ \brief Template to use for the read requests.
+ 
+ This allows for setting different time ranges and limits and such.
+ */
+@property (strong,nonatomic) EXORpcReadRequest *readTemplate;
+
+/**
  */
 @property (copy,nonatomic) EXOCPValuesForDataportsComplete complete;
 @end
