@@ -11,6 +11,11 @@
 
 typedef void(^EXOCPValuesForDataportsComplete)(NSArray *results);
 
+extern NSString *kEXOCPValuesForDataportsAuthKey;
+extern NSString *kEXOCPValuesForDataportsRIDKey;
+extern NSString *kEXOCPValuesForDataportsErrorKey;
+extern NSString *kEXOCPValuesForDataportsResultKey;
+
 /**
  \brief Get a list of values for a list of dataports
 
