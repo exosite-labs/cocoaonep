@@ -115,9 +115,8 @@ NSString *kEXOCPValuesForDataportsResultKey = @"kEXOCPValuesForDataportsResultKe
                         [self.collect addObject:@{kEXOCPValuesForDataportsAuthKey: key, kEXOCPValuesForDataportsRIDKey: rid, kEXOCPValuesForDataportsErrorKey: error}];
                     });
                 } else {
-                    NSArray *item = results[0];
                     dispatch_async(_collectionQ, ^{
-                        [self.collect addObject:@{kEXOCPValuesForDataportsAuthKey: key, kEXOCPValuesForDataportsRIDKey: rid, kEXOCPValuesForDataportsResultKey: item}];
+                        [self.collect addObject:@{kEXOCPValuesForDataportsAuthKey: key, kEXOCPValuesForDataportsRIDKey: rid, kEXOCPValuesForDataportsResultKey: results}];
                     });
                 }
             }];
