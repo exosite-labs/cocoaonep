@@ -41,8 +41,8 @@ typedef void(^EXOPortalNewDeviceBlock)(NSDictionary *cikrid, NSError *err);
 - (void)newUser:(EXOPortalNewUser*)user complete:(EXOPortalBlock)complete;
 - (NSOperation*)operationForNewUser:(EXOPortalNewUser*)user complete:(EXOPortalBlock)complete;
 
-- (void)resetPassword:(NSString*)account complete:(EXOPortalBlock)complete;;
-- (NSOperation*)operationForResetPassword:(NSString*)account complete:(EXOPortalBlock)complete;;
+- (void)resetPassword:(NSString*)account complete:(EXOPortalBlock)complete;
+- (NSOperation*)operationForResetPassword:(NSString*)account complete:(EXOPortalBlock)complete;
 
 - (void)newDevice:(EXOPortalNewDevice*)newDevice complete:(EXOPortalNewDeviceBlock)complete;
 - (NSOperation*)operationForNewDevice:(EXOPortalNewDevice*)newDevice complete:(EXOPortalNewDeviceBlock)complete;
