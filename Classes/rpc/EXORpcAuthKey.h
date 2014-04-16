@@ -8,6 +8,9 @@
 #import <Foundation/Foundation.h>
 
 @interface EXORpcAuthKey : NSObject <NSCopying>
+@property(copy,nonatomic,readonly) NSString *cik;
+@property(copy,nonatomic,readonly) NSString *clientid;
+@property(copy,nonatomic,readonly) NSString *rid;
 
 + (EXORpcAuthKey*)authWithCIK:(NSString*)cik;
 + (EXORpcAuthKey*)authWithCIK:(NSString*)cik client:(NSString*)clientid;

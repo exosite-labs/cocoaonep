@@ -51,6 +51,21 @@
     return [self.auth copy];
 }
 
+- (NSString *)cik
+{
+    return self.auth[@"cik"];
+}
+
+- (NSString *)clientid
+{
+    return self.auth[@"client_id"];
+}
+
+- (NSString *)rid
+{
+    return self.auth[@"resource_id"];
+}
+
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"<%@: %p, auth: %@>", NSStringFromClass([self class]), self, self.auth];
