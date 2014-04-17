@@ -51,10 +51,10 @@
 {
     NSMutableDictionary *args = [NSMutableDictionary dictionary];
     if (self.starttime) {
-        args[@"starttime"] = @([self.starttime timeIntervalSince1970]);
+        args[@"starttime"] = @((long long)[self.starttime timeIntervalSince1970]);
     }
     if (self.endtime) {
-        args[@"endtime"] = @([self.endtime timeIntervalSince1970]);
+        args[@"endtime"] = @((long long)[self.endtime timeIntervalSince1970]);
     }
     args[@"sort"] = self.sortAscending?@"asc":@"desc";
     args[@"limit"] = @(self.limit);
