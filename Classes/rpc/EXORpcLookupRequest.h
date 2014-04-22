@@ -16,8 +16,11 @@ typedef enum EXORpcLookupType_e EXORpcLookupType_t;
 
 typedef void(^EXORpcLookupRequestComplete)(NSString *resut, NSError *err);
 
-@interface EXORpcLookupRequest : EXORpcRequest
-@property(assign) EXORpcLookupType_t type;
-@property(copy) NSString *item;
-@property(copy) EXORpcLookupRequestComplete complete;
+@interface EXORpcLookupRequest : EXORpcRequest <NSCopying>
+@property(assign,nonatomic,readonly) EXORpcLookupType_t type;
+@property(copy,nonatomic,readonly) NSString *item;
+@property(copy,nonatomic,readonly) EXORpcLookupRequestComplete complete;
+
++ (EXORpcLookupRequest*)lookupWithType:(EXORpcLookupType_t)type item:(NSString*)item complete:(EXORpcLookupRequestComplete)complete;
+- (instancetype)initWithType:(EXORpcLookupType_t)type item:(NSString*)item complete:(EXORpcLookupRequestComplete)complete;
 @end

@@ -7,7 +7,33 @@
 
 #import "EXORpcLookupRequest.h"
 
+@interface EXORpcLookupRequest ()
+@property(assign,nonatomic) EXORpcLookupType_t type;
+@property(copy,nonatomic) NSString *item;
+@property(copy,nonatomic) EXORpcLookupRequestComplete complete;
+@end
+
 @implementation EXORpcLookupRequest
+
++ (EXORpcLookupRequest *)lookupWithType:(EXORpcLookupType_t)type item:(NSString *)item complete:(EXORpcLookupRequestComplete)complete
+{
+    return [[EXORpcLookupRequest alloc] initWithType:type item:item complete:complete];
+}
+
+- (instancetype)initWithType:(EXORpcLookupType_t)type item:(NSString *)item complete:(EXORpcLookupRequestComplete)complete
+{
+    if (self = [super init]) {
+        self.type = type;
+        self.item = item;
+        self.complete = complete;
+    }
+    return self;
+}
+
+- (id)init
+{
+    return nil;
+}
 
 - (void)doResult:(NSDictionary *)result error:(NSError *)error
 {
@@ -37,6 +63,25 @@
             break;
     }
     return @{@"procedure": @"lookup", @"arguments": @[which, self.item]};
+}
+
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+    EXORpcLookupRequest *obj = (EXORpcLookupRequest*)object;
+    return self.type == obj.type && [self.item isEqualToString:obj.item];
+}
+
+- (NSUInteger)hash
+{
+    return self.item.hash ^ self.type;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
 }
 
 @end
