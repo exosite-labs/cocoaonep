@@ -24,7 +24,7 @@ NSString *kEXOCPValuesForDataportsResultKey = @"kEXOCPValuesForDataportsResultKe
 
 - (id)init
 {
-    if ([super init]) {
+    if (self = [super init]) {
         _collectionQ = dispatch_queue_create("com.exosite.EXOCPValuesForDataports", DISPATCH_QUEUE_SERIAL);
         _collect = [NSMutableArray new];
     }
