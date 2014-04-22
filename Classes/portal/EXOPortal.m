@@ -15,6 +15,8 @@ static NSString *EXOPortalNewUserAPI = @"/api/portals/v1/user";
 static NSString *EXOPortalResetPasswordAPI = @"/api/portals/v1/user/password";
 static NSString *EXOPortalNewDeviceAPI = @"/api/portals/v1/device";
 
+static NSString *EXOPortalsDefaultURL = @"https://portals.exosite.com";
+
 NSString *EXOPortalErrorDomain = @"EXOPortalErrorDomain";
 
 @interface EXOPortal ()
@@ -44,6 +46,9 @@ NSString *EXOPortalErrorDomain = @"EXOPortalErrorDomain";
     if (self = [super init]) {
         self.auth = auth;
         self.domain = domain;
+        if (self.domain==nil) {
+            self.domain = [NSURL URLWithString:EXOPortalsDefaultURL];
+        }
     }
     return self;
 }
