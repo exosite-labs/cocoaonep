@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EXORpcResourceID.h"
+#import "EXORpcResourceRetention.h"
 
 @interface EXORpcResource : NSObject <NSCopying>
 @property(copy,nonatomic,readonly) NSString *meta;
