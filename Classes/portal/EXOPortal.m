@@ -189,13 +189,14 @@ NSString *EXOPortalErrorDomain = @"EXOPortalErrorDomain";
     EXOPortalBlock lcomplete = [complete copy];
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error = nil;
-        if (operation.response.statusCode != 200) {
+        if (operation.response.statusCode != 200) { // ??? can this happen?
             error = [NSError errorWithDomain:EXOPortalErrorDomain code:operation.response.statusCode userInfo:@{NSLocalizedDescriptionKey: [responseObject description]}];
         }
         if (lcomplete) {
             lcomplete(error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // TODO: Convert returned errors data (in response body) into NSErrors. (what's the best way?)
         if (lcomplete) {
             lcomplete(error);
         }
