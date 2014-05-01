@@ -1,7 +1,18 @@
 # CocoaOneP CHANGELOG
 
+## v0.3.3
+- Added block callback to RPC for when it is doing network activity.
+- Trying an idea for collecting some common patterns atop RPC.
+- Added readonly properties for the parts of EXORpcAuthKey
+- Fixed bug giving 1P time in floating point. (1P wants integer)
+- Made EXORpcLookupRequest, EXORpcMapRequest, and EXORpcDataportResource immutable.
+- Abstracted out retention values from multiple resource objects.
+- On EXOPortal, if domain is set to nil, use the default domain.
+- New user and passowrd reset requests push a JSON object, not form data.
+
+
 ## v0.3.2
-- Made EXORpcResource and its children immutatble.
+- Made EXORpcResource and its children immutable.
 - Changed how a resource exports so it will work with both create and update.
 - Implemented EXORpcUpdateRequest
 - Couple more unit tests.

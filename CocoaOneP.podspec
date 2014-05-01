@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "CocoaOneP"
-  s.version          = "0.3.2"
+  s.version          = "0.3.3"
   s.summary          = "Cocoa library for using the Exosite One Platform."
   s.description      = <<-DESC
                        # Cocoa library for using the Exosite One Platform.
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage         = "http://exosite.com/platform/data-platform/"
   s.license          = 'BSD'
   s.author           = { "Michael Conrad Tadpol Tilstra" => "miketilstra@exosite.com" }
-  s.source           = { :git => "ssh://git@i.exosite.com:miketilstra/cocoaonep.git",
+  s.source           = { :git => "https://i.exosite.com/git/miketilstra/cocoaonep.git",
                          :tag => "v#{s.version}" }
   s.social_media_url = 'https://twitter.com/exosite'
 
@@ -43,6 +43,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'CommonPatterns' do |ss|
     ss.source_files = 'Classes/commonPatterns'
+    ss.dependency 'CocoaOneP/RPC'
   end
 end
 
