@@ -179,7 +179,7 @@ NSString *EXOPortalErrorDomain = @"EXOPortalErrorDomain";
 {
     NSURL *URL = [NSURL URLWithString:EXOPortalNewUserAPI relativeToURL:self.domain];
     
-    AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
+    AFJSONRequestSerializer *serializer = [AFJSONRequestSerializer serializer];
     NSError *err=nil;
     NSURLRequest *request = [serializer requestWithMethod:@"POST" URLString:[URL absoluteString] parameters:[user plistValue] error:&err];
     
