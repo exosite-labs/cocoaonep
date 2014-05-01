@@ -214,7 +214,7 @@ NSString *EXOPortalErrorDomain = @"EXOPortalErrorDomain";
 {
     NSURL *URL = [NSURL URLWithString:EXOPortalResetPasswordAPI relativeToURL:self.domain];
     
-    AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
+    AFJSONRequestSerializer *serializer = [AFJSONRequestSerializer serializer];
     NSError *err=nil;
     NSDictionary *params = @{@"action":@"reset", @"email": [account copy]};
     NSURLRequest *request = [serializer requestWithMethod:@"POST" URLString:[URL absoluteString] parameters:params error:&err];
