@@ -42,6 +42,21 @@
     auth = [EXORpcAuthKey authWithCIK:@"VWYXZ0123" resource:@"456789"];
     dict = @{@"cik": @"VWYXZ0123", @"resource_id": @"456789"};
     XCTAssertEqualObjects(dict, [auth plistValue], @"AuthKey with cik and resource id");
+
+    auth = [EXORpcAuthKey authWithCIK:nil];
+    XCTAssertNil(auth, @"nil param is nil result");
+
+    auth = [EXORpcAuthKey authWithCIK:nil client:@"foo"];
+    XCTAssertNil(auth, @"nil param is nil result");
+
+    auth = [EXORpcAuthKey authWithCIK:@"ABCD" client:nil];
+    XCTAssertNil(auth, @"nil param is nil result");
+
+    auth = [EXORpcAuthKey authWithCIK:nil resource:@"foo"];
+    XCTAssertNil(auth, @"nil param is nil result");
+
+    auth = [EXORpcAuthKey authWithCIK:@"ABCD" resource:nil];
+    XCTAssertNil(auth, @"nil param is nil result");
     
 }
 

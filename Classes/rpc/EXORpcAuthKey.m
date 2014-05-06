@@ -20,11 +20,17 @@
 
 + (EXORpcAuthKey *)authWithCIK:(NSString *)cik client:(NSString *)clientid
 {
+    if (cik == nil || clientid == nil) {
+        return nil;
+    }
     return [[EXORpcAuthKey alloc] initWithAuth:@{@"cik": [cik copy], @"client_id": [clientid copy]}];
 }
 
 + (EXORpcAuthKey *)authWithCIK:(NSString *)cik resource:(NSString *)rid
 {
+    if (cik == nil || rid == nil) {
+        return nil;
+    }
     return [[EXORpcAuthKey alloc] initWithAuth:@{@"cik": [cik copy], @"resource_id": [rid copy]}];
 }
 
@@ -35,6 +41,9 @@
 
 - (instancetype)initWithCIK:(NSString *)cik
 {
+    if (cik == nil) {
+        return nil;
+    }
     return [self initWithAuth:@{@"cik": [cik copy]}];
 }
 
