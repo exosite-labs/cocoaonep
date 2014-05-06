@@ -18,26 +18,27 @@ PODS:
   - AFNetworking/UIKit (2.2.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CocoaOneP (0.3.2):
+  - CocoaOneP (0.3.3):
     - AFNetworking (~> 2.2)
     - CocoaOneP/All
     - CocoaOneP/CommonPatterns
     - CocoaOneP/HTTP
     - CocoaOneP/Portal
     - CocoaOneP/RPC
-  - CocoaOneP/All (0.3.2):
+  - CocoaOneP/All (0.3.3):
     - AFNetworking (~> 2.2)
     - CocoaOneP/CommonPatterns
     - CocoaOneP/HTTP
     - CocoaOneP/Portal
     - CocoaOneP/RPC
-  - CocoaOneP/CommonPatterns (0.3.2):
+  - CocoaOneP/CommonPatterns (0.3.3):
     - AFNetworking (~> 2.2)
-  - CocoaOneP/HTTP (0.3.2):
+    - CocoaOneP/RPC
+  - CocoaOneP/HTTP (0.3.3):
     - AFNetworking (~> 2.2)
-  - CocoaOneP/Portal (0.3.2):
+  - CocoaOneP/Portal (0.3.3):
     - AFNetworking (~> 2.2)
-  - CocoaOneP/RPC (0.3.2):
+  - CocoaOneP/RPC (0.3.3):
     - AFNetworking (~> 2.2)
 
 DEPENDENCIES:
@@ -49,6 +50,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
-  CocoaOneP: 1e63084299aa03ee1ba7e7b1e8e280bd609fb5a0
+  CocoaOneP: adc7e3c5cb18f14c0c505b6b4d6230c4b7269f64
 
 COCOAPODS: 0.32.1

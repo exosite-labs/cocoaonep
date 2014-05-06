@@ -28,6 +28,7 @@
 #import "EXORpcUnmapRequest.h"
 #import "EXORpcUpdateRequest.h"
 #import "EXORpcUsageRequest.h"
+#import "EXORpcValue.h"
 #import "EXORpcWriteRequest.h"
 
 extern NSString *EXORpcDeviceErrorDomain;

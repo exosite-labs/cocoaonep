@@ -15,12 +15,12 @@
 
 @implementation EXORpcValue
 
-- (EXORpcValue*)valueWithDate:(NSDate*)when string:(NSString*)value
++ (EXORpcValue*)valueWithDate:(NSDate*)when string:(NSString*)value
 {
     return [[EXORpcValue alloc] initWithDate:when string:value];
 }
 
-- (EXORpcValue*)valueWithDate:(NSDate*)when number:(NSNumber*)value
++ (EXORpcValue*)valueWithDate:(NSDate*)when number:(NSNumber*)value
 {
     return [[EXORpcValue alloc] initWithDate:when number:value];
 }
@@ -58,7 +58,13 @@
     if (_numberValue != nil) {
         return [_numberValue copy];
     } else if (_stringValue != nil) {
-        return @([_stringValue doubleValue]);
+        NSScanner *scanner = [NSScanner scannerWithString:_stringValue];
+        double value = NAN;
+        if([scanner scanDouble:&value]) {
+            return (_numberValue = @(value));
+        } else {
+            return nil;
+        }
     }
     return nil;
 }
