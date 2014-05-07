@@ -30,16 +30,21 @@
 - (void)testAllocAndInit
 {
     EXORpcValue *value;
+    NSArray *result;
 
     value = [EXORpcValue valueWithDate:[NSDate dateWithTimeIntervalSince1970:42] number:@(123456)];
     XCTAssertEqualObjects(value.when, [NSDate dateWithTimeIntervalSince1970:42], @"Check date");
     XCTAssertEqualObjects(value.numberValue, @(123456), @"Check number");
     XCTAssertEqualObjects(value.stringValue, @"123456", @"Check number");
+    result = @[@(42), @(123456)];
+    XCTAssertEqualObjects([value plistValue], result, @"Check plist");
 
     value = [EXORpcValue valueWithDate:[NSDate dateWithTimeIntervalSince1970:42] string:@"Fiddly pop"];
     XCTAssertEqualObjects(value.when, [NSDate dateWithTimeIntervalSince1970:42], @"Check date");
     XCTAssertEqualObjects(value.stringValue, @"Fiddly pop", @"Check number");
     XCTAssertEqualObjects(value.numberValue, nil, @"Check number");
+    result = @[@(42), @"Fiddly pop"];
+    XCTAssertEqualObjects([value plistValue], result, @"Check plist");
 
 }
 
