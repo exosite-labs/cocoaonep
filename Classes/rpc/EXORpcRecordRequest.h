@@ -6,8 +6,9 @@
 //
 
 #import "EXORpcRequest.h"
+#import "EXORpcValue.h"
 
 @interface EXORpcRecordRequest : EXORpcRequest
-@property(strong) NSArray *values;
+@property(strong) NSArray *values;  // Array of EXORpcValues
 @property(copy) EXORpcRequestComplete complete;
 @end

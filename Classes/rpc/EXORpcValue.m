@@ -69,6 +69,11 @@
     return nil;
 }
 
+- (id)plistValue
+{
+    return @[@((NSUInteger)[self.when timeIntervalSince1970]), [self stringValue]];
+}
+
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"<%@: %p, when: %@ value: %@>", NSStringFromClass([self class]), self, self.when, self.stringValue];
