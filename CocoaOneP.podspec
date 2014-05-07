@@ -2,9 +2,6 @@ Pod::Spec.new do |s|
   s.name             = "CocoaOneP"
   s.version          = "0.3.3"
   s.summary          = "Cocoa library for using the Exosite One Platform."
-  s.description      = <<-DESC
-                       # Cocoa library for using the Exosite One Platform.
-                       DESC
   s.homepage         = "http://exosite.com/platform/data-platform/"
   s.license          = 'BSD'
   s.author           = { "Michael Conrad Tadpol Tilstra" => "miketilstra@exosite.com" }
