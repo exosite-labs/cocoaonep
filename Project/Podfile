@@ -1,5 +1,6 @@
 xcodeproj "CocoaOnePExample/CocoaOnePExample.xcodeproj"
 
 pod "CocoaOneP", :path => "../CocoaOneP.podspec"
+pod "Lockbox"
 
 link_with 'CocoaOnePExample', 'CocoaOnePExampleTests'

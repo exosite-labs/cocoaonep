@@ -13,6 +13,8 @@
 		6D2F151F1906CE3E00E71A00 /* EXORpcLookupRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2F151E1906CE3E00E71A00 /* EXORpcLookupRequestTests.m */; };
 		6D2F15211906D0A400E71A00 /* EXORpcMapRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2F15201906D0A400E71A00 /* EXORpcMapRequestTest.m */; };
 		6D35FAA519197088007458AF /* EXORpcValueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D35FAA419197088007458AF /* EXORpcValueTest.m */; };
+		6D35FAC0191A73BB007458AF /* EXOBrowseExositeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D35FABD191A73BB007458AF /* EXOBrowseExositeTableViewController.m */; };
+		6D35FAC1191A73BB007458AF /* EXOLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D35FABF191A73BB007458AF /* EXOLoginViewController.m */; };
 		6D4DD595190946A000E63349 /* EXORpcResourceRetentionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DD594190946A000E63349 /* EXORpcResourceRetentionTest.m */; };
 		6D4DD597190947ED00E63349 /* EXORpcDataportResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DD596190947ED00E63349 /* EXORpcDataportResourceTest.m */; };
 		6D5A026B18BB927500237215 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A026A18BB927500237215 /* Foundation.framework */; };
@@ -23,7 +25,6 @@
 		6D5A027B18BB927500237215 /* EXOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5A027A18BB927500237215 /* EXOAppDelegate.m */; };
 		6D5A027E18BB927500237215 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D5A027C18BB927500237215 /* Main_iPhone.storyboard */; };
 		6D5A028118BB927500237215 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D5A027F18BB927500237215 /* Main_iPad.storyboard */; };
-		6D5A028418BB927500237215 /* EXOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5A028318BB927500237215 /* EXOViewController.m */; };
 		6D5A028618BB927500237215 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D5A028518BB927500237215 /* Images.xcassets */; };
 		6D5A028D18BB927500237215 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A028C18BB927500237215 /* XCTest.framework */; };
 		6D5A028E18BB927500237215 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A026A18BB927500237215 /* Foundation.framework */; };
@@ -50,6 +51,10 @@
 		6D2F151E1906CE3E00E71A00 /* EXORpcLookupRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcLookupRequestTests.m; sourceTree = "<group>"; };
 		6D2F15201906D0A400E71A00 /* EXORpcMapRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcMapRequestTest.m; sourceTree = "<group>"; };
 		6D35FAA419197088007458AF /* EXORpcValueTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcValueTest.m; sourceTree = "<group>"; };
+		6D35FABC191A73BB007458AF /* EXOBrowseExositeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOBrowseExositeTableViewController.h; sourceTree = "<group>"; };
+		6D35FABD191A73BB007458AF /* EXOBrowseExositeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOBrowseExositeTableViewController.m; sourceTree = "<group>"; };
+		6D35FABE191A73BB007458AF /* EXOLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOLoginViewController.h; sourceTree = "<group>"; };
+		6D35FABF191A73BB007458AF /* EXOLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOLoginViewController.m; sourceTree = "<group>"; };
 		6D4DD594190946A000E63349 /* EXORpcResourceRetentionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcResourceRetentionTest.m; sourceTree = "<group>"; };
 		6D4DD596190947ED00E63349 /* EXORpcDataportResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataportResourceTest.m; sourceTree = "<group>"; };
 		6D5A026718BB927500237215 /* CocoaOnePExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaOnePExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,8 +69,6 @@
 		6D5A027A18BB927500237215 /* EXOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXOAppDelegate.m; sourceTree = "<group>"; };
 		6D5A027D18BB927500237215 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		6D5A028018BB927500237215 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		6D5A028218BB927500237215 /* EXOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXOViewController.h; sourceTree = "<group>"; };
-		6D5A028318BB927500237215 /* EXOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EXOViewController.m; sourceTree = "<group>"; };
 		6D5A028518BB927500237215 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6D5A028B18BB927500237215 /* CocoaOnePExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaOnePExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D5A028C18BB927500237215 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -140,8 +143,10 @@
 				6D5A027A18BB927500237215 /* EXOAppDelegate.m */,
 				6D5A027C18BB927500237215 /* Main_iPhone.storyboard */,
 				6D5A027F18BB927500237215 /* Main_iPad.storyboard */,
-				6D5A028218BB927500237215 /* EXOViewController.h */,
-				6D5A028318BB927500237215 /* EXOViewController.m */,
+				6D35FABE191A73BB007458AF /* EXOLoginViewController.h */,
+				6D35FABF191A73BB007458AF /* EXOLoginViewController.m */,
+				6D35FABC191A73BB007458AF /* EXOBrowseExositeTableViewController.h */,
+				6D35FABD191A73BB007458AF /* EXOBrowseExositeTableViewController.m */,
 				6D5A028518BB927500237215 /* Images.xcassets */,
 				6D5A027118BB927500237215 /* Supporting Files */,
 			);
@@ -353,8 +358,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D5A028418BB927500237215 /* EXOViewController.m in Sources */,
+				6D35FAC1191A73BB007458AF /* EXOLoginViewController.m in Sources */,
 				6D5A027718BB927500237215 /* main.m in Sources */,
+				6D35FAC0191A73BB007458AF /* EXOBrowseExositeTableViewController.m in Sources */,
 				6D5A027B18BB927500237215 /* EXOAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

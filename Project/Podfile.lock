@@ -40,9 +40,11 @@ PODS:
     - AFNetworking (~> 2.2)
   - CocoaOneP/RPC (0.3.3):
     - AFNetworking (~> 2.2)
+  - Lockbox (1.4.8)
 
 DEPENDENCIES:
   - CocoaOneP (from `../CocoaOneP.podspec`)
+  - Lockbox
 
 EXTERNAL SOURCES:
   CocoaOneP:
@@ -51,5 +53,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
   CocoaOneP: adc7e3c5cb18f14c0c505b6b4d6230c4b7269f64
+  Lockbox: 33fad03fc7dd73e53f7108d9abff6fa0cfa1058b
 
 COCOAPODS: 0.32.1
