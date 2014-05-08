@@ -13,8 +13,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.8'
   s.requires_arc = true
 
-  # s.resources = 'Assets'
-
   s.ios.exclude_files = 'Classes/osx'
   s.osx.exclude_files = 'Classes/ios'
   s.dependency 'AFNetworking', '~> 2.2'
@@ -23,7 +21,6 @@ Pod::Spec.new do |s|
     ss.dependency 'CocoaOneP/HTTP'
     ss.dependency 'CocoaOneP/RPC'
     ss.dependency 'CocoaOneP/Portal'
-    ss.dependency 'CocoaOneP/CommonPatterns'
   end
 
   s.subspec 'HTTP' do |ss|
@@ -38,10 +35,6 @@ Pod::Spec.new do |s|
     ss.source_files = 'Classes/portal'
   end
 
-  s.subspec 'CommonPatterns' do |ss|
-    ss.source_files = 'Classes/commonPatterns'
-    ss.dependency 'CocoaOneP/RPC'
-  end
 end
 
 
