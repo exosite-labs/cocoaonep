@@ -88,7 +88,7 @@
                 NSDate *when = [NSDate dateWithTimeIntervalSince1970:[item[0] longLongValue]];
 
                 EXORpcValue *rval;
-                id value = item[0];
+                id value = item[1];
                 if ([value isKindOfClass:[NSString class]]) {
                     rval = [EXORpcValue valueWithDate:when string:value];
                 } else if ([value isKindOfClass:[NSNumber class]]) {
