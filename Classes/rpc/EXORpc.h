@@ -120,9 +120,9 @@ typedef void(^EXORpcActivityChange)(BOOL active);
 
  The order of the request callbacks is not guaranteed, but it is guaranteed that all of them will execute before this complete callback.
  
- @param auth
- @param calls
- @param complete
+ @param auth One Platform authentication to a client
+ @param calls NSArray of object that subclass from EXORpcRequest
+ @param complete Callback called once all requests are handled or on network errors
  
  @return NSOperation of the packaged API request
  */
