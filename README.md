@@ -35,7 +35,7 @@ It also depends on [AFNetworking 2.0](https://github.com/AFNetworking/AFNetworki
 
 ## Installation with CocoaPods
 
-CocoaOneP will be available through [CocoaPods](http://cocoapods.org), to install
+CocoaOneP is available through [CocoaPods](http://cocoapods.org), to install
 it simply add the following line to your Podfile:
 
 ```ruby
