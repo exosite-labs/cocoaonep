@@ -18,4 +18,6 @@
 - (instancetype)initWithDate:(NSDate*)when string:(NSString*)value;
 - (instancetype)initWithDate:(NSDate*)when number:(NSNumber*)value;
 
+- (id)plistValue;
+
 @end

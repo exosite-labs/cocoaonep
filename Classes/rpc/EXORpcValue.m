@@ -61,12 +61,24 @@
         NSScanner *scanner = [NSScanner scannerWithString:_stringValue];
         double value = NAN;
         if([scanner scanDouble:&value]) {
-            return (_numberValue = @(value));
+            return @(value);
         } else {
             return nil;
         }
     }
     return nil;
+}
+
+- (id)plistValue
+{
+    NSNumber *when =@((NSUInteger)[self.when timeIntervalSince1970]);
+    if (_stringValue != nil) {
+        return @[when, [_stringValue copy]];
+    } else if (_numberValue != nil) {
+        return @[when, [_numberValue copy]];
+    } else {
+        return @[when, [NSNull null]];
+    }
 }
 
 - (NSString *)description
@@ -79,10 +91,13 @@
     if (![object isKindOfClass:[self class]]) {
         return NO;
     }
-    
-    return [self.when isEqual:[object when]] &&
-           [self.stringValue isEqual:[object stringValue]] &&
-           [self.numberValue isEqual:[object numberValue]];
+    EXORpcValue *obj = object;
+
+    BOOL dateOk = [self.when isEqual:[object when]];
+    BOOL stringOk = (_stringValue == nil && obj->_stringValue == nil) || ([_stringValue isEqualToString:obj->_stringValue]);
+    BOOL numberOk = (_numberValue == nil && obj->_numberValue == nil) || ([_numberValue isEqualToNumber:obj->_numberValue]);;
+
+    return dateOk && stringOk && numberOk;
 }
 
 - (NSUInteger)hash

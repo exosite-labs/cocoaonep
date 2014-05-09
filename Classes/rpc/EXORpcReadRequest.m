@@ -86,10 +86,19 @@
                 // item[0] is timestamp
                 // item[1] is value
                 NSDate *when = [NSDate dateWithTimeIntervalSince1970:[item[0] longLongValue]];
-                // TODO: detect and convert boolean values.
-                [given addObject:@[when, item[1]]];
+
+                EXORpcValue *rval;
+                id value = item[1];
+                if ([value isKindOfClass:[NSString class]]) {
+                    rval = [EXORpcValue valueWithDate:when string:value];
+                } else if ([value isKindOfClass:[NSNumber class]]) {
+                    rval = [EXORpcValue valueWithDate:when number:value];
+                } else {
+                    rval = [EXORpcValue valueWithDate:when string:[value description]];
+                }
+                [given addObject:rval];
             }
-            self.complete(given, nil);
+            self.complete([given copy], nil);
         }
     }
 }

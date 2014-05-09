@@ -7,8 +7,31 @@
 
 #import "EXORpcRecordRequest.h"
 
+@interface EXORpcRecordRequest ()
+@property(strong,nonatomic) NSArray *values;  // Array of EXORpcValues
+@property(copy,nonatomic) EXORpcRequestComplete complete;
+@end
+
 @implementation EXORpcRecordRequest
 
++ (EXORpcRecordRequest *)recordWithRID:(EXORpcResourceID *)rid values:(NSArray *)values complete:(EXORpcRequestComplete)complete
+{
+    return [[EXORpcRecordRequest alloc] initWithRID:rid values:values complete:complete];
+}
+
+- (instancetype)initWithRID:(EXORpcResourceID *)rid values:(NSArray *)values complete:(EXORpcRequestComplete)complete
+{
+    if (self = [super initWithRID:rid]) {
+        _values = [values copy];
+        _complete = [complete copy];
+    }
+    return self;
+}
+
+- (id)init
+{
+    return nil;
+}
 
 - (void)doResult:(NSDictionary *)result error:(NSError *)error
 {
@@ -24,26 +47,32 @@
 
 - (NSDictionary *)plistValue
 {
-    // Values array need to be checked and possbily have types changed.
-    // It should be an array of arrays.  The inner ones should only have two elements; Date and Number, or Number and Number.
+    // Values is an array of EXORpcValues
     NSMutableArray *nar = [NSMutableArray arrayWithCapacity:self.values.count];
-    
-    for (id item in self.values) {
-        if ([item isKindOfClass:[NSArray class]]) {
-            NSArray *ar = item;
-            if (ar.count >= 2) {
-                if ([ar[0] isKindOfClass:[NSDate class]] && [ar[1] isKindOfClass:[NSNumber class]]) {
-                    NSDate *date = ar[0];
-                    [nar addObject:@[@([date timeIntervalSince1970]), ar[1]]];
-                } else if ([ar[0] isKindOfClass:[NSNumber class]] && [ar[1] isKindOfClass:[NSNumber class]]) {
-                    [nar addObject:@[ar[0], ar[1]]];
-                }
-            }
-        }
+
+    for (EXORpcValue *item in self.values) {
+        [nar addObject:[item plistValue]];
     }
-    // TODO: ??? sliently drop bad entries? that's not very nice or helpful.  How to error this?
-    
-    return @{ @"procedure": @"record", @"arguments": @[[self.rid plistValue], nar, @{}]};
+
+    return @{ @"procedure": @"record", @"arguments": @[[self.rid plistValue], [nar copy], @{}]};
+}
+
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+    return [self.rid isEqual:[object rid]] && [self.values isEqualToArray:[object values]];
+}
+
+- (NSUInteger)hash
+{
+    return self.rid.hash ^ self.values.hash;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
 }
 
 @end

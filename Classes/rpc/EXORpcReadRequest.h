@@ -6,6 +6,7 @@
 //
 
 #import "EXORpcRequest.h"
+#import "EXORpcValue.h"
 
 enum EXORpcReadSelectionType {
     EXORpcReadSelectionTypeAll,
