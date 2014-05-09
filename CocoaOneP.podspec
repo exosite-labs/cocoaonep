@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage         = "http://exosite.com/platform/data-platform/"
   s.license          = 'BSD'
   s.author           = { "Michael Conrad Tadpol Tilstra" => "miketilstra@exosite.com" }
-  s.source           = { :git => "https://i.exosite.com/git/miketilstra/cocoaonep.git",
+  s.source           = { :git => "https://github.com/exosite-labs/cocoaonep.git",
                          :tag => "v#{s.version}" }
   s.social_media_url = 'https://twitter.com/exosite'
 
