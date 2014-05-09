@@ -30,7 +30,7 @@
 /**
  Create an auth identifying the client by CIK
  
- @param cik 
+ @param cik The client CIK to authenticate with
  
  @return Authentication object to be used in RPC calls.
  */
@@ -56,6 +56,14 @@
  */
 + (EXORpcAuthKey*)authWithCIK:(NSString*)cik resource:(NSString*)rid;
 
+
+/**
+ Initialize an auth identifying the client by CIK
+
+ @param cik The client CIK to authenticate with
+
+ @return Authentication object to be used in RPC calls.
+ */
 - (instancetype)initWithCIK:(NSString*)cik;
 
 /**
@@ -64,4 +72,5 @@
  @return JSON ready dictionary of values.
  */
 - (NSDictionary*)plistValue;
+
 @end
