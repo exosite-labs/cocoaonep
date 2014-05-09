@@ -5,7 +5,6 @@ Icon
 *.sw[a-z]
 
 xcuserdata
-xcshareddata
 Pods/
 
 # Thumbnails
