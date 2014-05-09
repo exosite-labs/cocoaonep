@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6D5A026618BB927500237215"
-               BuildableName = "CocoaOnePExample.app"
-               BlueprintName = "CocoaOnePExample"
-               ReferencedContainer = "container:CocoaOnePExample.xcodeproj">
+               BlueprintIdentifier = "9C1E73E2EE5D420F998A7C5C"
+               BuildableName = "libPods.a"
+               BlueprintName = "Pods"
+               ReferencedContainer = "container:../Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9C1E73E2EE5D420F998A7C5C"
-               BuildableName = "libPods.a"
-               BlueprintName = "Pods"
-               ReferencedContainer = "container:../Pods/Pods.xcodeproj">
+               BlueprintIdentifier = "6D5A026618BB927500237215"
+               BuildableName = "CocoaOnePExample.app"
+               BlueprintName = "CocoaOnePExample"
+               ReferencedContainer = "container:CocoaOnePExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
