@@ -7,8 +7,12 @@
 
 #import "EXORpcRequest.h"
 
-@interface EXORpcRevokeRequest : EXORpcRequest
-@property(assign) BOOL asShare;
-@property(strong) NSString *code;
-@property(copy) EXORpcRequestComplete complete;
+@interface EXORpcRevokeRequest : EXORpcRequest <NSCopying>
+@property(assign,nonatomic,readonly) BOOL asShare;
+@property(strong,nonatomic,readonly) NSString *code;
+@property(copy,nonatomic,readonly) EXORpcRequestComplete complete;
+
++ (EXORpcRevokeRequest*)revokeWithCode:(NSString*)code asShare:(BOOL)asShare complete:(EXORpcRequestComplete)complete;
+- (instancetype)initWithCode:(NSString*)code asShare:(BOOL)asShare complete:(EXORpcRequestComplete)complete;
+
 @end

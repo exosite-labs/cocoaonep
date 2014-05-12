@@ -9,6 +9,27 @@
 
 @implementation EXORpcRevokeRequest
 
+
++ (EXORpcRevokeRequest *)revokeWithCode:(NSString *)code asShare:(BOOL)asShare complete:(EXORpcRequestComplete)complete
+{
+    return [[EXORpcRevokeRequest alloc] initWithCode:code asShare:asShare complete:complete];
+}
+
+- (instancetype)initWithCode:(NSString *)code asShare:(BOOL)asShare complete:(EXORpcRequestComplete)complete
+{
+    if (self = [super init]) {
+        _code = [code copy];
+        _asShare = asShare;
+        _complete = [complete copy];
+    }
+    return self;
+}
+
+- (id)init
+{
+    return nil;
+}
+
 - (void)doResult:(NSDictionary *)result error:(NSError *)error
 {
     if (self.complete) {
@@ -23,6 +44,28 @@
 
 - (NSDictionary *)plistValue
 {
-    return @{ @"procedure": @"revoke", @"arguments": @[(self.asShare?@"share":@"client"), self.code]};
+    return @{ @"procedure": @"revoke", @"arguments": @[(self.asShare?@"share":@"client"), [self.code copy]]};
 }
+
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+    return [self.rid isEqual:[object rid]] &&
+            self.asShare == [object asShare] &&
+            [self.code isEqualToString:[(EXORpcRevokeRequest*)object code]];
+}
+
+- (NSUInteger)hash
+{
+    return self.rid.hash ^ self.code.hash ^ self.asShare;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+
 @end
