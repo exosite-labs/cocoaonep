@@ -4,7 +4,8 @@ xcode_scheme: CocoaOnePExample
 install:
     - cd Project
     - export LANG=en_US.UTF-8
-    - sudo gem install cocoapods
+    - sudo gem install --no-document cocoapods
     - pod install
     - cd ..
+script: xctool -workspace Project/CocoaOnePExample.xcworkspace -scheme CocoaOnePExample -sdk iphonesimulator build test
 
