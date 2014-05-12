@@ -8,6 +8,7 @@
 #import "EXORpcWriteRequest.h"
 
 @interface EXORpcWriteRequest ()
+// TODO: This should maintain if this write is a number or a string.  Since it might matter.
 @property(nonatomic,copy) NSString *value;
 @property(nonatomic,copy) EXORpcRequestComplete complete;
 @end
@@ -36,6 +37,11 @@
     }
     NSString *sval = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
     return [[EXORpcWriteRequest alloc] initWithRID:rid value:sval complete:complete];
+}
+
++ (EXORpcWriteRequest *)writeWithRID:(EXORpcResourceID *)rid value:(EXORpcValue *)value complete:(EXORpcRequestComplete)complete
+{
+    return [[EXORpcWriteRequest alloc] initWithRID:rid value:[value stringValue] complete:complete];
 }
 
 - (instancetype)initWithRID:(EXORpcResourceID *)rid value:(NSString*)value complete:(EXORpcRequestComplete)complete
