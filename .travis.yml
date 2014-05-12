@@ -3,5 +3,8 @@ xcode_workspace: Project/CocoaOnePExample.xcworkspace
 xcode_scheme: CocoaOnePExample
 before_script:
     - export LANG=en_US.UTF-8
-install: "(cd Project; pod install)"
+    - sudo gem install cocoapods
+install:
+    - cd Project
+    - pod install
 
