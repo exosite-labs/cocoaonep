@@ -5,7 +5,7 @@ CocoaOneP is a bindings library for the Exosite One Platform.
 [![Version](http://cocoapod-badges.herokuapp.com/v/CocoaOneP/badge.png)](http://cocoadocs.org/docsets/CocoaOneP)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/CocoaOneP/badge.png)](http://cocoadocs.org/docsets/CocoaOneP)
 
-[![Build Status](https://travis-ci.org/CocoaOneP/CocoaOneP.svg)](https://travis-ci.org/CocoaOneP/CocoaOneP)
+[![Build Status](https://travis-ci.org/exosite-labs/cocoaonep.svg)](https://travis-ci.org/exosite-labs/cocoaonep)
 
 This is still a beta release. Some things are still quite fluid.
 The next release (0.4.0) will have changes to the API.
