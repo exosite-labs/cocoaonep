@@ -71,7 +71,7 @@
 
 - (id)plistValue
 {
-    NSNumber *when =@((NSUInteger)[self.when timeIntervalSince1970]);
+    NSNumber *when = @((NSUInteger)[self.when timeIntervalSince1970]);
     if (_stringValue != nil) {
         return @[when, [_stringValue copy]];
     } else if (_numberValue != nil) {
