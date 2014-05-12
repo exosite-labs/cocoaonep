@@ -4,6 +4,7 @@ xcode_scheme: CocoaOnePExample
 install:
     - cd Project
     - export LANG=en_US.UTF-8
-    - sudo gem install cocoapods -V
-    - pod --verbose install
+    - sudo gem install cocoapods
+    - pod install
+    - cd ..
 
