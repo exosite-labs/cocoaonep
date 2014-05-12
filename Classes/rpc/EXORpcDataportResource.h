@@ -11,6 +11,8 @@ enum EXORpcDataportFormat_e {
     EXORpcDataportFormatString = 0,
     EXORpcDataportFormatFloat,
     EXORpcDataportFormatInteger,
+
+    EXORpcDataportFormatUnchanged, // For update requests
 };
 typedef enum EXORpcDataportFormat_e EXORpcDataportFormat_t;
 
