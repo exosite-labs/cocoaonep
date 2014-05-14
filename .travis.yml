@@ -1,5 +1,5 @@
 language: objective-c
-xcode_workspace: Project/CocoaOnePExample.xcworkspace 
+xcode_workspace: Project/CocoaOnePExample.xcworkspace
 xcode_scheme: CocoaOnePExample
 install:
     - cd Project
