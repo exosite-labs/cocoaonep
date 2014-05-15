@@ -47,6 +47,13 @@ it simply add the following line to your Podfile:
 pod "CocoaOneP"
 ```
 
+If you don't want or need everything, you can install each of the API groups as submodules.
+For example, if all you need is the RPC API:
+
+```ruby
+pod "CocoaOneP/RPC"
+```
+
 
 ## License
 
