@@ -76,6 +76,19 @@
     return @{@"procedure": @"write", @"arguments": @[[self.rid plistValue], self.value]};
 }
 
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+    return [self.rid isEqual:[object rid]] && [self.value isEqual:[(EXORpcWriteRequest*)object value]];
+}
+
+- (NSUInteger)hash
+{
+    return self.rid.hash ^ self.value.hash;
+}
+
 - (id)copyWithZone:(NSZone *)zone
 {
     return self;
