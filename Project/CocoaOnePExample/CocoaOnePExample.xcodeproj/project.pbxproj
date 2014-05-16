@@ -33,6 +33,7 @@
 		6D5A028F18BB927500237215 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A026E18BB927500237215 /* UIKit.framework */; };
 		6D5A029718BB927500237215 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D5A029518BB927500237215 /* InfoPlist.strings */; };
 		6DCC288C18D5318900DF7CD8 /* EXORpcAuthKeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCC288B18D5318900DF7CD8 /* EXORpcAuthKeyTests.m */; };
+		6DEE7109192681BF001F473F /* EXORpcUnmapRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEE7108192681BF001F473F /* EXORpcUnmapRequestTest.m */; };
 		881C3FDC37E849FA8A902F6E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D852725846A4619BFA2CA58 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		6D5A029418BB927500237215 /* CocoaOnePExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CocoaOnePExampleTests-Info.plist"; sourceTree = "<group>"; };
 		6D5A029618BB927500237215 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6DCC288B18D5318900DF7CD8 /* EXORpcAuthKeyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcAuthKeyTests.m; sourceTree = "<group>"; };
+		6DEE7108192681BF001F473F /* EXORpcUnmapRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcUnmapRequestTest.m; sourceTree = "<group>"; };
 		E0E9FB18997D46AA84CE96FD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +182,7 @@
 				6D2F151E1906CE3E00E71A00 /* EXORpcLookupRequestTests.m */,
 				6D2F15201906D0A400E71A00 /* EXORpcMapRequestTest.m */,
 				6D2094691921113800B79CB5 /* EXORpcRevokeRequestTest.m */,
+				6DEE7108192681BF001F473F /* EXORpcUnmapRequestTest.m */,
 				6D35FAA419197088007458AF /* EXORpcValueTest.m */,
 				6D5A029318BB927500237215 /* Supporting Files */,
 			);
@@ -375,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DEE7109192681BF001F473F /* EXORpcUnmapRequestTest.m in Sources */,
 				6D2F151F1906CE3E00E71A00 /* EXORpcLookupRequestTests.m in Sources */,
 				6D2F15211906D0A400E71A00 /* EXORpcMapRequestTest.m in Sources */,
 				6D35FAA519197088007458AF /* EXORpcValueTest.m in Sources */,
