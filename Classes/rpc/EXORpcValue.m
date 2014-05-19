@@ -15,6 +15,11 @@
 
 @implementation EXORpcValue
 
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
+
 + (EXORpcValue*)valueWithDate:(NSDate*)when string:(NSString*)value
 {
     return [[EXORpcValue alloc] initWithDate:when string:value];
@@ -41,6 +46,23 @@
         _stringValue = value;
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        _when = [aDecoder decodeObjectOfClass:[self class] forKey:NSStringFromSelector(@selector(when))];
+        _stringValue = [aDecoder decodeObjectOfClass:[self class] forKey:NSStringFromSelector(@selector(stringValue))];
+        _numberValue = [aDecoder decodeObjectOfClass:[self class] forKey:NSStringFromSelector(@selector(numberValue))];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_when forKey:NSStringFromSelector(@selector(when))];
+    [aCoder encodeObject:_stringValue forKey:NSStringFromSelector(@selector(stringValue))];
+    [aCoder encodeObject:_numberValue forKey:NSStringFromSelector(@selector(numberValue))];
 }
 
 - (NSString *)stringValue

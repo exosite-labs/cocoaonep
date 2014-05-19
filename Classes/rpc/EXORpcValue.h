@@ -12,7 +12,7 @@
  
  This ties the timestamp for a value with the value.
  */
-@interface EXORpcValue : NSObject <NSCopying>
+@interface EXORpcValue : NSObject <NSCopying, NSSecureCoding>
 
 /**
  When this value was recorded.
