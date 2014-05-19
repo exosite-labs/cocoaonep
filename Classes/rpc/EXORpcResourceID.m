@@ -8,11 +8,16 @@
 #import "EXORpcResourceID.h"
 
 @interface EXORpcResourceID ()
-@property(strong) NSString *rid;
-@property(strong) NSDictionary *alias;
+@property(copy,nonatomic) NSString *rid;
+@property(copy,nonatomic) NSString *alias;
 @end
 
 @implementation EXORpcResourceID
+
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
 
 + (EXORpcResourceID*)resourceIDAsSelf
 {
@@ -32,7 +37,7 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        self.alias = @{@"alias": @""};
+        _alias = @"";
     }
     return self;
 }
@@ -40,7 +45,7 @@
 - (instancetype)initWithAlias:(NSString *)alias
 {
     if (self = [super init]) {
-        self.alias = @{@"alias": [alias copy]};
+        _alias = [alias copy];
     }
     return self;
 }
@@ -48,9 +53,24 @@
 - (instancetype)initWithRID:(NSString *)rid
 {
     if (self = [super init]) {
-        self.rid = [rid copy];
+        _rid = [rid copy];
     }
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        _rid = [aDecoder decodeObjectOfClass:[self class] forKey:NSStringFromSelector(@selector(rid))];
+        _alias = [aDecoder decodeObjectOfClass:[self class] forKey:NSStringFromSelector(@selector(alias))];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_rid forKey:NSStringFromSelector(@selector(rid))];
+    [aCoder encodeObject:_alias forKey:NSStringFromSelector(@selector(alias))];
 }
 
 - (id)plistValue
@@ -58,20 +78,20 @@
     if (self.rid) {
         return self.rid;
     }
-    return self.alias;
+    return @{@"alias": self.alias};
 }
 
 - (NSString *)description
 {
     NSString *details;
-    if (self.rid) {
+    if (_rid) {
         details = [NSString stringWithFormat:@"RID: %@", self.rid];
-    } else if (self.alias == nil) {
+    } else if (_alias == nil) {
         details = @"INVALID";
-    } else if ([self.alias[@"alias"] isEqualToString:@""]) {
+    } else if ([_alias isEqualToString:@""]) {
         details = @"Alias Self";
     } else {
-        details = [NSString stringWithFormat:@"alias: %@", self.alias[@"alias"]];
+        details = [NSString stringWithFormat:@"alias: %@", _alias];
     }
     
     return [NSString stringWithFormat:@"<%@: %p, %@>", NSStringFromClass([self class]), self, details];
@@ -82,21 +102,18 @@
     if (![object isKindOfClass:[self class]]) {
         return NO;
     }
-    if (self.rid) {
-        return [self.rid isEqualToString:[object rid]];
+    if (_rid) {
+        return [_rid isEqualToString:[object rid]];
     }
-    return [self.alias isEqualToDictionary:[object alias]];
+    return [_alias isEqualToString:[object alias]];
 }
 
 - (NSUInteger)hash
 {
-    if (self.rid) {
-        return self.rid.hash;
+    if (_rid) {
+        return _rid.hash;
     }
-    if (!self.alias) {
-        return 0;
-    }
-    return [self.alias[@"alias"] hash];
+    return _alias.hash;
 }
 
 - (id)copyWithZone:(NSZone *)zone

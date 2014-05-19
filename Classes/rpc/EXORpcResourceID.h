@@ -10,7 +10,21 @@
 /**
  Resource Identifier
  */
-@interface EXORpcResourceID : NSObject <NSCopying>
+@interface EXORpcResourceID : NSObject <NSCopying, NSSecureCoding>
+
+/**
+ Alias this RID points to.
+ 
+ Might be nil if this RID was initialized with a 40 character resource identifier string.
+ */
+@property (copy,nonatomic,readonly) NSString *alias;
+
+/**
+ The 40 character resource identifier this RID points to.
+ 
+ Might be nil if this RID was initialized with an alias.
+ */
+@property (copy,nonatomic,readonly) NSString *rid;
 
 /**
  Directly identify a resource by its RID string.
