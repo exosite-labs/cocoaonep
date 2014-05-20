@@ -1,5 +1,12 @@
 # CocoaOneP CHANGELOG
 
+## v0.3.4
+- Passing a nil param into EXORpcAuthKey initializers returns a nil object instead of throwing
+  exceptions.
+- Lightwieght example app included.
+- Added EXPRpcValue class, though it is not yet used. (See development code on master branch)
+- Document cleanups.
+
 ## v0.3.3
 - Added block callback to RPC for when it is doing network activity.
 - Trying an idea for collecting some common patterns atop RPC.
