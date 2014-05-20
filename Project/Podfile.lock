@@ -1,44 +1,44 @@
 PODS:
-  - AFNetworking (2.2.3):
+  - AFNetworking (2.2.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.2.3):
+  - AFNetworking/NSURLConnection (2.2.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.2.3):
+  - AFNetworking/NSURLSession (2.2.4):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.2.3)
-  - AFNetworking/Security (2.2.3)
-  - AFNetworking/Serialization (2.2.3)
-  - AFNetworking/UIKit (2.2.3):
+  - AFNetworking/Reachability (2.2.4)
+  - AFNetworking/Security (2.2.4)
+  - AFNetworking/Serialization (2.2.4)
+  - AFNetworking/UIKit (2.2.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CocoaOneP (0.3.3):
+  - CocoaOneP (0.3.4):
     - AFNetworking (~> 2.2)
     - CocoaOneP/All
     - CocoaOneP/CommonPatterns
     - CocoaOneP/HTTP
     - CocoaOneP/Portal
     - CocoaOneP/RPC
-  - CocoaOneP/All (0.3.3):
+  - CocoaOneP/All (0.3.4):
     - AFNetworking (~> 2.2)
     - CocoaOneP/CommonPatterns
     - CocoaOneP/HTTP
     - CocoaOneP/Portal
     - CocoaOneP/RPC
-  - CocoaOneP/CommonPatterns (0.3.3):
+  - CocoaOneP/CommonPatterns (0.3.4):
     - AFNetworking (~> 2.2)
     - CocoaOneP/RPC
-  - CocoaOneP/HTTP (0.3.3):
+  - CocoaOneP/HTTP (0.3.4):
     - AFNetworking (~> 2.2)
-  - CocoaOneP/Portal (0.3.3):
+  - CocoaOneP/Portal (0.3.4):
     - AFNetworking (~> 2.2)
-  - CocoaOneP/RPC (0.3.3):
+  - CocoaOneP/RPC (0.3.4):
     - AFNetworking (~> 2.2)
   - Lockbox (1.4.8)
 
@@ -51,8 +51,8 @@ EXTERNAL SOURCES:
     :path: ../CocoaOneP.podspec
 
 SPEC CHECKSUMS:
-  AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
-  CocoaOneP: adc7e3c5cb18f14c0c505b6b4d6230c4b7269f64
-  Lockbox: 33fad03fc7dd73e53f7108d9abff6fa0cfa1058b
+  AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
+  CocoaOneP: c91b204b3d0042ed84c5d628a7da92229f51829a
+  Lockbox: 084d2fd833c7a271892f70d0db4d4d3da233de18
 
 COCOAPODS: 0.32.1
