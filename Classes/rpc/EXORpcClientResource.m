@@ -36,7 +36,7 @@
 
 + (EXORpcClientResource *)resourceWithName:(NSString *)name meta:(NSString *)meta
 {
-    return [[EXORpcClientResource alloc] initWithName:name meta:meta public:YES locked:NO limits:nil];
+    return [[EXORpcClientResource alloc] initWithName:name meta:meta public:NO locked:NO limits:nil];
 }
 
 - (id)init
@@ -230,6 +230,8 @@
     args[@"limits"] = [limits copy];
     if (self.locked) {
         args[@"locked"] = @YES;
+    } else {
+        args[@"locked"] = @NO;
     }
     if (self.meta) {
         args[@"meta"] = self.meta;
@@ -239,6 +241,8 @@
     }
     if (self.public) {
         args[@"public"] = @YES;
+    } else {
+        args[@"public"] = @NO;
     }
 
     return [args copy];
