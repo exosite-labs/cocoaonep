@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B2BC50DC-4DB7-4B18-AA72-58034BDA2868</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CocoaOnePExample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>52E44520-7B23-4B11-B4AC-13AEB6BFAB37</key>
+		<string>ssh://github.com/exosite-labs/cocoaonep.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Project/CocoaOnePExample.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>52E44520-7B23-4B11-B4AC-13AEB6BFAB37</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/exosite-labs/cocoaonep.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>52E44520-7B23-4B11-B4AC-13AEB6BFAB37</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>52E44520-7B23-4B11-B4AC-13AEB6BFAB37</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CocoaOneP</string>
+		</dict>
+	</array>
+</dict>
+</plist>
