@@ -27,7 +27,7 @@
     [super tearDown];
 }
 
-- (void)testInitAndAlloc
+- (void)testAllocAndInit
 {
     EXORpcDropRequest *drop;
     NSDictionary *result;
