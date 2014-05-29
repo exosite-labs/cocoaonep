@@ -15,9 +15,14 @@
 
 @implementation EXORpcDeactivateRequest
 
-+ (EXORpcDeactivateRequest *)deactivateShare:(BOOL)asShare code:(NSString *)code complete:(EXORpcRequestComplete)complete
++ (EXORpcDeactivateRequest *)deactivateClientWithCode:(NSString *)code complete:(EXORpcRequestComplete)complete
 {
-    return [[EXORpcDeactivateRequest alloc] initWithShare:asShare code:code complete:complete];
+    return [[EXORpcDeactivateRequest alloc] initWithShare:NO code:code complete:complete];
+}
+
++ (EXORpcDeactivateRequest *)deactivateShareWithCode:(NSString *)code complete:(EXORpcRequestComplete)complete
+{
+    return [[EXORpcDeactivateRequest alloc] initWithShare:YES code:code complete:complete];
 }
 
 -(id)initWithShare:(BOOL)asShare code:(NSString *)code complete:(EXORpcRequestComplete)complete

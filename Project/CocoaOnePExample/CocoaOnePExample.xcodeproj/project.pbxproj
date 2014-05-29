@@ -36,6 +36,7 @@
 		6DA4E950192FB12B002A20E6 /* EXORpcClientResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA4E94F192FB12B002A20E6 /* EXORpcClientResourceTest.m */; };
 		6DA4E952192FCBE3002A20E6 /* EXORpcDispatchResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA4E951192FCBE3002A20E6 /* EXORpcDispatchResourceTest.m */; };
 		6DCC288C18D5318900DF7CD8 /* EXORpcAuthKeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCC288B18D5318900DF7CD8 /* EXORpcAuthKeyTests.m */; };
+		6DCD642D193780E700BD34C6 /* EXORpcDeactivateRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD642C193780E700BD34C6 /* EXORpcDeactivateRequestTest.m */; };
 		6DEE7109192681BF001F473F /* EXORpcUnmapRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEE7108192681BF001F473F /* EXORpcUnmapRequestTest.m */; };
 		881C3FDC37E849FA8A902F6E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D852725846A4619BFA2CA58 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		6DA4E94F192FB12B002A20E6 /* EXORpcClientResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcClientResourceTest.m; sourceTree = "<group>"; };
 		6DA4E951192FCBE3002A20E6 /* EXORpcDispatchResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDispatchResourceTest.m; sourceTree = "<group>"; };
 		6DCC288B18D5318900DF7CD8 /* EXORpcAuthKeyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcAuthKeyTests.m; sourceTree = "<group>"; };
+		6DCD642C193780E700BD34C6 /* EXORpcDeactivateRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDeactivateRequestTest.m; sourceTree = "<group>"; };
 		6DEE7108192681BF001F473F /* EXORpcUnmapRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcUnmapRequestTest.m; sourceTree = "<group>"; };
 		E0E9FB18997D46AA84CE96FD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,6 +186,7 @@
 				6DA4E94F192FB12B002A20E6 /* EXORpcClientResourceTest.m */,
 				6D4DD596190947ED00E63349 /* EXORpcDataportResourceTest.m */,
 				6DA4E951192FCBE3002A20E6 /* EXORpcDispatchResourceTest.m */,
+				6DCD642C193780E700BD34C6 /* EXORpcDeactivateRequestTest.m */,
 				6D209454191BB9EB00B79CB5 /* EXORpcRecordRequestTest.m */,
 				6D28F89E18F4492B0060A270 /* EXORpcResourceIDTests.m */,
 				6D4DD594190946A000E63349 /* EXORpcResourceRetentionTest.m */,
@@ -398,6 +401,7 @@
 				6DCC288C18D5318900DF7CD8 /* EXORpcAuthKeyTests.m in Sources */,
 				6D20946A1921113800B79CB5 /* EXORpcRevokeRequestTest.m in Sources */,
 				6DA4E952192FCBE3002A20E6 /* EXORpcDispatchResourceTest.m in Sources */,
+				6DCD642D193780E700BD34C6 /* EXORpcDeactivateRequestTest.m in Sources */,
 				6D4DD597190947ED00E63349 /* EXORpcDataportResourceTest.m in Sources */,
 				6D4DD595190946A000E63349 /* EXORpcResourceRetentionTest.m in Sources */,
 				6D209455191BB9EB00B79CB5 /* EXORpcRecordRequestTest.m in Sources */,

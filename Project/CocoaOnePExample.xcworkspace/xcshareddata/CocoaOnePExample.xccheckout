@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>B2BC50DC-4DB7-4B18-AA72-58034BDA2868</string>
+	<string>E2537E3F-8F9C-442D-8BA0-16548DA04175</string>
 	<key>IDESourceControlProjectName</key>
 	<string>CocoaOnePExample</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>52E44520-7B23-4B11-B4AC-13AEB6BFAB37</key>
+		<key>893A000A-D70B-43A5-B8FB-792FF9E481AB</key>
 		<string>ssh://github.com/exosite-labs/cocoaonep.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Project/CocoaOnePExample.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>52E44520-7B23-4B11-B4AC-13AEB6BFAB37</key>
+		<key>893A000A-D70B-43A5-B8FB-792FF9E481AB</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>52E44520-7B23-4B11-B4AC-13AEB6BFAB37</string>
+	<string>893A000A-D70B-43A5-B8FB-792FF9E481AB</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>52E44520-7B23-4B11-B4AC-13AEB6BFAB37</string>
+			<string>893A000A-D70B-43A5-B8FB-792FF9E481AB</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CocoaOneP</string>
 		</dict>
