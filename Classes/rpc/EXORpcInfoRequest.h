@@ -16,7 +16,7 @@ enum EXORpcInfoRequestTypes_e {
     EXORpcInfoRequestTypeAliases = 1 << 0,      /// All aliases associated with the calling client's child resources
     EXORpcInfoRequestTypeBasic = 1 << 1,        /// Basic information about a resource, such as its type, when it was created, last modified and, for 'client' and 'dispatch' type resources, its current status
     EXORpcInfoRequestTypeComments = 1 << 2,     /// This is deprecated and should not be used
-    EXORpcInfoRequestTypeCounts = 1 << 3,       ///
+    EXORpcInfoRequestTypeCounts = 1 << 3,       /// The actual count of the resources/consumables used
     EXORpcInfoRequestTypeDescription = 1 << 4,  /// The description of the resource that was used to create or last update the resource
     EXORpcInfoRequestTypeKey = 1 << 5,          /// The Client Interface Key (CIK) associated with the resource. This is valid for client resources only.
     EXORpcInfoRequestTypeShares = 1 << 6,       /// Share activation codes along with information about how many times and for what duration this resource has been shared and which clients the activators are
