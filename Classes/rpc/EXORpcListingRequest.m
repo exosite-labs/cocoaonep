@@ -66,16 +66,16 @@
     
     NSMutableDictionary *filters = [NSMutableDictionary dictionary];
     if (self.filter & EXORpcFilterTypeActivated) {
-        filters[@"activated"] = @"true";
+        filters[@"activated"] = @YES;
     }
     if (self.filter & EXORpcFilterTypeAliased) {
-        filters[@"aliased"] = @"true";
+        filters[@"aliased"] = @YES;
     }
     if (self.filter & EXORpcFilterTypeOwned) {
-        filters[@"owned"] = @"true";
+        filters[@"owned"] = @YES;
     }
     if (self.filter & EXORpcFilterTypePublic) {
-        filters[@"public"] = @"true";
+        filters[@"public"] = @YES;
     }
     // FIXME: tags are actually an array of strings.
 #if 0
@@ -84,7 +84,7 @@
     }
 #endif
     
-    return @{@"procedure": @"listing", @"arguments": @[[types copy], @{}]};
+    return @{@"procedure": @"listing", @"arguments": @[[types copy], [filters copy]]};
 }
 
 - (BOOL)isEqual:(id)object

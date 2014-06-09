@@ -14,6 +14,7 @@
 		6D28F89F18F4492B0060A270 /* EXORpcResourceIDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D28F89E18F4492B0060A270 /* EXORpcResourceIDTests.m */; };
 		6D2F151F1906CE3E00E71A00 /* EXORpcLookupRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2F151E1906CE3E00E71A00 /* EXORpcLookupRequestTests.m */; };
 		6D2F15211906D0A400E71A00 /* EXORpcMapRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2F15201906D0A400E71A00 /* EXORpcMapRequestTest.m */; };
+		6D30125F194607980077B1E8 /* EXORpcListingRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D30125E194607980077B1E8 /* EXORpcListingRequestTest.m */; };
 		6D35FAA519197088007458AF /* EXORpcValueTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D35FAA419197088007458AF /* EXORpcValueTest.m */; };
 		6D35FAC0191A73BB007458AF /* EXOBrowseExositeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D35FABD191A73BB007458AF /* EXOBrowseExositeTableViewController.m */; };
 		6D35FAC1191A73BB007458AF /* EXOLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D35FABF191A73BB007458AF /* EXOLoginViewController.m */; };
@@ -62,6 +63,7 @@
 		6D28F89E18F4492B0060A270 /* EXORpcResourceIDTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcResourceIDTests.m; sourceTree = "<group>"; };
 		6D2F151E1906CE3E00E71A00 /* EXORpcLookupRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcLookupRequestTests.m; sourceTree = "<group>"; };
 		6D2F15201906D0A400E71A00 /* EXORpcMapRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcMapRequestTest.m; sourceTree = "<group>"; };
+		6D30125E194607980077B1E8 /* EXORpcListingRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcListingRequestTest.m; sourceTree = "<group>"; };
 		6D35FAA419197088007458AF /* EXORpcValueTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcValueTest.m; sourceTree = "<group>"; };
 		6D35FABC191A73BB007458AF /* EXOBrowseExositeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOBrowseExositeTableViewController.h; sourceTree = "<group>"; };
 		6D35FABD191A73BB007458AF /* EXOBrowseExositeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOBrowseExositeTableViewController.m; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				6D28F89E18F4492B0060A270 /* EXORpcResourceIDTests.m */,
 				6D4DD594190946A000E63349 /* EXORpcResourceRetentionTest.m */,
 				6D28F89C18F448E40060A270 /* EXORpcInfoRequestTests.m */,
+				6D30125E194607980077B1E8 /* EXORpcListingRequestTest.m */,
 				6D2F151E1906CE3E00E71A00 /* EXORpcLookupRequestTests.m */,
 				6D2F15201906D0A400E71A00 /* EXORpcMapRequestTest.m */,
 				6D2094691921113800B79CB5 /* EXORpcRevokeRequestTest.m */,
@@ -407,6 +410,7 @@
 				6D2F151F1906CE3E00E71A00 /* EXORpcLookupRequestTests.m in Sources */,
 				6D2F15211906D0A400E71A00 /* EXORpcMapRequestTest.m in Sources */,
 				6D35FAA519197088007458AF /* EXORpcValueTest.m in Sources */,
+				6D30125F194607980077B1E8 /* EXORpcListingRequestTest.m in Sources */,
 				6D28F89D18F448E40060A270 /* EXORpcInfoRequestTests.m in Sources */,
 				6DA4E94E192FAE0F002A20E6 /* EXORpcActivateRequestTest.m in Sources */,
 				6D28F89F18F4492B0060A270 /* EXORpcResourceIDTests.m in Sources */,
