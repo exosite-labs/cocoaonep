@@ -16,14 +16,14 @@
 
 @implementation EXORpcCloneResource
 
-+ (EXORpcCloneResource *)resrouceWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public rid:(EXORpcResourceID *)rid code:(NSString *)code noaliases:(BOOL)noaliases nohistorical:(BOOL)nohistorical
++ (EXORpcCloneResource *)cloneWithCode:(NSString *)code noaliases:(BOOL)noaliases nohistorical:(BOOL)nohistorical
 {
-    return [[EXORpcCloneResource alloc] initWithName:name meta:meta public:public rid:rid code:code noaliases:noaliases nohistorical:nohistorical];
+    return [[EXORpcCloneResource alloc] initWithCode:code noaliases:noaliases nohistorical:nohistorical];
 }
 
-+ (EXORpcCloneResource *)resrouceWithName:(NSString *)name meta:(NSString *)meta rid:(EXORpcResourceID *)rid code:(NSString *)code
++ (EXORpcCloneResource *)cloneWithRid:(EXORpcResourceID *)rid noaliases:(BOOL)noaliases nohistorical:(BOOL)nohistorical
 {
-    return [[EXORpcCloneResource alloc] initWithName:name meta:meta public:YES rid:rid code:code noaliases:NO nohistorical:NO];
+    return [[EXORpcCloneResource alloc] initWithRid:rid noaliases:noaliases nohistorical:nohistorical];
 }
 
 - (id)init
@@ -31,17 +31,31 @@
     return nil;
 }
 
-- (id)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public rid:(EXORpcResourceID *)rid code:(NSString *)code noaliases:(BOOL)noaliases nohistorical:(BOOL)nohistorical
+- (instancetype)initWithCode:(NSString *)code noaliases:(BOOL)noaliases nohistorical:(BOOL)nohistorical
 {
-    if (self = [super initWithName:name meta:meta public:public]) {
-        self.rid = rid;
-        self.code = code;
-        self.noaliases = noaliases;
-        self.nohistorical = nohistorical;
+    if (self = [super initWithName:nil meta:nil public:NO]) {
+        _rid = nil;
+        _code = [code copy];
+        _noaliases = noaliases;
+        _nohistorical = nohistorical;
     }
     return self;
 }
 
+- (instancetype)initWithRid:(EXORpcResourceID *)rid noaliases:(BOOL)noaliases nohistorical:(BOOL)nohistorical
+{
+    /* Must be a RID type, not an alias type. */
+    if (rid.rid == nil) {
+        return nil;
+    }
+    if (self = [super initWithName:nil meta:nil public:NO]) {
+        _rid = [rid copy];
+        _code = nil;
+        _noaliases = noaliases;
+        _nohistorical = nohistorical;
+    }
+    return self;
+}
 - (NSString *)type
 {
     return @"clone";
@@ -49,7 +63,11 @@
 
 - (NSDictionary *)plistValue
 {
-    return @{@"rid": [self.rid plistValue], @"code": self.code, @"noaliases": @(self.noaliases), @"nohistorical": @(self.nohistorical)};
+    if (self.rid) {
+        return @{@"rid": self.rid.rid, @"noaliases": @(self.noaliases), @"nohistorical": @(self.nohistorical)};
+    } else {
+        return @{@"code": self.code, @"noaliases": @(self.noaliases), @"nohistorical": @(self.nohistorical)};
+    }
 }
 
 @end
