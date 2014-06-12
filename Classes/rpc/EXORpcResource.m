@@ -43,7 +43,7 @@
 
 - (instancetype)initWithName:(NSString *)name meta:(NSString *)meta
 {
-    return [self initWithName:name meta:meta public:YES];
+    return [self initWithName:name meta:meta public:NO];
 }
 
 - (NSString *)type
