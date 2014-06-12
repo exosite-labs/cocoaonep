@@ -28,7 +28,7 @@
     return self;
 }
 
-- (id)plistValue
+- (NSDictionary*)plistValue
 {
     NSMutableDictionary *res = [NSMutableDictionary new];
     if (self.count) {
