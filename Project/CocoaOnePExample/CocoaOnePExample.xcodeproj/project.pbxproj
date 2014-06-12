@@ -22,6 +22,7 @@
 		6D35FAC1191A73BB007458AF /* EXOLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D35FABF191A73BB007458AF /* EXOLoginViewController.m */; };
 		6D43A3881949EDDB000850D0 /* EXORpcResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D43A3871949EDDB000850D0 /* EXORpcResourceTest.m */; };
 		6D43A38A1949F3B2000850D0 /* EXORpcShareRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D43A3891949F3B2000850D0 /* EXORpcShareRequestTest.m */; };
+		6D43A38C1949F54A000850D0 /* EXORpcUpdateRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D43A38B1949F54A000850D0 /* EXORpcUpdateRequestTest.m */; };
 		6D4DD595190946A000E63349 /* EXORpcResourceRetentionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DD594190946A000E63349 /* EXORpcResourceRetentionTest.m */; };
 		6D4DD597190947ED00E63349 /* EXORpcDataportResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4DD596190947ED00E63349 /* EXORpcDataportResourceTest.m */; };
 		6D5A026B18BB927500237215 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A026A18BB927500237215 /* Foundation.framework */; };
@@ -77,6 +78,7 @@
 		6D35FABF191A73BB007458AF /* EXOLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOLoginViewController.m; sourceTree = "<group>"; };
 		6D43A3871949EDDB000850D0 /* EXORpcResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcResourceTest.m; sourceTree = "<group>"; };
 		6D43A3891949F3B2000850D0 /* EXORpcShareRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcShareRequestTest.m; sourceTree = "<group>"; };
+		6D43A38B1949F54A000850D0 /* EXORpcUpdateRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcUpdateRequestTest.m; sourceTree = "<group>"; };
 		6D4DD594190946A000E63349 /* EXORpcResourceRetentionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcResourceRetentionTest.m; sourceTree = "<group>"; };
 		6D4DD596190947ED00E63349 /* EXORpcDataportResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataportResourceTest.m; sourceTree = "<group>"; };
 		6D5A026718BB927500237215 /* CocoaOnePExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaOnePExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +221,7 @@
 				6D2094691921113800B79CB5 /* EXORpcRevokeRequestTest.m */,
 				6D43A3891949F3B2000850D0 /* EXORpcShareRequestTest.m */,
 				6DEE7108192681BF001F473F /* EXORpcUnmapRequestTest.m */,
+				6D43A38B1949F54A000850D0 /* EXORpcUpdateRequestTest.m */,
 				6D35FAA419197088007458AF /* EXORpcValueTest.m */,
 				6D5A029318BB927500237215 /* Supporting Files */,
 			);
@@ -423,6 +426,7 @@
 				6D301261194620B20077B1E8 /* EXORpcReadRequestTest.m in Sources */,
 				6DCD64331937892D00BD34C6 /* EXORpcInfoRequestTest.m in Sources */,
 				6D2F151F1906CE3E00E71A00 /* EXORpcLookupRequestTests.m in Sources */,
+				6D43A38C1949F54A000850D0 /* EXORpcUpdateRequestTest.m in Sources */,
 				6D2F15211906D0A400E71A00 /* EXORpcMapRequestTest.m in Sources */,
 				6D35FAA519197088007458AF /* EXORpcValueTest.m in Sources */,
 				6D30125F194607980077B1E8 /* EXORpcListingRequestTest.m in Sources */,

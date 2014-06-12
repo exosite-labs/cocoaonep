@@ -37,7 +37,7 @@
 
 - (NSDictionary *)plistValue
 {
-    return @{@"procedure": @"update", @"arguments": @[[self.rid plistValue], [self.resource plistValue]] };
+    return @{@"procedure": @"update", @"arguments": @[[self.rid plistValue], [self.resource plistValue]]};
 }
 
 - (void)doResult:(NSDictionary *)result error:(NSError *)error
