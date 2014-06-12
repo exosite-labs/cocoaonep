@@ -88,8 +88,6 @@
     args[@"retention"] = [self.retention plistValue];
     if (self.preprocess) {
         args[@"preprocess"] = self.preprocess;
-    } else {
-        args[@"preprocess"] = @[];
     }
     args[@"visibility"] = @"parent"; // Undocumented.
     
