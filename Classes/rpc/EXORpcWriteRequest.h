@@ -16,7 +16,7 @@
 /**
  The value that will be written
  */
-@property(nonatomic,copy,readonly) NSString *value;
+@property(nonatomic,copy,readonly) id value;
 
 /**
  The callback after the value has been written
@@ -78,6 +78,6 @@
 
  @return
  */
-- (instancetype)initWithRID:(EXORpcResourceID*)rid value:(NSString*)value complete:(EXORpcRequestComplete)complete;
+- (instancetype)initWithRID:(EXORpcResourceID*)rid value:(id)value complete:(EXORpcRequestComplete)complete;
 
 @end

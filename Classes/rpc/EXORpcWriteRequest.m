@@ -8,8 +8,7 @@
 #import "EXORpcWriteRequest.h"
 
 @interface EXORpcWriteRequest ()
-// TODO: This should maintain if this write is a number or a string.  Since it might matter.
-@property(nonatomic,copy) NSString *value;
+@property(nonatomic,copy) id value;
 @property(nonatomic,copy) EXORpcRequestComplete complete;
 @end
 
@@ -22,7 +21,7 @@
 
 + (EXORpcWriteRequest *)writeWithRID:(EXORpcResourceID *)rid number:(NSNumber *)value complete:(EXORpcRequestComplete)complete
 {
-    return [[EXORpcWriteRequest alloc] initWithRID:rid value:[value stringValue] complete:complete];
+    return [[EXORpcWriteRequest alloc] initWithRID:rid value:value complete:complete];
 }
 
 + (EXORpcWriteRequest*)writeWithRID:(EXORpcResourceID *)rid plist:(id)value complete:(EXORpcRequestComplete)complete
@@ -41,15 +40,18 @@
 
 + (EXORpcWriteRequest *)writeWithRID:(EXORpcResourceID *)rid value:(EXORpcValue *)value complete:(EXORpcRequestComplete)complete
 {
-    return [[EXORpcWriteRequest alloc] initWithRID:rid value:[value stringValue] complete:complete];
+    NSArray *val = [value plistValue];
+    return [[EXORpcWriteRequest alloc] initWithRID:rid value:val[1] complete:complete];
 }
 
-- (instancetype)initWithRID:(EXORpcResourceID *)rid value:(NSString*)value complete:(EXORpcRequestComplete)complete
+- (instancetype)initWithRID:(EXORpcResourceID *)rid value:(id)value complete:(EXORpcRequestComplete)complete
 {
-    if (self = [super init]) {
-        self.rid = rid;
-        self.value = value;
-        self.complete = complete;
+    if (![value isKindOfClass:[NSString class]] && ![value isKindOfClass:[NSNumber class]]) {
+        return nil;
+    }
+    if (self = [super initWithRID:rid]) {
+        _value = [value copy];
+        _complete = [complete copy];
     }
     return self;
 }
@@ -86,7 +88,7 @@
 
 - (NSUInteger)hash
 {
-    return self.rid.hash ^ self.value.hash;
+    return self.rid.hash ^ [self.value hash];
 }
 
 - (id)copyWithZone:(NSZone *)zone
