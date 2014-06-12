@@ -36,7 +36,6 @@
     result = @{
         @"format": @"float",
         @"name": @"dogeton",
-        @"public": @YES,
         @"retention":@{
             @"count": @"infinity",
             @"duration": @"infinity",
@@ -49,7 +48,6 @@
     result = @{
                @"format": @"integer",
                @"name": @"dogeton",
-               @"public": @YES,
                @"retention":@{
                        @"count": @(10),
                        @"duration": @(4),
@@ -64,7 +62,6 @@
                @"name": @"dogeton",
                @"meta": @"some meta",
                @"preprocess": @[@"booger"],
-               @"public": @YES,
                @"subscribe": @{@"alias": @""},
                @"retention":@{
                        @"count": @(12),
