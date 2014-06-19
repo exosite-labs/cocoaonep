@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04EE159499A84CA2BAB4AE7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D852725846A4619BFA2CA58 /* libPods.a */; };
 		6D021E9F19531E5C006EC364 /* EXORpcPreprocessOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D021E9E19531E5C006EC364 /* EXORpcPreprocessOperationTest.m */; };
+		6D021EA11953238E006EC364 /* EXORpcDataruleResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D021EA01953238E006EC364 /* EXORpcDataruleResourceTest.m */; };
 		6D209455191BB9EB00B79CB5 /* EXORpcRecordRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D209454191BB9EB00B79CB5 /* EXORpcRecordRequestTest.m */; };
 		6D20946A1921113800B79CB5 /* EXORpcRevokeRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2094691921113800B79CB5 /* EXORpcRevokeRequestTest.m */; };
 		6D28F89D18F448E40060A270 /* EXORpcInfoRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D28F89C18F448E40060A270 /* EXORpcInfoRequestTests.m */; };
@@ -67,6 +68,7 @@
 /* Begin PBXFileReference section */
 		1D852725846A4619BFA2CA58 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D021E9E19531E5C006EC364 /* EXORpcPreprocessOperationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcPreprocessOperationTest.m; sourceTree = "<group>"; };
+		6D021EA01953238E006EC364 /* EXORpcDataruleResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleResourceTest.m; sourceTree = "<group>"; };
 		6D209454191BB9EB00B79CB5 /* EXORpcRecordRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcRecordRequestTest.m; sourceTree = "<group>"; };
 		6D2094691921113800B79CB5 /* EXORpcRevokeRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcRevokeRequestTest.m; sourceTree = "<group>"; };
 		6D28F89C18F448E40060A270 /* EXORpcInfoRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcInfoRequestTests.m; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				6DA4E94F192FB12B002A20E6 /* EXORpcClientResourceTest.m */,
 				6D43A391194A0EE1000850D0 /* EXORpcCloneResourceTest.m */,
 				6D4DD596190947ED00E63349 /* EXORpcDataportResourceTest.m */,
+				6D021EA01953238E006EC364 /* EXORpcDataruleResourceTest.m */,
 				6DA4E951192FCBE3002A20E6 /* EXORpcDispatchResourceTest.m */,
 				6DCD642C193780E700BD34C6 /* EXORpcDeactivateRequestTest.m */,
 				6DCD642E1937822500BD34C6 /* EXORpcDropRequestTest.m */,
@@ -453,6 +456,7 @@
 				6D20946A1921113800B79CB5 /* EXORpcRevokeRequestTest.m in Sources */,
 				6D43A38E1949FC98000850D0 /* EXORpcUsageRequestTest.m in Sources */,
 				6DA4E952192FCBE3002A20E6 /* EXORpcDispatchResourceTest.m in Sources */,
+				6D021EA11953238E006EC364 /* EXORpcDataruleResourceTest.m in Sources */,
 				6DCD642D193780E700BD34C6 /* EXORpcDeactivateRequestTest.m in Sources */,
 				6D4DD597190947ED00E63349 /* EXORpcDataportResourceTest.m in Sources */,
 				6D4DD595190946A000E63349 /* EXORpcResourceRetentionTest.m in Sources */,

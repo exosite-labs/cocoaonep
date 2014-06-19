@@ -9,17 +9,28 @@
 
 @interface EXORpcDataruleResource ()
 @property(assign,nonatomic) EXORpcDataportFormat_t format;
-@property(copy,nonatomic) NSNumber *retentionCount;
-@property(copy,nonatomic) NSNumber *retentionDuration;
+@property(copy,nonatomic) EXORpcResourceRetention *retention;
 @property(copy,nonatomic) EXORpcDatarule *rule;
 @property(copy,nonatomic) EXORpcResourceID *subscribe;
+@property(strong,nonatomic) NSArray *preprocess;
 @end
 
 @implementation EXORpcDataruleResource
 
-+ (EXORpcDataruleResource *)resourceWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format retentionCount:(NSNumber *)retentionCount retentionDuration:(NSNumber *)retentionDuration rule:(EXORpcDatarule *)rule subscribe:(EXORpcResourceID *)subscribe
++ (EXORpcDataruleResource *)dataruleWithName:(NSString *)name script:(NSString *)script
 {
-    return [[EXORpcDataruleResource alloc] initWithName:name meta:meta public:public format:format retentionCount:retentionCount retentionDuration:retentionDuration rule:rule subscribe:subscribe];
+    EXORpcResourceRetention *reten = [EXORpcResourceRetention retentionWithCount:@(1000) duration:nil];
+    EXORpcDataruleScript *rule = [EXORpcDataruleScript dataruleScriptWithScript:script];
+    return [[EXORpcDataruleResource alloc] initWithName:name meta:nil public:NO format:EXORpcDataportFormatString retention:reten rule:rule subscribe:nil preprocess:nil];
+}
+
++ (EXORpcDataruleResource *)dataruleWithName:(NSString *)name rule:(EXORpcDatarule *)rule subscribe:(EXORpcResourceID *)subscribe
+{
+    EXORpcDataportFormat_t format = EXORpcDataportFormatInteger;
+    if ([rule isKindOfClass:[EXORpcDataruleScript class]]) {
+        format = EXORpcDataportFormatString;
+    }
+    return [[EXORpcDataruleResource alloc] initWithName:name meta:nil public:NO format:format retention:nil rule:rule subscribe:subscribe preprocess:nil];
 }
 
 - (id)init
@@ -27,14 +38,18 @@
     return nil;
 }
 
-- (id)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format retentionCount:(NSNumber *)retentionCount retentionDuration:(NSNumber *)retentionDuration rule:(EXORpcDatarule *)rule subscribe:(EXORpcResourceID *)subscribe
+- (id)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format retention:(EXORpcResourceRetention *)retention rule:(EXORpcDatarule *)rule subscribe:(EXORpcResourceID *)subscribe preprocess:(NSArray *)preprocess
 {
     if (self = [super initWithName:name meta:meta public:public]) {
-        self.format = format;
-        self.retentionCount = retentionCount;
-        self.retentionDuration = retentionDuration;
-        self.rule = rule;
-        self.subscribe = subscribe;
+        _format = format;
+        if (retention == nil) {
+            _retention = [EXORpcResourceRetention new];
+        } else {
+            _retention = [retention copy];
+        }
+        _rule = [rule copy];
+        _subscribe = [subscribe copy];
+        _preprocess = [preprocess copy];
     }
     return self;
 }
@@ -66,25 +81,23 @@
         args[@"name"] = self.name;
     }
     if (self.public) {
-        args[@"public"] = @"true";
+        args[@"public"] = @YES;
     }
-    if (self.retentionCount || self.retentionDuration) {
-        NSMutableDictionary *reten = [NSMutableDictionary dictionary];
-        if (self.retentionCount) {
-            reten[@"count"] = self.retentionCount;
-        }
-        if (self.retentionDuration) {
-            reten[@"duration"] = self.retentionDuration;
-        }
-        args[@"retention"] = [reten copy];
-    }
+    args[@"retention"] = [self.retention plistValue];
     if (self.rule) {
         args[@"rule"] = [self.rule plistValue];
     }
     if (self.subscribe) {
         args[@"subscribe"] = [self.subscribe plistValue];
     }
-    
+    if (self.preprocess) {
+        NSMutableArray *ppos = [NSMutableArray new];
+        for (EXORpcPreprocessOperation* ppo in self.preprocess) {
+            [ppos addObject:[ppo plistValue]];
+        }
+        args[@"preprocess"] = [ppos copy];
+    }
+
     return [args copy];
 }
 
