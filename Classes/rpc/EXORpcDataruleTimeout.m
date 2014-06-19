@@ -35,7 +35,7 @@
 
 - (NSDictionary *)plistValue
 {
-    return @{@"timeout": @{@"timeout": self.timeout, @"repeat": self.repeat?@"true":@"false"}};
+    return @{@"timeout": @{@"timeout": self.timeout, @"repeat": @(self.repeat)}};
 }
 
 - (BOOL)isEqual:(id)object
