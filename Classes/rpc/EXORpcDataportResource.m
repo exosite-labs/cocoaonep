@@ -87,7 +87,11 @@
     }
     args[@"retention"] = [self.retention plistValue];
     if (self.preprocess) {
-        args[@"preprocess"] = self.preprocess;
+        NSMutableArray *ppos = [NSMutableArray new];
+        for (EXORpcPreprocessOperation* ppo in self.preprocess) {
+            [ppos addObject:[ppo plistValue]];
+        }
+        args[@"preprocess"] = [ppos copy];
     }
     args[@"visibility"] = @"parent"; // Undocumented.
     
