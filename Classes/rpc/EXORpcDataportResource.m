@@ -16,24 +16,24 @@
 
 @implementation EXORpcDataportResource
 
-+ (EXORpcDataportResource *)dataportWithName:(NSString *)name meta:(NSString *)meta format:(EXORpcDataportFormat_t)format preprocess:(NSArray *)preprocess subscribe:(EXORpcResourceID *)subscribe retention:(EXORpcResourceRetention *)retention
++ (EXORpcDataportResource *)dataportWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format preprocess:(NSArray *)preprocess subscribe:(EXORpcResourceID *)subscribe retention:(EXORpcResourceRetention *)retention
 {
-    return [[EXORpcDataportResource alloc] initWithName:name meta:meta format:format preprocess:preprocess subscribe:subscribe retention:retention];
+    return [[EXORpcDataportResource alloc] initWithName:name meta:meta public:public format:format preprocess:preprocess subscribe:subscribe retention:retention];
 }
 
 + (EXORpcDataportResource *)dataportWithName:(NSString *)name format:(EXORpcDataportFormat_t)format retention:(EXORpcResourceRetention *)retention
 {
-    return [[EXORpcDataportResource alloc] initWithName:name meta:nil format:format preprocess:nil subscribe:nil retention:retention];
+    return [[EXORpcDataportResource alloc] initWithName:name meta:nil public:NO format:format preprocess:nil subscribe:nil retention:retention];
 }
 
 + (EXORpcDataportResource *)dataportWithName:(NSString *)name format:(EXORpcDataportFormat_t)format
 {
-    return [[EXORpcDataportResource alloc] initWithName:name meta:nil format:format preprocess:nil subscribe:nil retention:nil];
+    return [[EXORpcDataportResource alloc] initWithName:name meta:nil public:NO format:format preprocess:nil subscribe:nil retention:nil];
 }
 
-- (instancetype)initWithName:(NSString *)name meta:(NSString *)meta format:(EXORpcDataportFormat_t)format preprocess:(NSArray *)preprocess subscribe:(EXORpcResourceID *)subscribe retention:(EXORpcResourceRetention *)retention
+- (instancetype)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format preprocess:(NSArray *)preprocess subscribe:(EXORpcResourceID *)subscribe retention:(EXORpcResourceRetention *)retention
 {
-    if (self = [super initWithName:name meta:meta]) {
+    if (self = [super initWithName:name meta:meta public:public]) {
         self.format = format;
         self.preprocess = preprocess;
         self.subscribe = subscribe;

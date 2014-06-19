@@ -56,12 +56,13 @@
                };
     XCTAssertEqualObjects(result, [dp plistValue], @"Name, format and retention");
 
-    dp = [EXORpcDataportResource dataportWithName:@"dogeton" meta:@"some meta" format:EXORpcDataportFormatString preprocess:@[@"booger"] subscribe:[EXORpcResourceID resourceIDAsSelf] retention:[EXORpcResourceRetention retentionWithCount:@(12) duration:@(90)]];
+    EXORpcPreprocessOperation *ppo = [EXORpcPreprocessOperation preprocessOperation:EXORpcPreprocessOperation_Add value:@(42)];
+    dp = [EXORpcDataportResource dataportWithName:@"dogeton" meta:@"some meta" public:NO format:EXORpcDataportFormatString preprocess:@[ppo] subscribe:[EXORpcResourceID resourceIDAsSelf] retention:[EXORpcResourceRetention retentionWithCount:@(12) duration:@(90)]];
     result = @{
                @"format": @"string",
                @"name": @"dogeton",
                @"meta": @"some meta",
-               @"preprocess": @[@"booger"],
+               @"preprocess": @[@[@"add", @(42)]],
                @"subscribe": @{@"alias": @""},
                @"retention":@{
                        @"count": @(12),
