@@ -33,10 +33,10 @@
     return self;
 }
 
-- (NSArray *)plistValue
+- (NSString*)stringFromOperation:(EXORpcPreprocessOperation_t)operation
 {
     NSString *op=nil;
-    switch (self.operation) {
+    switch (operation) {
         case EXORpcPreprocessOperation_Add:
             op = @"add";
             break;
@@ -74,7 +74,12 @@
             op = @"value";
             break;
     }
-    return @[op, self.value];
+    return op;
+}
+
+- (NSArray *)plistValue
+{
+    return @[[self stringFromOperation:self.operation], self.value];
 }
 
 - (BOOL)isEqual:(id)object
@@ -94,5 +99,11 @@
 {
     return self;
 }
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p, Op: %@, Value: %@>", NSStringFromClass([self class]), self, [self stringFromOperation:self.operation], self.value];
+}
+
 
 @end
