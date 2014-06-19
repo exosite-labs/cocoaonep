@@ -6,6 +6,7 @@
 //
 
 #import "EXORpcResource.h"
+#import "EXORpcPreprocessOperation.h"
 
 enum EXORpcDataportFormat_e {
     EXORpcDataportFormatString = 0,
