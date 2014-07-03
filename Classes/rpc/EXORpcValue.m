@@ -11,6 +11,8 @@
 @property(copy,nonatomic) NSDate *when;
 @property(copy,nonatomic) NSString *stringValue;
 @property(copy,nonatomic) NSNumber *numberValue;
+@property(copy,nonatomic) id json;
+
 @end
 
 @implementation EXORpcValue
@@ -18,6 +20,21 @@
 + (BOOL)supportsSecureCoding
 {
     return YES;
+}
+
++ (EXORpcValue *)valueWithDate:(NSDate *)when json:(id)json
+{
+    if (![NSJSONSerialization isValidJSONObject:json]) {
+        return nil;
+    }
+    NSError *err=nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:json options:0 error:&err];
+    if (data == nil || err != nil) {
+        return nil;
+    }
+    NSString *value = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+    return [[EXORpcValue alloc] initWithDate:when string:value];
 }
 
 + (EXORpcValue*)valueWithDate:(NSDate*)when string:(NSString*)value
@@ -33,8 +50,8 @@
 - (instancetype)initWithDate:(NSDate *)when number:(NSNumber *)value
 {
     if (self = [super init]) {
-        _when = when;
-        _numberValue = value;
+        _when = [when copy];
+        _numberValue = [value copy];
     }
     return self;
 }
@@ -42,8 +59,8 @@
 - (instancetype)initWithDate:(NSDate *)when string:(NSString *)value
 {
     if (self = [super init]) {
-        _when = when;
-        _stringValue = value;
+        _when = [when copy];
+        _stringValue = [value copy];
     }
     return self;
 }
@@ -87,6 +104,24 @@
         } else {
             return nil;
         }
+    }
+    return nil;
+}
+
+- (id)json
+{
+    if (_json) {
+        return [_json copy]; // TODO: ???deep copy?
+    }
+    if (_stringValue != nil) {
+        NSError *err=nil;
+        NSData *data = [_stringValue dataUsingEncoding:NSUTF8StringEncoding];
+        id plist = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+        if (plist == nil || err != nil) {
+            return nil;
+        }
+        _json = plist;
+        return _json;
     }
     return nil;
 }

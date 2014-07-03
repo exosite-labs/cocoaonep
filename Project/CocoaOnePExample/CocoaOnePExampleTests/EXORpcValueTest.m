@@ -41,10 +41,19 @@
 
     value = [EXORpcValue valueWithDate:[NSDate dateWithTimeIntervalSince1970:42] string:@"Fiddly pop"];
     XCTAssertEqualObjects(value.when, [NSDate dateWithTimeIntervalSince1970:42], @"Check date");
-    XCTAssertEqualObjects(value.stringValue, @"Fiddly pop", @"Check number");
+    XCTAssertEqualObjects(value.stringValue, @"Fiddly pop", @"Check string");
     XCTAssertEqualObjects(value.numberValue, nil, @"Check number");
     result = @[@(42), @"Fiddly pop"];
     XCTAssertEqualObjects([value plistValue], result, @"Check plist");
+
+    value = [EXORpcValue valueWithDate:[NSDate dateWithTimeIntervalSince1970:42] json:@{@"test": @[@"this",@(98)]}];
+    XCTAssertEqualObjects(value.when, [NSDate dateWithTimeIntervalSince1970:42], @"Check date");
+    XCTAssertEqualObjects(value.numberValue, nil, @"Check number");
+    XCTAssertEqualObjects(value.stringValue, @"{\"test\":[\"this\",98]}", @"Check string");
+    result = @[@(42), @"{\"test\":[\"this\",98]}"];
+    XCTAssertEqualObjects([value plistValue], result, @"Check plist");
+    id test = @{@"test": @[@"this",@(98)]};
+    XCTAssertEqualObjects(value.json, test, @"Check JSON");
 
 }
 
