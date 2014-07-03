@@ -36,7 +36,7 @@ We are in the progress of adding appledoc to all the headers.
 ## Requirements
 
 CocoaOneP requires Xcode 5, targeting either iOS 7.0 and above, or Mac OS 10.8 Mountain Lion.
-It also depends on [AFNetworking 2.0](https://github.com/AFNetworking/AFNetworking).
+It also depends on [AFNetworking 2.2](https://github.com/AFNetworking/AFNetworking).
 
 ## Installation with CocoaPods
 
