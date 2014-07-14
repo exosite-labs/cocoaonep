@@ -35,6 +35,10 @@
     di = [EXORpcDataruleInterval dataruleIntervalWithComare:EXORpcDataruleComparisonEqual constant:@(42) timeout:@(60) repeat:NO];
     result = @{@"interval": @{@"comparison": @"eq", @"constant": @(42), @"timeout": @(60), @"repeat": @NO}};
     XCTAssertEqualObjects([di plistValue], result, @"");
+
+    di = [[EXORpcDataruleInterval alloc] initWithPList:@{@"comparison": @"eq", @"constant": @(42), @"timeout": @(60), @"repeat": @NO}];
+    result = @{@"interval": @{@"comparison": @"eq", @"constant": @(42), @"timeout": @(60), @"repeat": @NO}};
+    XCTAssertEqualObjects([di plistValue], result, @"");
 }
 
 @end

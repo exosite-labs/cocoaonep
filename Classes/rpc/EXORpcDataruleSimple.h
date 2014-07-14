@@ -47,4 +47,13 @@
  @return Simple datarule
  */
 - (instancetype)initWithCompare:(EXORpcDataruleComparison_t)comparison constant:(NSNumber*)constant repeat:(BOOL)repeat;
+
+/**
+ Initialize datarule from a plist
+
+ @param plist The property list to parse.
+ @return A Datarule
+ */
+- (instancetype)initWithPList:(NSDictionary*)plist;
+
 @end

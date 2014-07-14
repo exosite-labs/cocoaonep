@@ -35,6 +35,10 @@
     dt = [EXORpcDataruleTimeout dataruleTimeoutWithTimeout:@(42) repeat:NO];
     result = @{@"timeout": @{@"timeout": @(42), @"repeat": @NO}};
     XCTAssertEqualObjects([dt plistValue], result, @"");
+
+    dt = [[EXORpcDataruleTimeout alloc] initWithPList:@{@"timeout": @(42), @"repeat": @NO}];
+    result = @{@"timeout": @{@"timeout": @(42), @"repeat": @NO}};
+    XCTAssertEqualObjects([dt plistValue], result, @"");
 }
 
 @end

@@ -35,7 +35,10 @@
     dd = [EXORpcDataruleDuration dataruleDurationWithCompare:EXORpcDataruleComparisonEqual constant:@(42) timeout:@(60) repeat:YES];
     result = @{@"duration": @{@"comparison": @"eq", @"constant": @(42), @"timeout": @(60), @"repeat": @YES}};
     XCTAssertEqualObjects([dd plistValue], result, @"");
-    
+
+    dd = [[EXORpcDataruleDuration alloc] initWithPList:@{@"comparison": @"eq", @"constant": @(42), @"timeout": @(60), @"repeat": @YES}];
+    result = @{@"duration": @{@"comparison": @"eq", @"constant": @(42), @"timeout": @(60), @"repeat": @YES}};
+    XCTAssertEqualObjects([dd plistValue], result, @"initialize from plist");
 }
 
 @end

@@ -30,6 +30,11 @@
     return self;
 }
 
+- (instancetype)initWithPList:(NSDictionary *)plist
+{
+    return [self initWithCompare:[self comparisonFromString:plist[@"comparison"]] constant:plist[@"constant"] repeat:[plist[@"repeat"] boolValue]];
+}
+
 - (id)init
 {
     return nil;

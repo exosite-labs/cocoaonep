@@ -87,4 +87,11 @@
  */
 - (instancetype)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format retention:(EXORpcResourceRetention*)retention rule:(EXORpcDatarule*)rule subscribe:(EXORpcResourceID*)subscribe preprocess:(NSArray*)preprocess;
 
+/**
+ Initialize a datarule resource from a plist from info request.
+
+ @param plist The description property list from an info request.
+ @return A Datarule Resource
+ */
+- (instancetype)initWithPList:(NSDictionary*)plist;
 @end

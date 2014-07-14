@@ -28,6 +28,11 @@
     return self;
 }
 
+- (instancetype)initWithPList:(NSDictionary *)plist
+{
+    return [self initWithTimeout:plist[@"timeout"] repeat:[plist[@"repeat"] boolValue]];
+}
+
 - (id)init
 {
     return nil;

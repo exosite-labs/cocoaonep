@@ -35,6 +35,10 @@
     ds = [EXORpcDataruleSimple dataruleSimpleWithCompare:EXORpcDataruleComparisonEqual constant:@(42) repeat:YES];
     result = @{@"simple": @{@"comparison": @"eq", @"constant": @(42), @"repeat": @YES}};
     XCTAssertEqualObjects([ds plistValue], result, @"");
+
+    ds = [[EXORpcDataruleSimple alloc] initWithPList:@{@"comparison": @"eq", @"constant": @(42), @"repeat": @YES}];
+    result = @{@"simple": @{@"comparison": @"eq", @"constant": @(42), @"repeat": @YES}};
+    XCTAssertEqualObjects([ds plistValue], result, @"");
 }
 
 @end

@@ -49,17 +49,32 @@
     };
     XCTAssertEqualObjects([datarule plistValue], result, @"Rule datarule");
 
-    datarule = [EXORpcDataruleResource dataruleWithName:@"script test" script:@"# A lus script."];
+    datarule = [EXORpcDataruleResource dataruleWithName:@"script test" script:@"# A lua script."];
     result = @{
         @"format": @"string",
         @"name": @"script test",
         @"retention": @{@"count": @(1000), @"duration": @"infinity"},
         @"rule": @{
-            @"script": @"# A lus script."
+            @"script": @"# A lua script."
         }
     };
     XCTAssertEqualObjects([datarule plistValue], result, @"Rule datarule");
 
+    result = @{
+               @"format": @"integer",
+               @"name": @"test",
+               @"retention": @{@"count": @"infinity", @"duration": @"infinity"},
+               @"rule": @{
+                       @"timeout": @{
+                               @"repeat": @NO,
+                               @"timeout": @(12),
+                               },
+                       },
+               @"subscribe": @{@"alias": @""},
+               @"preprocess": @[]
+               };
+    datarule = [[EXORpcDataruleResource alloc] initWithPList:result];
+    XCTAssertEqualObjects([datarule plistValue], result, @"Init from plist");
 }
 
 @end

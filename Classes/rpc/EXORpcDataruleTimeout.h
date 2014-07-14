@@ -42,4 +42,13 @@
  @return Timeout datarule
  */
 - (instancetype)initWithTimeout:(NSNumber*)timeout repeat:(BOOL)repeat;
+
+/**
+ Initialize datarule from a plist
+
+ @param plist The property list to parse.
+ @return A Datarule
+ */
+- (instancetype)initWithPList:(NSDictionary*)plist;
+
 @end

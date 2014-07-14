@@ -54,6 +54,53 @@
     return self;
 }
 
+- (instancetype)initWithPList:(NSDictionary *)plist
+{
+    NSString *name = plist[@"name"];
+    NSString *meta = plist[@"meta"];
+    EXORpcDataportFormat_t format;
+    if ([plist[@"format"] isEqualToString:@"float"]) {
+        format = EXORpcDataportFormatFloat;
+    } else if ([plist[@"format"] isEqualToString:@"integer"]) {
+        format = EXORpcDataportFormatInteger;
+    } else if ([plist[@"format"] isEqualToString:@"string"]) {
+        format = EXORpcDataportFormatString;
+    } else {
+        return nil;
+    }
+    if (plist[@"subscribe"] == nil) {
+        return nil;
+    }
+    EXORpcResourceID *subscribed = [EXORpcResourceID resourceIDByRID:plist[@"subscribe"]];
+    EXORpcResourceRetention *retention = [[EXORpcResourceRetention alloc] initWithPList:plist[@"retention"]];
+    NSMutableArray *preprocess = [NSMutableArray new];
+    for (NSArray *pp in plist[@"preprocess"]) {
+        [preprocess addObject:[[EXORpcPreprocessOperation alloc] initWithPList:pp]];
+    }
+    EXORpcDatarule *rule;
+    if (plist[@"rule"] == nil) {
+        return nil;
+    }
+    NSDictionary *drule = plist[@"rule"];
+    if (drule[@"count"]) {
+        rule = [[EXORpcDataruleCount alloc] initWithPList:drule[@"count"]];
+    } else if (drule[@"duration"]) {
+        rule = [[EXORpcDataruleDuration alloc] initWithPList:drule[@"duration"]];
+    } else if (drule[@"interval"]) {
+        rule = [[EXORpcDataruleInterval alloc] initWithPList:drule[@"interval"]];
+    } else if (drule[@"script"]) {
+        rule = [EXORpcDataruleScript dataruleScriptWithScript:drule[@"script"]];
+    } else if (drule[@"simple"]) {
+        rule = [[EXORpcDataruleSimple alloc] initWithPList:drule[@"simple"]];
+    } else if (drule[@"timeout"]) {
+        rule = [[EXORpcDataruleTimeout alloc] initWithPList:drule[@"timeout"]];
+    } else {
+        return nil;
+    }
+
+    return [self initWithName:name meta:meta public:[plist[@"public"] boolValue] format:format retention:retention rule:rule subscribe:subscribed preprocess:preprocess];
+}
+
 - (NSString *)type
 {
     return @"datarule";
