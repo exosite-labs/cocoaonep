@@ -22,8 +22,8 @@
 - (instancetype)initWithTimeout:(NSNumber *)timeout repeat:(BOOL)repeat
 {
     if (self = [super init]) {
-        self.timeout = timeout;
-        self.repeat = repeat;
+        _timeout = [timeout copy];
+        _repeat = repeat;
     }
     return self;
 }

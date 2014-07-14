@@ -23,9 +23,9 @@
 - (instancetype)initWithCompare:(EXORpcDataruleComparison_t)comparison constant:(NSNumber *)constant repeat:(BOOL)repeat
 {
     if (self = [super init]) {
-        self.comparison = comparison;
-        self.constant = constant;
-        self.repeat = repeat;
+        _comparison = comparison;
+        _constant = [constant copy];
+        _repeat = repeat;
     }
     return self;
 }

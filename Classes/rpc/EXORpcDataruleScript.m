@@ -21,7 +21,7 @@
 - (id)initWithScript:(NSString *)script
 {
     if (self = [super init]) {
-        self.script = script;
+        _script = [script copy];
     }
     return self;
 }

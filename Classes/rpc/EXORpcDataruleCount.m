@@ -25,10 +25,11 @@
 - (id)initWithCompare:(EXORpcDataruleComparison_t)comparison constant:(NSNumber *)constant count:(NSNumber*)count timeout:(NSNumber *)timeout repeat:(BOOL)repeat
 {
     if (self = [super init]) {
-        self.comparison = comparison;
-        self.constant = constant;
-        self.timeout = timeout;
-        self.repeat = repeat;
+        _comparison = comparison;
+        _constant = [constant copy];
+        _count = [count copy];
+        _timeout = [timeout copy];
+        _repeat = repeat;
     }
     return self;
 }
