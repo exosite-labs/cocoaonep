@@ -6,6 +6,10 @@
 //
 
 #import "EXORpcInfoRequest.h"
+#import "EXORpcClientResource.h"
+#import "EXORpcDataportResource.h"
+#import "EXORpcDataruleResource.h"
+#import "EXORpcDispatchResource.h"
 
 @interface EXORpcInfoRequest ()
 @property(nonatomic,assign) EXORpcInfoRequestTypes_t types;
@@ -19,7 +23,7 @@
 
 + (EXORpcInfoRequest *)infoByRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestTypes_t)types complete:(EXORpcInfoRequestComplete)complete
 {
-    return [[EXORpcInfoRequest alloc] initWithRID:rid types:types raw:YES complete:complete];
+    return [[EXORpcInfoRequest alloc] initWithRID:rid types:types raw:NO complete:complete];
 }
 
 - (instancetype)initWithRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestTypes_t)types raw:(BOOL)raw complete:(EXORpcInfoRequestComplete)complete
@@ -46,8 +50,17 @@
 
             NSMutableDictionary *mres = [result[@"result"] mutableCopy];
 
-            if (mres[@"description"]) {
-                
+            if (mres[@"description"] && mres[@"basic"] && mres[@"basic"][@"type"]) {
+                NSString *type = mres[@"basic"][@"type"];
+                if ([type isEqualToString:@"client"]) {
+                    mres[@"description"] = [[EXORpcClientResource alloc] initWithPList:mres[@"description"]];
+                } else if ([type isEqualToString:@"dataport"]) {
+                    mres[@"description"] = [[EXORpcDataportResource alloc] initWithPList:mres[@"description"]];
+                } else if ([type isEqualToString:@"datarule"]) {
+                    mres[@"description"] = [[EXORpcDataruleResource alloc] initWithPList:mres[@"description"]];
+                } else if ([type isEqualToString:@"dispatch"]) {
+                    mres[@"description"] = [[EXORpcDispatchResource alloc] initWithPList:mres[@"description"]];
+                }
             }
 
             if (self.maskedBasicInfo) {
