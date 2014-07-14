@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "CocoaOneP"
-  s.version          = "0.3.3"
+  s.version          = "0.4.0"
   s.summary          = "Cocoa library for using the Exosite One Platform."
   s.homepage         = "http://exosite.com/platform/data-platform/"
   s.license          = 'BSD'
