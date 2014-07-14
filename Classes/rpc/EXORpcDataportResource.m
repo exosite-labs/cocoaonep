@@ -34,16 +34,43 @@
 - (instancetype)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format preprocess:(NSArray *)preprocess subscribe:(EXORpcResourceID *)subscribe retention:(EXORpcResourceRetention *)retention
 {
     if (self = [super initWithName:name meta:meta public:public]) {
-        self.format = format;
-        self.preprocess = preprocess;
-        self.subscribe = subscribe;
+        _format = format;
+        _preprocess = [preprocess copy];
+        _subscribe = [subscribe copy];
         if (retention == nil) {
-            self.retention = [EXORpcResourceRetention new];
+            _retention = [EXORpcResourceRetention new];
         } else {
-            self.retention = retention;
+            _retention = [retention copy];
         }
     }
     return self;
+}
+
+- (instancetype)initWithPList:(NSDictionary *)plist
+{
+    NSString *name = plist[@"name"];
+    NSString *meta = plist[@"meta"];
+    EXORpcDataportFormat_t format;
+    if ([plist[@"format"] isEqualToString:@"float"]) {
+        format = EXORpcDataportFormatFloat;
+    } else if ([plist[@"format"] isEqualToString:@"integer"]) {
+            format = EXORpcDataportFormatInteger;
+    } else if ([plist[@"format"] isEqualToString:@"string"]) {
+        format = EXORpcDataportFormatString;
+    } else {
+        return nil;
+    }
+    if (plist[@"subscribe"] == nil) {
+        return nil;
+    }
+    EXORpcResourceID *subscribed = [EXORpcResourceID resourceIDByRID:plist[@"subscribe"]];
+    EXORpcResourceRetention *retention = [[EXORpcResourceRetention alloc] initWithPList:plist[@"retention"]];
+    NSMutableArray *preprocess = [NSMutableArray new];
+    for (NSArray *pp in plist[@"preprocess"]) {
+        [preprocess addObject:[[EXORpcPreprocessOperation alloc] initWithPList:pp]];
+    }
+
+    return [self initWithName:name meta:meta public:[plist[@"public"] boolValue] format:format preprocess:preprocess subscribe:subscribed retention:retention];
 }
 
 - (id)init

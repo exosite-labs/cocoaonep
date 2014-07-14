@@ -163,4 +163,5 @@
  @return A Client Resource
  */
 - (instancetype)initWithPList:(NSDictionary*)plist;
+
 @end

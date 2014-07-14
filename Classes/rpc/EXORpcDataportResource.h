@@ -98,4 +98,13 @@ typedef enum EXORpcDataportFormat_e EXORpcDataportFormat_t;
  @return The dataport resource
  */
 - (instancetype)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format preprocess:(NSArray*)preprocess subscribe:(EXORpcResourceID*)subscribe retention:(EXORpcResourceRetention*)retention;
+
+/**
+ Initialize a dataport resource from a plist from info request.
+
+ @param plist The description property list from an info request.
+ @return A Dataport Resource
+ */
+- (instancetype)initWithPList:(NSDictionary*)plist;
+
 @end

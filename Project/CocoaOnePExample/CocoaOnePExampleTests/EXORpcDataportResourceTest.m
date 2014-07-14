@@ -72,6 +72,20 @@
                };
     XCTAssertEqualObjects(result, [dp plistValue], @"All options");
 
+    result = @{
+               @"format": @"string",
+               @"name": @"dogeton",
+               @"meta": @"some meta",
+               @"preprocess": @[@[@"add", @(42)]],
+               @"subscribe": @{@"alias": @""},
+               @"retention":@{
+                       @"count": @(12),
+                       @"duration": @(90),
+                       },
+               @"visibility": @"parent"
+               };
+    dp = [[EXORpcDataportResource alloc] initWithPList:result];
+    XCTAssertEqualObjects(result, [dp plistValue], @"Initialize from plist.");
 }
 
 @end
