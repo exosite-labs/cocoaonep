@@ -53,6 +53,13 @@ typedef void(^EXORpcInfoRequestComplete)(NSDictionary *result, NSError *error);
 @property(nonatomic,copy,readonly) EXORpcInfoRequestComplete complete;
 
 /**
+ When true, returned results are nested base foundation types.
+ 
+ When false, returned results will be EXORpc types when possible.
+ */
+@property(assign,nonatomic,readonly) BOOL returnRaw;
+
+/**
  Create an Information request
  
  @param rid The resource to request info about
@@ -67,9 +74,10 @@ typedef void(^EXORpcInfoRequestComplete)(NSDictionary *result, NSError *error);
 
  @param rid The resource to request info about
  @param types What info to request
+ @param raw Return results as base foundation types.
  @param complete Callback for when request is complete
  @return The info request
  */
-- (instancetype)initWithRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestTypes_t)types complete:(EXORpcInfoRequestComplete)complete;
+- (instancetype)initWithRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestTypes_t)types raw:(BOOL)raw complete:(EXORpcInfoRequestComplete)complete;
 
 @end

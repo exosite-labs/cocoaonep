@@ -10,6 +10,8 @@
 @interface EXORpcInfoRequest ()
 @property(nonatomic,assign) EXORpcInfoRequestTypes_t types;
 @property(nonatomic,copy) EXORpcInfoRequestComplete complete;
+@property(assign,nonatomic) BOOL returnRaw;
+@property(assign,nonatomic) BOOL maskedBasicInfo;
 @end
 
 
@@ -17,14 +19,15 @@
 
 + (EXORpcInfoRequest *)infoByRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestTypes_t)types complete:(EXORpcInfoRequestComplete)complete
 {
-    return [[EXORpcInfoRequest alloc] initWithRID:rid types:types complete:complete];
+    return [[EXORpcInfoRequest alloc] initWithRID:rid types:types raw:YES complete:complete];
 }
 
-- (instancetype)initWithRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestTypes_t)types complete:(EXORpcInfoRequestComplete)complete
+- (instancetype)initWithRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestTypes_t)types raw:(BOOL)raw complete:(EXORpcInfoRequestComplete)complete
 {
     if (self = [super initWithRID:rid]) {
-        self.types = types;
-        self.complete = complete;
+        _types = types;
+        _returnRaw = raw;
+        _complete = [complete copy];
     }
     return self;
 }
@@ -36,7 +39,21 @@
         if (err) {
             self.complete(nil, err);
         } else {
-            self.complete(result[@"result"], nil); // FIXME: type check result.
+            if (self.returnRaw) {
+                self.complete(result[@"result"], nil);
+                return;
+            }
+
+            NSMutableDictionary *mres = [result[@"result"] mutableCopy];
+
+            if (mres[@"description"]) {
+                
+            }
+
+            if (self.maskedBasicInfo) {
+                [mres removeObjectForKey:@"basic"];
+            }
+            self.complete([mres copy], nil);
         }
     }
 }
@@ -48,6 +65,9 @@
         args[@"aliases"] = @YES;
     }
     if (self.types & EXORpcInfoRequestTypeBasic) {
+        args[@"basic"] = @YES;
+    } else if(!self.returnRaw) {
+        self.maskedBasicInfo = YES;
         args[@"basic"] = @YES;
     }
     if (self.types & EXORpcInfoRequestTypeComments) {
