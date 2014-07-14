@@ -36,6 +36,24 @@
     return ret;
 }
 
+- (EXORpcDataruleComparison_t)comparisonFromString:(NSString*)str
+{
+    if ([str isEqualToString:@"eq"]) {
+        return EXORpcDataruleComparisonEqual;
+    } else if ([str isEqualToString:@"gt"]) {
+        return EXORpcDataruleComparisonGreaterThan;
+    } else if ([str isEqualToString:@"geq"]) {
+        return EXORpcDataruleComparisonGreaterOrEqual;
+    } else if ([str isEqualToString:@"leq"]) {
+        return EXORpcDataruleComparisonLessOrEqual;
+    } else if ([str isEqualToString:@"lt"]) {
+        return EXORpcDataruleComparisonLessThan;
+    } else if ([str isEqualToString:@"neq"]) {
+        return EXORpcDataruleComparisonNotEqual;
+    }
+    return EXORpcDataruleComparisonEqual;
+}
+
 - (NSDictionary *)plistValue
 {
     @throw @"Bad prgrammer";

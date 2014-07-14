@@ -34,6 +34,11 @@
     return self;
 }
 
+- (instancetype)initWithPList:(NSDictionary *)plist
+{
+    return [self initWithCompare:[self comparisonFromString:plist[@"comparison"]] constant:plist[@"constant"] count:plist[@"count"] timeout:plist[@"timeout"] repeat:[plist[@"repeat"] boolValue]];
+}
+
 - (id)init
 {
     return nil;

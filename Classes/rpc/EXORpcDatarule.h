@@ -31,6 +31,11 @@ typedef enum EXORpcDataruleComparison_e EXORpcDataruleComparison_t;
 - (NSString*)stringFromComparison:(EXORpcDataruleComparison_t)comp;
 
 /**
+ Get the comparison key from a string.
+ */
+- (EXORpcDataruleComparison_t)comparisonFromString:(NSString*)str;
+
+/**
  Return this data rule as a plist that can be converted into JSON.
 
  @return JSON ready dictionary of values.

@@ -35,7 +35,11 @@
     dc = [EXORpcDataruleCount dataruleCountWithCompare:EXORpcDataruleComparisonEqual constant:@(42) count:@(5) timeout:@(60) repeat:NO];
     result = @{@"count": @{@"comparison": @"eq", @"constant": @(42), @"count": @(5), @"timeout": @(60), @"repeat": @NO}};
     XCTAssertEqualObjects([dc plistValue], result, @"");
-    
+
+    dc = [[EXORpcDataruleCount alloc] initWithPList:@{@"comparison": @"eq", @"constant": @(42), @"count": @(5), @"timeout": @(60), @"repeat": @NO}];
+    result = @{@"count": @{@"comparison": @"eq", @"constant": @(42), @"count": @(5), @"timeout": @(60), @"repeat": @NO}};
+    XCTAssertEqualObjects([dc plistValue], result, @"init with plist");
+
 }
 
 @end
