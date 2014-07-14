@@ -56,6 +56,14 @@ typedef enum : NSUInteger {
 - (instancetype)initWithOperation:(EXORpcPreprocessOperation_t)operation value:(NSNumber*)value;
 
 /**
+ Initialize a preprocess step with an array from an info description
+
+ @param plist An array element from an infor request
+ @return A preprocess step
+ */
+- (instancetype)initWithPList:(NSArray*)plist;
+
+/**
  Return the resource as a JSON ready plist.
  */
 - (NSArray*)plistValue;

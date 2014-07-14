@@ -33,6 +33,43 @@
     return self;
 }
 
+- (instancetype)initWithPList:(NSArray *)plist
+{
+    if (plist.count != 2) {
+        return nil;
+    }
+    EXORpcPreprocessOperation_t op;
+    if ([plist[0] isEqualToString:@"add"]) {
+        op = EXORpcPreprocessOperation_Add;
+    } else if ([plist[0] isEqualToString:@"sub"]) {
+            op = EXORpcPreprocessOperation_Subtract;
+    } else if ([plist[0] isEqualToString:@"mul"]) {
+        op = EXORpcPreprocessOperation_Multiply;
+    } else if ([plist[0] isEqualToString:@"div"]) {
+        op = EXORpcPreprocessOperation_Divide;
+    } else if ([plist[0] isEqualToString:@"mod"]) {
+        op = EXORpcPreprocessOperation_Modulo;
+    } else if ([plist[0] isEqualToString:@"gt"]) {
+        op = EXORpcPreprocessOperation_GreaterThan;
+    } else if ([plist[0] isEqualToString:@"geq"]) {
+        op = EXORpcPreprocessOperation_GreaterThanOrEqual;
+    } else if ([plist[0] isEqualToString:@"lt"]) {
+        op = EXORpcPreprocessOperation_LessThan;
+    } else if ([plist[0] isEqualToString:@"leq"]) {
+        op = EXORpcPreprocessOperation_LessThanOrEqual;
+    } else if ([plist[0] isEqualToString:@"eq"]) {
+        op = EXORpcPreprocessOperation_Equal;
+    } else if ([plist[0] isEqualToString:@"neq"]) {
+        op = EXORpcPreprocessOperation_NotEqual;
+    } else if ([plist[0] isEqualToString:@"value"]) {
+        op = EXORpcPreprocessOperation_Value;
+    } else {
+        return nil;
+    }
+
+    return [self initWithOperation:op value:plist[1]];
+}
+
 - (NSString*)stringFromOperation:(EXORpcPreprocessOperation_t)operation
 {
     NSString *op=nil;

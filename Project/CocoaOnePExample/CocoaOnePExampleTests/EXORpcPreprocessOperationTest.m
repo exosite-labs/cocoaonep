@@ -80,6 +80,10 @@
     result = @[@"value", @(42)];
     XCTAssertEqualObjects([ppo plistValue], result, @"value");
 
+
+    ppo = [[EXORpcPreprocessOperation alloc] initWithPList:@[@"eq", @(42)]];
+    result = @[@"eq", @(42)];
+    XCTAssertEqualObjects([ppo plistValue], result, @"init with plist");
 }
 
 @end
