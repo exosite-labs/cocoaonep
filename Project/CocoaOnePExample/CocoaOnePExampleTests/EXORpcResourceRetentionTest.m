@@ -52,6 +52,10 @@
     result = @{@"count": @"infinity", @"duration": @(169)};
     XCTAssertEqualObjects(result, [reten plistValue], @"Mixed infinity and number.");
 
+    reten = [[EXORpcResourceRetention alloc] initWithPList:@{@"count": @"infinity", @"duration": @(169)}];
+    result = @{@"count": @"infinity", @"duration": @(169)};
+    XCTAssertEqualObjects(result, [reten plistValue], @"Initialized from a property list");
+
 }
 
 @end

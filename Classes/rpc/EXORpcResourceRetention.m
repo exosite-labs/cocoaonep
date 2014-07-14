@@ -28,6 +28,11 @@
     return self;
 }
 
+- (instancetype)initWithPList:(NSDictionary *)plist
+{
+    return [self initWithCount:plist[@"count"] duration:plist[@"duration"]];
+}
+
 - (NSDictionary*)plistValue
 {
     NSMutableDictionary *res = [NSMutableDictionary new];

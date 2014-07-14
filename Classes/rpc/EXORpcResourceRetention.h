@@ -47,6 +47,14 @@
 - (instancetype)initWithCount:(NSNumber*)count duration:(NSNumber*)duration;
 
 /**
+ Initialize a retention rule with a plist from info request
+ 
+ @param plist A property list from a info request.
+ @return The retention rule
+ */
+- (instancetype)initWithPList:(NSDictionary*)plist;
+
+/**
  Return a JSON ready dictionary of the retention rule.
  */
 - (NSDictionary*)plistValue;
