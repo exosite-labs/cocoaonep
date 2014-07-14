@@ -43,6 +43,13 @@
 		6D5A028E18BB927500237215 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A026A18BB927500237215 /* Foundation.framework */; };
 		6D5A028F18BB927500237215 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A026E18BB927500237215 /* UIKit.framework */; };
 		6D5A029718BB927500237215 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D5A029518BB927500237215 /* InfoPlist.strings */; };
+		6D6CAA401974128000DCE5D7 /* EXODataruleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CAA3F1974128000DCE5D7 /* EXODataruleTest.m */; };
+		6D6CAA421974147600DCE5D7 /* EXORpcDataruleCountTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CAA411974147600DCE5D7 /* EXORpcDataruleCountTest.m */; };
+		6D6CAA44197416F400DCE5D7 /* EXORpcDataruleDurationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CAA43197416F400DCE5D7 /* EXORpcDataruleDurationTest.m */; };
+		6D6CAA461974178300DCE5D7 /* EXORpcDataruleIntervalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CAA451974178300DCE5D7 /* EXORpcDataruleIntervalTest.m */; };
+		6D6CAA48197417F300DCE5D7 /* EXORpcDataruleScriptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CAA47197417F300DCE5D7 /* EXORpcDataruleScriptTest.m */; };
+		6D6CAA4A1974185D00DCE5D7 /* EXORpcDataruleSimpleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CAA491974185D00DCE5D7 /* EXORpcDataruleSimpleTest.m */; };
+		6D6CAA4C1974192400DCE5D7 /* EXORpcDataruleTimeoutTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CAA4B1974192400DCE5D7 /* EXORpcDataruleTimeoutTest.m */; };
 		6DA4E94E192FAE0F002A20E6 /* EXORpcActivateRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA4E94D192FAE0F002A20E6 /* EXORpcActivateRequestTest.m */; };
 		6DA4E950192FB12B002A20E6 /* EXORpcClientResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA4E94F192FB12B002A20E6 /* EXORpcClientResourceTest.m */; };
 		6DA4E952192FCBE3002A20E6 /* EXORpcDispatchResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA4E951192FCBE3002A20E6 /* EXORpcDispatchResourceTest.m */; };
@@ -108,6 +115,13 @@
 		6D5A028C18BB927500237215 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6D5A029418BB927500237215 /* CocoaOnePExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CocoaOnePExampleTests-Info.plist"; sourceTree = "<group>"; };
 		6D5A029618BB927500237215 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6D6CAA3F1974128000DCE5D7 /* EXODataruleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXODataruleTest.m; sourceTree = "<group>"; };
+		6D6CAA411974147600DCE5D7 /* EXORpcDataruleCountTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleCountTest.m; sourceTree = "<group>"; };
+		6D6CAA43197416F400DCE5D7 /* EXORpcDataruleDurationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleDurationTest.m; sourceTree = "<group>"; };
+		6D6CAA451974178300DCE5D7 /* EXORpcDataruleIntervalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleIntervalTest.m; sourceTree = "<group>"; };
+		6D6CAA47197417F300DCE5D7 /* EXORpcDataruleScriptTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleScriptTest.m; sourceTree = "<group>"; };
+		6D6CAA491974185D00DCE5D7 /* EXORpcDataruleSimpleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleSimpleTest.m; sourceTree = "<group>"; };
+		6D6CAA4B1974192400DCE5D7 /* EXORpcDataruleTimeoutTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleTimeoutTest.m; sourceTree = "<group>"; };
 		6DA4E94D192FAE0F002A20E6 /* EXORpcActivateRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcActivateRequestTest.m; sourceTree = "<group>"; };
 		6DA4E94F192FB12B002A20E6 /* EXORpcClientResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcClientResourceTest.m; sourceTree = "<group>"; };
 		6DA4E951192FCBE3002A20E6 /* EXORpcDispatchResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDispatchResourceTest.m; sourceTree = "<group>"; };
@@ -214,7 +228,14 @@
 				6DA4E94F192FB12B002A20E6 /* EXORpcClientResourceTest.m */,
 				6D43A391194A0EE1000850D0 /* EXORpcCloneResourceTest.m */,
 				6D4DD596190947ED00E63349 /* EXORpcDataportResourceTest.m */,
+				6D6CAA3F1974128000DCE5D7 /* EXODataruleTest.m */,
+				6D6CAA411974147600DCE5D7 /* EXORpcDataruleCountTest.m */,
+				6D6CAA43197416F400DCE5D7 /* EXORpcDataruleDurationTest.m */,
+				6D6CAA451974178300DCE5D7 /* EXORpcDataruleIntervalTest.m */,
 				6D021EA01953238E006EC364 /* EXORpcDataruleResourceTest.m */,
+				6D6CAA47197417F300DCE5D7 /* EXORpcDataruleScriptTest.m */,
+				6D6CAA491974185D00DCE5D7 /* EXORpcDataruleSimpleTest.m */,
+				6D6CAA4B1974192400DCE5D7 /* EXORpcDataruleTimeoutTest.m */,
 				6DA4E951192FCBE3002A20E6 /* EXORpcDispatchResourceTest.m */,
 				6DCD642C193780E700BD34C6 /* EXORpcDeactivateRequestTest.m */,
 				6DCD642E1937822500BD34C6 /* EXORpcDropRequestTest.m */,
@@ -432,9 +453,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6CAA44197416F400DCE5D7 /* EXORpcDataruleDurationTest.m in Sources */,
 				6D43A3881949EDDB000850D0 /* EXORpcResourceTest.m in Sources */,
 				6DA4E950192FB12B002A20E6 /* EXORpcClientResourceTest.m in Sources */,
 				6D43A38A1949F3B2000850D0 /* EXORpcShareRequestTest.m in Sources */,
+				6D6CAA461974178300DCE5D7 /* EXORpcDataruleIntervalTest.m in Sources */,
+				6D6CAA421974147600DCE5D7 /* EXORpcDataruleCountTest.m in Sources */,
 				6DCD642F1937822500BD34C6 /* EXORpcDropRequestTest.m in Sources */,
 				6DEE7109192681BF001F473F /* EXORpcUnmapRequestTest.m in Sources */,
 				6DCD6431193784DF00BD34C6 /* EXORpcFlushRequestTest.m in Sources */,
@@ -446,6 +470,7 @@
 				6D43A38C1949F54A000850D0 /* EXORpcUpdateRequestTest.m in Sources */,
 				6D2F15211906D0A400E71A00 /* EXORpcMapRequestTest.m in Sources */,
 				6D35FAA519197088007458AF /* EXORpcValueTest.m in Sources */,
+				6D6CAA401974128000DCE5D7 /* EXODataruleTest.m in Sources */,
 				6D30125F194607980077B1E8 /* EXORpcListingRequestTest.m in Sources */,
 				6D28F89D18F448E40060A270 /* EXORpcInfoRequestTests.m in Sources */,
 				6D301263194626060077B1E8 /* EXORpcRequestTest.m in Sources */,
@@ -456,11 +481,14 @@
 				6D20946A1921113800B79CB5 /* EXORpcRevokeRequestTest.m in Sources */,
 				6D43A38E1949FC98000850D0 /* EXORpcUsageRequestTest.m in Sources */,
 				6DA4E952192FCBE3002A20E6 /* EXORpcDispatchResourceTest.m in Sources */,
+				6D6CAA4C1974192400DCE5D7 /* EXORpcDataruleTimeoutTest.m in Sources */,
 				6D021EA11953238E006EC364 /* EXORpcDataruleResourceTest.m in Sources */,
 				6DCD642D193780E700BD34C6 /* EXORpcDeactivateRequestTest.m in Sources */,
 				6D4DD597190947ED00E63349 /* EXORpcDataportResourceTest.m in Sources */,
+				6D6CAA4A1974185D00DCE5D7 /* EXORpcDataruleSimpleTest.m in Sources */,
 				6D4DD595190946A000E63349 /* EXORpcResourceRetentionTest.m in Sources */,
 				6D209455191BB9EB00B79CB5 /* EXORpcRecordRequestTest.m in Sources */,
+				6D6CAA48197417F300DCE5D7 /* EXORpcDataruleScriptTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
