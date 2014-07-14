@@ -52,6 +52,44 @@
     return self;
 }
 
+- (instancetype)initWithPList:(NSDictionary *)plist
+{
+    EXORpcDispactMethod_t method;
+    if (plist[@"method"] == nil) {
+        return nil;
+    } else if ([plist[@"method"] isEqualToString:@"email"]) {
+        method = EXORpcDispactMethodEmail;
+    } else if ([plist[@"method"] isEqualToString:@"http_get"]) {
+        method = EXORpcDispactMethodHttpGet;
+    } else if ([plist[@"method"] isEqualToString:@"http_post"]) {
+        method = EXORpcDispactMethodHttpPost;
+    } else if ([plist[@"method"] isEqualToString:@"http_put"]) {
+        method = EXORpcDispactMethodHttpPut;
+    } else if ([plist[@"method"] isEqualToString:@"sms"]) {
+        method = EXORpcDispactMethodSms;
+    } else if ([plist[@"method"] isEqualToString:@"xmpp"]) {
+        method = EXORpcDispactMethodXmpp;
+    } else {
+        return nil;
+    }
+    NSString *name = plist[@"name"];
+    NSString *meta = plist[@"meta"];
+    NSString *recipient = plist[@"recipient"];
+    NSString *subject = plist[@"subject"];
+    NSString *message = plist[@"message"];
+    if (plist[@"subscribe"] == nil) {
+        return nil;
+    }
+    EXORpcResourceID *subscribed = [EXORpcResourceID resourceIDByRID:plist[@"subscribe"]];
+    EXORpcResourceRetention *retention = [[EXORpcResourceRetention alloc] initWithPList:plist[@"retention"]];
+    NSMutableArray *preprocess = [NSMutableArray new];
+    for (NSArray *pp in plist[@"preprocess"]) {
+        [preprocess addObject:[[EXORpcPreprocessOperation alloc] initWithPList:pp]];
+    }
+
+    return [self initWithName:name meta:meta method:method to:recipient subject:subject message:message on:subscribed locked:[plist[@"locked"] boolValue] public:[plist[@"public"] boolValue] preprocess:preprocess retention:retention];
+}
+
 - (id)init
 {
     return nil;
@@ -98,7 +136,11 @@
         args[@"name"] = self.name;
     }
     if (self.preprocess) {
-        args[@"preprocess"] = self.preprocess;
+        NSMutableArray *pps = [NSMutableArray new];
+        for (EXORpcPreprocessOperation *pp in self.preprocess) {
+            [pps addObject:[pp plistValue]];
+        }
+        args[@"preprocess"] = [pps copy];
     }
     args[@"public"] = @(self.public);
     if (self.recipient) {

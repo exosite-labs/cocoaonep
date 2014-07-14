@@ -66,6 +66,25 @@
                };
     XCTAssertEqualObjects([dispatch plistValue], result, @"Somewhat more generic dispatch");
 
+
+    result = @{
+               @"locked": @NO,
+               @"name": @"ItsCold",
+               @"public": @NO,
+               @"subscribe": @"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+               @"meta": @"",
+               @"preprocess": @[@[@"eq",@(1)]],
+               @"message": @"It is really cold!",
+               @"subject": @"Oh Snap!",
+               @"recipient": @"a@b.c",
+               @"method": @"email",
+               @"retention": @{
+                       @"count": @"infinity",
+                       @"duration": @"infinity"
+                       }
+               };
+    dispatch = [[EXORpcDispatchResource alloc] initWithPList:result];
+    XCTAssertEqualObjects([dispatch plistValue], result, @"Initialize with plist.");
 }
 
 @end

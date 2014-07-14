@@ -7,6 +7,7 @@
 
 #import "EXORpcResource.h"
 #import "EXORpcResourceRetention.h"
+#import "EXORpcPreprocessOperation.h"
 
 enum EXORpcDispactMethod_e {
     EXORpcDispactMethodEmail, /// Dispatch an Email
@@ -119,4 +120,13 @@ typedef enum EXORpcDispactMethod_e EXORpcDispactMethod_t;
  @return A Dispatch Resource
  */
 - (instancetype)initWithName:(NSString*)name meta:(NSString*)meta method:(EXORpcDispactMethod_t)method to:(NSString*)recipient subject:(NSString*)subject message:(NSString*)message on:(EXORpcResourceID*)subscribed locked:(BOOL)locked public:(BOOL)public preprocess:(NSArray*)preprocess retention:(EXORpcResourceRetention*)retention;
+
+/**
+ Initialize a dispatch resource from a plist from info request.
+
+ @param plist The description property list from an info request.
+ @return A Dispatch Resource
+ */
+- (instancetype)initWithPList:(NSDictionary*)plist;
+
 @end
