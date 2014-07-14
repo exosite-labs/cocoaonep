@@ -78,6 +78,47 @@
     result = @{@"limits": limits, @"locked": @NO, @"name":@"A test Resource", @"meta": @"some meta here", @"public": @NO};
     XCTAssertEqualObjects([resource plistValue], result, @"create with limits");
 
+    limits =   @{
+        @"meta": @"a little meta",
+        @"locked": @NO,
+        @"name": @"bob",
+        @"limits": @{
+            @"sms": @"inherit",
+            @"http": @"inherit",
+            @"dataport": @"inherit",
+            @"share": @"inherit",
+            @"dispatch": @"inherit",
+            @"email_bucket": @"inherit",
+            @"client": @"inherit",
+            @"xmpp": @"inherit",
+            @"xmpp_bucket": @"inherit",
+            @"datarule": @"inherit",
+            @"disk": @"inherit",
+            @"email": @"inherit",
+            @"http_bucket": @"inherit",
+            @"sms_bucket": @"inherit"
+        },
+        @"public": @NO
+        };
+    resource = [[EXORpcClientResource alloc] initWithPList:limits];
+    limits = @{@"client": @"inherit",
+               @"dataport": @"inherit",
+               @"datarule": @"inherit",
+               @"disk": @"inherit",
+               @"dispatch": @"inherit",
+               @"email": @"inherit",
+               @"email_bucket": @"inherit",
+               @"http": @"inherit",
+               @"http_bucket": @"inherit",
+               @"io": @"inherit",
+               @"share": @"inherit",
+               @"sms": @"inherit",
+               @"sms_bucket": @"inherit",
+               @"xmpp": @"inherit",
+               @"xmpp_bucket": @"inherit",
+               };
+    result = @{@"limits": limits, @"locked": @NO, @"name":@"bob", @"meta": @"a little meta", @"public": @NO};
+    XCTAssertEqualObjects([resource plistValue], result, @"init with plist");
 }
 
 @end

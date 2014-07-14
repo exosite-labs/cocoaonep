@@ -44,6 +44,20 @@
     return nil;
 }
 
+- (instancetype)initWithPList:(NSDictionary *)plist
+{
+    // Key check.
+    if (plist[@"name"] == nil ||
+        plist[@"meta"] == nil ||
+        plist[@"public"] == nil ||
+        plist[@"locked"] == nil ||
+        plist[@"limits"] == nil) {
+        return nil;
+    }
+
+    return [self initWithName:plist[@"name"] meta:plist[@"meta"] public:[plist[@"public"] boolValue] locked:[plist[@"locked"] boolValue] limits:plist[@"limits"]];
+}
+
 - (instancetype)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public locked:(BOOL)locked limits:(NSDictionary *)limits
 {
     if (self = [super initWithName:name meta:meta public:public]) {

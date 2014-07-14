@@ -156,4 +156,11 @@
  */
 - (instancetype)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public locked:(BOOL)locked limits:(NSDictionary*)limits;
 
+/**
+ Initialize a client resource from a plist from info request.
+ 
+ @param plist The description property list from an info request.
+ @return A Client Resource
+ */
+- (instancetype)initWithPList:(NSDictionary*)plist;
 @end
