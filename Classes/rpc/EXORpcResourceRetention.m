@@ -30,7 +30,19 @@
 
 - (instancetype)initWithPList:(NSDictionary *)plist
 {
-    return [self initWithCount:plist[@"count"] duration:plist[@"duration"]];
+    NSNumber *count=nil;
+    NSNumber *duration=nil;
+    if (plist[@"count"]) {
+        if (![plist[@"count"] isEqual:@"infinity"] && [plist[@"count"] isKindOfClass:[NSNumber class]]) {
+            count = plist[@"count"];
+        }
+    }
+    if (plist[@"duration"]) {
+        if (![plist[@"duration"] isEqual:@"infinity"] && [plist[@"duration"] isKindOfClass:[NSNumber class]]) {
+            duration = plist[@"duration"];
+        }
+    }
+    return [self initWithCount:count duration:duration];
 }
 
 - (NSDictionary*)plistValue
