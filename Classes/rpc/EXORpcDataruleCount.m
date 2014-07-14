@@ -40,7 +40,7 @@
 
 - (NSDictionary *)plistValue
 {
-    return @{@"count": @{@"comparison": [self stringFromComparison:self.comparison], @"constant": self.constant, @"count": self.count, @"timeout": self.timeout, @"repeat": self.repeat?@"true":@"false"}};
+    return @{@"count": @{@"comparison": [self stringFromComparison:self.comparison], @"constant": self.constant, @"count": self.count, @"timeout": self.timeout, @"repeat": @(self.repeat)}};
 }
 
 - (BOOL)isEqual:(id)object
