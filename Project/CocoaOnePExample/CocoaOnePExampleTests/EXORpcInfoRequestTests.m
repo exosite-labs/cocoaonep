@@ -35,7 +35,6 @@
     info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeAll complete:nil];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for All fields");
-
     
     info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeAliases complete:nil];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"aliases": @YES}]};
@@ -54,7 +53,7 @@
     XCTAssertEqualObjects(result, [info plistValue], @"Request for Counts field");
 
     info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeDescription complete:nil];
-    result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"description": @YES}]};
+    result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"description": @YES, @"basic": @YES}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for Description field");
 
     info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeKey complete:nil];

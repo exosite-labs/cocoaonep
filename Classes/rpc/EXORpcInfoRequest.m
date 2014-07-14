@@ -79,7 +79,7 @@
     }
     if (self.types & EXORpcInfoRequestTypeBasic) {
         args[@"basic"] = @YES;
-    } else if(!self.returnRaw) {
+    } else if(!self.returnRaw && (self.types & EXORpcInfoRequestTypeDescription)) {
         self.maskedBasicInfo = YES;
         args[@"basic"] = @YES;
     }
