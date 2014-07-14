@@ -7,14 +7,15 @@ CocoaOneP is a bindings library for the Exosite One Platform.
 
 [![Build Status](https://travis-ci.org/exosite-labs/cocoaonep.svg)](https://travis-ci.org/exosite-labs/cocoaonep)
 
-This is still a beta release. Some things are still quite fluid.
-The next release (0.4.0) will have changes to the API.
-
 The complete [Exosite One Platform API](https://github.com/exosite/docs) covers a lot of
 ground.  This set of bindings only covers the following lower-level APIs:
 - HTTP Data Interface API
 - Remote Procedure Call API
 - Portals API
+
+This is still a beta release.  The HTTP Data Interface API and Remote Procedure Call API are
+considered complete, while the Portals API is in flux (because the underlying REST API is still
+beta.)
 
 You need to be at least partially familar with the low-level APIs to use this library well.
 
