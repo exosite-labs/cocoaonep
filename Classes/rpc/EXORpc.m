@@ -66,7 +66,16 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
         }
         return nil;
     }
-    
+
+    if (calls.count == 0) {
+        // Nothing to do!
+        NSError *err = [NSError errorWithDomain:EXORpcDeviceErrorDomain code:-3 userInfo:@{NSLocalizedDescriptionKey: @"No Requests"}];
+        if (lcomplete) {
+            lcomplete(err);
+        }
+        return nil;
+    }
+
     // calls should be an array of Requests.
     NSUInteger callID = 0;
     
@@ -113,21 +122,21 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
             NSInteger ec = [errInf[@"code"] integerValue];
             NSString *desc = [NSString stringWithFormat:@"msg: %@  context: %@", errInf[@"message"], errInf[@"context"]];
             NSError *error = [NSError errorWithDomain:EXORpcDeviceErrorDomain code:ec userInfo:@{NSLocalizedDescriptionKey: desc}];
-            NSLog(@"Error for %@:  %@", operation, error);
+            //NSLog(@"Error for %@:  %@", operation, error);
             if (lcomplete) {
                 lcomplete(error);
             }
         } else {
             // another error!
             NSError *error = [NSError errorWithDomain:EXORpcDeviceErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Unknown response type"}];
-            NSLog(@"Error for %@:  %@  got: %@", operation, error, responseObject);
+            ///NSLog(@"Error for %@:  %@  got: %@  from: %@", operation, error, responseObject, params);
             if (lcomplete) {
                 lcomplete(error);
             }
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
-        NSLog(@"Error for %@:  %@ ::: %@", operation, error, params);
+        //NSLog(@"Error for %@:  %@ ::: %@", operation, error, params);
         if (lcomplete) {
             lcomplete(error);
         }
