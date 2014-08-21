@@ -33,6 +33,11 @@ typedef enum : NSUInteger {
 @property(assign,nonatomic,readonly) EXORpcPreprocessOperation_t operation;
 
 /**
+ The operation to take as a math symbol
+ */
+@property(copy,nonatomic,readonly) NSString *opSymbol;
+
+/**
  The constant to use with this operation
  */
 @property(copy,nonatomic,readonly) NSNumber *value;

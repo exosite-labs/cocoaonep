@@ -114,6 +114,33 @@
     return op;
 }
 
+- (NSString*)utf8FromOperation:(EXORpcPreprocessOperation_t)operation
+{
+    NSString *opString=nil;
+    switch (operation) {
+        case EXORpcPreprocessOperation_Add: opString = @"+"; break;
+        case EXORpcPreprocessOperation_Subtract: opString = @"-"; break;
+        case EXORpcPreprocessOperation_Multiply: opString = @"×"; break;
+        case EXORpcPreprocessOperation_Divide: opString = @"÷"; break;
+        case EXORpcPreprocessOperation_Modulo: opString = @"%"; break;
+        case EXORpcPreprocessOperation_Equal: opString = @"="; break;
+        case EXORpcPreprocessOperation_NotEqual: opString = @"≠"; break;
+        case EXORpcPreprocessOperation_GreaterThan: opString = @">"; break;
+        case EXORpcPreprocessOperation_GreaterThanOrEqual: opString = @"≥"; break;
+        case EXORpcPreprocessOperation_LessThan: opString = @"<"; break;
+        case EXORpcPreprocessOperation_LessThanOrEqual: opString = @"≤"; break;
+        case EXORpcPreprocessOperation_Value: opString = @"⩶"; break;
+        default:
+            break;
+    }
+    return opString;
+}
+
+- (NSString *)opSymbol
+{
+    return [[self utf8FromOperation:self.operation] copy];
+}
+
 - (NSArray *)plistValue
 {
     return @[[self stringFromOperation:self.operation], self.value];
