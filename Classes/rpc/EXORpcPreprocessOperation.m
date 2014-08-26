@@ -129,7 +129,7 @@
         case EXORpcPreprocessOperation_GreaterThanOrEqual: opString = @"≥"; break;
         case EXORpcPreprocessOperation_LessThan: opString = @"<"; break;
         case EXORpcPreprocessOperation_LessThanOrEqual: opString = @"≤"; break;
-        case EXORpcPreprocessOperation_Value: opString = @"⇶"; break;
+        case EXORpcPreprocessOperation_Value: opString = @"⇇"; break;
         default:
             break;
     }
