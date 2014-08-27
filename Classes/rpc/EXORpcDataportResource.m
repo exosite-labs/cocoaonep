@@ -63,7 +63,12 @@
     if (plist[@"subscribe"] == nil) {
         return nil;
     }
-    EXORpcResourceID *subscribed = [EXORpcResourceID resourceIDByRID:plist[@"subscribe"]];
+    id subscribe = plist[@"subscribe"];
+    EXORpcResourceID *subscribed=nil;
+    if ([subscribe isKindOfClass:[NSString class]]) {
+        subscribed = [EXORpcResourceID resourceIDByRID:plist[@"subscribe"]];
+    }
+    
     EXORpcResourceRetention *retention = [[EXORpcResourceRetention alloc] initWithPList:plist[@"retention"]];
     NSMutableArray *preprocess = [NSMutableArray new];
     for (NSArray *pp in plist[@"preprocess"]) {

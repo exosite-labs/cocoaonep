@@ -77,7 +77,7 @@
                @"name": @"dogeton",
                @"meta": @"some meta",
                @"preprocess": @[@[@"add", @(42)]],
-               @"subscribe": @{@"alias": @""},
+               @"subscribe": @"7de6dd91901d3f486829ef6feb9cb6c8094e26ed",
                @"retention":@{
                        @"count": @(12),
                        @"duration": @(90),
@@ -86,6 +86,34 @@
                };
     dp = [[EXORpcDataportResource alloc] initWithPList:result];
     XCTAssertEqualObjects(result, [dp plistValue], @"Initialize from plist.");
+
+    result = @{
+               @"format": @"string",
+               @"name": @"dogeton",
+               @"meta": @"some meta",
+               @"preprocess": @[],
+               @"subscribe": [NSNull null],
+               @"retention":@{
+                       @"count": @(12),
+                       @"duration": @(90),
+                       },
+               @"visibility": @"parent"
+               };
+    dp = [[EXORpcDataportResource alloc] initWithPList:result];
+    result = @{
+               @"format": @"string",
+               @"name": @"dogeton",
+               @"meta": @"some meta",
+               @"preprocess": @[],
+               @"retention":@{
+                       @"count": @(12),
+                       @"duration": @(90),
+                       },
+               @"visibility": @"parent"
+               };
+    XCTAssertEqualObjects(result, [dp plistValue], @"Initialize from plist.");
+
+
 }
 
 @end
