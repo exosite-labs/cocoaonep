@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EXORpcResourceID.h"
 
 typedef enum : NSUInteger {
     EXORpcPreprocessOperation_Add,
@@ -23,7 +24,7 @@ typedef enum : NSUInteger {
 } EXORpcPreprocessOperation_t;
 
 /**
- A preprocess operation that added to dataports and datarules.
+ A preprocess operation that is performed on incoming data to dataports, datarules, and dispatches.
  */
 @interface EXORpcPreprocessOperation : NSObject <NSCopying>
 
@@ -39,8 +40,17 @@ typedef enum : NSUInteger {
 
 /**
  The constant to use with this operation
+ 
+ Might be nil if this step uses a RID to lookup the value.
  */
 @property(copy,nonatomic,readonly) NSNumber *value;
+
+/**
+ The RID to lookup a value to use with this operation
+ 
+ Might be nil if this step uses a constant value.
+ */
+@property(copy,nonatomic,readonly) EXORpcResourceID *rid;
 
 /**
  Create a preprocess step
@@ -52,6 +62,15 @@ typedef enum : NSUInteger {
 + (EXORpcPreprocessOperation*)preprocessOperation:(EXORpcPreprocessOperation_t)operation value:(NSNumber*)value;
 
 /**
+ Create a preprocess step
+
+ @param operation The operation to take
+ @param rid A resource id to read for the value to use. Must be created with [EXORpcResourceID resourceIDByRID:<rid>]
+ @return A preprocess step
+ */
++ (EXORpcPreprocessOperation *)preprocessOperation:(EXORpcPreprocessOperation_t)operation rid:(EXORpcResourceID *)rid;
+
+/**
  Initialize a preprocess step
 
  @param operation The operation to take
@@ -59,6 +78,15 @@ typedef enum : NSUInteger {
  @return A preprocess step
  */
 - (instancetype)initWithOperation:(EXORpcPreprocessOperation_t)operation value:(NSNumber*)value;
+
+/**
+ Initialize a preprocess step
+
+ @param operation The operation to take
+ @param rid A resource id to read for the value to use. Must be created with [EXORpcResourceID resourceIDByRID:<rid>]
+ @return A preprocess step
+ */
+- (instancetype)initWithOperation:(EXORpcPreprocessOperation_t)operation rid:(EXORpcResourceID*)rid;
 
 /**
  Initialize a preprocess step with an array from an info description

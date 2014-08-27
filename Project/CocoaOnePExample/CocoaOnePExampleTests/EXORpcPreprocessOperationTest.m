@@ -30,6 +30,7 @@
 - (void)testAllocAndInit
 {
     EXORpcPreprocessOperation *ppo;
+    EXORpcResourceID *rid;
     NSArray *result;
 
     ppo = [EXORpcPreprocessOperation preprocessOperation:EXORpcPreprocessOperation_Add value:@(42)];
@@ -80,10 +81,23 @@
     result = @[@"value", @(42)];
     XCTAssertEqualObjects([ppo plistValue], result, @"value");
 
-
     ppo = [[EXORpcPreprocessOperation alloc] initWithPList:@[@"eq", @(42)]];
     result = @[@"eq", @(42)];
     XCTAssertEqualObjects([ppo plistValue], result, @"init with plist");
+
+
+    rid = [EXORpcResourceID resourceIDByRID:@"7de6dd91901d3f486829ef6feb9cb6c8094e26ed"];
+    ppo = [EXORpcPreprocessOperation preprocessOperation:EXORpcPreprocessOperation_Add rid:rid];
+    result = @[@"add", @"7de6dd91901d3f486829ef6feb9cb6c8094e26ed"];
+    XCTAssertEqualObjects([ppo plistValue], result, @"add with rid");
+
+    rid = [EXORpcResourceID resourceIDByAlias:@"failure"];
+    ppo = [EXORpcPreprocessOperation preprocessOperation:EXORpcPreprocessOperation_Add rid:rid];
+    XCTAssertNil(ppo, @"Only RID RIDs.");
+
+    ppo = [[EXORpcPreprocessOperation alloc] initWithPList:@[@"eq", @"7de6dd91901d3f486829ef6feb9cb6c8094e26ed"]];
+    result = @[@"eq", @"7de6dd91901d3f486829ef6feb9cb6c8094e26ed"];
+    XCTAssertEqualObjects([ppo plistValue], result, @"init with rid and plist");
 }
 
 @end

@@ -10,6 +10,7 @@
 @interface EXORpcPreprocessOperation ()
 @property(assign,nonatomic) EXORpcPreprocessOperation_t operation;
 @property(copy,nonatomic) NSNumber *value;
+@property(copy,nonatomic) EXORpcResourceID *rid;
 @end
 
 @implementation EXORpcPreprocessOperation
@@ -17,6 +18,11 @@
 + (EXORpcPreprocessOperation *)preprocessOperation:(EXORpcPreprocessOperation_t)operation value:(NSNumber *)value
 {
     return [[EXORpcPreprocessOperation alloc] initWithOperation:operation value:value];
+}
+
++ (EXORpcPreprocessOperation *)preprocessOperation:(EXORpcPreprocessOperation_t)operation rid:(EXORpcResourceID *)rid
+{
+    return [[EXORpcPreprocessOperation alloc] initWithOperation:operation rid:rid];
 }
 
 - (id)init
@@ -29,6 +35,18 @@
     if (self = [super init]) {
         _operation = operation;
         _value = [value copy];
+    }
+    return self;
+}
+
+- (instancetype)initWithOperation:(EXORpcPreprocessOperation_t)operation rid:(EXORpcResourceID *)rid
+{
+    if (rid.rid == nil) {
+        return nil;
+    }
+    if (self = [super init]) {
+        _operation = operation;
+        _rid = [rid copy];
     }
     return self;
 }
@@ -67,7 +85,15 @@
         return nil;
     }
 
-    return [self initWithOperation:op value:plist[1]];
+    id val = plist[1];
+    if ([val isKindOfClass:[NSNumber class]]) {
+        return [self initWithOperation:op value:val];
+    } else if ([val isKindOfClass:[NSString class]]) {
+        EXORpcResourceID *rid = [EXORpcResourceID resourceIDByRID:val];
+        return [self initWithOperation:op rid:rid];
+    }
+
+    return nil;
 }
 
 - (NSString*)stringFromOperation:(EXORpcPreprocessOperation_t)operation
@@ -143,7 +169,10 @@
 
 - (NSArray *)plistValue
 {
-    return @[[self stringFromOperation:self.operation], self.value];
+    if (self.value) {
+        return @[[self stringFromOperation:self.operation], self.value];
+    }
+    return @[[self stringFromOperation:self.operation], self.rid.rid];
 }
 
 - (BOOL)isEqual:(id)object
@@ -151,12 +180,18 @@
     if (![object isKindOfClass:[self class]]) {
         return NO;
     }
-    return self.operation == [object operation] && [self.value isEqual:[(EXORpcPreprocessOperation*)object value]];
+    EXORpcPreprocessOperation *obj = object;
+    if (self.value) {
+        return self.operation == obj.operation && [self.value isEqualToNumber:obj.value];
+    } else if (self.rid) {
+        return self.operation == obj.operation && [self.rid isEqual:obj.rid];
+    }
+    return NO;
 }
 
 - (NSUInteger)hash
 {
-    return self.value.hash ^ self.operation;
+    return self.value.hash ^ self.rid.hash ^ self.operation;
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -166,7 +201,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@: %p, Op: %@, Value: %@>", NSStringFromClass([self class]), self, [self stringFromOperation:self.operation], self.value];
+    if (self.value) {
+        return [NSString stringWithFormat:@"<%@: %p, Op: %@, Value: %@>", NSStringFromClass([self class]), self, [self stringFromOperation:self.operation], self.value];
+    } else if (self.rid) {
+        return [NSString stringWithFormat:@"<%@: %p, Op: %@, RID: %@>", NSStringFromClass([self class]), self, [self stringFromOperation:self.operation], self.rid];
+    }
+    return [NSString stringWithFormat:@"<%@: %p, Op: %@, INVALID>", NSStringFromClass([self class]), self, [self stringFromOperation:self.operation]];
 }
 
 
