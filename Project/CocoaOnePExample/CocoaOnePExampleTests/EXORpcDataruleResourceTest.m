@@ -70,7 +70,7 @@
                                @"timeout": @(12),
                                },
                        },
-               @"subscribe": @{@"alias": @""},
+               @"subscribe": @"7de6dd91901d3f486829ef6feb9cb6c8094e26ed",
                @"preprocess": @[]
                };
     datarule = [[EXORpcDataruleResource alloc] initWithPList:result];
