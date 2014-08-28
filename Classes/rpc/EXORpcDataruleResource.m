@@ -121,8 +121,10 @@
             args[@"format"] = @"integer";
             break;
         case EXORpcDataportFormatString:
-        default:
             args[@"format"] = @"string";
+            break;
+        case EXORpcDataportFormatUnchanged:
+        default:
             break;
     }
     if (self.meta) {

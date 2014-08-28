@@ -75,6 +75,22 @@
                };
     datarule = [[EXORpcDataruleResource alloc] initWithPList:result];
     XCTAssertEqualObjects([datarule plistValue], result, @"Init from plist");
+
+    datarule = [[EXORpcDataruleResource alloc] initWithName:@"test" meta:@"meta" public:NO format:EXORpcDataportFormatUnchanged retention:nil rule:timeout subscribe:rid preprocess:nil];
+    result = @{
+               @"name": @"test",
+               @"meta": @"meta",
+               @"retention": @{@"count": @"infinity", @"duration": @"infinity"},
+               @"rule": @{
+                       @"timeout": @{
+                               @"repeat": @NO,
+                               @"timeout": @(12),
+                               },
+                       },
+               @"subscribe": @{@"alias":@""},
+               };
+    XCTAssertEqualObjects([datarule plistValue], result, @"Unchanged format");
+
 }
 
 @end

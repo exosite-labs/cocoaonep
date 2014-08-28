@@ -21,7 +21,7 @@ enum EXORpcDataruleComparison_e {
 typedef enum EXORpcDataruleComparison_e EXORpcDataruleComparison_t;
 
 /**
- Base Class for Datarules; DOn;t use thie directly.
+ Base Class for Datarules; Don;t use thie directly.
  */
 @interface EXORpcDatarule : NSObject <NSCopying>
 
