@@ -17,10 +17,10 @@ extern NSString *EXOPortalErrorDomain;
 #define kEXOPortalWrongType   11
 #define kEXOPortalParseFailed 12
 
-typedef void(^EXOPortalBlock)(NSError *err);
-typedef void(^EXOPortalDomainsBlock)(NSArray *domains, NSError *err);
-typedef void(^EXOPortalPortalsBlock)(NSArray *portals, NSError *err);
-typedef void(^EXOPortalNewDeviceBlock)(NSDictionary *cikrid, NSError *err);
+typedef void(^EXOPortalBlock)(NSError *error);
+typedef void(^EXOPortalDomainsBlock)(NSArray *domains, NSError *error);
+typedef void(^EXOPortalPortalsBlock)(NSArray *portals, NSError *error);
+typedef void(^EXOPortalNewDeviceBlock)(NSDictionary *cikrid, NSError *error);
 
 @interface EXOPortal : NSObject
 @property(copy,nonatomic,readonly) NSURL *domain;
