@@ -60,7 +60,7 @@
             NSArray *got = result[@"result"];
             // Current wait command reply returns a single value
             NSMutableDictionary *given = [NSMutableDictionary new];
-            if (got.count > 1) {
+            if (got.count > 0) {
                 NSArray *item = got[0];
                 NSDate *when = [NSDate dateWithTimeIntervalSince1970:[item[0] longLongValue]];
                 EXORpcValue *rval;
