@@ -17,6 +17,20 @@
 
 @implementation EXORpcWaitRequest
 
++ (EXORpcWaitRequest *)waitRequestWithRIDs:(NSArray *)rids complete:(EXORpcWaitRequestComplete)complete
+{
+    return [[EXORpcWaitRequest alloc] initWithRIDs:rids timeoutAfter:nil since:nil complete:complete];
+}
+
++ (EXORpcWaitRequest *)waitRequestWithRIDs:(NSArray *)rids timeoutAfter:(NSNumber *)timeout complete:(EXORpcWaitRequestComplete)complete
+{
+    return [[EXORpcWaitRequest alloc] initWithRIDs:rids timeoutAfter:timeout since:nil complete:complete];
+}
+
++ (EXORpcWaitRequest *)waitRequestWithRIDs:(NSArray *)rids timeoutAfter:(NSNumber *)timeout since:(NSDate *)since complete:(EXORpcWaitRequestComplete)complete
+{
+    return [[EXORpcWaitRequest alloc] initWithRIDs:rids timeoutAfter:timeout since:since complete:complete];
+}
 
 - (id)initWithRIDs:(NSArray *)rids timeoutAfter:(NSNumber *)timeout since:(NSDate *)since complete:(EXORpcWaitRequestComplete)complete
 {
@@ -61,7 +75,12 @@
     if (self.since) {
         params[@"since"] = @([self.since timeIntervalSince1970]);
     }
-    return @{@"procedure": @"wait", @"arguments": @[nil, params]};
+    NSMutableArray *rids = [NSMutableArray new];
+    for (EXORpcResourceID *rid in self.resourceIDs) {
+        [rids addObject:[rid plistValue]];
+    }
+    return @{@"procedure": @"wait", @"arguments": @[[rids copy], [params copy]]};
+    // May have found a syntax bug in the RPC call. so waiting on that.
 }
 
 - (BOOL)isEqual:(id)object
@@ -74,10 +93,9 @@
 
 - (BOOL)isEqualToWaitRequest:(EXORpcWaitRequest*)object
 {
-    // FIXME: handle nil weirdnesses. (timeout and since can be nil to mean defaults.)
     return [self.resourceIDs isEqualToArray:object.resourceIDs] &&
-            [self.timeout isEqualToNumber:object.timeout] &&
-    [self.since isEqualToDate:object.since];
+    ((self.timeout == nil && [object timeout] == nil) || [self.timeout isEqualToNumber:[object timeout]]) &&
+    ((self.since == nil && [object since] == nil) || [self.since isEqualToDate:[object since]]);
 }
 
 - (NSUInteger)hash
