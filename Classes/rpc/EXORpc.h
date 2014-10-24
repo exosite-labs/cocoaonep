@@ -29,6 +29,7 @@
 #import "EXORpcUpdateRequest.h"
 #import "EXORpcUsageRequest.h"
 #import "EXORpcValue.h"
+#import "EXORpcWaitRequest.h"
 #import "EXORpcWriteRequest.h"
 
 /**

@@ -7,6 +7,7 @@
 //
 
 #import "EXORpcWaitRequest.h"
+#import "EXORpcValue.h"
 
 @interface EXORpcWaitRequest ()
 @property (copy,nonatomic) NSArray *resourceIDs;
@@ -36,16 +37,12 @@
 {
     if (self = [super init]) {
         _resourceIDs = [rids copy];
+        // Current wait command only takes a single RID. Future version will take multiple.
         _timeout = [timeout copy];
         _since = [since copy];
         _complete = [complete copy];
     }
     return self;
-}
-
-- (instancetype)initWithRID:(EXORpcResourceID *)rid
-{
-    return nil;
 }
 
 - (id)init
@@ -60,8 +57,24 @@
         if (err) {
             self.complete(nil, err);
         } else {
-            // FIXME: parse results.
-            self.complete(nil, nil);
+            NSArray *got = result[@"result"];
+            // Current wait command reply returns a single value
+            NSMutableDictionary *given = [NSMutableDictionary new];
+            if (got.count > 1) {
+                NSArray *item = got[0];
+                NSDate *when = [NSDate dateWithTimeIntervalSince1970:[item[0] longLongValue]];
+                EXORpcValue *rval;
+                id value = item[1];
+                if ([value isKindOfClass:[NSString class]]) {
+                    rval = [EXORpcValue valueWithDate:when string:value];
+                } else if ([value isKindOfClass:[NSNumber class]]) {
+                    rval = [EXORpcValue valueWithDate:when number:value];
+                } else {
+                    rval = [EXORpcValue valueWithDate:when string:[value description]];
+                }
+                given[self.resourceIDs[0]] = rval;
+                self.complete([given copy], nil);
+            }
         }
     }
 }
@@ -79,8 +92,8 @@
     for (EXORpcResourceID *rid in self.resourceIDs) {
         [rids addObject:[rid plistValue]];
     }
-    return @{@"procedure": @"wait", @"arguments": @[[rids copy], [params copy]]};
-    // May have found a syntax bug in the RPC call. so waiting on that.
+    // Current wait command only takes a single RID. Future version will take multiple.
+    return @{@"procedure": @"wait", @"arguments": @[rids[0], [params copy]]};
 }
 
 - (BOOL)isEqual:(id)object

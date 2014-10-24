@@ -14,6 +14,7 @@
 		6D20946A1921113800B79CB5 /* EXORpcRevokeRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2094691921113800B79CB5 /* EXORpcRevokeRequestTest.m */; };
 		6D28F89D18F448E40060A270 /* EXORpcInfoRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D28F89C18F448E40060A270 /* EXORpcInfoRequestTests.m */; };
 		6D28F89F18F4492B0060A270 /* EXORpcResourceIDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D28F89E18F4492B0060A270 /* EXORpcResourceIDTests.m */; };
+		6D2CE98A19FA983A00C47F84 /* EXORpcWaitRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2CE98919FA983A00C47F84 /* EXORpcWaitRequestTest.m */; };
 		6D2F151F1906CE3E00E71A00 /* EXORpcLookupRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2F151E1906CE3E00E71A00 /* EXORpcLookupRequestTests.m */; };
 		6D2F15211906D0A400E71A00 /* EXORpcMapRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2F15201906D0A400E71A00 /* EXORpcMapRequestTest.m */; };
 		6D30125F194607980077B1E8 /* EXORpcListingRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D30125E194607980077B1E8 /* EXORpcListingRequestTest.m */; };
@@ -79,6 +80,7 @@
 		6D2094691921113800B79CB5 /* EXORpcRevokeRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcRevokeRequestTest.m; sourceTree = "<group>"; };
 		6D28F89C18F448E40060A270 /* EXORpcInfoRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcInfoRequestTests.m; sourceTree = "<group>"; };
 		6D28F89E18F4492B0060A270 /* EXORpcResourceIDTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcResourceIDTests.m; sourceTree = "<group>"; };
+		6D2CE98919FA983A00C47F84 /* EXORpcWaitRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcWaitRequestTest.m; sourceTree = "<group>"; };
 		6D2F151E1906CE3E00E71A00 /* EXORpcLookupRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcLookupRequestTests.m; sourceTree = "<group>"; };
 		6D2F15201906D0A400E71A00 /* EXORpcMapRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcMapRequestTest.m; sourceTree = "<group>"; };
 		6D30125E194607980077B1E8 /* EXORpcListingRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcListingRequestTest.m; sourceTree = "<group>"; };
@@ -129,7 +131,8 @@
 		6DCD642E1937822500BD34C6 /* EXORpcDropRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDropRequestTest.m; sourceTree = "<group>"; };
 		6DCD6430193784DF00BD34C6 /* EXORpcFlushRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcFlushRequestTest.m; sourceTree = "<group>"; };
 		6DEE7108192681BF001F473F /* EXORpcUnmapRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcUnmapRequestTest.m; sourceTree = "<group>"; };
-		E0E9FB18997D46AA84CE96FD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		90C5B4D1A7091CDA4D401301 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A3A0AD859C98B9914BC609EA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +168,7 @@
 				6D5A029218BB927500237215 /* CocoaOnePExampleTests */,
 				6D5A026918BB927500237215 /* Frameworks */,
 				6D5A026818BB927500237215 /* Products */,
-				E0E9FB18997D46AA84CE96FD /* Pods.xcconfig */,
+				BDE353007E17A3449ACBB93E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -255,6 +258,7 @@
 				6D43A38B1949F54A000850D0 /* EXORpcUpdateRequestTest.m */,
 				6D43A38D1949FC98000850D0 /* EXORpcUsageRequestTest.m */,
 				6D35FAA419197088007458AF /* EXORpcValueTest.m */,
+				6D2CE98919FA983A00C47F84 /* EXORpcWaitRequestTest.m */,
 				6D43A38F1949FEC7000850D0 /* EXORpcWriteRequestTest.m */,
 				6D5A029318BB927500237215 /* Supporting Files */,
 			);
@@ -268,6 +272,15 @@
 				6D5A029518BB927500237215 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BDE353007E17A3449ACBB93E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3A0AD859C98B9914BC609EA /* Pods.debug.xcconfig */,
+				90C5B4D1A7091CDA4D401301 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,7 +397,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		782346CA7CA24C62A45C09DD /* Check Pods Manifest.lock */ = {
@@ -429,7 +442,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -455,6 +468,7 @@
 				6DA4E950192FB12B002A20E6 /* EXORpcClientResourceTest.m in Sources */,
 				6D43A38A1949F3B2000850D0 /* EXORpcShareRequestTest.m in Sources */,
 				6D6CAA461974178300DCE5D7 /* EXORpcDataruleIntervalTest.m in Sources */,
+				6D2CE98A19FA983A00C47F84 /* EXORpcWaitRequestTest.m in Sources */,
 				6D6CAA421974147600DCE5D7 /* EXORpcDataruleCountTest.m in Sources */,
 				6DCD642F1937822500BD34C6 /* EXORpcDropRequestTest.m in Sources */,
 				6DEE7109192681BF001F473F /* EXORpcUnmapRequestTest.m in Sources */,
@@ -608,7 +622,7 @@
 		};
 		6D5A029D18BB927500237215 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0E9FB18997D46AA84CE96FD /* Pods.xcconfig */;
+			baseConfigurationReference = A3A0AD859C98B9914BC609EA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -623,7 +637,7 @@
 		};
 		6D5A029E18BB927500237215 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0E9FB18997D46AA84CE96FD /* Pods.xcconfig */;
+			baseConfigurationReference = 90C5B4D1A7091CDA4D401301 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -638,7 +652,7 @@
 		};
 		6D5A02A018BB927500237215 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0E9FB18997D46AA84CE96FD /* Pods.xcconfig */;
+			baseConfigurationReference = A3A0AD859C98B9914BC609EA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CocoaOnePExample.app/CocoaOnePExample";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -661,7 +675,7 @@
 		};
 		6D5A02A118BB927500237215 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0E9FB18997D46AA84CE96FD /* Pods.xcconfig */;
+			baseConfigurationReference = 90C5B4D1A7091CDA4D401301 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CocoaOnePExample.app/CocoaOnePExample";
 				FRAMEWORK_SEARCH_PATHS = (

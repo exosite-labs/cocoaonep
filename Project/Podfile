@@ -1,3 +1,5 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
 xcodeproj "CocoaOnePExample/CocoaOnePExample.xcodeproj"
 
 pod "CocoaOneP", :path => "../CocoaOneP.podspec"
