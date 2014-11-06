@@ -6,7 +6,7 @@ install:
     - export LANG=en_US.UTF-8
     - sudo gem install --no-document cocoapods
     - pod install
-script: xctool -workspace CocoaOnePExample.xcworkspace -scheme CocoaOnePExample -sdk iphonesimulator7.1 test
+script: xctool -workspace CocoaOnePExample.xcworkspace -scheme CocoaOnePExample -sdk iphonesimulator8.0 test
 notifications:
   email:
     - miketilstra@exosite.com
