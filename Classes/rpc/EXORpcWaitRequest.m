@@ -61,10 +61,9 @@
             // Current wait command reply returns a single value
             NSMutableDictionary *given = [NSMutableDictionary new];
             if (got.count > 0) {
-                NSArray *item = got[0];
-                NSDate *when = [NSDate dateWithTimeIntervalSince1970:[item[0] longLongValue]];
+                NSDate *when = [NSDate dateWithTimeIntervalSince1970:[got[0] longLongValue]];
                 EXORpcValue *rval;
-                id value = item[1];
+                id value = got[1];
                 if ([value isKindOfClass:[NSString class]]) {
                     rval = [EXORpcValue valueWithDate:when string:value];
                 } else if ([value isKindOfClass:[NSNumber class]]) {

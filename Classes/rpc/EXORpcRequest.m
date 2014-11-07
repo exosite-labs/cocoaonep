@@ -32,6 +32,8 @@ NSString *kEXORpcErrorDomain = @"kEXORpcErrorDomain";
         return kEXORpcErrorTypeInvalid;
     } else if ([status isEqualToString:@"noauth"]) {
         return kEXORpcErrorTypeNoAuth;
+    } else if ([status isEqualToString:@"expire"]) {
+        return kEXORpcErrorTypeExpired;
     }
     // TODO: This is probably incomplete. Documentation is lacking for this.
     return kEXORpcErrorTypeUnknown;
