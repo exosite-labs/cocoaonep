@@ -11,7 +11,7 @@ The complete [Exosite One Platform API](https://github.com/exosite/docs) covers 
 ground.  This set of bindings only covers the following lower-level APIs:
 - HTTP Data Interface API
 - Remote Procedure Call API
-- Portals API
+- Portals API (<small>Partial support, this API is in high flux currently</small>)
 
 This is still a beta release.  The HTTP Data Interface API and Remote Procedure Call API are
 considered complete, while the Portals API is in flux (because the underlying REST API is still
