@@ -3,7 +3,7 @@ xcode_workspace: Project/CocoaOnePExample.xcworkspace
 xcode_scheme: CocoaOnePExample
 before_install:
     - brew update
-    - brew install xctool
+    - brew upgrade xctool
 install:
     - xctool --version
     - cd Project
