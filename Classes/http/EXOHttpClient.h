@@ -70,4 +70,22 @@ typedef void(^EXOHttpClientReadComplete)(NSDictionary *results, NSError *error);
  */
 - (void)readAliases:(NSArray*)aliases complete:(EXOHttpClientReadComplete)complete;
 
+/**
+ Wait for data from a CIK
+
+ @param aliases An Array of NSString of each alias on the CIK to read the current value of.
+ @param complete The callback called with the results of the request.
+ */
+- (void)waitAliases:(NSArray*)aliases complete:(EXOHttpClientReadComplete)complete;
+
+/**
+ Wait for data from a CIK
+ 
+ @param aliases An Array of NSString of each alias on the CIK to read the current value of.
+ @param timeout How long to wait for new data (1 to 300000 milliseconds)
+ @param since When to start wait for data (defaults to now if nil)
+ @param complete The callback called with the results of the request.
+ */
+- (void)waitAliases:(NSArray*)aliases timeout:(NSNumber*)timeout since:(NSDate*)since complete:(EXOHttpClientReadComplete)complete;
+
 @end
