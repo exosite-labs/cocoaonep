@@ -9,11 +9,11 @@
 #import <XCTest/XCTest.h>
 #import <EXORpc.h>
 
-@interface EXODataruleTest : XCTestCase
+@interface EXORpcDataruleTest : XCTestCase
 
 @end
 
-@implementation EXODataruleTest
+@implementation EXORpcDataruleTest
 
 - (void)setUp
 {

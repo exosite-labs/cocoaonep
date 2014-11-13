@@ -44,7 +44,7 @@
 		6D5A028E18BB927500237215 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A026A18BB927500237215 /* Foundation.framework */; };
 		6D5A028F18BB927500237215 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5A026E18BB927500237215 /* UIKit.framework */; };
 		6D5A029718BB927500237215 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D5A029518BB927500237215 /* InfoPlist.strings */; };
-		6D6CAA401974128000DCE5D7 /* EXODataruleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CAA3F1974128000DCE5D7 /* EXODataruleTest.m */; };
+		6D6CAA401974128000DCE5D7 /* EXORpcDataruleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CAA3F1974128000DCE5D7 /* EXORpcDataruleTest.m */; };
 		6D6CAA421974147600DCE5D7 /* EXORpcDataruleCountTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CAA411974147600DCE5D7 /* EXORpcDataruleCountTest.m */; };
 		6D6CAA44197416F400DCE5D7 /* EXORpcDataruleDurationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CAA43197416F400DCE5D7 /* EXORpcDataruleDurationTest.m */; };
 		6D6CAA461974178300DCE5D7 /* EXORpcDataruleIntervalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CAA451974178300DCE5D7 /* EXORpcDataruleIntervalTest.m */; };
@@ -116,7 +116,7 @@
 		6D5A028C18BB927500237215 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6D5A029418BB927500237215 /* CocoaOnePExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CocoaOnePExampleTests-Info.plist"; sourceTree = "<group>"; };
 		6D5A029618BB927500237215 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6D6CAA3F1974128000DCE5D7 /* EXODataruleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXODataruleTest.m; sourceTree = "<group>"; };
+		6D6CAA3F1974128000DCE5D7 /* EXORpcDataruleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleTest.m; sourceTree = "<group>"; };
 		6D6CAA411974147600DCE5D7 /* EXORpcDataruleCountTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleCountTest.m; sourceTree = "<group>"; };
 		6D6CAA43197416F400DCE5D7 /* EXORpcDataruleDurationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleDurationTest.m; sourceTree = "<group>"; };
 		6D6CAA451974178300DCE5D7 /* EXORpcDataruleIntervalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleIntervalTest.m; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 				6DA4E94F192FB12B002A20E6 /* EXORpcClientResourceTest.m */,
 				6D43A391194A0EE1000850D0 /* EXORpcCloneResourceTest.m */,
 				6D4DD596190947ED00E63349 /* EXORpcDataportResourceTest.m */,
-				6D6CAA3F1974128000DCE5D7 /* EXODataruleTest.m */,
+				6D6CAA3F1974128000DCE5D7 /* EXORpcDataruleTest.m */,
 				6D6CAA411974147600DCE5D7 /* EXORpcDataruleCountTest.m */,
 				6D6CAA43197416F400DCE5D7 /* EXORpcDataruleDurationTest.m */,
 				6D6CAA451974178300DCE5D7 /* EXORpcDataruleIntervalTest.m */,
@@ -480,7 +480,7 @@
 				6D43A38C1949F54A000850D0 /* EXORpcUpdateRequestTest.m in Sources */,
 				6D2F15211906D0A400E71A00 /* EXORpcMapRequestTest.m in Sources */,
 				6D35FAA519197088007458AF /* EXORpcValueTest.m in Sources */,
-				6D6CAA401974128000DCE5D7 /* EXODataruleTest.m in Sources */,
+				6D6CAA401974128000DCE5D7 /* EXORpcDataruleTest.m in Sources */,
 				6D30125F194607980077B1E8 /* EXORpcListingRequestTest.m in Sources */,
 				6D28F89D18F448E40060A270 /* EXORpcInfoRequestTests.m in Sources */,
 				6D301263194626060077B1E8 /* EXORpcRequestTest.m in Sources */,
