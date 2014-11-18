@@ -4,12 +4,12 @@ xcode_scheme: CocoaOnePExample
 before_install:
     - brew update
     - brew upgrade xctool
+    - export LANG=en_US.UTF-8
+    - sudo gem install --no-document cocoapods
 install:
     - xctool --version
     - cd Project
-    - export LANG=en_US.UTF-8
-    - sudo gem install --no-document cocoapods
-    - pod install --verbose
+    - pod install
 script: xctool -workspace CocoaOnePExample.xcworkspace -scheme CocoaOnePExample -sdk iphonesimulator8.0 test
 notifications:
   email:
