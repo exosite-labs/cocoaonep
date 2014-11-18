@@ -68,7 +68,7 @@
     NSMutableArray *clients = [NSMutableArray new];
 
     EXORpcAuthKey *auth = [EXORpcAuthKey authWithCIK:cik];
-    EXORpcListingRequest *lr = [EXORpcListingRequest listingByType:EXORpcListTypeClient filter:EXORpcFilterTypeAll complete:^(NSDictionary *results, NSError *error) {
+    EXORpcListingRequest *lr = [EXORpcListingRequest listingByType:EXORpcListTypeClient filter:EXORpcFilterTypeOwned complete:^(NSDictionary *results, NSError *error) {
         if (error) {
             NSLog(@": listingReq:%@ :error: %@", rid, error);
         } else {
@@ -79,7 +79,8 @@
                         if (error) {
                             NSLog(@": infoReq:%@ :error: %@", rid, error);
                         } else {
-                            [clients addObject:@[results[@"description"][@"name"], rid, results[@"key"], results[@"counts"][@"client"]]];
+                            EXORpcClientResource *client = results[@"description"];
+                            [clients addObject:@[client.name, rid, results[@"key"], results[@"counts"][@"client"]]];
                         }
                     }];
                     [calls addObject:infor];
