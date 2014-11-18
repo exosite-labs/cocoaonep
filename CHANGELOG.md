@@ -1,5 +1,13 @@
 # CocoaOneP CHANGELOG
 
+## v0.4.1
+- Added the wait request object.
+- Unicode symbols for stringifed preprocessing object
+- Fix initializing subscribe field from plists.
+
+## v0.4.0
+ 
+
 ## v0.3.3
 - Added block callback to RPC for when it is doing network activity.
 - Trying an idea for collecting some common patterns atop RPC.
