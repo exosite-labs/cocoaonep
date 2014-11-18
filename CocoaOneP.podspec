@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name             = "CocoaOneP"
   s.version          = "0.4.1"
   s.summary          = "Cocoa library for using the Exosite One Platform."
-  s.homepage         = "http://exosite.com/platform/data-platform/"
+  s.homepage         = "http://docs.exosite.com/"
   s.license          = 'BSD'
   s.author           = { "Michael Conrad Tadpol Tilstra" => "miketilstra@exosite.com" }
   s.source           = { :git => "https://github.com/exosite-labs/cocoaonep.git",
