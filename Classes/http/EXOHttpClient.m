@@ -107,21 +107,23 @@ static NSString *EXOHttpClientAPI = @"/onep:v1/stack/alias";
     }
 
     NSURL *URL = [NSURL URLWithString:EXOHttpClientAPI relativeToURL:self.manager.baseURL];
-    NSError *err=nil;
+    NSError *error=nil;
     AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
-    NSMutableURLRequest *request = [[serializer requestWithMethod:@"GET" URLString:[URL absoluteString] parameters:mdict error:&err] mutableCopy];
+    NSMutableURLRequest *request = [[serializer requestWithMethod:@"GET" URLString:[URL absoluteString] parameters:mdict error:&error] mutableCopy];
     if (timeout) {
         [request addValue:[timeout stringValue] forHTTPHeaderField:@"Request-Timeout"];
     }
     NSString *df = [NSString stringWithFormat:@"%lu", (long)[since timeIntervalSince1970]];
     [request addValue:df forHTTPHeaderField:@"If-Modified-Since"];
+    [request addValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Accept"];
+    [request addValue:self.CIK forHTTPHeaderField:@"X-Exosite-CIK"];
 
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     op.responseSerializer = [AFHTTPResponseSerializer serializer];
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
         if(lcomplete) lcomplete(responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if(lcomplete) lcomplete(nil, err);
+        if(lcomplete) lcomplete(nil, error);
     }];
     [self.manager.operationQueue addOperation:op];
 }
