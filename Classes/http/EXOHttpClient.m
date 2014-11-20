@@ -43,6 +43,8 @@ static NSString *EXOHttpClientAPI = @"/onep:v1/stack/alias";
         self.manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:self.host];
         self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
         [self.manager.requestSerializer setValue:self.CIK forHTTPHeaderField:@"X-Exosite-CIK"];
+        [self.manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Accept"];
+        [self.manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     }
     return self;
 }
