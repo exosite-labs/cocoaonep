@@ -1,5 +1,8 @@
 # CocoaOneP CHANGELOG
 
+## v0.4.2
+- Fixed some bugs in ExoHttpClient
+
 ## v0.4.1
 - Added the wait request object.
 - Unicode symbols for stringifed preprocessing object
