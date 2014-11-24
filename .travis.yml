@@ -3,7 +3,7 @@ xcode_workspace: Project/CocoaOnePExample.xcworkspace
 xcode_scheme: CocoaOnePExample
 before_install:
     - brew update
-    - brew upgrade xctool
+    - brew upgrade xctool || true
     - export LANG=en_US.UTF-8
     - sudo gem install --no-document cocoapods
 install:
