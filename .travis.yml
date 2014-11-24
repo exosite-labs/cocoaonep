@@ -10,7 +10,7 @@ install:
     - xctool --version
     - cd Project
     - pod install
-script: xctool -workspace CocoaOnePExample.xcworkspace -scheme CocoaOnePExample -sdk iphonesimulator8.0 test
+script: xctool -workspace CocoaOnePExample.xcworkspace -scheme CocoaOnePExample -sdk iphonesimulator8.1 test
 notifications:
   email:
     - miketilstra@exosite.com
