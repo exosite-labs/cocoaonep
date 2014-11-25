@@ -120,6 +120,7 @@ typedef void(^EXORpcActivityChange)(BOOL active);
  This represents a single HTTP request - response pair.  All of the requests in the array are formed into a single HTTP request and sent to the One Platform.  The response is then parsed and each call given its results to handle in its own way.  After all of the request callbacks are called, the complete callback is called.
 
  The order of the request callbacks is not guaranteed, but it is guaranteed that all of them will execute before this complete callback.
+ Also, if the error parameter to this complete callback is not nil, then none of the request callback were called.
  
  @param auth One Platform authentication to a client
  @param calls NSArray of object that subclass from EXORpcRequest
