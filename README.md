@@ -9,11 +9,10 @@ CocoaOneP is a bindings library for the Exosite One Platform.
 
 The complete [Exosite One Platform API](https://github.com/exosite/docs) covers a lot of
 ground.  This set of bindings only covers the following lower-level APIs:
-- HTTP Data Interface API
 - Remote Procedure Call API
 - Portals API (<small>Partial support, this API is in high flux currently</small>)
 
-This is still a beta release.  The HTTP Data Interface API and Remote Procedure Call API are
+This is still a beta release.  The Remote Procedure Call API is
 considered complete, while the Portals API is in flux (because the underlying REST API is still
 beta.)
 
@@ -23,13 +22,7 @@ You need to be at least partially familar with the low-level APIs to use this li
 
 To run the example project; clone the repo, and run `pod install` from the Project directory first.
 
-For simple interactions with One Platform, use the HTTP Data Interface.  Create a
-`EXOHttpClient` for each device client, and then use the `readAliases:complete:` and
-`writeAliases:complete:`.  Using the HTTP Data Interface assumes that the clients in One
-Platform have been completely setup.
-
-For more complex interactions, use the Remote Procedure Call API.  Create an `EXORpc`, build up
-an array of requests, and send them with `doRPCwithAuth:requests::complete:`.
+More examples are needed badly, I know. Help.
 
 We are in the progress of adding appledoc to all the headers.
 

@@ -1,5 +1,9 @@
 # CocoaOneP CHANGELOG
 
+## v0.5.0
+- Dropped the HTTP Data API support.  The RPC API is richer, has better error responses, and is
+  better debugged.
+
 ## v0.4.2
 - Fixed some bugs in ExoHttpClient
 
