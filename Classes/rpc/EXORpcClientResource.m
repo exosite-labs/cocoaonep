@@ -62,94 +62,94 @@
 {
     if (self = [super initWithName:name meta:meta public:public]) {
         self.locked = locked;
-        if (limits[@"client"]) {
+        if (limits[@"client"] && [limits[@"client"] isKindOfClass:[NSNumber class]]) {
             self.limitClient = limits[@"client"];
         }
-        if (limits[@"limitClient"]) {
+        if (limits[@"limitClient"] && [limits[@"limitClient"] isKindOfClass:[NSNumber class]]) {
             self.limitClient = limits[@"limitClient"];
         }
-        if (limits[@"dataport"]) {
+        if (limits[@"dataport"] && [limits[@"dataport"] isKindOfClass:[NSNumber class]]) {
             self.limitDataport = limits[@"dataport"];
         }
-        if (limits[@"limitDataport"]) {
+        if (limits[@"limitDataport"] && [limits[@"limitDataport"] isKindOfClass:[NSNumber class]]) {
             self.limitDataport = limits[@"limitDataport"];
         }
-        if (limits[@"datarule"]) {
+        if (limits[@"datarule"] && [limits[@"datarule"] isKindOfClass:[NSNumber class]]) {
             self.limitDatarule = limits[@"datarule"];
         }
-        if (limits[@"limitDatarule"]) {
+        if (limits[@"limitDatarule"] && [limits[@"limitDatarule"] isKindOfClass:[NSNumber class]]) {
             self.limitDatarule = limits[@"limitDatarule"];
         }
-        if (limits[@"disk"]) {
+        if (limits[@"disk"] && [limits[@"disk"] isKindOfClass:[NSNumber class]]) {
             self.limitDisk = limits[@"disk"];
         }
-        if (limits[@"limitDisk"]) {
+        if (limits[@"limitDisk"] && [limits[@"limitDisk"] isKindOfClass:[NSNumber class]]) {
             self.limitDisk = limits[@"limitDisk"];
         }
-        if (limits[@"dispatch"]) {
+        if (limits[@"dispatch"] && [limits[@"dispatch"] isKindOfClass:[NSNumber class]]) {
             self.limitDispatch = limits[@"dispatch"];
         }
-        if (limits[@"limitDispatch"]) {
+        if (limits[@"limitDispatch"] && [limits[@"limitDispatch"] isKindOfClass:[NSNumber class]]) {
             self.limitDispatch = limits[@"limitDispatch"];
         }
-        if (limits[@"IO"]) {
+        if (limits[@"IO"] && [limits[@"IO"] isKindOfClass:[NSNumber class]]) {
             self.limitIO = limits[@"IO"];
         }
-        if (limits[@"limitIO"]) {
+        if (limits[@"limitIO"] && [limits[@"limitIO"] isKindOfClass:[NSNumber class]]) {
             self.limitIO = limits[@"limitIO"];
         }
-        if (limits[@"email"]) {
+        if (limits[@"email"] && [limits[@"email"] isKindOfClass:[NSNumber class]]) {
             self.limitEmail = limits[@"email"];
         }
-        if (limits[@"limitEmail"]) {
+        if (limits[@"limitEmail"] && [limits[@"limitEmail"] isKindOfClass:[NSNumber class]]) {
             self.limitEmail = limits[@"limitEmail"];
         }
-        if (limits[@"emailBucket"]) {
+        if (limits[@"emailBucket"] && [limits[@"emailBucket"] isKindOfClass:[NSNumber class]]) {
             self.limitEmailBucket = limits[@"emailBucket"];
         }
-        if (limits[@"limitEmailBucket"]) {
+        if (limits[@"limitEmailBucket"] && [limits[@"limitEmailBucket"] isKindOfClass:[NSNumber class]]) {
             self.limitEmailBucket = limits[@"limitEmailBucket"];
         }
-        if (limits[@"http"]) {
+        if (limits[@"http"] && [limits[@"http"] isKindOfClass:[NSNumber class]]) {
             self.limitHttp = limits[@"http"];
         }
-        if (limits[@"limitHttp"]) {
+        if (limits[@"limitHttp"] && [limits[@"limitHttp"] isKindOfClass:[NSNumber class]]) {
             self.limitHttp = limits[@"limitHttp"];
         }
-        if (limits[@"httpBucket"]) {
+        if (limits[@"httpBucket"] && [limits[@"httpBucket"] isKindOfClass:[NSNumber class]]) {
             self.limitHttpBucket = limits[@"httpBucket"];
         }
-        if (limits[@"limitHttpBucket"]) {
+        if (limits[@"limitHttpBucket"] && [limits[@"limitHttpBucket"] isKindOfClass:[NSNumber class]]) {
             self.limitHttpBucket = limits[@"limitHttpBucket"];
         }
-        if (limits[@"share"]) {
+        if (limits[@"share"] && [limits[@"share"] isKindOfClass:[NSNumber class]]) {
             self.limitShare = limits[@"share"];
         }
-        if (limits[@"limitShare"]) {
+        if (limits[@"limitShare"] && [limits[@"limitShare"] isKindOfClass:[NSNumber class]]) {
             self.limitShare = limits[@"limitShare"];
         }
-        if (limits[@"sms"]) {
+        if (limits[@"sms"] && [limits[@"sms"] isKindOfClass:[NSNumber class]]) {
             self.limitSms = limits[@"sms"];
         }
-        if (limits[@"limitSms"]) {
+        if (limits[@"limitSms"] && [limits[@"limitSms"] isKindOfClass:[NSNumber class]]) {
             self.limitSms = limits[@"limitSms"];
         }
-        if (limits[@"smsBucket"]) {
+        if (limits[@"smsBucket"] && [limits[@"smsBucket"] isKindOfClass:[NSNumber class]]) {
             self.limitSmsBucket = limits[@"smsBucket"];
         }
-        if (limits[@"limitSmsBucket"]) {
+        if (limits[@"limitSmsBucket"] && [limits[@"limitSmsBucket"] isKindOfClass:[NSNumber class]]) {
             self.limitSmsBucket = limits[@"limitSmsBucket"];
         }
-        if (limits[@"xmpp"]) {
+        if (limits[@"xmpp"] && [limits[@"xmpp"] isKindOfClass:[NSNumber class]]) {
             self.limitXmpp = limits[@"xmpp"];
         }
-        if (limits[@"limitXmpp"]) {
+        if (limits[@"limitXmpp"] && [limits[@"limitXmpp"] isKindOfClass:[NSNumber class]]) {
             self.limitXmpp = limits[@"limitXmpp"];
         }
-        if (limits[@"xmppBucket"]) {
+        if (limits[@"xmppBucket"] && [limits[@"xmppBucket"] isKindOfClass:[NSNumber class]]) {
             self.limitXmppBucket = limits[@"xmppBucket"];
         }
-        if (limits[@"limitXmppBucket"]) {
+        if (limits[@"limitXmppBucket"] && [limits[@"limitXmppBucket"] isKindOfClass:[NSNumber class]]) {
             self.limitXmppBucket = limits[@"limitXmppBucket"];
         }
     }

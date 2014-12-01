@@ -119,6 +119,21 @@
                };
     result = @{@"limits": limits, @"locked": @NO, @"name":@"bob", @"meta": @"a little meta", @"public": @NO};
     XCTAssertEqualObjects([resource plistValue], result, @"init with plist");
+    XCTAssertNil(resource.limitClient, @"init with plist; inherit limits should be nil");
+    XCTAssertNil(resource.limitDataport, @"init with plist; inherit limits should be nil");
+    XCTAssertNil(resource.limitDatarule, @"init with plist; inherit limits should be nil");
+    XCTAssertNil(resource.limitDisk, @"init with plist; inherit limits should be nil");
+    XCTAssertNil(resource.limitDispatch, @"init with plist; inherit limits should be nil");
+    XCTAssertNil(resource.limitEmail, @"init with plist; inherit limits should be nil");
+    XCTAssertNil(resource.limitEmailBucket, @"init with plist; inherit limits should be nil");
+    XCTAssertNil(resource.limitHttp, @"init with plist; inherit limits should be nil");
+    XCTAssertNil(resource.limitHttpBucket, @"init with plist; inherit limits should be nil");
+    XCTAssertNil(resource.limitShare, @"init with plist; inherit limits should be nil");
+    XCTAssertNil(resource.limitSms, @"init with plist; inherit limits should be nil");
+    XCTAssertNil(resource.limitSmsBucket, @"init with plist; inherit limits should be nil");
+    XCTAssertNil(resource.limitXmpp, @"init with plist; inherit limits should be nil");
+    XCTAssertNil(resource.limitXmppBucket, @"init with plist; inherit limits should be nil");
+
 }
 
 @end
