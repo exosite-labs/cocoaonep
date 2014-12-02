@@ -6,3 +6,7 @@ pod "CocoaOneP", :path => "../CocoaOneP.podspec"
 pod "Lockbox"
 
 link_with 'CocoaOnePExample', 'CocoaOnePExampleTests'
+
+target 'CocoaOnePExampleTests' do
+    pod 'OCMock', '~> 3.1'
+end
