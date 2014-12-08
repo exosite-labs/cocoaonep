@@ -49,6 +49,21 @@
     };
     XCTAssertEqualObjects([datarule plistValue], result, @"Rule datarule");
 
+    datarule = [EXORpcDataruleResource dataruleWithName:@"test" rule:timeout subscribe:[EXORpcResourceID invalid]];
+    result = @{
+               @"format": @"integer",
+               @"name": @"test",
+               @"retention": @{@"count": @"infinity", @"duration": @"infinity"},
+               @"rule": @{
+                       @"timeout": @{
+                               @"repeat": @NO,
+                               @"timeout": @(12),
+                               },
+                       },
+               @"subscribe": [NSNull null]
+               };
+    XCTAssertEqualObjects([datarule plistValue], result, @"Rule datarule; clear subscription");
+    
     datarule = [EXORpcDataruleResource dataruleWithName:@"script test" script:@"# A lua script."];
     result = @{
         @"format": @"string",

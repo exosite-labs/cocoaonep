@@ -40,6 +40,8 @@
     rid = [EXORpcResourceID resourceIDByRID:@"34eaae237988167d90bfc2ffeb666daaaaaaaaaa"];
     XCTAssertEqualObjects(@"34eaae237988167d90bfc2ffeb666daaaaaaaaaa", [rid plistValue], @"RID string resource ID");
 
+    rid = [EXORpcResourceID invalid];
+    XCTAssertEqualObjects([NSNull null], [rid plistValue], @"Invalid RID");
 }
 
 @end
