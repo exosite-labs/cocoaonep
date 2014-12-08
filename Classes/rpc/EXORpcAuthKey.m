@@ -49,6 +49,9 @@
 
 - (instancetype)initWithAuth:(NSDictionary*)auth
 {
+    if (auth == nil) {
+        return nil;
+    }
     if (self = [super init]) {
         self.auth = auth;
     }
