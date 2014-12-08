@@ -51,6 +51,17 @@
 + (EXORpcResourceID*)resourceIDAsSelf;
 
 /**
+ Identify an invalid ID.
+
+ This is used when creating or updating a subscription on a resource.  
+ Sepcifically, on an update it differs from nil in that using this clears the subscription.
+ Where a nil leaves the subscription unchanged.
+
+ @return The resource identifier
+ */
++ (EXORpcResourceID*)invalid;
+
+/**
  Directly identify a resource by its RID string.
 
  The resource must be in the calling client's subhierarchy.
