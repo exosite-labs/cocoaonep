@@ -55,6 +55,11 @@
     return [[EXORpcAuthKey alloc] initWithAuth:@{@"cik": [cik copy], @"resource_id": [rid copy]}];
 }
 
++ (EXORpcAuthKey *)authWithPIK:(NSString *)pik
+{
+    return [[EXORpcAuthKey alloc] initWithPIK:pik];
+}
+
 - (instancetype)init
 {
     return nil;
@@ -66,6 +71,14 @@
         return nil;
     }
     return [self initWithAuth:@{@"cik": [cik copy]}];
+}
+
+- (instancetype)initWithPIK:(NSString *)pik
+{
+    if (pik == nil) {
+        return nil;
+    }
+    return [self initWithAuth:@{@"pik": [pik copy]}];
 }
 
 - (instancetype)initWithAuth:(NSDictionary*)auth
