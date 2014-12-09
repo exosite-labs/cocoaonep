@@ -72,16 +72,16 @@
 {
     EXORpcAuthKey *authA, *authB;
     
-    authA = [EXORpcAuthKey authWithCIK:@"ABCDEFG"];
-    authB = [EXORpcAuthKey authWithCIK:@"ABCDEFG"];
+    authA = [EXORpcAuthKey authWithCIK:@"e5f61a91cd50e7e5922b01234567890123456789"];
+    authB = [EXORpcAuthKey authWithCIK:@"e5f61a91cd50e7e5922b01234567890123456789"];
     XCTAssertEqualObjects(authA, authB, @"Testing isEqual");
     
-    authA = [EXORpcAuthKey authWithCIK:@"HIJKLMN" client:@"OPQRSTU"];
-    authB = [EXORpcAuthKey authWithCIK:@"HIJKLMN" client:@"OPQRSTU"];
+    authA = [EXORpcAuthKey authWithCIK:@"110527cc4dcf099af5be01234567890123456789" client:@"e5f61a91cd50e7e5922b01234567890123456789"];
+    authB = [EXORpcAuthKey authWithCIK:@"110527cc4dcf099af5be01234567890123456789" client:@"e5f61a91cd50e7e5922b01234567890123456789"];
     XCTAssertEqualObjects(authA, authB, @"Testing isEqual");
 
-    authA = [EXORpcAuthKey authWithCIK:@"VWYXZ0123" resource:@"456789"];
-    authB = [EXORpcAuthKey authWithCIK:@"VWYXZ0123" resource:@"456789"];
+    authA = [EXORpcAuthKey authWithCIK:@"3eb82b131c571c501af501234567890123456789" resource:@"88e9bc95a2eef8b6f0a001234567890123456789"];
+    authB = [EXORpcAuthKey authWithCIK:@"3eb82b131c571c501af501234567890123456789" resource:@"88e9bc95a2eef8b6f0a001234567890123456789"];
     XCTAssertEqualObjects(authA, authB, @"Testing isEqual");
 }
 
