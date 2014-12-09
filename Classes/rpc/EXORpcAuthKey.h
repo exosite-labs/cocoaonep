@@ -10,7 +10,7 @@
 /**
  One Platform authentication key.
  */
-@interface EXORpcAuthKey : NSObject <NSCopying>
+@interface EXORpcAuthKey : NSObject <NSCopying, NSSecureCoding>
 
 /**
  The CIK this auth points to.
@@ -26,6 +26,15 @@
  An optional RID that is a child of the CIK
  */
 @property(copy,nonatomic,readonly) NSString *rid;
+
+/**
+ Test if a string is formated as a CIK (or RID)
+ 
+ @param cik The string to test
+ @return YES string is formated as a CIK or RID
+ @return NO string is not formated as a CIK or RID
+ */
++ (BOOL)isCIK:(NSString*)cik;
 
 /**
  Create an auth identifying the client by CIK

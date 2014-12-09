@@ -13,6 +13,21 @@
 
 @implementation EXORpcAuthKey
 
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
+
++ (BOOL)isCIK:(NSString*)cik
+{
+    if (cik.length != 40) {
+        return NO;
+    }
+    NSCharacterSet *notAllowed = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789ABCDEFabcdef"] invertedSet];
+    NSRange found = [cik rangeOfCharacterFromSet:notAllowed];
+    return found.location == NSNotFound;
+}
+
 + (EXORpcAuthKey *)authWithCIK:(NSString *)cik
 {
     return [[EXORpcAuthKey alloc] initWithCIK:cik];
@@ -23,12 +38,18 @@
     if (cik == nil || clientid == nil) {
         return nil;
     }
+    if (![EXORpcAuthKey isCIK:cik] || ![EXORpcAuthKey isCIK:clientid]) {
+        return nil;
+    }
     return [[EXORpcAuthKey alloc] initWithAuth:@{@"cik": [cik copy], @"client_id": [clientid copy]}];
 }
 
 + (EXORpcAuthKey *)authWithCIK:(NSString *)cik resource:(NSString *)rid
 {
     if (cik == nil || rid == nil) {
+        return nil;
+    }
+    if (![EXORpcAuthKey isCIK:cik] || ![EXORpcAuthKey isCIK:rid]) {
         return nil;
     }
     return [[EXORpcAuthKey alloc] initWithAuth:@{@"cik": [cik copy], @"resource_id": [rid copy]}];
@@ -41,7 +62,7 @@
 
 - (instancetype)initWithCIK:(NSString *)cik
 {
-    if (cik == nil) {
+    if (cik == nil || ![EXORpcAuthKey isCIK:cik]) {
         return nil;
     }
     return [self initWithAuth:@{@"cik": [cik copy]}];
@@ -56,6 +77,19 @@
         self.auth = auth;
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        _auth = [aDecoder decodeObjectOfClass:[self class] forKey:NSStringFromSelector(@selector(auth))];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_auth forKey:NSStringFromSelector(@selector(auth))];
 }
 
 - (NSDictionary *)plistValue
