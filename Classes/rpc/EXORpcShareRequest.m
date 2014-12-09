@@ -14,20 +14,21 @@
 
 @implementation EXORpcShareRequest
 
-+ (EXORpcShareRequest *)shareWithRID:(EXORpcResourceID *)rid meta:(NSString *)meta
++ (EXORpcShareRequest *)shareWithRID:(EXORpcResourceID *)rid meta:(NSString *)meta complete:(EXORpcShareRequestComplete)complete
 {
-    return [[EXORpcShareRequest alloc] initWithRID:rid meta:meta];
+    return [[EXORpcShareRequest alloc] initWithRID:rid meta:meta complete:complete];
 }
 
-+ (EXORpcShareRequest *)shareWithRID:(EXORpcResourceID *)rid
++ (EXORpcShareRequest *)shareWithRID:(EXORpcResourceID *)rid complete:(EXORpcShareRequestComplete)complete
 {
-    return [[EXORpcShareRequest alloc] initWithRID:rid meta:nil];
+    return [[EXORpcShareRequest alloc] initWithRID:rid meta:nil complete:complete];
 }
 
-- (instancetype)initWithRID:(EXORpcResourceID *)rid meta:(NSString *)meta
+- (instancetype)initWithRID:(EXORpcResourceID *)rid meta:(NSString *)meta complete:(EXORpcShareRequestComplete)complete
 {
     if (self = [super initWithRID:rid]) {
-        _meta = meta;
+        _meta = [meta copy];
+        _complete = [complete copy];
     }
     return self;
 }
