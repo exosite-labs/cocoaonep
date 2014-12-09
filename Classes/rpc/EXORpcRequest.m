@@ -51,8 +51,9 @@ NSString *kEXORpcErrorDomain = @"kEXORpcErrorDomain";
         return [NSError errorWithDomain:@"EXORpcDevice" code:ec userInfo:@{NSLocalizedDescriptionKey: desc}];
     }
     NSString *ds = [status[@"status"] description];
+    NSDictionary *dds = ds?@{NSLocalizedDescriptionKey: ds}:nil;
     NSInteger ec = [self codeFromStatus:ds];
-    return [NSError errorWithDomain:kEXORpcErrorDomain code:ec userInfo:@{NSLocalizedDescriptionKey: ds}];
+    return [NSError errorWithDomain:kEXORpcErrorDomain code:ec userInfo:dds];
 }
 
 - (void)doResult:(NSDictionary *)result
