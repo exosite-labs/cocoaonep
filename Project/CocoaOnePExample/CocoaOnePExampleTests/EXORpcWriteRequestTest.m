@@ -59,4 +59,22 @@
 
 }
 
+- (void)testComplete
+{
+    EXORpcWriteRequest *req;
+    req = [EXORpcWriteRequest writeWithRID:nil number:@(42) complete:^(NSError *error) {
+        XCTAssertNil(error, @"Sucess has no error");
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"ok"}];
+
+    req = [EXORpcWriteRequest writeWithRID:nil number:@(42) complete:^(NSError *error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(error.domain, kEXORpcErrorDomain);
+        XCTAssertEqual(error.code, kEXORpcErrorTypeRestricted);
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"restricted"}];
+}
+
+
+
 @end

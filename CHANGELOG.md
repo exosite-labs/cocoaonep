@@ -1,6 +1,7 @@
 # CocoaOneP CHANGELOG
 
 ## v0.5.0
+- Added many unit tests; still have many more to go for complete coverage.
 - Added complete callback to EXORpxShareRequest.
 - Dropped the HTTP Data API support.  The RPC API is richer, has better error responses, and is
   better debugged.

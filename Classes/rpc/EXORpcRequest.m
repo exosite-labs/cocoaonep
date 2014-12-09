@@ -34,6 +34,8 @@ NSString *kEXORpcErrorDomain = @"kEXORpcErrorDomain";
         return kEXORpcErrorTypeNoAuth;
     } else if ([status isEqualToString:@"expire"]) {
         return kEXORpcErrorTypeExpired;
+    } else if ([status isEqualToString:@"restricted"]) {
+        return kEXORpcErrorTypeRestricted;
     }
     // TODO: This is probably incomplete. Documentation is lacking for this.
     return kEXORpcErrorTypeUnknown;

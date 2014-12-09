@@ -33,14 +33,15 @@
     NSDictionary *result;
     EXORpcResourceID *rid = [EXORpcResourceID resourceIDAsSelf];
 
-    share = [EXORpcShareRequest shareWithRID:rid meta:@"some meta about meta"];
+    share = [EXORpcShareRequest shareWithRID:rid meta:@"some meta about meta" complete:nil];
     result = @{@"procedure":@"share", @"arguments":@[@{@"alias":@""}, @{@"meta": @"some meta about meta"}]};
     XCTAssertEqualObjects([share plistValue], result, @"init with meta");
 
-    share = [EXORpcShareRequest shareWithRID:rid];
+    share = [EXORpcShareRequest shareWithRID:rid complete:nil];
     result = @{@"procedure":@"share", @"arguments":@[@{@"alias":@""}, @{}]};
     XCTAssertEqualObjects([share plistValue], result, @"init without meta");
 
 }
+
 
 @end

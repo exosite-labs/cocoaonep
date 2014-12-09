@@ -38,4 +38,21 @@
     XCTAssertEqualObjects([drop plistValue], result, @"A Drop Request");
 }
 
+
+- (void)testComplete
+{
+    EXORpcDropRequest *req;
+    req = [EXORpcDropRequest dropWithRID:nil complete:^(NSError *error) {
+        XCTAssertNil(error, @"Sucess has no error");
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"ok"}];
+
+    req = [EXORpcDropRequest dropWithRID:nil complete:^(NSError *error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(error.domain, kEXORpcErrorDomain);
+        XCTAssertEqual(error.code, kEXORpcErrorTypeRestricted);
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"restricted"}];
+}
+
 @end

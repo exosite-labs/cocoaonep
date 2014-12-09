@@ -18,6 +18,7 @@ extern NSString *kEXORpcErrorDomain;
 #define kEXORpcErrorTypeInvalid    1
 #define kEXORpcErrorTypeNoAuth     2
 #define kEXORpcErrorTypeExpired    3
+#define kEXORpcErrorTypeRestricted 4
 
 /**
  Callback for a request that does not return data

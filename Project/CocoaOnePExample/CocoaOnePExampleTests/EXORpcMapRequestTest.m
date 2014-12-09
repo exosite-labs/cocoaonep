@@ -38,4 +38,20 @@
 
 }
 
+- (void)testComplete
+{
+    EXORpcMapRequest *req;
+    req = [EXORpcMapRequest mapWithRID:[EXORpcResourceID resourceIDAsSelf] to:@"This is a Test" complete:^(NSError *error) {
+        XCTAssertNil(error, @"Sucess has no error");
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"ok"}];
+
+    req = [EXORpcMapRequest mapWithRID:[EXORpcResourceID resourceIDAsSelf] to:@"This is a Test" complete:^(NSError *error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(error.domain, kEXORpcErrorDomain);
+        XCTAssertEqual(error.code, kEXORpcErrorTypeRestricted);
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"restricted"}];
+}
+
 @end
