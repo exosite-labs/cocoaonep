@@ -38,6 +38,17 @@
     
 }
 
+- (void)testComplete
+{
+    EXORpcCreateRequest *req;
+    EXORpcDataportResource *dp = [EXORpcDataportResource dataportWithName:@"dogeton" format:EXORpcDataportFormatFloat];
+    req = [EXORpcCreateRequest createWithResource:dp complete:^(EXORpcResourceID *RID, NSError *error) {
+        XCTAssertNil(error);
+        XCTAssertEqualObjects(RID.rid, @"f3a7f2d7a9f7f470bbca01234567890123456789");
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"ok", @"result":@"f3a7f2d7a9f7f470bbca01234567890123456789"}];
 
+    // TODO: test when error is not nil
+}
 
 @end
