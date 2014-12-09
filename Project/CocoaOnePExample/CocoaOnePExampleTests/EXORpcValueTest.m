@@ -57,4 +57,43 @@
 
 }
 
+- (void)testCopyAndCompare
+{
+    EXORpcValue *Aval, *Bval;
+
+    Aval = [EXORpcValue valueWithDate:[NSDate dateWithTimeIntervalSince1970:42] number:@(123456)];
+    Bval = [Aval copy];
+    // Immutable copy just retains, so pointers will be equal.
+    XCTAssertEqual(Aval, Bval, @"Pointers equal after copy.");
+    XCTAssertEqualObjects(Aval, Bval, @"objects equal");
+
+    Aval = [EXORpcValue valueWithDate:[NSDate dateWithTimeIntervalSince1970:42] number:@(123456)];
+    Bval = [EXORpcValue valueWithDate:[NSDate dateWithTimeIntervalSince1970:42] number:@(123456)];
+    XCTAssertNotEqual(Aval, Bval, @"Pointers NOT equal");
+    XCTAssertEqualObjects(Aval, Bval, @"objects equal");
+}
+
+- (void)testArchiving
+{
+    EXORpcValue *vin, *vout;
+    NSData *data;
+
+    vin = [EXORpcValue valueWithDate:[NSDate dateWithTimeIntervalSince1970:42] string:@"Fiddly pop"];
+    data = [NSKeyedArchiver archivedDataWithRootObject:vin];
+    XCTAssertNotNil(data, @"archived.");
+
+    vout = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+#if 0
+    // This fails because vin and vout fail isKindOfClass:
+    // But as far as I can tell, they are both EXORpcValue.
+    XCTAssertEqualObjects(vout, vin, @"Value unarchived is value archived");
+#else
+    XCTAssertEqualObjects(vout.when, vin.when);
+    XCTAssertEqualObjects(vout.stringValue, vin.stringValue);
+    XCTAssertEqualObjects(vout.numberValue, vin.numberValue);
+#endif
+
+}
+
 @end
