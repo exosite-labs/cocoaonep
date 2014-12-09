@@ -71,7 +71,7 @@ typedef void(^EXORpcRequestComplete)(NSError *error);
  
  Raises an exception if not implemented by sub-class.
  */
-- (void)doResult:(NSDictionary*)result error:(NSError*)error;
+- (void)doResult:(NSDictionary*)result;
 
 /**
  Get the request as a dictionary that is JSON clean

@@ -55,7 +55,7 @@ NSString *kEXORpcErrorDomain = @"kEXORpcErrorDomain";
     return [NSError errorWithDomain:kEXORpcErrorDomain code:ec userInfo:@{NSLocalizedDescriptionKey: ds}];
 }
 
-- (void)doResult:(NSDictionary *)result error:(NSError *)error
+- (void)doResult:(NSDictionary *)result
 {
     NSError *err = [self errorFromStatus:result];
     if (err) {

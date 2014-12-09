@@ -30,7 +30,7 @@
     return self;
 }
 
-- (void)doResult:(NSDictionary *)result error:(NSError *)error
+- (void)doResult:(NSDictionary *)result
 {
     if (self.complete) {
         NSError *err = [self errorFromStatus:result];

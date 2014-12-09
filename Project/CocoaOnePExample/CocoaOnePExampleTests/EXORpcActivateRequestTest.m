@@ -47,21 +47,21 @@
     req = [EXORpcActivateRequest activateShareWithCode:@"fake share code" complete:^(NSError *error) {
         XCTAssertNil(error, @"Sucess has no error");
     }];
-    [req doResult:@{@"id":@(0), @"status":@"ok"} error:nil];
+    [req doResult:@{@"id":@(0), @"status":@"ok"}];
 
     req = [EXORpcActivateRequest activateShareWithCode:@"fake share code" complete:^(NSError *error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(error.domain, kEXORpcErrorDomain);
         XCTAssertEqual(error.code, kEXORpcErrorTypeInvalid);
     }];
-    [req doResult:@{@"id":@(0), @"status":@"invalid"} error:nil];
+    [req doResult:@{@"id":@(0), @"status":@"invalid"}];
 
     req = [EXORpcActivateRequest activateShareWithCode:@"fake share code" complete:^(NSError *error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(error.domain, kEXORpcErrorDomain);
         XCTAssertEqual(error.code, kEXORpcErrorTypeNoAuth);
     }];
-    [req doResult:@{@"id":@(0), @"status":@"noauth"} error:nil];
+    [req doResult:@{@"id":@(0), @"status":@"noauth"}];
 
 }
 

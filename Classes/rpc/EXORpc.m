@@ -109,7 +109,7 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
                 if (calls[callIndex]) {
                     // ??? double check id?
                     EXORpcRequest *rq = calls[callIndex];
-                    [rq doResult:rsp error:nil];
+                    [rq doResult:rsp];
                 }
             }
             if (lcomplete) {
