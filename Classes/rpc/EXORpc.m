@@ -78,12 +78,16 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
 
     // calls should be an array of Requests.
     NSUInteger callID = 0;
+    BOOL haveWaits = NO;
     
     NSMutableArray *pcalls = [NSMutableArray array];
     for (EXORpcRequest* req in calls) {
         if (![req isKindOfClass:[EXORpcRequest class]]) {
             NSString *reason = [NSString stringWithFormat: @"Object <%p:%@> is not a child of %@", req, [req class], [EXORpcRequest class]];
             @throw [NSException exceptionWithName:@"EXORpcException" reason:reason userInfo:nil];
+        }
+        if ([req isKindOfClass:[EXORpcWaitRequest class]]) {
+            haveWaits = YES;
         }
         NSMutableDictionary *md = [[req plistValue] mutableCopy];
         md[@"id"] = @(callID++); // id matches array index!
@@ -96,6 +100,7 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
 
     NSError *err=nil;
     AFJSONRequestSerializer *serializer = [AFJSONRequestSerializer serializer];
+    serializer.timeoutInterval = haveWaits?310:60; // If there is a wait request, need a much longer timeout
     NSURLRequest *request = [serializer requestWithMethod:@"POST" URLString:[URL absoluteString] parameters:params error:&err];
 
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
