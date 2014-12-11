@@ -129,16 +129,7 @@
     [reqs addObject:[self makeSureAliasExists:@"rate" name:@"Rate"]];
     [reqs addObject:[self makeSureAliasExists:@"waitforit" name:@"Wait here."]];
     [reqs addObject:[self uploadScript:@"pinging"]];
-#if 0
-    EXORpcWriteRequest *wr = [EXORpcWriteRequest writeWithRID:[EXORpcResourceID resourceIDByAlias:@"rate"] number:@(25) complete:^(NSError *error) {
-        if (error) {
-            LoggerNetwork(0, @"Error writing initial rate! : %@", error);
-        } else {
-            LoggerNetwork(2, @"Wrote initial value");
-        }
-    }];
-    [reqs addObject:wr];
-#endif
+
     EXORpcAuthKey * auth = [EXORpcAuthKey authWithCIK:self.CIK];
     [self.onep doRPCwithAuth:auth requests:[reqs copy] complete:^(NSError *err) {
         if (err) {
@@ -167,7 +158,7 @@
     WaitedForThis lcomplete = [complete copy];
     EXORpcResourceID *rid = [EXORpcResourceID resourceIDByAlias:@"waitforit"];
     EXORpcWaitRequest *wr = [EXORpcWaitRequest waitRequestWithRIDs:@[rid] complete:^(NSDictionary *results, NSError *error) {
-        NSNumber *val = nil;
+        EXORpcValue *val = nil;
         if (error) {
             LoggerNetwork(0, @"Error waiting for new data : %@", error);
         } else {
@@ -176,7 +167,7 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             if (lcomplete) {
-                lcomplete(val, error);
+                lcomplete(val.numberValue, error);
             }
         });
     }];

@@ -1,13 +1,17 @@
 debug('Starting')
+
 local rate = alias['rate']
 local waitforit = alias['waitforit']
 
-local sleeper = 300
+rate.value = 25
+local sleeper = 25
+local counter = 0
 
 while true do
-    debug('sleeping')
+    debug('sleeping for ' .. sleeper)
     local ts = rate.wait(sleeper)
     debug('awake!')
     sleeper = rate.value
-    waitforit.value = ts
+    waitforit.value = counter
+    counter = counter + 1
 end

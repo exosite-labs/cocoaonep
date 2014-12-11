@@ -20,6 +20,8 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="150" minValue="1" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="9Kq-pV-kD7">
                                 <rect key="frame" x="63" y="285" width="478" height="31"/>
                                 <connections>
+                                    <action selector="endSlider:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fd8-Zc-0Y1"/>
+                                    <action selector="endSlider:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="Rk6-cw-StF"/>
                                     <action selector="updateSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="PWC-uG-mnM"/>
                                 </connections>
                             </slider>

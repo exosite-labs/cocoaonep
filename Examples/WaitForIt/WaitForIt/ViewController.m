@@ -49,6 +49,8 @@
         }
         self.waitedLabel.backgroundColor = [UIColor redColor];
         [UIView animateWithDuration:0.9 animations:^{
+            // want to have it pulse red when updated.
+            // Doesn't look like this is the right way. so How?
             self.waitedLabel.backgroundColor = [UIColor whiteColor];
         }];
         [self letsWait];
@@ -65,6 +67,10 @@
 
 - (IBAction)updateSlider:(UISlider*)sender {
     self.rateLabel.text = [NSString stringWithFormat:@"%u", (unsigned int)sender.value];
+}
+
+- (IBAction)endSlider:(UISlider*)sender {
+    [self.waiter setWaitRate:sender.value];
 }
 
 @end
