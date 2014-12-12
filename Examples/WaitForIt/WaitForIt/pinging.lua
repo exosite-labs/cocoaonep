@@ -9,7 +9,7 @@ local counter = 0
 
 while true do
     debug('sleeping for ' .. sleeper)
-    local ts = rate.wait(sleeper)
+    local ts = rate.wait(now + sleeper)
     debug('awake!')
     sleeper = rate.value
     waitforit.value = counter
