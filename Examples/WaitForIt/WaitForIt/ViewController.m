@@ -12,6 +12,7 @@
 @interface ViewController ()
 @property (weak,nonatomic) IBOutlet UIButton *setupButton;
 @property (weak,nonatomic) IBOutlet UILabel *waitedLabel;
+@property (weak,nonatomic) IBOutlet UILabel *faderLabel;
 @property (weak,nonatomic) IBOutlet UILabel *rateLabel;
 @property (weak,nonatomic) IBOutlet UISlider *rateSlider;
 
@@ -47,11 +48,10 @@
         } else if (error) {
             self.waitedLabel.text = [error description];
         }
-        self.waitedLabel.backgroundColor = [UIColor redColor];
-        [UIView animateWithDuration:0.9 animations:^{
-            // want to have it pulse red when updated.
-            // Doesn't look like this is the right way. so How?
-            self.waitedLabel.backgroundColor = [UIColor whiteColor];
+        self.faderLabel.text = self.waitedLabel.text;
+        self.faderLabel.alpha = 1.0;
+        [UIView animateWithDuration:1.0 animations:^{
+            self.faderLabel.alpha = 0;
         }];
         [self letsWait];
     }];
