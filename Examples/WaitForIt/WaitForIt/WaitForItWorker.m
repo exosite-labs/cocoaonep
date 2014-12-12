@@ -127,6 +127,7 @@
 
     LoggerNetwork(2, @"Going to create things.");
     self.onep = [EXORpc rpc];
+    self.onep.queue = [NSOperationQueue new];
 
     NSMutableArray *reqs = [NSMutableArray new];
     [reqs addObject:[self makeSureAliasExists:@"rate" name:@"Rate"]];
@@ -162,7 +163,7 @@
 {
     WaitedForThis lcomplete = [complete copy];
     EXORpcResourceID *rid = [EXORpcResourceID resourceIDByAlias:@"waitforit"];
-    EXORpcWaitRequest *wr = [EXORpcWaitRequest waitRequestWithRIDs:@[rid]  timeoutAfter:@(240) complete:^(NSDictionary *results, NSError *error) {
+    EXORpcWaitRequest *wr = [EXORpcWaitRequest waitRequestWithRIDs:@[rid]  timeoutAfter:@(300) complete:^(NSDictionary *results, NSError *error) {
         EXORpcValue *val = nil;
         if (error) {
             LoggerNetwork(0, @"Error waiting for new data : %@", error);
