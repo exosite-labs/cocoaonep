@@ -82,7 +82,9 @@
 {
     NSMutableDictionary *params = [NSMutableDictionary new];
     if (self.timeout) {
-        params[@"timeout"] = self.timeout;
+        // API takes milliseconds, this object takes seconds.
+        // But we accept a float/double to specify subseconds.
+        params[@"timeout"] = [NSString stringWithFormat:@"%lu", (long int)(self.timeout.doubleValue * 1000.0)];
     }
     if (self.since) {
         params[@"since"] = @([self.since timeIntervalSince1970]);
