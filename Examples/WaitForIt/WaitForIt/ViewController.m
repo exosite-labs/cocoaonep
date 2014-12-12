@@ -13,10 +13,14 @@
 @property (weak,nonatomic) IBOutlet UIButton *setupButton;
 @property (weak,nonatomic) IBOutlet UILabel *waitedLabel;
 @property (weak,nonatomic) IBOutlet UILabel *faderLabel;
+@property (weak,nonatomic) IBOutlet UILabel *actualLabel;
 @property (weak,nonatomic) IBOutlet UILabel *rateLabel;
 @property (weak,nonatomic) IBOutlet UISlider *rateSlider;
 
 @property (strong,nonatomic) WaitForItWorker *waiter;
+@property (strong,nonatomic) NSDate *last;
+@property (assign,nonatomic) NSUInteger lastDelay;
+
 @end
 
 @implementation ViewController
@@ -53,6 +57,12 @@
         [UIView animateWithDuration:1.0 animations:^{
             self.faderLabel.alpha = 0;
         }];
+
+        NSDate *now = [NSDate date];
+        self.lastDelay = [now timeIntervalSince1970] - [self.last timeIntervalSince1970];
+        self.last = now;
+        self.actualLabel.text = [NSString stringWithFormat:@"%lu", self.lastDelay];
+
         [self letsWait];
     }];
 }

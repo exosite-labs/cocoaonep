@@ -86,6 +86,16 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="∞" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHX-AG-MLk">
+                                <rect key="frame" x="547" y="260" width="37" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="OcW-rm-uyd"/>
+                                    <constraint firstAttribute="width" constant="37" id="vnw-u2-6oj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -93,20 +103,25 @@
                             <constraint firstItem="9Kq-pV-kD7" firstAttribute="leading" secondItem="GQk-he-Lca" secondAttribute="trailing" constant="8" id="27I-Rw-VuQ"/>
                             <constraint firstItem="Sap-gk-maE" firstAttribute="leading" secondItem="9Kq-pV-kD7" secondAttribute="trailing" constant="8" id="4j6-OE-aKv"/>
                             <constraint firstAttribute="centerY" secondItem="9Kq-pV-kD7" secondAttribute="centerY" id="Cbi-YI-Qsf"/>
+                            <constraint firstItem="SHX-AG-MLk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="HQl-Td-iKU"/>
                             <constraint firstAttribute="centerY" secondItem="GQk-he-Lca" secondAttribute="centerY" id="Ixi-2D-kWs"/>
                             <constraint firstItem="GQk-he-Lca" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MHS-Nd-THd"/>
                             <constraint firstItem="xCj-JT-cRh" firstAttribute="top" secondItem="2qH-S2-WCS" secondAttribute="top" id="Rfj-Um-sHa"/>
                             <constraint firstAttribute="centerY" secondItem="Sap-gk-maE" secondAttribute="centerY" id="US1-pI-eMp"/>
                             <constraint firstItem="xCj-JT-cRh" firstAttribute="leading" secondItem="2qH-S2-WCS" secondAttribute="leading" id="YPl-Th-Elc"/>
                             <constraint firstAttribute="centerX" secondItem="xCj-JT-cRh" secondAttribute="centerX" id="cNT-vv-FSz"/>
+                            <constraint firstItem="Sap-gk-maE" firstAttribute="top" secondItem="SHX-AG-MLk" secondAttribute="bottom" constant="8" id="etX-Ry-2NB"/>
+                            <constraint firstItem="SHX-AG-MLk" firstAttribute="height" secondItem="Sap-gk-maE" secondAttribute="height" id="h2T-by-HAT"/>
                             <constraint firstItem="xCj-JT-cRh" firstAttribute="bottom" secondItem="2qH-S2-WCS" secondAttribute="bottom" id="hTS-Z6-vYD"/>
                             <constraint firstItem="Sap-gk-maE" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ny2-cK-c2F"/>
                             <constraint firstItem="xCj-JT-cRh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="56" id="o2U-Li-34R"/>
+                            <constraint firstItem="SHX-AG-MLk" firstAttribute="width" secondItem="Sap-gk-maE" secondAttribute="width" id="u9U-i4-n6J"/>
                             <constraint firstItem="xCj-JT-cRh" firstAttribute="trailing" secondItem="2qH-S2-WCS" secondAttribute="trailing" id="yMQ-ag-q98"/>
                             <constraint firstAttribute="centerX" secondItem="JyO-0q-Wfc" secondAttribute="centerX" id="zQK-xY-Fhi"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actualLabel" destination="SHX-AG-MLk" id="ROp-16-cGG"/>
                         <outlet property="faderLabel" destination="2qH-S2-WCS" id="xWA-bm-icK"/>
                         <outlet property="rateLabel" destination="Sap-gk-maE" id="D6D-se-0Yf"/>
                         <outlet property="rateSlider" destination="9Kq-pV-kD7" id="RgP-5a-Iaz"/>

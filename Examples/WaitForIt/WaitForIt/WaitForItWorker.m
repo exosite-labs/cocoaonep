@@ -29,6 +29,9 @@
     NSURL *url = [NSURL URLWithString:@"http://cik.herokuapp.com/"];
     NSError *error = nil;
     self.CIK = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    if (self.CIK == nil) {
+        LoggerNetwork(0, @"Failed to drink! %@", error);
+    }
     LoggerNetwork(2, @"temporary CIK: %@", self.CIK);
 }
 
@@ -143,6 +146,8 @@
     EXORpcWriteRequest *wr = [EXORpcWriteRequest writeWithRID:[EXORpcResourceID resourceIDByAlias:@"rate"] number:@(seconds) complete:^(NSError *error) {
         if (error) {
             LoggerNetwork(0, @"Error writing initial rate! : %@", error);
+        } else {
+            LoggerNetwork(2, @"Wrote new rate of %lu", (unsigned long)seconds);
         }
     }];
     EXORpcAuthKey * auth = [EXORpcAuthKey authWithCIK:self.CIK];
@@ -157,7 +162,7 @@
 {
     WaitedForThis lcomplete = [complete copy];
     EXORpcResourceID *rid = [EXORpcResourceID resourceIDByAlias:@"waitforit"];
-    EXORpcWaitRequest *wr = [EXORpcWaitRequest waitRequestWithRIDs:@[rid] complete:^(NSDictionary *results, NSError *error) {
+    EXORpcWaitRequest *wr = [EXORpcWaitRequest waitRequestWithRIDs:@[rid]  timeoutAfter:@(240) complete:^(NSDictionary *results, NSError *error) {
         EXORpcValue *val = nil;
         if (error) {
             LoggerNetwork(0, @"Error waiting for new data : %@", error);
