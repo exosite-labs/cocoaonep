@@ -9,8 +9,9 @@
 
 @interface EXOPortalDomain ()
 @property(copy,nonatomic) NSString *role;
-@property(copy,nonatomic) NSString *name;
+@property(copy,nonatomic) NSString *rid;
 @property(copy,nonatomic) NSString *domain;
+@property(copy,nonatomic) NSString *name;
 @property(copy,nonatomic) NSString *token;
 @end
 
@@ -23,22 +24,20 @@
 
 + (EXOPortalDomain *)domainWithDictionary:(NSDictionary *)dict
 {
-    id tname = dict[@"name"];
-    id trole = dict[@"role"];
     id tdomain = dict[@"domain"];
+    id trid = dict[@"rid"];
+    id trole = dict[@"role"];
+    id tname = dict[@"name"];
     id ttoken = dict[@"token"];
     
-    if (tname == nil  || trole == nil || tdomain == nil) {
+    if (trid == nil  || trole == nil || tdomain == nil) {
         return nil;
     }
     
     if (![trole isKindOfClass:[NSString class]]) {
         return nil;
     }
-    if (![tname isKindOfClass:[NSString class]]) {
-        return nil;
-    }
-    if (![tdomain isKindOfClass:[NSURL class]]) {
+    if ([tdomain isKindOfClass:[NSURL class]]) {
         tdomain = [tdomain host];
     }
     if (![tdomain isKindOfClass:[NSString class]]) {
@@ -47,8 +46,11 @@
     if (ttoken && ![ttoken isKindOfClass:[NSString class]]) {
         return nil;
     }
-    
-    return [[EXOPortalDomain alloc] initWithRole:trole name:tname domain:tdomain token:ttoken];
+    if (tname && ![tname isKindOfClass:[NSString class]]) {
+        return nil;
+    }
+
+    return [[EXOPortalDomain alloc] initWithRole:trole name:tname domain:tdomain token:ttoken rid:trid];
 }
 
 - (instancetype)initWithRole:(NSString *)role name:(NSString *)name domain:(NSString *)domain token:(NSString*)token
@@ -58,6 +60,14 @@
         self.role = role;
         self.domain = domain;
         self.token = token;
+    }
+    return self;
+}
+
+- (instancetype)initWithRole:(NSString *)role name:(NSString *)name domain:(NSString *)domain token:(NSString*)token rid:(NSString*)rid
+{
+    if (self = [self initWithRole:role name:name domain:domain token:token]) {
+        self.rid = rid;
     }
     return self;
 }
