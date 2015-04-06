@@ -35,7 +35,7 @@
  Initialize a request to unmap an alias on the client at RID.
 
  @param alias The Alias to unmap
- @param complete Callback whn finished
+ @param complete Callback when finished
  @return Uname Request
  */
 - (instancetype)initWithAlias:(NSString*)alias complete:(EXORpcRequestComplete)complete;

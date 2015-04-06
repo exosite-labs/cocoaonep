@@ -34,6 +34,8 @@ NSString *kEXORpcErrorDomain = @"kEXORpcErrorDomain";
         return kEXORpcErrorTypeNoAuth;
     } else if ([status isEqualToString:@"expire"]) {
         return kEXORpcErrorTypeExpired;
+    } else if ([status isEqualToString:@"restricted"]) {
+        return kEXORpcErrorTypeRestricted;
     }
     // TODO: This is probably incomplete. Documentation is lacking for this.
     return kEXORpcErrorTypeUnknown;
@@ -51,11 +53,12 @@ NSString *kEXORpcErrorDomain = @"kEXORpcErrorDomain";
         return [NSError errorWithDomain:@"EXORpcDevice" code:ec userInfo:@{NSLocalizedDescriptionKey: desc}];
     }
     NSString *ds = [status[@"status"] description];
+    NSDictionary *dds = ds?@{NSLocalizedDescriptionKey: ds}:nil;
     NSInteger ec = [self codeFromStatus:ds];
-    return [NSError errorWithDomain:kEXORpcErrorDomain code:ec userInfo:@{NSLocalizedDescriptionKey: ds}];
+    return [NSError errorWithDomain:kEXORpcErrorDomain code:ec userInfo:dds];
 }
 
-- (void)doResult:(NSDictionary *)result error:(NSError *)error
+- (void)doResult:(NSDictionary *)result
 {
     NSError *err = [self errorFromStatus:result];
     if (err) {

@@ -73,7 +73,7 @@
     return @{@"procedure": @"read", @"arguments": @[[self.rid plistValue], [args copy]]};
 }
 
-- (void)doResult:(NSDictionary *)result error:(NSError *)error
+- (void)doResult:(NSDictionary *)result
 {
     if (self.complete) {
         NSError *err = [self errorFromStatus:result];

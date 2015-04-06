@@ -72,6 +72,22 @@
                };
     XCTAssertEqualObjects(result, [dp plistValue], @"All options");
 
+    ppo = [EXORpcPreprocessOperation preprocessOperation:EXORpcPreprocessOperation_Add value:@(42)];
+    dp = [EXORpcDataportResource dataportWithName:@"dogeton" meta:@"some meta" public:NO format:EXORpcDataportFormatString preprocess:@[ppo] subscribe:[EXORpcResourceID invalid] retention:[EXORpcResourceRetention retentionWithCount:@(12) duration:@(90)]];
+    result = @{
+               @"format": @"string",
+               @"name": @"dogeton",
+               @"meta": @"some meta",
+               @"preprocess": @[@[@"add", @(42)]],
+               @"subscribe": [NSNull null],
+               @"retention":@{
+                       @"count": @(12),
+                       @"duration": @(90),
+                       },
+               @"visibility": @"parent"
+               };
+    XCTAssertEqualObjects(result, [dp plistValue], @"All options; clear subscription.");
+
     result = @{
                @"format": @"string",
                @"name": @"dogeton",

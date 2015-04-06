@@ -32,7 +32,7 @@ typedef void(^EXORpcWaitRequestComplete)(NSDictionary* results, NSError *error);
 @property (copy,nonatomic,readonly) NSArray *resourceIDs;
 
 /**
- The maximum amount of time to wait for a new value before timing out.
+ The maximum amount of time to wait for a new value before timing out in seconds.
  
  If nil, use the server's default timeout value. (30 seconds)
  */
@@ -66,7 +66,7 @@ typedef void(^EXORpcWaitRequestComplete)(NSDictionary* results, NSError *error);
  \note Only supports a single RID currently!  RIDs beyond 0 are ignored.
 
  @param rids RIDs to wait on.
- @param timeout The maximum amount of time to wait for a new value before timing out.
+ @param timeout The maximum amount of time to wait for a new value before timing out. (seconds)
  @param complete The callback when complete.
  @return The Wait Request
  */
@@ -77,7 +77,7 @@ typedef void(^EXORpcWaitRequestComplete)(NSDictionary* results, NSError *error);
  \note Only supports a single RID currently!  RIDs beyond 0 are ignored.
 
  @param rids RIDs to wait on.
- @param timeout The maximum amount of time to wait for a new value before timing out.
+ @param timeout The maximum amount of time to wait for a new value before timing out. (seconds)
  @param since Timestamp to filter waited value for.
  @param complete The callback when complete.
  @return The Wait Request

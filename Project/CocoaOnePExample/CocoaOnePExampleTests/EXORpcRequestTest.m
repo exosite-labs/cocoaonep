@@ -43,7 +43,9 @@
     XCTAssertEqual([req codeFromStatus:@"ok"], kEXORpcErrorTypeOk, @"Ok error code");
     XCTAssertEqual([req codeFromStatus:@"noauth"], kEXORpcErrorTypeNoAuth, @"No Auth error code");
     XCTAssertEqual([req codeFromStatus:@"invalid"], kEXORpcErrorTypeInvalid, @"Invalid error code");
+    XCTAssertEqual([req codeFromStatus:@"restricted"], kEXORpcErrorTypeRestricted, @"Restricted error code");
     XCTAssertEqual([req codeFromStatus:@"asdfgh"], kEXORpcErrorTypeUnknown, @"Unknown error code");
+    XCTAssertEqual([req codeFromStatus:nil], kEXORpcErrorTypeUnknown, @"Unknown error code");
 }
 
 - (void)testErrorFromStatus
@@ -57,6 +59,8 @@
     error = [req errorFromStatus:@{@"status": @"invalid"}];
     XCTAssertEqualObjects([NSError errorWithDomain:kEXORpcErrorDomain code:kEXORpcErrorTypeInvalid userInfo:@{NSLocalizedDescriptionKey: @"invalid"}], error, @"invalid error status");
 
+    error = [req errorFromStatus:nil];
+    XCTAssertEqualObjects([NSError errorWithDomain:kEXORpcErrorDomain code:kEXORpcErrorTypeUnknown userInfo:nil], error, @"nil status");
 }
 
 @end

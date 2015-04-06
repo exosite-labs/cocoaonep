@@ -1,11 +1,11 @@
 PODS:
   - AFNetworking (2.5.0):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
   - AFNetworking/NSURLConnection (2.5.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -20,28 +20,26 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CocoaOneP (0.4.2):
+  - CocoaOneP (0.5.0):
     - AFNetworking (~> 2.2)
-    - CocoaOneP/All
-    - CocoaOneP/HTTP
+    - CocoaOneP/All (= 0.5.0)
+    - CocoaOneP/Portal (= 0.5.0)
+    - CocoaOneP/RPC (= 0.5.0)
+  - CocoaOneP/All (0.5.0):
+    - AFNetworking (~> 2.2)
     - CocoaOneP/Portal
     - CocoaOneP/RPC
-  - CocoaOneP/All (0.4.2):
+  - CocoaOneP/Portal (0.5.0):
     - AFNetworking (~> 2.2)
-    - CocoaOneP/HTTP
-    - CocoaOneP/Portal
-    - CocoaOneP/RPC
-  - CocoaOneP/HTTP (0.4.2):
-    - AFNetworking (~> 2.2)
-  - CocoaOneP/Portal (0.4.2):
-    - AFNetworking (~> 2.2)
-  - CocoaOneP/RPC (0.4.2):
+  - CocoaOneP/RPC (0.5.0):
     - AFNetworking (~> 2.2)
   - Lockbox (2.1.0)
+  - OCMock (3.1.2)
 
 DEPENDENCIES:
   - CocoaOneP (from `../CocoaOneP.podspec`)
   - Lockbox
+  - OCMock (~> 3.1)
 
 EXTERNAL SOURCES:
   CocoaOneP:
@@ -49,7 +47,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  CocoaOneP: 70c329e751dcd35b7e70952eca8f1f7c5a79eb1b
+  CocoaOneP: 7a8ba89ee4e38b20befc19c685684ffb860e5ae0
   Lockbox: 3168f08cb26680b05a0702b8c0cc6da32788059d
+  OCMock: ecdd510b73ef397f2f97274785c1e87fd147c49f
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0

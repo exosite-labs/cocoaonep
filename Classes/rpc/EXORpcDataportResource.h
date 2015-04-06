@@ -39,8 +39,7 @@ typedef enum EXORpcDataportFormat_e EXORpcDataportFormat_t;
  The RID to which this resource is subscribed
 
  This resource will receive a publication whenever a value is written to the specified RID.
- Then it will apply the rule to the new value.
- 
+
  nil if not subscribed.
  */
 @property(strong,nonatomic,readonly) EXORpcResourceID *subscribe;

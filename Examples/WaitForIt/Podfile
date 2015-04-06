@@ -1,0 +1,6 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+pod "CocoaOneP", :path => "../../CocoaOneP.podspec"
+
+link_with 'WaitForIt', 'WaitForItTests'
+

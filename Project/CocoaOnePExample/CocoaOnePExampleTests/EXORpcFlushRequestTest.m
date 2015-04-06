@@ -52,4 +52,27 @@
     XCTAssertEqualObjects([flush plistValue], result, @"No constraints. delete everything");
 }
 
+- (void)testComplete
+{
+    EXORpcFlushRequest *req;
+    req = [EXORpcFlushRequest flushRID:nil newerThan:nil olderThan:nil complete:^(NSError *error) {
+        XCTAssertNil(error, @"Sucess has no error");
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"ok"}];
+
+    req = [EXORpcFlushRequest flushRID:nil newerThan:nil olderThan:nil complete:^(NSError *error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(error.domain, kEXORpcErrorDomain);
+        XCTAssertEqual(error.code, kEXORpcErrorTypeInvalid);
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"invalid"}];
+
+    req = [EXORpcFlushRequest flushRID:nil newerThan:nil olderThan:nil complete:^(NSError *error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(error.domain, kEXORpcErrorDomain);
+        XCTAssertEqual(error.code, kEXORpcErrorTypeRestricted);
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"restricted"}];
+}
+
 @end

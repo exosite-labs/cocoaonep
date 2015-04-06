@@ -39,7 +39,7 @@
     return @{@"procedure": @"create", @"arguments": @[self.resource.type, [self.resource plistValue]]};
 }
 
-- (void)doResult:(NSDictionary *)result error:(NSError *)error
+- (void)doResult:(NSDictionary *)result
 {
     if (self.complete) {
         NSError *err = [self errorFromStatus:result];

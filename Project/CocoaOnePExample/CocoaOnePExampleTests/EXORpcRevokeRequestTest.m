@@ -42,4 +42,28 @@
 
 }
 
+- (void)testComplete
+{
+    EXORpcRevokeRequest *req;
+    req = [EXORpcRevokeRequest revokeWithCode:@"a code" asShare:NO complete:^(NSError *error) {
+        XCTAssertNil(error, @"Sucess has no error");
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"ok"}];
+
+    req = [EXORpcRevokeRequest revokeWithCode:@"a code" asShare:NO complete:^(NSError *error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(error.domain, kEXORpcErrorDomain);
+        XCTAssertEqual(error.code, kEXORpcErrorTypeInvalid);
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"invalid"}];
+
+    req = [EXORpcRevokeRequest revokeWithCode:@"a code" asShare:NO complete:^(NSError *error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(error.domain, kEXORpcErrorDomain);
+        XCTAssertEqual(error.code, kEXORpcErrorTypeNoAuth);
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"noauth"}];
+}
+
+
 @end

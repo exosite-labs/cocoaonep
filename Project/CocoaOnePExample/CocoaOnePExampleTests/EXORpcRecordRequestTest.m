@@ -41,4 +41,21 @@
     XCTAssertEqualObjects([record plistValue], result, @"create a record request");
 }
 
+- (void)testComplete
+{
+    EXORpcRecordRequest *req;
+    req = [EXORpcRecordRequest recordWithRID:nil values:nil complete:^(NSError *error) {
+        XCTAssertNil(error, @"Sucess has no error");
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"ok"}];
+
+    req = [EXORpcRecordRequest recordWithRID:nil values:nil complete:^(NSError *error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(error.domain, kEXORpcErrorDomain);
+        XCTAssertEqual(error.code, kEXORpcErrorTypeRestricted);
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"restricted"}];
+}
+
+
 @end

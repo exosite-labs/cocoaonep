@@ -37,25 +37,28 @@ typedef void(^EXORpcShareRequestComplete)(NSString *shareCode, NSError *error);
  
  @param rid The resource to be shared
  @param meta Meta data describing the share
+ @param complete Callback when finished
  @return The share request
  */
-+ (EXORpcShareRequest*)shareWithRID:(EXORpcResourceID*)rid meta:(NSString*)meta;
++ (EXORpcShareRequest*)shareWithRID:(EXORpcResourceID*)rid meta:(NSString*)meta complete:(EXORpcShareRequestComplete)complete;
 
 /**
  Create a share request
 
  @param rid The resource to be shared
+ @param complete Callback when finished
  @return The share request
  */
-+ (EXORpcShareRequest*)shareWithRID:(EXORpcResourceID*)rid;
++ (EXORpcShareRequest*)shareWithRID:(EXORpcResourceID*)rid complete:(EXORpcShareRequestComplete)complete;
 
 /**
  Initialize a share request
 
  @param rid The resource to be shared
  @param meta Meta data describing the share
+ @param complete Callback when finished
  @return The share request
  */
-- (instancetype)initWithRID:(EXORpcResourceID *)rid meta:(NSString*)meta;
+- (instancetype)initWithRID:(EXORpcResourceID *)rid meta:(NSString*)meta complete:(EXORpcShareRequestComplete)complete;
 
 @end

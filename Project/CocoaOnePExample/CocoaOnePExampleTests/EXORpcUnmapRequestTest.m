@@ -37,4 +37,14 @@
     XCTAssertEqualObjects([unmap plistValue], result, @"Allocate & initialize unmap");
 }
 
+- (void)testComplete
+{
+    EXORpcUnmapRequest *req;
+    req = [EXORpcUnmapRequest unmapWithAlias:@"bob" complete:^(NSError *error) {
+        XCTAssertNil(error, @"Sucess has no error");
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"ok"}];
+}
+
+
 @end

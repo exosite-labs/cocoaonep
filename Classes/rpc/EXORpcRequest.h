@@ -18,6 +18,7 @@ extern NSString *kEXORpcErrorDomain;
 #define kEXORpcErrorTypeInvalid    1
 #define kEXORpcErrorTypeNoAuth     2
 #define kEXORpcErrorTypeExpired    3
+#define kEXORpcErrorTypeRestricted 4
 
 /**
  Callback for a request that does not return data
@@ -71,7 +72,7 @@ typedef void(^EXORpcRequestComplete)(NSError *error);
  
  Raises an exception if not implemented by sub-class.
  */
-- (void)doResult:(NSDictionary*)result error:(NSError*)error;
+- (void)doResult:(NSDictionary*)result;
 
 /**
  Get the request as a dictionary that is JSON clean

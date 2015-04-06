@@ -41,4 +41,14 @@
     XCTAssertEqualObjects([req plistValue], result, @"create a client activate request");
 }
 
+
+- (void)testComplete
+{
+    EXORpcDeactivateRequest *req;
+    req = [EXORpcDeactivateRequest deactivateShareWithCode:@"fake share code" complete:^(NSError *error) {
+        XCTAssertNil(error, @"Sucess has no error");
+    }];
+    [req doResult:@{@"id":@(0), @"status":@"ok"}];
+}
+
 @end

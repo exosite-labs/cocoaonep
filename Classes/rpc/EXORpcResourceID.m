@@ -34,6 +34,11 @@
     return [[EXORpcResourceID alloc] initWithRID:rid];
 }
 
++ (EXORpcResourceID*)invalid
+{
+    return [[EXORpcResourceID alloc] initWithAlias:nil];
+}
+
 - (instancetype)init
 {
     if (self = [super init]) {
@@ -77,6 +82,9 @@
 {
     if (self.rid) {
         return self.rid;
+    }
+    if (self.alias == nil) {
+        return [NSNull null];
     }
     return @{@"alias": self.alias};
 }

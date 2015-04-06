@@ -50,7 +50,7 @@
     return nil;
 }
 
-- (void)doResult:(NSDictionary *)result error:(NSError *)error
+- (void)doResult:(NSDictionary *)result
 {
     if (self.complete) {
         NSError *err = [self errorFromStatus:result];
@@ -82,7 +82,9 @@
 {
     NSMutableDictionary *params = [NSMutableDictionary new];
     if (self.timeout) {
-        params[@"timeout"] = self.timeout;
+        // API takes milliseconds, this object takes seconds.
+        // But we accept a float/double to specify subseconds.
+        params[@"timeout"] = @((unsigned long)(self.timeout.doubleValue * 1000.0));
     }
     if (self.since) {
         params[@"since"] = @([self.since timeIntervalSince1970]);
