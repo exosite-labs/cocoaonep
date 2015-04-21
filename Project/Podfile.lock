@@ -20,18 +20,18 @@ PODS:
   - AFNetworking/UIKit (2.5.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CocoaOneP (0.5.0):
+  - CocoaOneP (0.5.2):
     - AFNetworking (~> 2.2)
-    - CocoaOneP/All (= 0.5.0)
-    - CocoaOneP/Portal (= 0.5.0)
-    - CocoaOneP/RPC (= 0.5.0)
-  - CocoaOneP/All (0.5.0):
+    - CocoaOneP/All (= 0.5.2)
+    - CocoaOneP/Portal (= 0.5.2)
+    - CocoaOneP/RPC (= 0.5.2)
+  - CocoaOneP/All (0.5.2):
     - AFNetworking (~> 2.2)
     - CocoaOneP/Portal
     - CocoaOneP/RPC
-  - CocoaOneP/Portal (0.5.0):
+  - CocoaOneP/Portal (0.5.2):
     - AFNetworking (~> 2.2)
-  - CocoaOneP/RPC (0.5.0):
+  - CocoaOneP/RPC (0.5.2):
     - AFNetworking (~> 2.2)
   - Lockbox (2.1.0)
   - OCMock (3.1.2)
@@ -47,7 +47,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
-  CocoaOneP: 997c47fca2c1ff65a2f56cdbd43274d8f84f48ae
+  CocoaOneP: 44545209bf44231db7bb4653e06c30f3ba16b5d4
   Lockbox: 16442da35d9d4286966936763be728a931d589c3
   OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
 
