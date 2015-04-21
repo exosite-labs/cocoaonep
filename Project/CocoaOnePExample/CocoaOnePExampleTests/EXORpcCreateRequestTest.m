@@ -33,7 +33,7 @@
     EXORpcDataportResource *dp = [EXORpcDataportResource dataportWithName:@"dogeton" format:EXORpcDataportFormatFloat];
 
     req = [EXORpcCreateRequest createWithResource:dp complete:nil];
-    result = @{@"procedure": @"create", @"arguments":@[ @"dataport", @{@"format": @"float", @"name": @"dogeton", @"retention":@{@"count": @"infinity", @"duration": @"infinity",}, @"visibility": @"parent" } ] };
+    result = @{@"procedure": @"create", @"arguments":@[ @"dataport", @{@"format": @"float", @"name": @"dogeton", @"visibility": @"parent" } ] };
     XCTAssertEqualObjects([req plistValue], result, @"Create a dataport");
     
 }

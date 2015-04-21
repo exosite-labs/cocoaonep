@@ -37,11 +37,7 @@
         _format = format;
         _preprocess = [preprocess copy];
         _subscribe = [subscribe copy];
-        if (retention == nil) {
-            _retention = [EXORpcResourceRetention new];
-        } else {
-            _retention = [retention copy];
-        }
+        _retention = [retention copy];
     }
     return self;
 }
@@ -117,7 +113,9 @@
     if (self.subscribe) {
         args[@"subscribe"] = [self.subscribe plistValue];
     }
-    args[@"retention"] = [self.retention plistValue];
+    if (self.retention) {
+        args[@"retention"] = [self.retention plistValue];
+    }
     if (self.preprocess) {
         NSMutableArray *ppos = [NSMutableArray new];
         for (EXORpcPreprocessOperation* ppo in self.preprocess) {

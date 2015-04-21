@@ -1,5 +1,8 @@
 # CocoaOneP CHANGELOG
 
+## v0.5.1
+- Fixed #5; Updating a data port clobbers the retention. 
+
 ## v0.5.0
 - Fixes and example for wait request.
 - Added many unit tests; still have many more to go for complete coverage.
