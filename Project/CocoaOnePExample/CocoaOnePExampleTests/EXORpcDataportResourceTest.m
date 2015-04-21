@@ -36,10 +36,6 @@
     result = @{
         @"format": @"float",
         @"name": @"dogeton",
-        @"retention":@{
-            @"count": @"infinity",
-            @"duration": @"infinity",
-        },
         @"visibility": @"parent"
     };
     XCTAssertEqualObjects(result, [dp plistValue], @"Name and format");
