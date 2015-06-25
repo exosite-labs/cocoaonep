@@ -7,6 +7,7 @@
 //
 
 #import "EXORpcRequest.h"
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  Callback for completed wait
@@ -16,7 +17,7 @@
  
  It is common to see a #kEXORpcErrorTypeExpired error.  This means the call timed out without receiving a new value.
  */
-typedef void(^EXORpcWaitRequestComplete)(NSDictionary* results, NSError *error);
+typedef void(^EXORpcWaitRequestComplete)(NSDictionary * __nullable results, NSError * __nullable error);
 
 
 
@@ -36,7 +37,7 @@ typedef void(^EXORpcWaitRequestComplete)(NSDictionary* results, NSError *error);
  
  If nil, use the server's default timeout value. (30 seconds)
  */
-@property (copy,nonatomic,readonly) NSNumber *timeout;
+@property (copy,nonatomic,readonly,nullable) NSNumber *timeout;
 
 /**
  Timestamp to filter waited value for.
@@ -44,7 +45,7 @@ typedef void(^EXORpcWaitRequestComplete)(NSDictionary* results, NSError *error);
  
  If nil, then the default of when the request was made.
  */
-@property (copy,nonatomic,readonly) NSDate *since;
+@property (copy,nonatomic,readonly,nullable) NSDate *since;
 
 /**
  The callback for when the operation is complete.
@@ -94,6 +95,7 @@ typedef void(^EXORpcWaitRequestComplete)(NSDictionary* results, NSError *error);
  @param since Timestamp to filter waited value for.
  @param complete The callback when complete.
  */
-- (instancetype)initWithRIDs:(NSArray*)rids timeoutAfter:(NSNumber*)timeout since:(NSDate*)since complete:(EXORpcWaitRequestComplete)complete;
+- (instancetype)initWithRIDs:(NSArray*)rids timeoutAfter:(nullable NSNumber*)timeout since:(nullable NSDate*)since complete:(EXORpcWaitRequestComplete)complete;
 
+NS_ASSUME_NONNULL_END
 @end

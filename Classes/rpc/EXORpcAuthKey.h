@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  One Platform authentication key.
@@ -20,12 +21,12 @@
 /**
  An optional client RID that is a child of the CIK
  */
-@property(copy,nonatomic,readonly) NSString *clientid;
+@property(copy,nonatomic,readonly,nullable) NSString *clientid;
 
 /**
  An optional RID that is a child of the CIK
  */
-@property(copy,nonatomic,readonly) NSString *rid;
+@property(copy,nonatomic,readonly,nullable) NSString *rid;
 
 /**
  Test if a string is formated as a CIK (or RID)
@@ -82,4 +83,5 @@
  */
 - (NSDictionary*)plistValue;
 
+NS_ASSUME_NONNULL_END
 @end

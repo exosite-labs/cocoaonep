@@ -81,4 +81,5 @@
  Return the resource as a JSON ready plist.
  */
 - (id)plistValue;
+
 @end
