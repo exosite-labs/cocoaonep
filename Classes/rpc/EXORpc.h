@@ -113,7 +113,7 @@ typedef void(^EXORpcActivityChange)(BOOL active);
  @see operationWithAuth:requests:complete
 
  */
-- (void)doRPCwithAuth:(EXORpcAuthKey*)auth requests:(NSArray*)calls complete:(EXORpcRPCComplete)complete;
+- (void)doRPCwithAuth:(EXORpcAuthKey*)auth requests:(NSArray<EXORpcRequest *> *)calls complete:(EXORpcRPCComplete)complete;
 
 /**
  Create a NSOperation for a set of calls to One Platform
@@ -129,7 +129,7 @@ typedef void(^EXORpcActivityChange)(BOOL active);
  
  @return NSOperation of the packaged API request
  */
-- (NSOperation *)operationWithAuth:(EXORpcAuthKey *)auth requests:(NSArray *)calls complete:(EXORpcRPCComplete)complete;
+- (NSOperation *)operationWithAuth:(EXORpcAuthKey *)auth requests:(NSArray<EXORpcRequest *> *)calls complete:(EXORpcRPCComplete)complete;
 
 @end
 NS_ASSUME_NONNULL_END

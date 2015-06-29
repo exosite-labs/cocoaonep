@@ -28,6 +28,10 @@
     return [[EXORpcReadRequest alloc] initWithRID:rid startTime:starttime endTime:endtime ascending:ascending limit:limit selection:selection complete:complete];
 }
 
+- (instancetype)initWithRID:(EXORpcResourceID *)rid complete:(EXORpcReadRequestComplete)complete {
+    return [self initWithRID:rid startTime:nil endTime:nil ascending:NO limit:1 selection:EXORpcReadSelectionTypeAll complete:complete];
+}
+
 - (id)initWithRID:(EXORpcResourceID *)rid startTime:(NSDate *)starttime endTime:(NSDate *)endtime ascending:(BOOL)ascending limit:(NSUInteger)limit selection:(EXORpcReadSelectionType_t)selection complete:(EXORpcReadRequestComplete)complete
 {
     if (self = [super init]) {
