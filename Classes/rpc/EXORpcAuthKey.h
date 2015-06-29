@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return Authentication object to be used in RPC calls.
  */
-+ (EXORpcAuthKey*)authWithCIK:(NSString*)cik;
++ (nullable EXORpcAuthKey*)authWithCIK:(NSString*)cik;
 
 /**
  Create an auth identifying a child client by RID of the ancestor client by CIK
@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return Authentication object to be used in RPC calls.
  */
-+ (EXORpcAuthKey*)authWithCIK:(NSString*)cik client:(NSString*)clientid;
++ (nullable EXORpcAuthKey*)authWithCIK:(NSString*)cik client:(NSString*)clientid;
 
 /**
  Create an auth identifying a child resource by RID of the ancestor client by CIK
@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return Authentication object to be used in RPC calls.
  */
-+ (EXORpcAuthKey*)authWithCIK:(NSString*)cik resource:(NSString*)rid;
++ (nullable EXORpcAuthKey*)authWithCIK:(NSString*)cik resource:(NSString*)rid;
 
 
 /**
@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return Authentication object to be used in RPC calls.
  */
-- (instancetype)initWithCIK:(NSString*)cik;
+- (nullable instancetype)initWithCIK:(NSString*)cik;
 
 /**
  Return this auth as a plist that can be converted into JSON.
