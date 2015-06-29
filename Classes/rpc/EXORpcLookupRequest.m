@@ -8,19 +8,19 @@
 #import "EXORpcLookupRequest.h"
 
 @interface EXORpcLookupRequest ()
-@property(assign,nonatomic) EXORpcLookupType_t type;
+@property(assign,nonatomic) EXORpcLookupType type;
 @property(copy,nonatomic) NSString *item;
 @property(copy,nonatomic) EXORpcLookupRequestComplete complete;
 @end
 
 @implementation EXORpcLookupRequest
 
-+ (EXORpcLookupRequest *)lookupWithType:(EXORpcLookupType_t)type item:(NSString *)item complete:(EXORpcLookupRequestComplete)complete
++ (EXORpcLookupRequest *)lookupWithType:(EXORpcLookupType)type item:(NSString *)item complete:(EXORpcLookupRequestComplete)complete
 {
     return [[EXORpcLookupRequest alloc] initWithType:type item:item complete:complete];
 }
 
-- (instancetype)initWithType:(EXORpcLookupType_t)type item:(NSString *)item complete:(EXORpcLookupRequestComplete)complete
+- (instancetype)initWithType:(EXORpcLookupType)type item:(NSString *)item complete:(EXORpcLookupRequestComplete)complete
 {
     if (self = [super init]) {
         self.type = type;
