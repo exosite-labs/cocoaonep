@@ -60,7 +60,7 @@ typedef void(^EXORpcWaitRequestComplete)(NSDictionary * __nullable results, NSEr
  @param complete The callback when complete.
  @return The Wait Request
  */
-+ (EXORpcWaitRequest*)waitRequestWithRIDs:(NSArray*)rids complete:(EXORpcWaitRequestComplete)complete;
++ (EXORpcWaitRequest*)waitRequestWithRIDs:(NSArray<EXORpcResourceID*>*)rids complete:(EXORpcWaitRequestComplete)complete;
 
 /**
  Wait for values from the given RIDs.
@@ -71,7 +71,7 @@ typedef void(^EXORpcWaitRequestComplete)(NSDictionary * __nullable results, NSEr
  @param complete The callback when complete.
  @return The Wait Request
  */
-+ (EXORpcWaitRequest*)waitRequestWithRIDs:(NSArray*)rids timeoutAfter:(NSNumber*)timeout complete:(EXORpcWaitRequestComplete)complete;
++ (EXORpcWaitRequest*)waitRequestWithRIDs:(NSArray<EXORpcResourceID*>*)rids timeoutAfter:(NSNumber*)timeout complete:(EXORpcWaitRequestComplete)complete;
 
 /**
  Wait for values from the given RIDs.
@@ -83,7 +83,7 @@ typedef void(^EXORpcWaitRequestComplete)(NSDictionary * __nullable results, NSEr
  @param complete The callback when complete.
  @return The Wait Request
  */
-+ (EXORpcWaitRequest*)waitRequestWithRIDs:(NSArray*)rids timeoutAfter:(NSNumber*)timeout since:(NSDate*)since complete:(EXORpcWaitRequestComplete)complete;
++ (EXORpcWaitRequest*)waitRequestWithRIDs:(NSArray<EXORpcResourceID*>*)rids timeoutAfter:(NSNumber*)timeout since:(NSDate*)since complete:(EXORpcWaitRequestComplete)complete;
 
 
 /**
