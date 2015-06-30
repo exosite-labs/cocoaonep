@@ -87,7 +87,7 @@ typedef void(^EXORpcActivityChange)(BOOL active);
  
  @return The RPC object
  */
-+ (EXORpc*)rpc;
++ (nullable EXORpc*)rpc;
 
 /**
  Create a One Platform RPC object with a specific domain.
@@ -96,7 +96,7 @@ typedef void(^EXORpcActivityChange)(BOOL active);
 
  @return The RPC object
 */
-+ (EXORpc*)rpcWithDomain:(nullable NSURL*)domain;
++ (nullable EXORpc*)rpcWithDomain:(nullable NSURL*)domain;
 
 /**
  Initialize a One Platform RPC object with a specific domain.
@@ -105,7 +105,7 @@ typedef void(^EXORpcActivityChange)(BOOL active);
 
  @return The RPC object
  */
-- (instancetype)initWithDomain:(nullable NSURL *)domain;
+- (nullable instancetype)initWithDomain:(nullable NSURL *)domain NS_DESIGNATED_INITIALIZER;
 
 /**
  Creates and queues a NSOperation for a set of calls to One Platform
