@@ -12,7 +12,7 @@
 @property(nonatomic,strong) NSDate *endtime;
 @property(nonatomic,assign) BOOL sortAscending;
 @property(nonatomic,assign) NSUInteger limit;
-@property(nonatomic,assign) EXORpcReadSelectionType_t selection;
+@property(nonatomic,assign) EXORpcReadSelectionType selection;
 @property(nonatomic,copy) EXORpcReadRequestComplete complete;
 @end
 
@@ -23,7 +23,7 @@
     return [[EXORpcReadRequest alloc] initWithRID:rid startTime:nil endTime:nil ascending:NO limit:1 selection:EXORpcReadSelectionTypeAll complete:complete];
 }
 
-+ (EXORpcReadRequest *)readWithRID:(EXORpcResourceID *)rid startTime:(NSDate *)starttime endTime:(NSDate *)endtime ascending:(BOOL)ascending limit:(NSUInteger)limit selection:(EXORpcReadSelectionType_t)selection complete:(EXORpcReadRequestComplete)complete
++ (EXORpcReadRequest *)readWithRID:(EXORpcResourceID *)rid startTime:(NSDate *)starttime endTime:(NSDate *)endtime ascending:(BOOL)ascending limit:(NSUInteger)limit selection:(EXORpcReadSelectionType)selection complete:(EXORpcReadRequestComplete)complete
 {
     return [[EXORpcReadRequest alloc] initWithRID:rid startTime:starttime endTime:endtime ascending:ascending limit:limit selection:selection complete:complete];
 }
@@ -32,7 +32,7 @@
     return [self initWithRID:rid startTime:nil endTime:nil ascending:NO limit:1 selection:EXORpcReadSelectionTypeAll complete:complete];
 }
 
-- (id)initWithRID:(EXORpcResourceID *)rid startTime:(NSDate *)starttime endTime:(NSDate *)endtime ascending:(BOOL)ascending limit:(NSUInteger)limit selection:(EXORpcReadSelectionType_t)selection complete:(EXORpcReadRequestComplete)complete
+- (id)initWithRID:(EXORpcResourceID *)rid startTime:(NSDate *)starttime endTime:(NSDate *)endtime ascending:(BOOL)ascending limit:(NSUInteger)limit selection:(EXORpcReadSelectionType)selection complete:(EXORpcReadRequestComplete)complete
 {
     if (self = [super init]) {
         self.rid = rid;
