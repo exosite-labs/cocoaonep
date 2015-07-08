@@ -1,4 +1,7 @@
 language: objective-c
+branches:
+  except:
+    - feature/nullable
 xcode_workspace: Project/CocoaOnePExample.xcworkspace
 xcode_scheme: CocoaOnePExample
 before_install:
