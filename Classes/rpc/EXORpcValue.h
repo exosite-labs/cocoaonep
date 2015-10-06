@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  A value read from One Platform
@@ -33,7 +34,7 @@
  
  This might return nil if a string value cannot be coersed into a number.
  */
-@property(copy,nonatomic,readonly) NSNumber *numberValue;
+@property(copy,nonatomic,readonly,nullable) NSNumber *numberValue;
 
 /**
  The value as a JSON object.
@@ -41,7 +42,7 @@
  This might return nil if a string value is not a valid JSON object.
  This will return either a NSArray or NSDictionary
  */
-@property(copy,nonatomic,readonly) id json;
+@property(copy,nonatomic,readonly,nullable) id json;
 
 /**
  Create a new value with a JSON object
@@ -100,4 +101,5 @@
  */
 - (id)plistValue;
 
+NS_ASSUME_NONNULL_END
 @end

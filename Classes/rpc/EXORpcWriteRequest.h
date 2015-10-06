@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "EXORpcRequest.h"
 #import "EXORpcValue.h"
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  A request to write a value
@@ -80,4 +81,5 @@
  */
 - (instancetype)initWithRID:(EXORpcResourceID*)rid value:(id)value complete:(EXORpcRequestComplete)complete;
 
+NS_ASSUME_NONNULL_END
 @end

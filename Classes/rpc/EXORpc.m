@@ -6,7 +6,7 @@
 //
 
 #import "EXORpc.h"
-#import <AFNetworking.h>
+#import "AFNetworking.h"
 
 NSString *EXORpcDeviceErrorDomain = @"EXORpcDeviceErrorDomain";
 
@@ -45,9 +45,9 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
     return self;
 }
 
-- (id)init
+- (instancetype)init
 {
-    return nil;
+    return [self initWithDomain:nil];
 }
 
 - (void)doRPCwithAuth:(EXORpcAuthKey*)auth requests:(NSArray*)calls complete:(EXORpcRPCComplete)complete

@@ -7,7 +7,7 @@
 //
 
 #import "EXOPortal.h"
-#import <AFNetworking.h>
+#import "AFNetworking.h"
 
 static NSString *EXOPortalDomainAPI = @"/api/portals/v1/domain/";
 static NSString *EXOPortalPortalsAPI = @"/api/portals/v1/portal/";

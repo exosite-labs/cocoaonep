@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  One Platform authentication key.
@@ -20,12 +21,12 @@
 /**
  An optional client RID that is a child of the CIK
  */
-@property(copy,nonatomic,readonly) NSString *clientid;
+@property(copy,nonatomic,readonly,nullable) NSString *clientid;
 
 /**
  An optional RID that is a child of the CIK
  */
-@property(copy,nonatomic,readonly) NSString *rid;
+@property(copy,nonatomic,readonly,nullable) NSString *rid;
 
 /**
  Test if a string is formated as a CIK (or RID)
@@ -43,7 +44,7 @@
  
  @return Authentication object to be used in RPC calls.
  */
-+ (EXORpcAuthKey*)authWithCIK:(NSString*)cik;
++ (nullable EXORpcAuthKey*)authWithCIK:(NSString*)cik;
 
 /**
  Create an auth identifying a child client by RID of the ancestor client by CIK
@@ -53,7 +54,7 @@
 
  @return Authentication object to be used in RPC calls.
  */
-+ (EXORpcAuthKey*)authWithCIK:(NSString*)cik client:(NSString*)clientid;
++ (nullable EXORpcAuthKey*)authWithCIK:(NSString*)cik client:(NSString*)clientid;
 
 /**
  Create an auth identifying a child resource by RID of the ancestor client by CIK
@@ -63,7 +64,7 @@
 
  @return Authentication object to be used in RPC calls.
  */
-+ (EXORpcAuthKey*)authWithCIK:(NSString*)cik resource:(NSString*)rid;
++ (nullable EXORpcAuthKey*)authWithCIK:(NSString*)cik resource:(NSString*)rid;
 
 
 /**
@@ -73,7 +74,7 @@
 
  @return Authentication object to be used in RPC calls.
  */
-- (instancetype)initWithCIK:(NSString*)cik;
+- (nullable instancetype)initWithCIK:(NSString*)cik;
 
 /**
  Return this auth as a plist that can be converted into JSON.
@@ -82,4 +83,5 @@
  */
 - (NSDictionary*)plistValue;
 
+NS_ASSUME_NONNULL_END
 @end

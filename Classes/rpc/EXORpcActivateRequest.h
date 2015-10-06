@@ -6,6 +6,7 @@
 //
 
 #import "EXORpcRequest.h"
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  Request to activate a share code.
@@ -59,5 +60,7 @@
  @return The activate request
  */
 - (instancetype)initWithShare:(BOOL)share code:(NSString*)code complete:(EXORpcRequestComplete)complete;
+
+NS_ASSUME_NONNULL_END
 
 @end

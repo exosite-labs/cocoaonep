@@ -6,29 +6,29 @@
 //
 
 #import "EXORpcRequest.h"
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  Lookup types
  */
-enum EXORpcLookupType_e {
+typedef NS_ENUM(NSInteger, EXORpcLookupType) {
     EXORpcLookupTypeAlias,
     EXORpcLookupTypeOwner,
     EXORpcLookupTypeShared
 };
-typedef enum EXORpcLookupType_e EXORpcLookupType_t;
 
 /**
  Callback for the results of a lookup
  @param result The RID that was looked up
  @param error nil on Success, otherwise the error
  */
-typedef void(^EXORpcLookupRequestComplete)(NSString *result, NSError *error);
+typedef void(^EXORpcLookupRequestComplete)(NSString * __nullable result, NSError * __nullable error);
 
 /**
  Look up a Resource ID by alias, owned Resource ID, or share activation code.
  */
 @interface EXORpcLookupRequest : EXORpcRequest <NSCopying>
-@property(assign,nonatomic,readonly) EXORpcLookupType_t type;  /// What type of thing to lookup
+@property(assign,nonatomic,readonly) EXORpcLookupType type;  /// What type of thing to lookup
 @property(copy,nonatomic,readonly) NSString *item;  /// The key to lookup
 @property(copy,nonatomic,readonly) EXORpcLookupRequestComplete complete;
 
@@ -40,7 +40,7 @@ typedef void(^EXORpcLookupRequestComplete)(NSString *result, NSError *error);
  @param complete The callback to collect the results
  @return The Lookup Request
  */
-+ (EXORpcLookupRequest*)lookupWithType:(EXORpcLookupType_t)type item:(NSString*)item complete:(EXORpcLookupRequestComplete)complete;
++ (EXORpcLookupRequest*)lookupWithType:(EXORpcLookupType)type item:(NSString*)item complete:(EXORpcLookupRequestComplete)complete;
 
 /**
  Initialize a lookup request
@@ -50,5 +50,7 @@ typedef void(^EXORpcLookupRequestComplete)(NSString *result, NSError *error);
  @param complete The callback to collect the results
  @return The Lookup Request
  */
-- (instancetype)initWithType:(EXORpcLookupType_t)type item:(NSString*)item complete:(EXORpcLookupRequestComplete)complete;
+- (instancetype)initWithType:(EXORpcLookupType)type item:(NSString*)item complete:(EXORpcLookupRequestComplete)complete;
+
+NS_ASSUME_NONNULL_END
 @end
