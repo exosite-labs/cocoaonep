@@ -46,21 +46,6 @@ extern NSString *EXORpcDeviceErrorDomain;
 typedef void(^EXORpcRPCComplete)(NSError * __nullable error);
 
 /**
- Called when network usage is started or stopped.
- 
- @param active YES when the network is being used, FALSE when it is done.
- 
- This is primarily intended for turning on or off the Network Activity Indicator.
- 
- For example:
-     onep.activityChange = ^(BOOL active){
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = active;
-     };
-
- */
-typedef void(^EXORpcActivityChange)(BOOL active);
-
-/**
  The RPC
  */
 @interface EXORpc : NSObject
@@ -76,11 +61,6 @@ typedef void(^EXORpcActivityChange)(BOOL active);
  Defaults to the Main Queue.
  */
 @property(nonatomic,strong) NSOperationQueue *queue;
-
-/**
- Callback for when network usage status changes.
- */
-@property(nonatomic,copy) EXORpcActivityChange activityChange;
 
 /**
  Create a One Platform RPC object with the default values.
