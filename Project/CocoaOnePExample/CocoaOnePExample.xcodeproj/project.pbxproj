@@ -310,6 +310,7 @@
 				6D5A026418BB927500237215 /* Frameworks */,
 				6D5A026518BB927500237215 /* Resources */,
 				B1F8EAF7E438493BA577569F /* Copy Pods Resources */,
+				AB101ED017479DE9EC16F848 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -329,6 +330,7 @@
 				6D5A028818BB927500237215 /* Frameworks */,
 				6D5A028918BB927500237215 /* Resources */,
 				6B59A894BF3941EEB349DC8B /* Copy Pods Resources */,
+				EC5543EFDE21CC5FCEA9E3EF /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -347,7 +349,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = EXO;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Exosite;
 				TargetAttributes = {
 					6D5A026618BB927500237215 = {
@@ -445,6 +447,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		AB101ED017479DE9EC16F848 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B1F8EAF7E438493BA577569F /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,6 +475,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC5543EFDE21CC5FCEA9E3EF /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -582,6 +614,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -646,6 +679,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocoaOnePExample/CocoaOnePExample-Prefix.pch";
 				INFOPLIST_FILE = "CocoaOnePExample/CocoaOnePExample-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.exosite.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -661,6 +695,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocoaOnePExample/CocoaOnePExample-Prefix.pch";
 				INFOPLIST_FILE = "CocoaOnePExample/CocoaOnePExample-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.exosite.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -683,6 +718,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "CocoaOnePExampleTests/CocoaOnePExampleTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.exosite.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -702,6 +738,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocoaOnePExample/CocoaOnePExample-Prefix.pch";
 				INFOPLIST_FILE = "CocoaOnePExampleTests/CocoaOnePExampleTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.exosite.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
