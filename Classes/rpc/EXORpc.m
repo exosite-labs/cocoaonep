@@ -14,6 +14,7 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
 
 @interface EXORpc ()
 @property(nonatomic,copy) NSURL *domain;
+@property (strong,nonatomic) AFHTTPSessionManager *session;
 @end
 
 @implementation EXORpc
@@ -30,15 +31,24 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
 
 - (instancetype)initWithDomain:(NSURL *)domain
 {
+    return [self initWithDomain:domain sessionConfiguration:nil];
+}
+
+- (instancetype)initWithDomain:(NSURL *)domain sessionConfiguration:(NSURLSessionConfiguration *)sessionConfig {
     if (self = [super init]) {
         if (domain) {
-            self.domain = domain;
+            _domain = [domain copy];
         } else {
-            self.domain = [NSURL URLWithString:@"https://m2.exosite.com/"];
+            _domain = [NSURL URLWithString:@"https://m2.exosite.com/"];
         }
-        self.queue = [NSOperationQueue mainQueue];
+        if (sessionConfig) {
+            _sessionConfig = [sessionConfig copy];
+        } else {
+            _sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+        }
     }
     return self;
+
 }
 
 - (instancetype)init
@@ -46,13 +56,18 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
     return [self initWithDomain:nil];
 }
 
-- (void)doRPCwithAuth:(EXORpcAuthKey*)auth requests:(NSArray*)calls complete:(EXORpcRPCComplete)complete
-{
-    NSOperation *op = [self operationWithAuth:auth requests:calls complete:complete];
-    [self.queue addOperation:op];
+- (AFHTTPSessionManager*)sessionWithConfig:(NSURLSessionConfiguration*)sessionConfig {
+    if (sessionConfig == nil) {
+        sessionConfig = self.sessionConfig;
+    }
+    AFHTTPSessionManager *lsem = [[AFHTTPSessionManager alloc] initWithBaseURL:self.domain sessionConfiguration:sessionConfig];
+    lsem.requestSerializer = [AFJSONRequestSerializer serializer];
+    lsem.responseSerializer = [AFJSONResponseSerializer serializer];
+
+    return lsem;
 }
 
-- (NSOperation *)operationWithAuth:(EXORpcAuthKey *)auth requests:(NSArray *)calls complete:(EXORpcRPCComplete)complete
+- (void)doRPCwithAuth:(EXORpcAuthKey*)auth requests:(NSArray*)calls complete:(EXORpcRPCComplete)complete
 {
     EXORpcRPCComplete lcomplete = [complete copy];
     if (auth == nil) {
@@ -60,7 +75,7 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
         if (lcomplete) {
             lcomplete(err);
         }
-        return nil;
+        return;
     }
 
     if (calls.count == 0) {
@@ -69,13 +84,13 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
         if (lcomplete) {
             lcomplete(err);
         }
-        return nil;
+        return;
     }
 
     // calls should be an array of Requests.
     NSUInteger callID = 0;
     BOOL haveWaits = NO;
-    
+
     NSMutableArray *pcalls = [NSMutableArray array];
     for (EXORpcRequest* req in calls) {
         if (![req isKindOfClass:[EXORpcRequest class]]) {
@@ -89,19 +104,13 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
         md[@"id"] = @(callID++); // id matches array index!
         [pcalls addObject:md];
     }
-    
+
     NSDictionary *params = @{@"auth": [auth plistValue], @"calls": pcalls};
 
-    NSURL *URL = [NSURL URLWithString:EXORpcAPIPath relativeToURL:self.domain];
+    AFHTTPSessionManager *session = [self sessionWithConfig:nil];
+    session.requestSerializer.timeoutInterval = haveWaits?310:60; // If there is a wait request, need a much longer timeout
 
-    NSError *err=nil;
-    AFJSONRequestSerializer *serializer = [AFJSONRequestSerializer serializer];
-    serializer.timeoutInterval = haveWaits?310:60; // If there is a wait request, need a much longer timeout
-    NSURLRequest *request = [serializer requestWithMethod:@"POST" URLString:[URL absoluteString] parameters:params error:&err];
-
-    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    op.responseSerializer = [AFJSONResponseSerializer serializer];
-    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
+    [session POST:EXORpcAPIPath parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         if ([responseObject isKindOfClass:[NSArray class]]) {
             // Success! (well, at this level anyways.)
             NSArray *responses = responseObject;
@@ -135,14 +144,22 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
                 lcomplete(error);
             }
         }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+
+
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         //NSLog(@"Error for %@:  %@ ::: %@", operation, error, params);
         if (lcomplete) {
             lcomplete(error);
         }
     }];
+}
 
+- (NSOperation *)operationWithAuth:(EXORpcAuthKey *)auth requests:(NSArray *)calls complete:(EXORpcRPCComplete)complete
+{
+    EXORpcRPCComplete lcomplete = [complete copy];
+    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+        [self doRPCwithAuth:auth requests:calls complete:lcomplete];
+    }];
     return op;
 }
 

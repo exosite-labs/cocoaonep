@@ -65,11 +65,9 @@ typedef void(^EXORpcRPCComplete)(NSError * __nullable error);
 @property(nonatomic,copy,readonly) NSURL *domain;
 
 /**
- Which queue to do background work on.
- 
- Defaults to the Main Queue.
+ Session configuration to use.
  */
-@property(nonatomic,strong) NSOperationQueue *queue;
+@property (strong,nonatomic) NSURLSessionConfiguration *sessionConfig;
 
 /**
  Create a One Platform RPC object with the default values.
@@ -94,27 +92,34 @@ typedef void(^EXORpcRPCComplete)(NSError * __nullable error);
 
  @return The RPC object
  */
-- (nullable instancetype)initWithDomain:(nullable NSURL *)domain NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithDomain:(nullable NSURL *)domain;
 
 /**
- Creates and queues a NSOperation for a set of calls to One Platform
+ Initialize a One Platform RPC object with a specific domain.
 
- @see operationWithAuth:requests:complete
+ @param domain Which base URL to use for the API requests. Passing nil uses the default.
+ @param sessionConfig Config for the URL sessions. Passing nil uses the default session config.
 
+ @return The RPC object
  */
-- (void)doRPCwithAuth:(EXORpcAuthKey*)auth requests:(NSArray<EXORpcRequest *> *)calls complete:(EXORpcRPCComplete)complete;
+- (nullable instancetype)initWithDomain:(nullable NSURL *)domain sessionConfiguration:(nullable NSURLSessionConfiguration*)sessionConfig NS_DESIGNATED_INITIALIZER;
 
 /**
- Create a NSOperation for a set of calls to One Platform
- 
+ POSTs a request with a set of requests to the One Platform
+
  This represents a single HTTP request - response pair.  All of the requests in the array are formed into a single HTTP request and sent to the One Platform.  The response is then parsed and each call given its results to handle in its own way.  After all of the request callbacks are called, the complete callback is called.
 
  The order of the request callbacks is not guaranteed, but it is guaranteed that all of them will execute before this complete callback.
  Also, if the error parameter to this complete callback is not nil, then none of the request callback were called.
- 
+
  @param auth One Platform authentication to a client
  @param calls NSArray of object that subclass from EXORpcRequest
  @param complete Callback called once all requests are handled or on network errors
+ */
+- (void)doRPCwithAuth:(EXORpcAuthKey*)auth requests:(NSArray<EXORpcRequest *> *)calls complete:(EXORpcRPCComplete)complete;
+
+/**
+ Wraps doRPCwithAuth:requests:complete: inside a NSBlockOperation
  
  @return NSOperation of the packaged API request
  */
