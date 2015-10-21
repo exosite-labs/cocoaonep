@@ -2,7 +2,7 @@
 //  EXORpc.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
-//  Copyright (c) 2014 Exosite. All rights reserved.
+//  Copyright (c) 2014-2015 Exosite. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -37,6 +37,15 @@ NS_ASSUME_NONNULL_BEGIN
  Key for Errors specific to EXORpc.
  */
 extern NSString *EXORpcDeviceErrorDomain;
+
+/**
+ EXORpc error codes
+ */
+typedef NS_ENUM(NSInteger, EXORpcDeviceError) {
+    EXORpcDeviceError_UnknownResponse = -1,
+    EXORpcDeviceError_MissingAuthKey = -2,
+    EXORpcDeviceError_NoRequests = -3,
+};
 
 /**
  Callback for the completion of a RPC exchange

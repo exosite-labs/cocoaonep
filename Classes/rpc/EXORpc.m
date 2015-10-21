@@ -2,7 +2,7 @@
 //  EXORpc.m
 //
 //  Created by Michael Conrad Tadpol Tilstra.
-//  Copyright (c) 2014 Exosite. All rights reserved.
+//  Copyright (c) 2014-2015 Exosite. All rights reserved.
 //
 
 #import "EXORpc.h"
@@ -56,7 +56,7 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
 {
     EXORpcRPCComplete lcomplete = [complete copy];
     if (auth == nil) {
-        NSError *err = [NSError errorWithDomain:EXORpcDeviceErrorDomain code:-2 userInfo:@{NSLocalizedDescriptionKey: @"Missing EXORpcAuthKey"}];
+        NSError *err = [NSError errorWithDomain:EXORpcDeviceErrorDomain code:EXORpcDeviceError_MissingAuthKey userInfo:@{NSLocalizedDescriptionKey: @"Missing EXORpcAuthKey"}];
         if (lcomplete) {
             lcomplete(err);
         }
@@ -65,7 +65,7 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
 
     if (calls.count == 0) {
         // Nothing to do!
-        NSError *err = [NSError errorWithDomain:EXORpcDeviceErrorDomain code:-3 userInfo:@{NSLocalizedDescriptionKey: @"No Requests"}];
+        NSError *err = [NSError errorWithDomain:EXORpcDeviceErrorDomain code:EXORpcDeviceError_NoRequests userInfo:@{NSLocalizedDescriptionKey: @"No Requests"}];
         if (lcomplete) {
             lcomplete(err);
         }
@@ -129,7 +129,7 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
             }
         } else {
             // another error!
-            NSError *error = [NSError errorWithDomain:EXORpcDeviceErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Unknown response type"}];
+            NSError *error = [NSError errorWithDomain:EXORpcDeviceErrorDomain code:EXORpcDeviceError_UnknownResponse userInfo:@{NSLocalizedDescriptionKey: @"Unknown response type"}];
             ///NSLog(@"Error for %@:  %@  got: %@  from: %@", operation, error, responseObject, params);
             if (lcomplete) {
                 lcomplete(error);
