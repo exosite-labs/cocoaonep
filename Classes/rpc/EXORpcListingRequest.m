@@ -8,20 +8,20 @@
 #import "EXORpcListingRequest.h"
 
 @interface EXORpcListingRequest ()
-@property(nonatomic,assign) EXORpcListType_t list;
-@property(nonatomic,assign) EXORpcFilterType_t filter;
+@property(nonatomic,assign) EXORpcListType list;
+@property(nonatomic,assign) EXORpcFilterType filter;
 @property(nonatomic,copy) EXORpcListingRequestComplete complete;
 
 @end
 
 @implementation EXORpcListingRequest
 
-+ (EXORpcListingRequest *)listingByType:(EXORpcListType_t)list filter:(EXORpcFilterType_t)filter complete:(EXORpcListingRequestComplete)complete
++ (EXORpcListingRequest *)listingByType:(EXORpcListType)list filter:(EXORpcFilterType)filter complete:(EXORpcListingRequestComplete)complete
 {
     return [[EXORpcListingRequest alloc] initWithType:list filter:filter complete:complete];
 }
 
-- (instancetype)initWithType:(EXORpcListType_t)list filter:(EXORpcFilterType_t)filter complete:(EXORpcListingRequestComplete)complete
+- (instancetype)initWithType:(EXORpcListType)list filter:(EXORpcFilterType)filter complete:(EXORpcListingRequestComplete)complete
 {
     if (self = [super init]) {
         self.list = list;
