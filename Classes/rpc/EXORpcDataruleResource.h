@@ -2,7 +2,7 @@
 //  EXORpcCreateDataruleRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
-//  Copyright (c) 2014 Exosite. All rights reserved.
+//  Copyright (c) 2014-2015 Exosite. All rights reserved.
 //
 
 #import "EXORpcResource.h"
@@ -24,7 +24,7 @@
  
  This must be the Integer type for all rules except script, which is a string.
  */
-@property(assign,nonatomic,readonly) EXORpcDataportFormat_t format;
+@property(assign,nonatomic,readonly) EXORpcDataportFormat format;
 
 /**
  The rules for the datarule.
@@ -85,7 +85,7 @@
  @param preprocess A list of operations to be preformed on the incoming data
  @return The datarule
  */
-- (instancetype)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format retention:(EXORpcResourceRetention*)retention rule:(EXORpcDatarule*)rule subscribe:(EXORpcResourceID*)subscribe preprocess:(NSArray*)preprocess;
+- (instancetype)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat)format retention:(EXORpcResourceRetention*)retention rule:(EXORpcDatarule*)rule subscribe:(EXORpcResourceID*)subscribe preprocess:(NSArray*)preprocess;
 
 /**
  Initialize a datarule resource from a plist from info request.

@@ -2,17 +2,19 @@
 //  EXORpcInfoRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
-//  Copyright (c) 2014 Exosite. All rights reserved.
+//  Copyright (c) 2014-2015 Exosite. All rights reserved.
 //
 
 #import "EXORpcRequest.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  Types of information that can be requested.
  
  Not all types exist on all resoruces.
  */
-enum EXORpcInfoRequestTypes_e {
+typedef NS_ENUM(NSUInteger, EXORpcInfoRequestType) {
     EXORpcInfoRequestTypeAliases = 1 << 0,      /// All aliases associated with the calling client's child resources
     EXORpcInfoRequestTypeBasic = 1 << 1,        /// Basic information about a resource, such as its type, when it was created, last modified and, for 'client' and 'dispatch' type resources, its current status
     EXORpcInfoRequestTypeComments = 1 << 2,     /// This is deprecated and should not be used
@@ -25,7 +27,6 @@ enum EXORpcInfoRequestTypes_e {
     EXORpcInfoRequestTypeUsage = 1 << 9,        /// Current usage information for the resource
     EXORpcInfoRequestTypeAll = 0,               /// Return all information about the resource
     };
-typedef enum EXORpcInfoRequestTypes_e EXORpcInfoRequestTypes_t;
 
 /**
  Callback with results of information request
@@ -33,7 +34,7 @@ typedef enum EXORpcInfoRequestTypes_e EXORpcInfoRequestTypes_t;
  @param result The information request, or nil if error.
  @param error The error or nil if success.
  */
-typedef void(^EXORpcInfoRequestComplete)(NSDictionary *result, NSError *error);
+typedef void(^EXORpcInfoRequestComplete)(NSDictionary * __nullable result, NSError * __nullable error);
 
 /**
  Request Infomation about a resource
@@ -45,7 +46,7 @@ typedef void(^EXORpcInfoRequestComplete)(NSDictionary *result, NSError *error);
 /**
  Types of info requested.
  */
-@property(nonatomic,assign,readonly) EXORpcInfoRequestTypes_t types;
+@property(nonatomic,assign,readonly) EXORpcInfoRequestType types;
 
 /**
  Callback for when request is complete.
@@ -67,7 +68,7 @@ typedef void(^EXORpcInfoRequestComplete)(NSDictionary *result, NSError *error);
  @param complete Callback for when request is complete
  @return The info request
  */
-+ (EXORpcInfoRequest*)infoByRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestTypes_t)types complete:(EXORpcInfoRequestComplete)complete;
++ (EXORpcInfoRequest*)infoByRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestType)types complete:(EXORpcInfoRequestComplete)complete;
 
 /**
  Initialize an Information request
@@ -78,6 +79,8 @@ typedef void(^EXORpcInfoRequestComplete)(NSDictionary *result, NSError *error);
  @param complete Callback for when request is complete
  @return The info request
  */
-- (instancetype)initWithRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestTypes_t)types raw:(BOOL)raw complete:(EXORpcInfoRequestComplete)complete;
+- (instancetype)initWithRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestType)types raw:(BOOL)raw complete:(EXORpcInfoRequestComplete)complete;
+
+NS_ASSUME_NONNULL_END
 
 @end
