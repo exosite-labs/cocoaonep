@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "CocoaOneP"
-  s.version          = "0.5.2"
+  s.version          = "0.6.0"
   s.summary          = "Cocoa library for using the Exosite One Platform."
   s.homepage         = "http://docs.exosite.com/"
   s.license          = 'BSD'
@@ -19,15 +19,10 @@ Pod::Spec.new do |s|
 
   s.subspec 'All' do |ss|
     ss.dependency 'CocoaOneP/RPC'
-    ss.dependency 'CocoaOneP/Portal'
   end
 
   s.subspec 'RPC' do |ss|
     ss.source_files = 'Classes/rpc'
-  end
-
-  s.subspec 'Portal' do |ss|
-    ss.source_files = 'Classes/portal'
   end
 
 end

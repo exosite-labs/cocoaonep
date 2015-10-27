@@ -10,11 +10,6 @@ CocoaOneP is a bindings library for the Exosite One Platform.
 The complete [Exosite One Platform API](https://github.com/exosite/docs) covers a lot of
 ground.  This set of bindings only covers the following lower-level APIs:
 - Remote Procedure Call API
-- Portals API (<small>Partial support, this API is in high flux currently</small>)
-
-This is still a beta release.  The Remote Procedure Call API is
-considered complete, while the Portals API is in flux (because the underlying REST API is still
-beta.)
 
 You need to be at least partially familar with the low-level APIs to use this library well.
 
@@ -29,8 +24,8 @@ We are in the progress of adding appledoc to all the headers.
 
 ## Requirements
 
-CocoaOneP requires Xcode 5, targeting either iOS 7.0 and above, or Mac OS 10.8 Mountain Lion.
-It also depends on [AFNetworking 2.2](https://github.com/AFNetworking/AFNetworking).
+CocoaOneP requires Xcode 7.1, targeting either iOS 7.0 and above, or Mac OS 10.8 Mountain Lion.
+It also depends on [AFNetworking 3.0](https://github.com/AFNetworking/AFNetworking).
 
 ## Installation with CocoaPods
 
