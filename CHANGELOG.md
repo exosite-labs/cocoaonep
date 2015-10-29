@@ -1,5 +1,9 @@
 # CocoaOneP CHANGELOG
 
+## v0.6.0
+- Upgrade to AFNetworking 3.0
+- Dropped Portals API entirely.  Code here was out of date and buggy.
+
 ## v0.5.1
 - Fixed #5; Updating a data port clobbers the retention. 
 

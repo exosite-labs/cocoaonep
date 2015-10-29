@@ -21,9 +21,6 @@
     [super viewDidLoad];
 
     self.onep = [EXORpc rpc];
-    self.onep.activityChange = ^(BOOL active){
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = active;
-    };
 }
 
 - (void)didReceiveMemoryWarning
