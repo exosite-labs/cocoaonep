@@ -18,13 +18,20 @@ PODS:
     - AFNetworking (= 3.0.0-beta.1)
     - CocoaOneP/All (= 0.6.0)
     - CocoaOneP/RPC (= 0.6.0)
+    - CocoaOneP/WebSocket (= 0.6.0)
   - CocoaOneP/All (0.6.0):
     - AFNetworking (= 3.0.0-beta.1)
     - CocoaOneP/RPC
+    - CocoaOneP/WebSocket
   - CocoaOneP/RPC (0.6.0):
     - AFNetworking (= 3.0.0-beta.1)
+  - CocoaOneP/WebSocket (0.6.0):
+    - AFNetworking (= 3.0.0-beta.1)
+    - CocoaOneP/RPC
+    - SocketRocket (= 0.4.1)
   - Lockbox (2.1.0)
   - OCMock (3.2)
+  - SocketRocket (0.4.1)
 
 DEPENDENCIES:
   - CocoaOneP (from `../CocoaOneP.podspec`)
@@ -37,8 +44,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 1100906802d9479aa0949e8e2cbc1d4e6beba327
-  CocoaOneP: 6d4fa9dc858cf9625e458f9f9d85ab7bb312fc75
+  CocoaOneP: ca48bae510ac798a312a07120d7a0fc58f44239b
   Lockbox: 16442da35d9d4286966936763be728a931d589c3
   OCMock: 28def049ef47f996b515a8eeea958be7ccab2dbb
+  SocketRocket: ee0b5c34182d37bb4f1f8d628bbe737718126daa
 
 COCOAPODS: 0.39.0

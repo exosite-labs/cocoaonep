@@ -19,10 +19,17 @@ Pod::Spec.new do |s|
 
   s.subspec 'All' do |ss|
     ss.dependency 'CocoaOneP/RPC'
+    ss.dependency 'CocoaOneP/WebSocket'
   end
 
   s.subspec 'RPC' do |ss|
     ss.source_files = 'Classes/rpc'
+  end
+
+  s.subspec 'WebSocket' do |ss|
+    ss.dependency 'CocoaOneP/RPC'
+    ss.dependency 'SocketRocket', '0.4.1'
+    ss.source_files = 'Classes/ws'
   end
 
 end
