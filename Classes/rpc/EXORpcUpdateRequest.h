@@ -2,11 +2,13 @@
 //  EXORpcUpdateRequest.h
 //
 //  Created by Michael Conrad Tadpol Tilstra.
-//  Copyright (c) 2014 Exosite. All rights reserved.
+//  Copyright (c) 2014-2015 Exosite. All rights reserved.
 //
 
 #import "EXORpcRequest.h"
 #import "EXORpcResource.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  Updates the description of the resource.
@@ -31,7 +33,7 @@
  @param complete Callback for when update is complete
  @return The update request
  */
-+ (EXORpcUpdateRequest*)updateWithRID:(EXORpcResourceID*)rid resource:(EXORpcResource*)resource complete:(EXORpcRequestComplete)complete;
++ (nullable EXORpcUpdateRequest*)updateWithRID:(EXORpcResourceID*)rid resource:(EXORpcResource*)resource complete:(EXORpcRequestComplete)complete;
 
 /**
  Initialize an update request
@@ -49,5 +51,7 @@
  @return A dictionary representation of the request.
  */
 - (NSDictionary *)plistValue;
+
+NS_ASSUME_NONNULL_END
 
 @end

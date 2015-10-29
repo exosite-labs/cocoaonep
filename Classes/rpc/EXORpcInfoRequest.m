@@ -2,7 +2,7 @@
 //  EXORpcInfoRequest.m
 //
 //  Created by Michael Conrad Tadpol Tilstra.
-//  Copyright (c) 2014 Exosite. All rights reserved.
+//  Copyright (c) 2014-2015 Exosite. All rights reserved.
 //
 
 #import "EXORpcInfoRequest.h"
@@ -12,7 +12,7 @@
 #import "EXORpcDispatchResource.h"
 
 @interface EXORpcInfoRequest ()
-@property(nonatomic,assign) EXORpcInfoRequestTypes_t types;
+@property(nonatomic,assign) EXORpcInfoRequestType types;
 @property(nonatomic,copy) EXORpcInfoRequestComplete complete;
 @property(assign,nonatomic) BOOL returnRaw;
 @property(assign,nonatomic) BOOL maskedBasicInfo;
@@ -21,12 +21,12 @@
 
 @implementation EXORpcInfoRequest
 
-+ (EXORpcInfoRequest *)infoByRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestTypes_t)types complete:(EXORpcInfoRequestComplete)complete
++ (EXORpcInfoRequest *)infoByRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestType)types complete:(EXORpcInfoRequestComplete)complete
 {
     return [[EXORpcInfoRequest alloc] initWithRID:rid types:types raw:NO complete:complete];
 }
 
-- (instancetype)initWithRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestTypes_t)types raw:(BOOL)raw complete:(EXORpcInfoRequestComplete)complete
+- (instancetype)initWithRID:(EXORpcResourceID *)rid types:(EXORpcInfoRequestType)types raw:(BOOL)raw complete:(EXORpcInfoRequestComplete)complete
 {
     if (self = [super initWithRID:rid]) {
         _types = types;
