@@ -32,11 +32,11 @@
     EXORpcActivateRequest *req;
     NSDictionary *result;
 
-    req = [EXORpcActivateRequest activateShareWithCode:@"fake share code" complete:nil];
+    req = [EXORpcActivateRequest activateShareWithCode:@"fake share code" complete:^(id a){}];
     result = @{@"procedure": @"activate", @"arguments": @[@"share", @"fake share code"]};
     XCTAssertEqualObjects([req plistValue], result, @"create a share activate request");
 
-    req = [EXORpcActivateRequest activateClientWithCode:@"fake CIK." complete:nil];
+    req = [EXORpcActivateRequest activateClientWithCode:@"fake CIK." complete:^(id a){}];
     result = @{@"procedure": @"activate", @"arguments": @[@"client", @"fake CIK."]};
     XCTAssertEqualObjects([req plistValue], result, @"create a client activate request");
 }
