@@ -32,51 +32,51 @@
     EXORpcInfoRequest *info;
     NSDictionary *result;
 
-    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeAll complete:nil];
+    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeAll complete:^(id a, id b){}];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for All fields");
     
-    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeAliases complete:nil];
+    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeAliases complete:^(id a, id b){}];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"aliases": @YES}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for Aliases field");
 
-    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeBasic complete:nil];
+    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeBasic complete:^(id a, id b){}];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"basic": @YES}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for Basic field");
 
-    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeComments complete:nil];
+    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeComments complete:^(id a, id b){}];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"comments": @YES}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for Comments field");
 
-    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeCounts complete:nil];
+    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeCounts complete:^(id a, id b){}];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"counts": @YES}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for Counts field");
 
-    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeDescription complete:nil];
+    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeDescription complete:^(id a, id b){}];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"description": @YES, @"basic": @YES}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for Description field");
 
-    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeKey complete:nil];
+    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeKey complete:^(id a, id b){}];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"key": @YES}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for Key field");
 
-    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeShares complete:nil];
+    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeShares complete:^(id a, id b){}];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"shares": @YES}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for Shares field");
 
-    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeTagged complete:nil];
+    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeTagged complete:^(id a, id b){}];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"tagged": @YES}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for Tagged field");
 
-    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeTags complete:nil];
+    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeTags complete:^(id a, id b){}];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"tags": @YES}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for Tags field");
 
-    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeUsage complete:nil];
+    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:EXORpcInfoRequestTypeUsage complete:^(id a, id b){}];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"usage": @YES}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for Usage field");
 
-    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:(EXORpcInfoRequestTypeUsage | EXORpcInfoRequestTypeAliases) complete:nil];
+    info = [EXORpcInfoRequest infoByRID:[EXORpcResourceID resourceIDAsSelf] types:(EXORpcInfoRequestTypeUsage | EXORpcInfoRequestTypeAliases) complete:^(id a, id b){}];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"aliases": @YES, @"usage": @YES}]};
     XCTAssertEqualObjects(result, [info plistValue], @"Request for Usage and Aliases field");
 
@@ -90,7 +90,7 @@
                                                                                    EXORpcInfoRequestTypeShares | 
                                                                                    EXORpcInfoRequestTypeTagged | 
                                                                                    EXORpcInfoRequestTypeTags | 
-                                                                                   EXORpcInfoRequestTypeUsage) complete:nil];
+                                                                                   EXORpcInfoRequestTypeUsage) complete:^(id a, id b){}];
     result = @{@"procedure": @"info", @"arguments": @[@{@"alias": @""}, @{@"aliases": @YES,
                                                                           @"basic": @YES,
                                                                           @"comments": @YES,

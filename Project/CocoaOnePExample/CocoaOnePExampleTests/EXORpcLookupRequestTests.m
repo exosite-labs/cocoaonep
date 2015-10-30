@@ -32,15 +32,15 @@
     EXORpcLookupRequest *req;
     NSDictionary *result;
 
-    req = [EXORpcLookupRequest lookupWithType:EXORpcLookupTypeAlias item:@"this is a test" complete:nil];
+    req = [EXORpcLookupRequest lookupWithType:EXORpcLookupTypeAlias item:@"this is a test" complete:^(id a, id b){}];
     result = @{@"procedure": @"lookup", @"arguments": @[@"alias", @"this is a test"]};
     XCTAssertEqualObjects(result, [req plistValue], @"Request for Alias type");
 
-    req = [EXORpcLookupRequest lookupWithType:EXORpcLookupTypeOwner item:@"this is a test" complete:nil];
+    req = [EXORpcLookupRequest lookupWithType:EXORpcLookupTypeOwner item:@"this is a test" complete:^(id a, id b){}];
     result = @{@"procedure": @"lookup", @"arguments": @[@"owner", @"this is a test"]};
     XCTAssertEqualObjects(result, [req plistValue], @"Request for Owner type");
 
-    req = [EXORpcLookupRequest lookupWithType:EXORpcLookupTypeShared item:@"this is a test" complete:nil];
+    req = [EXORpcLookupRequest lookupWithType:EXORpcLookupTypeShared item:@"this is a test" complete:^(id a, id b){}];
     result = @{@"procedure": @"lookup", @"arguments": @[@"shared", @"this is a test"]};
     XCTAssertEqualObjects(result, [req plistValue], @"Request for Shared type");
 

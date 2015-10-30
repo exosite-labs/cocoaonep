@@ -56,7 +56,7 @@ typedef void(^EXORpcRequestComplete)(NSError * __nullable error);
  @param status The One Platform status code
  @return The error code
  */
-- (NSInteger)codeFromStatus:(NSString*)status;
+- (NSInteger)codeFromStatus:(nullable NSString*)status;
 
 /**
  Parse the status result from One Platform
@@ -64,7 +64,7 @@ typedef void(^EXORpcRequestComplete)(NSError * __nullable error);
  @param status The status details returned from a One Platform Request
  @return The status as an NSError (or nil if no error)
  */
-- (NSError*)errorFromStatus:(NSDictionary*)status;
+- (NSError*)errorFromStatus:(nullable NSDictionary*)status;
 
 /**
  Result handler for this request.

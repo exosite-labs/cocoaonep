@@ -32,43 +32,43 @@
     EXORpcListingRequest *list;
     NSDictionary *results;
 
-    list = [EXORpcListingRequest listingByType:EXORpcListTypeAll filter:EXORpcFilterTypeDefault complete:nil];
+    list = [EXORpcListingRequest listingByType:EXORpcListTypeAll filter:EXORpcFilterTypeDefault complete:^(id a, id b){}];
     results = @{@"procedure": @"listing", @"arguments": @[@[@"client",@"dataport",@"datarule",@"dispatch"], @{}]};
     XCTAssertEqualObjects([list plistValue], results, @"Default list");
 
-    list = [EXORpcListingRequest listingByType:EXORpcListTypeClient filter:EXORpcFilterTypeDefault complete:nil];
+    list = [EXORpcListingRequest listingByType:EXORpcListTypeClient filter:EXORpcFilterTypeDefault complete:^(id a, id b){}];
     results = @{@"procedure": @"listing", @"arguments": @[@[@"client"], @{}]};
     XCTAssertEqualObjects([list plistValue], results, @"Client list");
 
-    list = [EXORpcListingRequest listingByType:EXORpcListTypeDataport filter:EXORpcFilterTypeDefault complete:nil];
+    list = [EXORpcListingRequest listingByType:EXORpcListTypeDataport filter:EXORpcFilterTypeDefault complete:^(id a, id b){}];
     results = @{@"procedure": @"listing", @"arguments": @[@[@"dataport"], @{}]};
     XCTAssertEqualObjects([list plistValue], results, @"Dataport list");
 
-    list = [EXORpcListingRequest listingByType:EXORpcListTypeDatarule filter:EXORpcFilterTypeDefault complete:nil];
+    list = [EXORpcListingRequest listingByType:EXORpcListTypeDatarule filter:EXORpcFilterTypeDefault complete:^(id a, id b){}];
     results = @{@"procedure": @"listing", @"arguments": @[@[@"datarule"], @{}]};
     XCTAssertEqualObjects([list plistValue], results, @"Datarule list");
 
-    list = [EXORpcListingRequest listingByType:EXORpcListTypeDispatch filter:EXORpcFilterTypeDefault complete:nil];
+    list = [EXORpcListingRequest listingByType:EXORpcListTypeDispatch filter:EXORpcFilterTypeDefault complete:^(id a, id b){}];
     results = @{@"procedure": @"listing", @"arguments": @[@[@"dispatch"], @{}]};
     XCTAssertEqualObjects([list plistValue], results, @"Dispatch list");
 
-    list = [EXORpcListingRequest listingByType:(EXORpcListTypeDispatch|EXORpcListTypeDataport) filter:EXORpcFilterTypeDefault complete:nil];
+    list = [EXORpcListingRequest listingByType:(EXORpcListTypeDispatch|EXORpcListTypeDataport) filter:EXORpcFilterTypeDefault complete:^(id a, id b){}];
     results = @{@"procedure": @"listing", @"arguments": @[@[@"dataport",@"dispatch"], @{}]};
     XCTAssertEqualObjects([list plistValue], results, @"Dataport & Dispatch list");
 
-    list = [EXORpcListingRequest listingByType:EXORpcListTypeClient filter:EXORpcFilterTypeActivated complete:nil];
+    list = [EXORpcListingRequest listingByType:EXORpcListTypeClient filter:EXORpcFilterTypeActivated complete:^(id a, id b){}];
     results = @{@"procedure": @"listing", @"arguments": @[@[@"client"], @{@"activated": @YES}]};
     XCTAssertEqualObjects([list plistValue], results, @"Activated filter");
 
-    list = [EXORpcListingRequest listingByType:EXORpcListTypeClient filter:EXORpcFilterTypeAliased complete:nil];
+    list = [EXORpcListingRequest listingByType:EXORpcListTypeClient filter:EXORpcFilterTypeAliased complete:^(id a, id b){}];
     results = @{@"procedure": @"listing", @"arguments": @[@[@"client"], @{@"aliased": @YES}]};
     XCTAssertEqualObjects([list plistValue], results, @"Activated filter");
 
-    list = [EXORpcListingRequest listingByType:EXORpcListTypeClient filter:EXORpcFilterTypeOwned complete:nil];
+    list = [EXORpcListingRequest listingByType:EXORpcListTypeClient filter:EXORpcFilterTypeOwned complete:^(id a, id b){}];
     results = @{@"procedure": @"listing", @"arguments": @[@[@"client"], @{@"owned": @YES}]};
     XCTAssertEqualObjects([list plistValue], results, @"Activated filter");
 
-    list = [EXORpcListingRequest listingByType:EXORpcListTypeClient filter:EXORpcFilterTypePublic complete:nil];
+    list = [EXORpcListingRequest listingByType:EXORpcListTypeClient filter:EXORpcFilterTypePublic complete:^(id a, id b){}];
     results = @{@"procedure": @"listing", @"arguments": @[@[@"client"], @{@"public": @YES}]};
     XCTAssertEqualObjects([list plistValue], results, @"Activated filter");
 
