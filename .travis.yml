@@ -1,8 +1,5 @@
 language: objective-c
 osx_image: xcode7.1
-branches:
-  except:
-    - feature/nullable
 xcode_workspace: Project/CocoaOnePExample.xcworkspace
 xcode_scheme: CocoaOnePExample
 before_install:
@@ -14,7 +11,7 @@ install:
     - xctool --version
     - cd Project
     - pod install
-script: xctool -workspace CocoaOnePExample.xcworkspace -scheme CocoaOnePExample -sdk iphonesimulator8.1 test
+script: xctool -workspace CocoaOnePExample.xcworkspace -scheme CocoaOnePExample -sdk iphonesimulator9.1 test
 notifications:
   email:
     - miketilstra@exosite.com
