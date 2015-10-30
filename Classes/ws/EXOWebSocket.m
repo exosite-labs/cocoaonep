@@ -41,9 +41,12 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
     return self;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
 - (instancetype)init {
     return nil;
 }
+#pragma clang diagnostic pop
 
 - (instancetype)initWithAuth:(EXORpcAuthKey*)auth {
     return [self initWithAuth:auth domain:nil];
