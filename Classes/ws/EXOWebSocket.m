@@ -64,6 +64,8 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
     dispatch_async(self.workQ, ^{
         // Auto open.
         if (self.wbs == nil || self.wbs.readyState == SR_CLOSED) {
+            [self flushPending];
+
             self.wbs = [[SRWebSocket alloc] initWithURL:self.domain];
             self.wbs.delegate = self;
             [self.wbs open];
@@ -101,10 +103,22 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
     dispatch_async(self.workQ, ^{
         [self.wbs closeWithCode:-1 reason:@"closing"];
         self.wbs = nil;
+        [self flushPending];
     });
 }
 
-
+// Private call; assumes to be in a dispatch_async(self.workQ)
+- (void)flushPending {
+    NSDictionary *rsp = @{@"error":@{@"code":@(EXOWebSocketError_WebSocketClosed),
+                                     @"context": EXOWebSocketErrorDomain,
+                                     @"message": @"WebSocket Closing"}};
+    for (NSNumber *key in self.pending) {
+        EXORpcRequest *rq = self.pending[key];
+        dispatch_async(self.callbackQ, ^{
+            [rq doResult:rsp];
+        });
+    }
+}
 
 #pragma mark - SRWebSocketDelegate
 

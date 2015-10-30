@@ -46,6 +46,7 @@ typedef NS_ENUM(NSInteger, EXOWebSocketError) {
     EXOWebSocketError_UnknownResponse = -1,
     EXOWebSocketError_MissingAuthKey = -2,
     EXOWebSocketError_NoRequests = -3,
+    EXOWebSocketError_WebSocketClosed = -4,
 };
 
 /**
