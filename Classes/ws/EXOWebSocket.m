@@ -62,7 +62,18 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
     }
 
     dispatch_async(self.workQ, ^{
-        // TODO: auto open.
+        // Auto open.
+        if (self.wbs == nil || self.wbs.readyState == SR_CLOSED) {
+            self.wbs = [[SRWebSocket alloc] initWithURL:self.domain];
+            self.wbs.delegate = self;
+            [self.wbs open];
+
+            NSDictionary *tosend =@{@"auth":[self.auth plistValue]};
+            NSError *error = nil;
+            NSData *data = [NSJSONSerialization dataWithJSONObject:tosend options:0 error:&error];
+            // FIXME: deal with error.
+            [self.wbs send:data];
+        }
 
         // calls should be an array of Requests.
         NSMutableArray *pcalls = [NSMutableArray array];
@@ -81,23 +92,6 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
         NSDictionary *params = @{@"calls": pcalls};
         NSError *error = nil;
         NSData *data = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
-        // FIXME: deal with error.
-        [self.wbs send:data];
-    });
-}
-
-- (void)open {
-    dispatch_async(self.workQ, ^{
-        if (self.wbs) {
-            [self.wbs closeWithCode:-1 reason:@"Reopening"];
-        }
-        self.wbs = [[SRWebSocket alloc] initWithURL:self.domain];
-        self.wbs.delegate = self;
-        [self.wbs open];
-
-        NSDictionary *tosend =@{@"auth":[self.auth plistValue]};
-        NSError *error = nil;
-        NSData *data = [NSJSONSerialization dataWithJSONObject:tosend options:0 error:&error];
         // FIXME: deal with error.
         [self.wbs send:data];
     });
@@ -124,7 +118,7 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
         NSData *data = [m dataUsingEncoding:NSUTF8StringEncoding];
         result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     }
-    // TODO: something with the error.
+    // FIXME: something with the error.
 
     if ([result isKindOfClass:[NSArray class]]) {
         // Success! (well, at this level anyways.)
@@ -133,7 +127,7 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
             for (NSDictionary *rsp in responses) {
                 NSNumber *idx = @([rsp[@"id"] integerValue]);
                 EXORpcRequest *rq = self.pending[idx];
-                self.pending[idx] = nil; // TODO: Unless it is a subscribe request.
+                self.pending[idx] = nil; // TODO: Unless it is a subscribe request; remove it
                 if (rq) {
                     dispatch_async(self.callbackQ, ^{
                         [rq doResult:rsp];
