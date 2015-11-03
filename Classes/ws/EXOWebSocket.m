@@ -11,15 +11,25 @@
 
 NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
 
+typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
+    EXOWebSocketIState_NoWebSocket,
+    EXOWebSocketIState_SettingUp,
+    EXOWebSocketIState_Open,
+    EXOWebSocketIState_Closing,
+};
+
 @interface EXOWebSocket () <SRWebSocketDelegate>
 @property (copy,nonatomic) NSURL *domain;
 @property (strong,nonatomic) SRWebSocket *wbs;
 @property (copy,nonatomic) EXORpcAuthKey *auth;
 
-@property (strong,nonatomic) dispatch_queue_t callbackQ;
-@property (strong,nonatomic) dispatch_queue_t workQ;
+@property (assign,nonatomic) EXOWebSocketIState state;
+
+@property (strong,nonatomic) dispatch_queue_t callbackQ; /// Callbacks are executed in this Queue.
+@property (strong,nonatomic) dispatch_queue_t workQ; /// This is used as a mutex
 @property (assign,nonatomic) NSUInteger idCounter;
 @property (strong,nonatomic) NSMutableDictionary *pending;
+@property (strong,nonatomic) NSMutableArray<NSData*> *outgoing; /// Sends are queued here.
 @end
 
 @implementation EXOWebSocket
@@ -37,6 +47,7 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
         }
         _callbackQ = dispatch_queue_create("com.exosite.cocoaonep.wbs.callbackQ", DISPATCH_QUEUE_SERIAL);
         _workQ = dispatch_queue_create("com.exosite.cocoaonep.wbs.workQ", DISPATCH_QUEUE_SERIAL);
+        _outgoing = [NSMutableArray new];
     }
     return self;
 }
@@ -77,6 +88,8 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
             NSError *error = nil;
             NSData *data = [NSJSONSerialization dataWithJSONObject:tosend options:0 error:&error];
             // FIXME: deal with error.
+
+            // FIXME: Need to wait until open.
             [self.wbs send:data];
         }
 
@@ -154,6 +167,7 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
         });
     }
 
+    // TODO: checkoutgoing
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
@@ -162,6 +176,10 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
     // TODO: something
+}
+
+- (void)webSocketDidOpen:(SRWebSocket *)webSocket {
+
 }
 
 @end

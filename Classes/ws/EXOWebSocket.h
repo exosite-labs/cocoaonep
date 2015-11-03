@@ -87,6 +87,10 @@ typedef void(^EXOWebSocketComplete)(NSError * __nullable error);
  */
 - (instancetype)initWithAuth:(EXORpcAuthKey*)auth;
 
+- (void)doCalls:(NSArray<EXORpcRequest *> *)calls complete:(EXOWebSocketComplete)complete;
+
+- (void)close;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,6 +10,7 @@
 		04EE159499A84CA2BAB4AE7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D852725846A4619BFA2CA58 /* libPods.a */; };
 		6D021E9F19531E5C006EC364 /* EXORpcPreprocessOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D021E9E19531E5C006EC364 /* EXORpcPreprocessOperationTest.m */; };
 		6D021EA11953238E006EC364 /* EXORpcDataruleResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D021EA01953238E006EC364 /* EXORpcDataruleResourceTest.m */; };
+		6D1BC03D1BE95E89003D73B1 /* EXOWebSocketTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D1BC03B1BE95A90003D73B1 /* EXOWebSocketTest.m */; };
 		6D209455191BB9EB00B79CB5 /* EXORpcRecordRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D209454191BB9EB00B79CB5 /* EXORpcRecordRequestTest.m */; };
 		6D20946A1921113800B79CB5 /* EXORpcRevokeRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2094691921113800B79CB5 /* EXORpcRevokeRequestTest.m */; };
 		6D28F89D18F448E40060A270 /* EXORpcInfoRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D28F89C18F448E40060A270 /* EXORpcInfoRequestTests.m */; };
@@ -80,6 +81,7 @@
 		6D021EA01953238E006EC364 /* EXORpcDataruleResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleResourceTest.m; sourceTree = "<group>"; };
 		6D0482221A2DFAC800CC0D30 /* Pods-CocoaOnePExampleTests.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Pods-CocoaOnePExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6D0482231A2DFAC800CC0D30 /* Pods-CocoaOnePExampleTests.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Pods-CocoaOnePExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		6D1BC03B1BE95A90003D73B1 /* EXOWebSocketTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOWebSocketTest.m; sourceTree = "<group>"; };
 		6D209454191BB9EB00B79CB5 /* EXORpcRecordRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcRecordRequestTest.m; sourceTree = "<group>"; };
 		6D2094691921113800B79CB5 /* EXORpcRevokeRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcRevokeRequestTest.m; sourceTree = "<group>"; };
 		6D28F89C18F448E40060A270 /* EXORpcInfoRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcInfoRequestTests.m; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				6D35FAA419197088007458AF /* EXORpcValueTest.m */,
 				6D2CE98919FA983A00C47F84 /* EXORpcWaitRequestTest.m */,
 				6D43A38F1949FEC7000850D0 /* EXORpcWriteRequestTest.m */,
+				6D1BC03B1BE95A90003D73B1 /* EXOWebSocketTest.m */,
 				6D5A029318BB927500237215 /* Supporting Files */,
 			);
 			path = CocoaOnePExampleTests;
@@ -534,6 +537,7 @@
 				6D301263194626060077B1E8 /* EXORpcRequestTest.m in Sources */,
 				6DA4E94E192FAE0F002A20E6 /* EXORpcActivateRequestTest.m in Sources */,
 				6D28F89F18F4492B0060A270 /* EXORpcResourceIDTests.m in Sources */,
+				6D1BC03D1BE95E89003D73B1 /* EXOWebSocketTest.m in Sources */,
 				6DCC288C18D5318900DF7CD8 /* EXORpcAuthKeyTests.m in Sources */,
 				6D43A3901949FEC7000850D0 /* EXORpcWriteRequestTest.m in Sources */,
 				6D20946A1921113800B79CB5 /* EXORpcRevokeRequestTest.m in Sources */,
@@ -703,7 +707,7 @@
 		};
 		6D5A02A018BB927500237215 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D0482221A2DFAC800CC0D30 /* Pods-CocoaOnePExampleTests.debug.xcconfig */;
+			baseConfigurationReference = A3A0AD859C98B9914BC609EA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CocoaOnePExample.app/CocoaOnePExample";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -727,7 +731,7 @@
 		};
 		6D5A02A118BB927500237215 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D0482231A2DFAC800CC0D30 /* Pods-CocoaOnePExampleTests.release.xcconfig */;
+			baseConfigurationReference = A3A0AD859C98B9914BC609EA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CocoaOnePExample.app/CocoaOnePExample";
 				FRAMEWORK_SEARCH_PATHS = (
