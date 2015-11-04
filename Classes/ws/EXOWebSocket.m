@@ -9,6 +9,7 @@
 #import "EXOWebSocket.h"
 #import "SRWebSocket.h"
 
+
 NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
 
 typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
@@ -27,9 +28,11 @@ typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
 
 @property (strong,nonatomic) dispatch_queue_t callbackQ; /// Callbacks are executed in this Queue.
 @property (strong,nonatomic) dispatch_queue_t workQ; /// This is used as a mutex
+
 @property (assign,nonatomic) NSUInteger idCounter;
-@property (strong,nonatomic) NSMutableDictionary *pending;
+@property (strong,nonatomic) NSMutableDictionary<NSNumber*,EXORpcRequest*> *pending;
 @property (strong,nonatomic) NSMutableArray<NSData*> *outgoing; /// Sends are queued here.
+
 @end
 
 @implementation EXOWebSocket
@@ -48,6 +51,7 @@ typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
         _callbackQ = dispatch_queue_create("com.exosite.cocoaonep.wbs.callbackQ", DISPATCH_QUEUE_SERIAL);
         _workQ = dispatch_queue_create("com.exosite.cocoaonep.wbs.workQ", DISPATCH_QUEUE_SERIAL);
         _outgoing = [NSMutableArray new];
+        _pending = [NSMutableDictionary new];
     }
     return self;
 }
@@ -89,8 +93,7 @@ typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
             NSData *data = [NSJSONSerialization dataWithJSONObject:tosend options:0 error:&error];
             // FIXME: deal with error.
 
-            // FIXME: Need to wait until open.
-            [self.wbs send:data];
+            [self.outgoing addObject:data];
         }
 
         // calls should be an array of Requests.
@@ -111,7 +114,10 @@ typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
         NSError *error = nil;
         NSData *data = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
         // FIXME: deal with error.
-        [self.wbs send:data];
+
+        [self.outgoing addObject:data];
+
+        [self sendOutgoing];
     });
 }
 
@@ -128,12 +134,26 @@ typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
     NSDictionary *rsp = @{@"error":@{@"code":@(EXOWebSocketError_WebSocketClosed),
                                      @"context": EXOWebSocketErrorDomain,
                                      @"message": @"WebSocket Closing"}};
+    [self.outgoing removeAllObjects];
     for (NSNumber *key in self.pending) {
         EXORpcRequest *rq = self.pending[key];
         dispatch_async(self.callbackQ, ^{
             [rq doResult:rsp];
         });
     }
+}
+
+- (void)sendOutgoing {
+    dispatch_async(self.workQ, ^{
+        if (self.wbs && self.wbs.readyState == SR_OPEN) {
+            for (NSData *pkt in self.outgoing) {
+                dispatch_async(self.workQ, ^{
+                    [self.wbs send:[[NSString alloc] initWithData:pkt encoding:NSUTF8StringEncoding]];
+                });
+            }
+            [self.outgoing removeAllObjects];
+        }
+    });
 }
 
 #pragma mark - SRWebSocketDelegate
@@ -165,9 +185,11 @@ typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
                 }
             }
         });
+    } else if ([result isKindOfClass:[NSDictionary class]]) {
+        // This is a top-level error response.
+        // Also the status responses for auth.
+        // TODO:
     }
-
-    // TODO: checkoutgoing
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
@@ -179,7 +201,7 @@ typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
 }
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
-
+    [self sendOutgoing];
 }
 
 @end
