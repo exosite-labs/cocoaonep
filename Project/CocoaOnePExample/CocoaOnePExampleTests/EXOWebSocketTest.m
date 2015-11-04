@@ -47,7 +47,7 @@
 - (void)testInfo {
     EXORpcAuthKey *auth = [EXORpcAuthKey authWithCIK:self.tCIK];
     XCTAssertNotNil(auth);
-    EXOWebSocket *ws = [[EXOWebSocket alloc] initWithAuth:auth];
+    EXOWebSocket *ws = [[EXOWebSocket alloc] initWithAuth:auth onError:^(NSError *error){}];
     XCTAssertNotNil(ws);
     EXORpcResourceID *rid = [EXORpcResourceID resourceIDAsSelf];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Info request returned"];
@@ -60,8 +60,8 @@
     [ws doCalls:@[ir] complete:^(NSError * _Nullable error) {
         if (error) {
             XCTFail(@"returned with error: %@", error);
+            [expectation fulfill];
         }
-        [expectation fulfill];
     }];
 
     [self waitForExpectationsWithTimeout:60 handler:^(NSError * _Nullable error) {

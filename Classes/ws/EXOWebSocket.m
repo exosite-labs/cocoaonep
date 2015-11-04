@@ -12,19 +12,11 @@
 
 NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
 
-typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
-    EXOWebSocketIState_NoWebSocket,
-    EXOWebSocketIState_SettingUp,
-    EXOWebSocketIState_Open,
-    EXOWebSocketIState_Closing,
-};
-
 @interface EXOWebSocket () <SRWebSocketDelegate>
 @property (copy,nonatomic) NSURL *domain;
 @property (strong,nonatomic) SRWebSocket *wbs;
 @property (copy,nonatomic) EXORpcAuthKey *auth;
-
-@property (assign,nonatomic) EXOWebSocketIState state;
+@property (copy,nonatomic) EXOWebSocketComplete onError;
 
 @property (strong,nonatomic) dispatch_queue_t callbackQ; /// Callbacks are executed in this Queue.
 @property (strong,nonatomic) dispatch_queue_t workQ; /// This is used as a mutex
@@ -37,7 +29,7 @@ typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
 
 @implementation EXOWebSocket
 
-- (instancetype)initWithAuth:(EXORpcAuthKey*)auth domain:(NSURL *)domain {
+- (instancetype)initWithAuth:(EXORpcAuthKey*)auth domain:(NSURL *)domain onError:(nonnull EXOWebSocketComplete)onError {
     if (auth == nil) {
         return nil;
     }
@@ -48,6 +40,7 @@ typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
         } else {
             _domain = [NSURL URLWithString:@"wss://m2.exosite.com/ws/"];
         }
+        _onError = [onError copy];
         _callbackQ = dispatch_queue_create("com.exosite.cocoaonep.wbs.callbackQ", DISPATCH_QUEUE_SERIAL);
         _workQ = dispatch_queue_create("com.exosite.cocoaonep.wbs.workQ", DISPATCH_QUEUE_SERIAL);
         _outgoing = [NSMutableArray new];
@@ -63,8 +56,8 @@ typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
 }
 #pragma clang diagnostic pop
 
-- (instancetype)initWithAuth:(EXORpcAuthKey*)auth {
-    return [self initWithAuth:auth domain:nil];
+- (instancetype)initWithAuth:(EXORpcAuthKey*)auth onError:(EXOWebSocketComplete)onError {
+    return [self initWithAuth:auth domain:nil onError:onError];
 }
 
 - (void)doCalls:(NSArray<EXORpcRequest *> *)calls complete:(EXOWebSocketComplete)complete {
@@ -91,9 +84,20 @@ typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
             NSDictionary *tosend =@{@"auth":[self.auth plistValue]};
             NSError *error = nil;
             NSData *data = [NSJSONSerialization dataWithJSONObject:tosend options:0 error:&error];
-            // FIXME: deal with error.
-
-            [self.outgoing addObject:data];
+            if (data) {
+                [self.outgoing addObject:data];
+            } else {
+                dispatch_async(self.callbackQ, ^{
+                    NSDictionary *ui= @{NSUnderlyingErrorKey:error};
+                    NSError *underError = [NSError errorWithDomain:EXOWebSocketErrorDomain code:EXOWebSocketError_UnderlyingError userInfo:ui];
+                    if (lcomplete) {
+                        lcomplete(underError);
+                    } else {
+                        self.onError(underError);
+                    }
+                });
+                return;
+            }
         }
 
         // calls should be an array of Requests.
@@ -113,11 +117,25 @@ typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
         NSDictionary *params = @{@"calls": pcalls};
         NSError *error = nil;
         NSData *data = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
-        // FIXME: deal with error.
-
-        [self.outgoing addObject:data];
+        if (data) {
+            [self.outgoing addObject:data];
+        } else {
+            dispatch_async(self.callbackQ, ^{
+                NSDictionary *ui= @{NSUnderlyingErrorKey:error};
+                NSError *underError = [NSError errorWithDomain:EXOWebSocketErrorDomain code:EXOWebSocketError_UnderlyingError userInfo:ui];
+                if (lcomplete) {
+                    lcomplete(underError);
+                } else {
+                    self.onError(underError);
+                }
+            });
+            return;
+        }
 
         [self sendOutgoing];
+        if (lcomplete) {
+            lcomplete(nil);
+        }
     });
 }
 
@@ -189,15 +207,27 @@ typedef NS_ENUM(NSUInteger, EXOWebSocketIState) {
         // This is a top-level error response.
         // Also the status responses for auth.
         // TODO:
+        NSDictionary *resp = result;
+        if (resp[@"error"]) {
+            // Do error stuff.
+        }
     }
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
-    // TODO: something
+    dispatch_async(self.callbackQ, ^{
+        self.onError(error);
+    });
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
-    // TODO: something
+    if (code != SRStatusCodeNormal) {
+        NSDictionary *ui = @{NSLocalizedDescriptionKey:reason, @"code":@(code),@"wasClean":@(wasClean)};
+        NSError *error = [NSError errorWithDomain:EXOWebSocketErrorDomain code:code userInfo:ui];
+        dispatch_async(self.callbackQ, ^{
+            self.onError(error);
+        });
+    }
 }
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
