@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param value Newest value
  */
-typedef void(^EXOWebSocketSubscribedValue)(EXORpcValue *value);
+typedef void(^EXOWebSocketSubscribedValue)(EXORpcValue * __nullable value, NSError* __nullable error);
 
 /**
  Request to be subscribed to a RID

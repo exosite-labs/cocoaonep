@@ -27,12 +27,10 @@
 }
 
 - (void)doResult:(NSDictionary *)result {
-
-    // {"id":1,"status":"ok","result":[1446667040,10]}
     if (self.update) {
         NSError *err = [self errorFromStatus:result];
         if (err) {
-            // self.update(nil, err);
+            self.update(nil, err);
         } else {
             NSArray *item = result[@"result"];
                 // item[0] is timestamp
@@ -48,7 +46,7 @@
                 } else {
                     rval = [EXORpcValue valueWithDate:when string:[value description]];
                 }
-            self.update(rval);
+            self.update(rval, nil);
         }
     }
 }
