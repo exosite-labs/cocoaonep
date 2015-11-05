@@ -72,5 +72,51 @@
     [ws close];
 }
 
+- (void)testSubscribe {
+    EXORpcAuthKey *auth = [EXORpcAuthKey authWithCIK:self.tCIK];
+    XCTAssertNotNil(auth);
+    EXOWebSocket *ws = [[EXOWebSocket alloc] initWithAuth:auth onError:^(NSError *error){}];
+    XCTAssertNotNil(ws);
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Subscribe returned"];
+    EXORpcResourceRetention *ret = [EXORpcResourceRetention retentionWithCount:nil duration:nil];
+    EXORpcDataportResource *dr = [EXORpcDataportResource dataportWithName:@"test" format:EXORpcDataportFormatFloat retention:ret];
+    EXORpcCreateRequest *cr = [EXORpcCreateRequest createWithResource:dr complete:^(EXORpcResourceID * _Nullable RID, NSError * _Nullable error) {
+        XCTAssertNil(error);
+        XCTAssertNotNil(RID);
+
+        if (!error) {
+            EXOWebSocketSubscribeRequest *sub = [EXOWebSocketSubscribeRequest subscribeWithRID:RID update:^(EXORpcValue * _Nullable value, NSError * _Nullable error) {
+                // In this test this will get called twice; Once when setup, Once when shutdown.
+                if (error == nil) {
+                    [expectation fulfill];
+                }
+                if (error && error.code != EXOWebSocketError_WebSocketClosed) {
+                    XCTFail(@"Unexpected error: %@", error);
+                }
+            }];
+            [ws doCalls:@[sub] complete:^(NSError * _Nullable error) {
+                if (error) {
+                    XCTFail(@"returned with error: %@", error);
+                    [expectation fulfill];
+                }
+            }];
+        } else {
+            [expectation fulfill];
+        }
+    }];
+    [ws doCalls:@[cr] complete:^(NSError * _Nullable error) {
+        if (error) {
+            XCTFail(@"returned with error: %@", error);
+            [expectation fulfill];
+        }
+    }];
+
+    [self waitForExpectationsWithTimeout:60 handler:^(NSError * _Nullable error) {
+        if (error) {
+            XCTFail("Error waiting: %@", error);
+        }
+    }];
+    [ws close];
+}
 
 @end

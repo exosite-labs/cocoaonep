@@ -201,7 +201,9 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
             for (NSDictionary *rsp in responses) {
                 NSNumber *idx = @([rsp[@"id"] integerValue]);
                 EXORpcRequest *rq = self.pending[idx];
-                self.pending[idx] = nil; // TODO: Unless it is a subscribe request; remove it
+                if (![rq isKindOfClass:[EXOWebSocketSubscribeRequest class]]) {
+                    self.pending[idx] = nil; // Unless it is a subscribe request; remove it
+                }
                 if (rq) {
                     dispatch_async(self.callbackQ, ^{
                         [rq doResult:rsp];

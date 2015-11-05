@@ -13,7 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Callback for subscribed data
 
+ This will called a minimum of two times. Once when the subscription succeedes, once when the web socket is closed.
+ Between those two, the subscribed data will be returned.
+
  @param value Newest value
+ @param error nil or error.
  */
 typedef void(^EXOWebSocketSubscribedValue)(EXORpcValue * __nullable value, NSError* __nullable error);
 
