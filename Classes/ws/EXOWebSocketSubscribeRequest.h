@@ -1,9 +1,8 @@
 //
 //  EXOWebSocketSubscribeRequest.h
-//  Pods
 //
 //  Created by Michael Conrad Tadpol Tilstra on 11/4/15.
-//
+//  Copyright (c) 2015 Exosite. All rights reserved.
 //
 
 #import "EXORpcRequest.h"

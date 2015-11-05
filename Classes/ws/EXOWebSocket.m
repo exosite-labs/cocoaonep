@@ -1,9 +1,8 @@
 //
 //  EXOWebSocket.m
-//  Pods
 //
 //  Created by Michael Conrad Tadpol Tilstra on 10/29/15.
-//
+//  Copyright (c) 2015 Exosite. All rights reserved.
 //
 
 #import "EXOWebSocket.h"

@@ -1,9 +1,8 @@
 //
 //  EXOWebSocket.h
-//  Pods
 //
 //  Created by Michael Conrad Tadpol Tilstra on 10/29/15.
-//
+//  Copyright (c) 2015 Exosite. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -32,6 +31,7 @@
 #import "EXORpcValue.h"
 #import "EXORpcWaitRequest.h"
 #import "EXORpcWriteRequest.h"
+#import "EXOWebSocketSubscribeRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /**
