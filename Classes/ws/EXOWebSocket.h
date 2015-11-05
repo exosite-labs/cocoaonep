@@ -48,6 +48,8 @@ typedef NS_ENUM(NSInteger, EXOWebSocketError) {
     EXOWebSocketError_NoRequests = -3,
     EXOWebSocketError_WebSocketClosed = -4,
     EXOWebSocketError_UnderlyingError = -5,
+    EXOWebSocketError_MalformedResponse = -6,
+    EXOWebSocketError_NotOK = -7,
 };
 
 /**

@@ -185,7 +185,14 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
         NSData *data = [m dataUsingEncoding:NSUTF8StringEncoding];
         result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     }
-    // FIXME: something with the error.
+    if (error) {
+        dispatch_async(self.callbackQ, ^{
+            NSDictionary *ui = @{NSUnderlyingErrorKey:error};
+            NSError *underError = [NSError errorWithDomain:EXOWebSocketErrorDomain code:EXOWebSocketError_UnderlyingError userInfo:ui];
+            self.onError(underError);
+        });
+        return;
+    }
 
     if ([result isKindOfClass:[NSArray class]]) {
         // Success! (well, at this level anyways.)
@@ -203,13 +210,39 @@ NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
             }
         });
     } else if ([result isKindOfClass:[NSDictionary class]]) {
-        // This is a top-level error response.
-        // Also the status responses for auth.
-        // TODO:
         NSDictionary *resp = result;
+
         if (resp[@"error"]) {
-            // Do error stuff.
+            NSDictionary *errInf = resp[@"error"];
+            NSInteger ec = [errInf[@"code"] integerValue];
+            NSString *desc = [NSString stringWithFormat:@"msg: %@  context: %@", errInf[@"message"], errInf[@"context"]];
+            NSError *error = [NSError errorWithDomain:EXOWebSocketErrorDomain code:ec userInfo:@{NSLocalizedDescriptionKey: desc}];
+            dispatch_async(self.callbackQ, ^{
+                self.onError(error);
+            });
+        } else if (resp[@"status"]) {
+            NSString *status = resp[@"status"];
+            if (![status isEqualToString:@"ok"]) {
+                NSDictionary *ui = @{NSLocalizedDescriptionKey: @"Status is not OK", @"response": result};
+                NSError *error = [NSError errorWithDomain:EXOWebSocketErrorDomain code:EXOWebSocketError_NotOK userInfo:ui];
+                dispatch_async(self.callbackQ, ^{
+                    self.onError(error);
+                });
+            } // Else ok, just go.
+
+        } else {
+            NSDictionary *ui = @{NSLocalizedDescriptionKey: @"Malformed Response dictionary", @"response": result};
+            NSError *error = [NSError errorWithDomain:EXOWebSocketErrorDomain code:EXOWebSocketError_MalformedResponse userInfo:ui];
+            dispatch_async(self.callbackQ, ^{
+                self.onError(error);
+            });
         }
+    } else {
+        NSDictionary *ui = @{NSLocalizedDescriptionKey: @"Unknown response type", @"response": result};
+        NSError *error = [NSError errorWithDomain:EXOWebSocketErrorDomain code:EXOWebSocketError_UnknownResponse userInfo:ui];
+        dispatch_async(self.callbackQ, ^{
+            self.onError(error);
+        });
     }
 }
 
