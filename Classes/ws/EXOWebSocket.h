@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 extern NSString *EXOWebSocketErrorDomain;
 
 /**
- EXORpc error codes
+ EXOWebSocket error codes
  */
 typedef NS_ENUM(NSInteger, EXOWebSocketError) {
     EXOWebSocketError_UnknownResponse = -1,
@@ -84,7 +84,7 @@ typedef void(^EXOWebSocketComplete)(NSError * __nullable error);
 
  @return The WebSocket object
  */
-- (instancetype)initWithAuth:(EXORpcAuthKey*)auth domain:(nullable NSURL *)domain onError:(EXOWebSocketComplete)onError NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithAuth:(EXORpcAuthKey*)auth domain:(nullable NSURL *)domain onError:(EXOWebSocketComplete)onError NS_DESIGNATED_INITIALIZER;
 
 /**
  Initialize a One Platform WebSocket object with a specific domain.
@@ -94,12 +94,12 @@ typedef void(^EXOWebSocketComplete)(NSError * __nullable error);
 
  @return The WebSocket object
  */
-- (instancetype)initWithAuth:(EXORpcAuthKey*)auth onError:(EXOWebSocketComplete)onError;
+- (nullable instancetype)initWithAuth:(EXORpcAuthKey*)auth onError:(EXOWebSocketComplete)onError;
 
 /**
  Send RPC calls to 1P over this web socket.
  
- If the current web socket is closed, a new one wil be opened first.
+ If the current web socket is closed, a new one will be opened first.
 
  @param calls NSArray of object that subclass from EXORpcRequest
  @param complete Callback called once all requests are queued.
