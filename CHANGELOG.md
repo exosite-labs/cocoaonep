@@ -1,8 +1,11 @@
 # CocoaOneP CHANGELOG
 
-## v0.6.0
+## v1.0.0
 - Upgrade to AFNetworking 3.0
+- Added the web socket interface to 1P
 - Dropped Portals API entirely.  Code here was out of date and buggy.
+- Better intergration with Swift
+- Switched to Semantic Versioning
 
 ## v0.5.1
 - Fixed #5; Updating a data port clobbers the retention. 
