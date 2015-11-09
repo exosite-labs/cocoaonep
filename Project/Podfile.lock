@@ -1,32 +1,38 @@
 PODS:
-  - AFNetworking (3.0.0-beta.1):
-    - AFNetworking/NSURLSession (= 3.0.0-beta.1)
-    - AFNetworking/Reachability (= 3.0.0-beta.1)
-    - AFNetworking/Security (= 3.0.0-beta.1)
-    - AFNetworking/Serialization (= 3.0.0-beta.1)
-    - AFNetworking/UIKit (= 3.0.0-beta.1)
-  - AFNetworking/NSURLSession (3.0.0-beta.1):
+  - AFNetworking (2.6.2):
+    - AFNetworking/NSURLConnection (= 2.6.2)
+    - AFNetworking/NSURLSession (= 2.6.2)
+    - AFNetworking/Reachability (= 2.6.2)
+    - AFNetworking/Security (= 2.6.2)
+    - AFNetworking/Serialization (= 2.6.2)
+    - AFNetworking/UIKit (= 2.6.2)
+  - AFNetworking/NSURLConnection (2.6.2):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.0.0-beta.1)
-  - AFNetworking/Security (3.0.0-beta.1)
-  - AFNetworking/Serialization (3.0.0-beta.1)
-  - AFNetworking/UIKit (3.0.0-beta.1):
+  - AFNetworking/NSURLSession (2.6.2):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.2)
+  - AFNetworking/Security (2.6.2)
+  - AFNetworking/Serialization (2.6.2)
+  - AFNetworking/UIKit (2.6.2):
+    - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CocoaOneP (0.6.0):
-    - AFNetworking (= 3.0.0-beta.1)
-    - CocoaOneP/All (= 0.6.0)
-    - CocoaOneP/RPC (= 0.6.0)
-    - CocoaOneP/WebSocket (= 0.6.0)
-  - CocoaOneP/All (0.6.0):
-    - AFNetworking (= 3.0.0-beta.1)
+  - CocoaOneP (1.0.0):
+    - AFNetworking (= 2.6.2)
+    - CocoaOneP/All (= 1.0.0)
+    - CocoaOneP/RPC (= 1.0.0)
+    - CocoaOneP/WebSocket (= 1.0.0)
+  - CocoaOneP/All (1.0.0):
+    - AFNetworking (= 2.6.2)
     - CocoaOneP/RPC
     - CocoaOneP/WebSocket
-  - CocoaOneP/RPC (0.6.0):
-    - AFNetworking (= 3.0.0-beta.1)
-  - CocoaOneP/WebSocket (0.6.0):
-    - AFNetworking (= 3.0.0-beta.1)
+  - CocoaOneP/RPC (1.0.0):
+    - AFNetworking (= 2.6.2)
+  - CocoaOneP/WebSocket (1.0.0):
+    - AFNetworking (= 2.6.2)
     - CocoaOneP/RPC
     - SocketRocket (= 0.4.1)
   - Lockbox (2.1.0)
@@ -43,8 +49,8 @@ EXTERNAL SOURCES:
     :path: ../CocoaOneP.podspec
 
 SPEC CHECKSUMS:
-  AFNetworking: 1100906802d9479aa0949e8e2cbc1d4e6beba327
-  CocoaOneP: 0b34026a814f18d5bf1ac7011a3c0779f145c562
+  AFNetworking: 7f317038a9710cabfa43ec56396b307b45df72ab
+  CocoaOneP: a985bfdb031c57772fd45df4a832d69eb6edf2f2
   Lockbox: 16442da35d9d4286966936763be728a931d589c3
   OCMock: 28def049ef47f996b515a8eeea958be7ccab2dbb
   SocketRocket: ee0b5c34182d37bb4f1f8d628bbe737718126daa
