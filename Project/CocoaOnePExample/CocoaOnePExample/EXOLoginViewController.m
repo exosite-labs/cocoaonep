@@ -9,14 +9,12 @@
 #import "EXOLoginViewController.h"
 #import "EXOBrowseExositeTableViewController.h"
 #import <Lockbox.h>
-#import <EXOPortal.h>
+#import <AFNetworking.h>
 
 @interface EXOLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *signInButton;
-@property (weak, nonatomic) IBOutlet UIButton *forgotButton;
-@property (weak, nonatomic) IBOutlet UIButton *createButton;
 
 @property (strong,nonatomic) NSArray *portals;
 @end
@@ -72,8 +70,6 @@
     BOOL passwdOk = self.passwordTextField.text.length > 4;
 
     self.signInButton.enabled = userOk && passwdOk;
-    self.forgotButton.enabled = userOk;
-    self.createButton.enabled = userOk && passwdOk;
 
     return YES;
 }
@@ -84,67 +80,50 @@
     NSString *account = self.accountTextField.text;
     NSString *password = self.passwordTextField.text;
 
-    EXOPortalAuth *auth = [EXOPortalAuth authWithUsername:account password:password];
-    EXOPortal *portal = [EXOPortal portalWithAuth:auth];
-    [portal portals:^(NSArray *portals, NSError *error){
-        if (error) {
+    NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURL *domain = [NSURL URLWithString:@"https://portals.exosite.com"];
+    AFHTTPSessionManager *lsem = [[AFHTTPSessionManager alloc] initWithBaseURL:domain sessionConfiguration:sessionConfig];
+    lsem.requestSerializer = [AFJSONRequestSerializer serializer];
+    lsem.responseSerializer = [AFJSONResponseSerializer serializer];
+    [lsem.requestSerializer setAuthorizationHeaderFieldWithUsername:account password:password];
+
+    
+
+    [lsem GET:@"/api/portals/v1/portal/" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (![responseObject isKindOfClass:[NSArray class]]) {
+            NSError *error = [NSError errorWithDomain:NSStringFromClass([self class]) code:1 userInfo:@{NSLocalizedDescriptionKey: @"Expected an Array"}];
             NSLog(@"logintoAccount:password:at:complete: Failed to login: %@", error);
             NSString *ldsc = error.userInfo[NSLocalizedDescriptionKey];
             UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Login Failed!",) message:ldsc delegate:nil cancelButtonTitle:NSLocalizedString(@"bummer",) otherButtonTitles:nil];
             [av show];
+            return;
+        }
+        NSMutableArray *ret = [NSMutableArray new];
+        for (NSDictionary *dict in (NSArray*)responseObject) {
+            if (![dict isKindOfClass:[NSDictionary class]]) {
+                NSError *error = [NSError errorWithDomain:NSStringFromClass([self class]) code:2 userInfo:@{NSLocalizedDescriptionKey: @"Expected a Dictionary"}];
+                NSLog(@"logintoAccount:password:at:complete: Failed to login: %@", error);
+                NSString *ldsc = error.userInfo[NSLocalizedDescriptionKey];
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Login Failed!",) message:ldsc delegate:nil cancelButtonTitle:NSLocalizedString(@"bummer",) otherButtonTitles:nil];
+                [av show];
 
-        } else {
-            [Lockbox setString:password forKey:account];
-            NSMutableArray *item = [NSMutableArray new];
-            for (EXOPortalPortal *ptl in portals) {
-                [item addObject:@[ptl.name, ptl.rid, ptl.key, @(1)]];
+                return;
             }
-            self.portals = [item copy];
-
-            [self performSegueWithIdentifier:@"browseAccount" sender:self];
+            NSArray *dm = @[dict[@"name"], dict[@"rid"], dict[@"key"], @(1)];
+            [ret addObject:dm];
         }
-    }];
 
-}
+        [Lockbox setString:password forKey:account];
+        self.portals = [ret copy];
+        [self performSegueWithIdentifier:@"browseAccount" sender:self];
 
-- (IBAction)forgotPasswordButton:(id)sender {
-    NSString *account = self.accountTextField.text;
-
-    EXOPortal *portal = [EXOPortal portalWithAuth:nil];
-    [portal resetPassword:account complete:^(NSError *error) {
-        if (error) {
-            NSString *ldsc = error.userInfo[NSLocalizedDescriptionKey];
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failed to Reset Password",) message:ldsc delegate:nil cancelButtonTitle:NSLocalizedString(@"bummer",) otherButtonTitles:nil];
-            [av show];
-        } else {
-            NSString *ldsc = NSLocalizedString(@"You will get an email with the next step to reset your password.",);
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Password Reset",) message:ldsc delegate:nil cancelButtonTitle:NSLocalizedString(@"OK",) otherButtonTitles:nil];
-            [av show];
-        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"logintoAccount:password:at:complete: Failed to login: %@", error);
+        NSString *ldsc = error.userInfo[NSLocalizedDescriptionKey];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Login Failed!",) message:ldsc delegate:nil cancelButtonTitle:NSLocalizedString(@"bummer",) otherButtonTitles:nil];
+        [av show];
     }];
 }
-
-- (IBAction)createAccountButton:(id)sender {
-    NSString *account = self.accountTextField.text;
-    NSString *password = self.passwordTextField.text;
-
-    EXOPortal *portal = [EXOPortal portalWithAuth:nil];
-    EXOPortalNewUser *nu = [EXOPortalNewUser userWithEmail:account password:password plan:@"3676938388"];
-    [portal newUser:nu complete:^(NSError *error) {
-        if (error) {
-            NSString *ldsc = error.userInfo[NSLocalizedDescriptionKey];
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failed to Create Account",) message:ldsc delegate:nil cancelButtonTitle:NSLocalizedString(@"bummer",) otherButtonTitles:nil];
-            [av show];
-        } else {
-            [Lockbox setString:password forKey:account];
-
-            NSString *ldsc = NSLocalizedString(@"You will get an email with the next step to activate your account.",);
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Account Created",) message:ldsc delegate:nil cancelButtonTitle:NSLocalizedString(@"OK",) otherButtonTitles:nil];
-            [av show];
-        }
-    }];
-}
-
 
 #pragma mark - Navigation
 

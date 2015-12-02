@@ -33,23 +33,23 @@
     EXORpcResourceID *rid = [EXORpcResourceID resourceIDAsSelf];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:42];
 
-    wait = [EXORpcWaitRequest waitRequestWithRIDs:@[rid] timeoutAfter:nil since:nil complete:nil];
+    wait = [EXORpcWaitRequest waitRequestWithRIDs:@[rid] timeoutAfter:nil since:nil complete:^(id a, id b){}];
     result = @{@"procedure": @"wait", @"arguments": @[@{@"alias": @""}, @{}]};
     XCTAssertEqualObjects([wait plistValue], result, @"simple wait");
     
-    wait = [EXORpcWaitRequest waitRequestWithRIDs:@[rid] timeoutAfter:@(200) since:nil complete:nil];
+    wait = [EXORpcWaitRequest waitRequestWithRIDs:@[rid] timeoutAfter:@(200) since:nil complete:^(id a, id b){}];
     result = @{@"procedure": @"wait", @"arguments": @[@{@"alias": @""}, @{@"timeout":@(200000)}]};
     XCTAssertEqualObjects([wait plistValue], result, @"wait with timeout");
 
-    wait = [EXORpcWaitRequest waitRequestWithRIDs:@[rid] timeoutAfter:@(200) since:date complete:nil];
+    wait = [EXORpcWaitRequest waitRequestWithRIDs:@[rid] timeoutAfter:@(200) since:date complete:^(id a, id b){}];
     result = @{@"procedure": @"wait", @"arguments": @[@{@"alias": @""}, @{@"timeout":@(200000), @"since":@(42)}]};
     XCTAssertEqualObjects([wait plistValue], result, @"wait with timeout and since");
 
-    wait = [EXORpcWaitRequest waitRequestWithRIDs:@[rid] complete:nil];
+    wait = [EXORpcWaitRequest waitRequestWithRIDs:@[rid] complete:^(id a, id b){}];
     result = @{@"procedure": @"wait", @"arguments": @[@{@"alias": @""}, @{}]};
     XCTAssertEqualObjects([wait plistValue], result, @"wait simple init");
 
-    wait = [EXORpcWaitRequest waitRequestWithRIDs:@[rid] timeoutAfter:@(88) complete:nil];
+    wait = [EXORpcWaitRequest waitRequestWithRIDs:@[rid] timeoutAfter:@(88) complete:^(id a, id b){}];
     result = @{@"procedure": @"wait", @"arguments": @[@{@"alias": @""}, @{@"timeout":@(88000)}]};
     XCTAssertEqualObjects([wait plistValue], result, @"wait timeout init");
 

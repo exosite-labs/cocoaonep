@@ -24,7 +24,7 @@ NSString *kEXORpcErrorDomain = @"kEXORpcErrorDomain";
     return self;
 }
 
-- (NSInteger)codeFromStatus:(NSString*)status
+- (NSInteger)codeFromStatus:(nullable NSString*)status
 {
     if ([status isEqualToString:@"ok"]) {
         return kEXORpcErrorTypeOk;
@@ -41,7 +41,7 @@ NSString *kEXORpcErrorDomain = @"kEXORpcErrorDomain";
     return kEXORpcErrorTypeUnknown;
 }
 
-- (NSError*)errorFromStatus:(NSDictionary*)status
+- (NSError*)errorFromStatus:(nullable NSDictionary*)status
 {
     if ([status[@"status"] isEqualToString:@"ok"]) {
         return nil;

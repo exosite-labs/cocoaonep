@@ -78,11 +78,6 @@
     return [self initWithName:name meta:meta public:[plist[@"public"] boolValue] format:format preprocess:preprocess subscribe:subscribed retention:retention];
 }
 
-- (id)init
-{
-    return nil;
-}
-
 - (NSString *)type
 {
     return @"dataport";
