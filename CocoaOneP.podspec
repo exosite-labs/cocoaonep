@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
   s.ios.exclude_files = 'Classes/osx'
   s.osx.exclude_files = 'Classes/ios'
-  s.dependency 'AFNetworking', '2.6.2'
+  s.dependency 'AFNetworking', '2.6.3'
 
   s.subspec 'All' do |ss|
     ss.dependency 'CocoaOneP/RPC'
