@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  Resource Identifier
@@ -17,14 +18,14 @@
  
  Might be nil if this RID was initialized with a 40 character resource identifier string.
  */
-@property (copy,nonatomic,readonly) NSString *alias;
+@property (copy,nonatomic,readonly,nullable) NSString *alias;
 
 /**
  The 40 character resource identifier this RID points to.
  
  Might be nil if this RID was initialized with an alias.
  */
-@property (copy,nonatomic,readonly) NSString *rid;
+@property (copy,nonatomic,readonly,nullable) NSString *rid;
 
 /**
  Directly identify a resource by its RID string.
@@ -74,10 +75,10 @@
 /**
  Identify an immediate child of the calling client by alias.
 
- @param alias The alias to look up.
+ @param alias The alias to look up. Passing nil creates an invalid RID.
  @return The resource identifier
  */
-- (instancetype)initWithAlias:(NSString*)alias;
+- (instancetype)initWithAlias:(nullable NSString*)alias;
 
 /**
  Identify the calling client itself.
@@ -91,4 +92,6 @@
  @return JSON ready dictionary of values.
  */
 - (id)plistValue;
+
+NS_ASSUME_NONNULL_END
 @end

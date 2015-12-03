@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EXORpcResourceID.h"
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  Error Domain for NSError from a request
@@ -25,7 +26,7 @@ extern NSString *kEXORpcErrorDomain;
  
  @param error nil on success, otherwise error indicating failure
  */
-typedef void(^EXORpcRequestComplete)(NSError *error);
+typedef void(^EXORpcRequestComplete)(NSError * __nullable error);
 
 /**
  Base of all requests to the platform.
@@ -55,7 +56,7 @@ typedef void(^EXORpcRequestComplete)(NSError *error);
  @param status The One Platform status code
  @return The error code
  */
-- (NSInteger)codeFromStatus:(NSString*)status;
+- (NSInteger)codeFromStatus:(nullable NSString*)status;
 
 /**
  Parse the status result from One Platform
@@ -63,7 +64,7 @@ typedef void(^EXORpcRequestComplete)(NSError *error);
  @param status The status details returned from a One Platform Request
  @return The status as an NSError (or nil if no error)
  */
-- (NSError*)errorFromStatus:(NSDictionary*)status;
+- (NSError*)errorFromStatus:(nullable NSDictionary*)status;
 
 /**
  Result handler for this request.
@@ -81,4 +82,5 @@ typedef void(^EXORpcRequestComplete)(NSError *error);
  */
 - (NSDictionary*)plistValue;
 
+NS_ASSUME_NONNULL_END
 @end

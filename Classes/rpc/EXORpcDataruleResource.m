@@ -2,13 +2,13 @@
 //  EXORpcCreateDataruleRequest.m
 //
 //  Created by Michael Conrad Tadpol Tilstra.
-//  Copyright (c) 2014 Exosite. All rights reserved.
+//  Copyright (c) 2014-2015 Exosite. All rights reserved.
 //
 
 #import "EXORpcDataruleResource.h"
 
 @interface EXORpcDataruleResource ()
-@property(assign,nonatomic) EXORpcDataportFormat_t format;
+@property(assign,nonatomic) EXORpcDataportFormat format;
 @property(copy,nonatomic) EXORpcResourceRetention *retention;
 @property(copy,nonatomic) EXORpcDatarule *rule;
 @property(copy,nonatomic) EXORpcResourceID *subscribe;
@@ -26,7 +26,7 @@
 
 + (EXORpcDataruleResource *)dataruleWithName:(NSString *)name rule:(EXORpcDatarule *)rule subscribe:(EXORpcResourceID *)subscribe
 {
-    EXORpcDataportFormat_t format = EXORpcDataportFormatInteger;
+    EXORpcDataportFormat format = EXORpcDataportFormatInteger;
     if ([rule isKindOfClass:[EXORpcDataruleScript class]]) {
         format = EXORpcDataportFormatString;
     }
@@ -38,7 +38,7 @@
     return nil;
 }
 
-- (id)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format retention:(EXORpcResourceRetention *)retention rule:(EXORpcDatarule *)rule subscribe:(EXORpcResourceID *)subscribe preprocess:(NSArray *)preprocess
+- (id)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat)format retention:(EXORpcResourceRetention *)retention rule:(EXORpcDatarule *)rule subscribe:(EXORpcResourceID *)subscribe preprocess:(NSArray *)preprocess
 {
     if (self = [super initWithName:name meta:meta public:public]) {
         _format = format;
@@ -58,7 +58,7 @@
 {
     NSString *name = plist[@"name"];
     NSString *meta = plist[@"meta"];
-    EXORpcDataportFormat_t format;
+    EXORpcDataportFormat format;
     if ([plist[@"format"] isEqualToString:@"float"]) {
         format = EXORpcDataportFormatFloat;
     } else if ([plist[@"format"] isEqualToString:@"integer"]) {

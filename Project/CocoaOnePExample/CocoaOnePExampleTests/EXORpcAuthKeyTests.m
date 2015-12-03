@@ -46,23 +46,8 @@
     auth = [EXORpcAuthKey authWithCIK:@"ABCDEFGH"];
     XCTAssertNil(auth, @"nil if CIK isn't a CIK");
 
-    auth = [EXORpcAuthKey authWithCIK:nil];
-    XCTAssertNil(auth, @"nil param is nil result");
-
-    auth = [EXORpcAuthKey authWithCIK:nil client:@"e5f61a91cd50e7e5922b01234567890123456789"];
-    XCTAssertNil(auth, @"nil param is nil result");
-
-    auth = [EXORpcAuthKey authWithCIK:@"3eb82b131c571c501af501234567890123456789" client:nil];
-    XCTAssertNil(auth, @"nil param is nil result");
-
     auth = [EXORpcAuthKey authWithCIK:@"3eb82b131c571c501af501234567890123456789" client:@"012345"];
     XCTAssertNil(auth, @"nil if not valide RID");
-
-    auth = [EXORpcAuthKey authWithCIK:nil resource:@"e5f61a91cd50e7e5922b01234567890123456789"];
-    XCTAssertNil(auth, @"nil param is nil result");
-
-    auth = [EXORpcAuthKey authWithCIK:@"3eb82b131c571c501af501234567890123456789" resource:nil];
-    XCTAssertNil(auth, @"nil param is nil result");
     
     auth = [EXORpcAuthKey authWithCIK:@"3eb82b131c571c501af501234567890123456789" resource:@"098765654r"];
     XCTAssertNil(auth, @"nil if not valide RID");

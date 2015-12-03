@@ -34,7 +34,7 @@
     EXORpcResourceID *rid = [EXORpcResourceID resourceIDAsSelf];
     EXORpcClientResource *resource = [EXORpcClientResource resourceWithName:@"fob" meta:nil];
 
-    update = [EXORpcUpdateRequest updateWithRID:rid resource:resource complete:nil];
+    update = [EXORpcUpdateRequest updateWithRID:rid resource:resource complete:^(id e){}];
     result = @{@"procedure":@"update", @"arguments":@[
                        @{@"alias":@""}, @{@"limits": @{
                                                   @"client": @"inherit",
@@ -64,12 +64,14 @@
 - (void)testComplete
 {
     EXORpcUpdateRequest *req;
-    req = [EXORpcUpdateRequest updateWithRID:nil resource:nil complete:^(NSError *error) {
+    EXORpcResourceID *rid = [EXORpcResourceID resourceIDAsSelf];
+    EXORpcClientResource *resource = [EXORpcClientResource resourceWithName:@"fob" meta:nil];
+    req = [EXORpcUpdateRequest updateWithRID:rid resource:resource complete:^(NSError *error) {
         XCTAssertNil(error, @"Sucess has no error");
     }];
     [req doResult:@{@"id":@(0), @"status":@"ok"}];
 
-    req = [EXORpcUpdateRequest updateWithRID:nil resource:nil complete:^(NSError *error) {
+    req = [EXORpcUpdateRequest updateWithRID:rid resource:resource complete:^(NSError *error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(error.domain, kEXORpcErrorDomain);
         XCTAssertEqual(error.code, kEXORpcErrorTypeRestricted);

@@ -2,13 +2,13 @@
 //  EXORpcDataportResource.m
 //
 //  Created by Michael Conrad Tadpol Tilstra.
-//  Copyright (c) 2014 Exosite. All rights reserved.
+//  Copyright (c) 2014-2015 Exosite. All rights reserved.
 //
 
 #import "EXORpcDataportResource.h"
 
 @interface EXORpcDataportResource ()
-@property(assign,nonatomic) EXORpcDataportFormat_t format;
+@property(assign,nonatomic) EXORpcDataportFormat format;
 @property(strong,nonatomic) NSArray *preprocess;
 @property(strong,nonatomic) EXORpcResourceID *subscribe;
 @property(copy,nonatomic) EXORpcResourceRetention *retention;
@@ -16,22 +16,22 @@
 
 @implementation EXORpcDataportResource
 
-+ (EXORpcDataportResource *)dataportWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format preprocess:(NSArray *)preprocess subscribe:(EXORpcResourceID *)subscribe retention:(EXORpcResourceRetention *)retention
++ (EXORpcDataportResource *)dataportWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat)format preprocess:(NSArray *)preprocess subscribe:(EXORpcResourceID *)subscribe retention:(EXORpcResourceRetention *)retention
 {
     return [[EXORpcDataportResource alloc] initWithName:name meta:meta public:public format:format preprocess:preprocess subscribe:subscribe retention:retention];
 }
 
-+ (EXORpcDataportResource *)dataportWithName:(NSString *)name format:(EXORpcDataportFormat_t)format retention:(EXORpcResourceRetention *)retention
++ (EXORpcDataportResource *)dataportWithName:(NSString *)name format:(EXORpcDataportFormat)format retention:(EXORpcResourceRetention *)retention
 {
     return [[EXORpcDataportResource alloc] initWithName:name meta:nil public:NO format:format preprocess:nil subscribe:nil retention:retention];
 }
 
-+ (EXORpcDataportResource *)dataportWithName:(NSString *)name format:(EXORpcDataportFormat_t)format
++ (EXORpcDataportResource *)dataportWithName:(NSString *)name format:(EXORpcDataportFormat)format
 {
     return [[EXORpcDataportResource alloc] initWithName:name meta:nil public:NO format:format preprocess:nil subscribe:nil retention:nil];
 }
 
-- (instancetype)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat_t)format preprocess:(NSArray *)preprocess subscribe:(EXORpcResourceID *)subscribe retention:(EXORpcResourceRetention *)retention
+- (instancetype)initWithName:(NSString *)name meta:(NSString *)meta public:(BOOL)public format:(EXORpcDataportFormat)format preprocess:(NSArray *)preprocess subscribe:(EXORpcResourceID *)subscribe retention:(EXORpcResourceRetention *)retention
 {
     if (self = [super initWithName:name meta:meta public:public]) {
         _format = format;
@@ -42,11 +42,15 @@
     return self;
 }
 
+- (instancetype)initWithName:(NSString *)name format:(EXORpcDataportFormat)format {
+    return [self initWithName:name meta:nil public:NO format:format preprocess:nil subscribe:nil retention:nil];
+}
+
 - (instancetype)initWithPList:(NSDictionary *)plist
 {
     NSString *name = plist[@"name"];
     NSString *meta = plist[@"meta"];
-    EXORpcDataportFormat_t format;
+    EXORpcDataportFormat format;
     if ([plist[@"format"] isEqualToString:@"float"]) {
         format = EXORpcDataportFormatFloat;
     } else if ([plist[@"format"] isEqualToString:@"integer"]) {
@@ -72,11 +76,6 @@
     }
 
     return [self initWithName:name meta:meta public:[plist[@"public"] boolValue] format:format preprocess:preprocess subscribe:subscribed retention:retention];
-}
-
-- (id)init
-{
-    return nil;
 }
 
 - (NSString *)type
