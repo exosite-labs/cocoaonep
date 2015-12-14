@@ -1,0 +1,620 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6D821F711C1F48250032FEE9 /* CocoaOneP.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F701C1F48250032FEE9 /* CocoaOneP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821F7E1C1F493F0032FEE9 /* EXOWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F7A1C1F493F0032FEE9 /* EXOWebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821F7F1C1F493F0032FEE9 /* EXOWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F7B1C1F493F0032FEE9 /* EXOWebSocket.m */; };
+		6D821F801C1F493F0032FEE9 /* EXOWebSocketSubscribeRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F7C1C1F493F0032FEE9 /* EXOWebSocketSubscribeRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821F811C1F493F0032FEE9 /* EXOWebSocketSubscribeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F7D1C1F493F0032FEE9 /* EXOWebSocketSubscribeRequest.m */; };
+		6D821FCE1C1F494C0032FEE9 /* EXORpcRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F821C1F494C0032FEE9 /* EXORpcRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FCF1C1F494C0032FEE9 /* EXORpcRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F831C1F494C0032FEE9 /* EXORpcRequest.m */; };
+		6D821FD01C1F494C0032FEE9 /* EXORpcWaitRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F841C1F494C0032FEE9 /* EXORpcWaitRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FD11C1F494C0032FEE9 /* EXORpc.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F851C1F494C0032FEE9 /* EXORpc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FD21C1F494C0032FEE9 /* EXORpc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F861C1F494C0032FEE9 /* EXORpc.m */; };
+		6D821FD31C1F494C0032FEE9 /* EXORpcActivateRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F871C1F494C0032FEE9 /* EXORpcActivateRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FD41C1F494C0032FEE9 /* EXORpcAuthKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F881C1F494C0032FEE9 /* EXORpcAuthKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FD51C1F494C0032FEE9 /* EXORpcCreateRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F891C1F494C0032FEE9 /* EXORpcCreateRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FD61C1F494C0032FEE9 /* EXORpcDataportResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F8A1C1F494C0032FEE9 /* EXORpcDataportResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FD71C1F494C0032FEE9 /* EXORpcDataportResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F8B1C1F494C0032FEE9 /* EXORpcDataportResource.m */; };
+		6D821FD81C1F494C0032FEE9 /* EXORpcDataruleResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F8C1C1F494C0032FEE9 /* EXORpcDataruleResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FD91C1F494C0032FEE9 /* EXORpcDataruleResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F8D1C1F494C0032FEE9 /* EXORpcDataruleResource.m */; };
+		6D821FDA1C1F494C0032FEE9 /* EXORpcInfoRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F8E1C1F494C0032FEE9 /* EXORpcInfoRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FDB1C1F494C0032FEE9 /* EXORpcInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F8F1C1F494C0032FEE9 /* EXORpcInfoRequest.m */; };
+		6D821FDC1C1F494C0032FEE9 /* EXORpcListingRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F901C1F494C0032FEE9 /* EXORpcListingRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FDD1C1F494C0032FEE9 /* EXORpcListingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F911C1F494C0032FEE9 /* EXORpcListingRequest.m */; };
+		6D821FDE1C1F494C0032FEE9 /* EXORpcLookupRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F921C1F494C0032FEE9 /* EXORpcLookupRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FDF1C1F494C0032FEE9 /* EXORpcLookupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F931C1F494C0032FEE9 /* EXORpcLookupRequest.m */; };
+		6D821FE01C1F494C0032FEE9 /* EXORpcReadRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F941C1F494C0032FEE9 /* EXORpcReadRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FE11C1F494C0032FEE9 /* EXORpcReadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F951C1F494C0032FEE9 /* EXORpcReadRequest.m */; };
+		6D821FE21C1F494C0032FEE9 /* EXORpcResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F961C1F494C0032FEE9 /* EXORpcResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FE31C1F494C0032FEE9 /* EXORpcResourceID.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F971C1F494C0032FEE9 /* EXORpcResourceID.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FE41C1F494C0032FEE9 /* EXORpcUpdateRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F981C1F494C0032FEE9 /* EXORpcUpdateRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FE51C1F494C0032FEE9 /* EXORpcValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F991C1F494C0032FEE9 /* EXORpcValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FE61C1F494C0032FEE9 /* EXORpcWriteRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F9A1C1F494C0032FEE9 /* EXORpcWriteRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FE71C1F494C0032FEE9 /* EXORpcClientResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F9B1C1F494C0032FEE9 /* EXORpcClientResource.m */; };
+		6D821FE81C1F494C0032FEE9 /* EXORpcActivateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F9C1C1F494C0032FEE9 /* EXORpcActivateRequest.m */; };
+		6D821FE91C1F494C0032FEE9 /* EXORpcAuthKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F9D1C1F494C0032FEE9 /* EXORpcAuthKey.m */; };
+		6D821FEA1C1F494C0032FEE9 /* EXORpcClientResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F9E1C1F494C0032FEE9 /* EXORpcClientResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FEB1C1F494C0032FEE9 /* EXORpcCloneResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F9F1C1F494C0032FEE9 /* EXORpcCloneResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FEC1C1F494C0032FEE9 /* EXORpcCloneResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FA01C1F494C0032FEE9 /* EXORpcCloneResource.m */; };
+		6D821FED1C1F494C0032FEE9 /* EXORpcCreateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FA11C1F494C0032FEE9 /* EXORpcCreateRequest.m */; };
+		6D821FEE1C1F494C0032FEE9 /* EXORpcDatarule.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FA21C1F494C0032FEE9 /* EXORpcDatarule.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FEF1C1F494C0032FEE9 /* EXORpcDatarule.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FA31C1F494C0032FEE9 /* EXORpcDatarule.m */; };
+		6D821FF01C1F494C0032FEE9 /* EXORpcDataruleCount.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FA41C1F494C0032FEE9 /* EXORpcDataruleCount.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FF11C1F494C0032FEE9 /* EXORpcDataruleCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FA51C1F494C0032FEE9 /* EXORpcDataruleCount.m */; };
+		6D821FF21C1F494C0032FEE9 /* EXORpcDataruleDuration.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FA61C1F494C0032FEE9 /* EXORpcDataruleDuration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FF31C1F494C0032FEE9 /* EXORpcDataruleDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FA71C1F494C0032FEE9 /* EXORpcDataruleDuration.m */; };
+		6D821FF41C1F494C0032FEE9 /* EXORpcDataruleInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FA81C1F494C0032FEE9 /* EXORpcDataruleInterval.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FF51C1F494C0032FEE9 /* EXORpcDataruleInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FA91C1F494C0032FEE9 /* EXORpcDataruleInterval.m */; };
+		6D821FF61C1F494C0032FEE9 /* EXORpcDataruleScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FAA1C1F494C0032FEE9 /* EXORpcDataruleScript.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FF71C1F494C0032FEE9 /* EXORpcDataruleScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FAB1C1F494C0032FEE9 /* EXORpcDataruleScript.m */; };
+		6D821FF81C1F494C0032FEE9 /* EXORpcDataruleSimple.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FAC1C1F494C0032FEE9 /* EXORpcDataruleSimple.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FF91C1F494C0032FEE9 /* EXORpcDataruleSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FAD1C1F494C0032FEE9 /* EXORpcDataruleSimple.m */; };
+		6D821FFA1C1F494C0032FEE9 /* EXORpcDataruleTimeout.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FAE1C1F494C0032FEE9 /* EXORpcDataruleTimeout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FFB1C1F494C0032FEE9 /* EXORpcDataruleTimeout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FAF1C1F494C0032FEE9 /* EXORpcDataruleTimeout.m */; };
+		6D821FFC1C1F494C0032FEE9 /* EXORpcDeactivateRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FB01C1F494C0032FEE9 /* EXORpcDeactivateRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FFD1C1F494C0032FEE9 /* EXORpcDeactivateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FB11C1F494C0032FEE9 /* EXORpcDeactivateRequest.m */; };
+		6D821FFE1C1F494C0032FEE9 /* EXORpcDispatchResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FB21C1F494C0032FEE9 /* EXORpcDispatchResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D821FFF1C1F494C0032FEE9 /* EXORpcDispatchResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FB31C1F494C0032FEE9 /* EXORpcDispatchResource.m */; };
+		6D8220001C1F494C0032FEE9 /* EXORpcDropRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FB41C1F494C0032FEE9 /* EXORpcDropRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D8220011C1F494C0032FEE9 /* EXORpcDropRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FB51C1F494C0032FEE9 /* EXORpcDropRequest.m */; };
+		6D8220021C1F494C0032FEE9 /* EXORpcFlushRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FB61C1F494C0032FEE9 /* EXORpcFlushRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D8220031C1F494C0032FEE9 /* EXORpcFlushRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FB71C1F494C0032FEE9 /* EXORpcFlushRequest.m */; };
+		6D8220041C1F494C0032FEE9 /* EXORpcMapRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FB81C1F494C0032FEE9 /* EXORpcMapRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D8220051C1F494C0032FEE9 /* EXORpcMapRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FB91C1F494C0032FEE9 /* EXORpcMapRequest.m */; };
+		6D8220061C1F494C0032FEE9 /* EXORpcPreprocessOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FBA1C1F494C0032FEE9 /* EXORpcPreprocessOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D8220071C1F494C0032FEE9 /* EXORpcPreprocessOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FBB1C1F494C0032FEE9 /* EXORpcPreprocessOperation.m */; };
+		6D8220081C1F494C0032FEE9 /* EXORpcRecordRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FBC1C1F494C0032FEE9 /* EXORpcRecordRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D8220091C1F494C0032FEE9 /* EXORpcRecordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FBD1C1F494C0032FEE9 /* EXORpcRecordRequest.m */; };
+		6D82200A1C1F494C0032FEE9 /* EXORpcResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FBE1C1F494C0032FEE9 /* EXORpcResource.m */; };
+		6D82200B1C1F494C0032FEE9 /* EXORpcResourceID.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FBF1C1F494C0032FEE9 /* EXORpcResourceID.m */; };
+		6D82200C1C1F494C0032FEE9 /* EXORpcResourceRetention.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FC01C1F494C0032FEE9 /* EXORpcResourceRetention.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D82200D1C1F494C0032FEE9 /* EXORpcResourceRetention.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FC11C1F494C0032FEE9 /* EXORpcResourceRetention.m */; };
+		6D82200E1C1F494C0032FEE9 /* EXORpcRevokeRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FC21C1F494C0032FEE9 /* EXORpcRevokeRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D82200F1C1F494C0032FEE9 /* EXORpcRevokeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FC31C1F494C0032FEE9 /* EXORpcRevokeRequest.m */; };
+		6D8220101C1F494C0032FEE9 /* EXORpcShareRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FC41C1F494C0032FEE9 /* EXORpcShareRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D8220111C1F494C0032FEE9 /* EXORpcShareRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FC51C1F494C0032FEE9 /* EXORpcShareRequest.m */; };
+		6D8220121C1F494C0032FEE9 /* EXORpcUnmapRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FC61C1F494C0032FEE9 /* EXORpcUnmapRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D8220131C1F494C0032FEE9 /* EXORpcUnmapRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FC71C1F494C0032FEE9 /* EXORpcUnmapRequest.m */; };
+		6D8220141C1F494C0032FEE9 /* EXORpcUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FC81C1F494C0032FEE9 /* EXORpcUpdateRequest.m */; };
+		6D8220151C1F494C0032FEE9 /* EXORpcUsageRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821FC91C1F494C0032FEE9 /* EXORpcUsageRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D8220161C1F494C0032FEE9 /* EXORpcUsageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FCA1C1F494C0032FEE9 /* EXORpcUsageRequest.m */; };
+		6D8220171C1F494C0032FEE9 /* EXORpcValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FCB1C1F494C0032FEE9 /* EXORpcValue.m */; };
+		6D8220181C1F494C0032FEE9 /* EXORpcWaitRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FCC1C1F494C0032FEE9 /* EXORpcWaitRequest.m */; };
+		6D8220191C1F494C0032FEE9 /* EXORpcWriteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821FCD1C1F494C0032FEE9 /* EXORpcWriteRequest.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6D821F6D1C1F48250032FEE9 /* CocoaOneP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaOneP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D821F701C1F48250032FEE9 /* CocoaOneP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CocoaOneP.h; sourceTree = "<group>"; };
+		6D821F721C1F48250032FEE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D821F7A1C1F493F0032FEE9 /* EXOWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOWebSocket.h; sourceTree = "<group>"; };
+		6D821F7B1C1F493F0032FEE9 /* EXOWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOWebSocket.m; sourceTree = "<group>"; };
+		6D821F7C1C1F493F0032FEE9 /* EXOWebSocketSubscribeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXOWebSocketSubscribeRequest.h; sourceTree = "<group>"; };
+		6D821F7D1C1F493F0032FEE9 /* EXOWebSocketSubscribeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXOWebSocketSubscribeRequest.m; sourceTree = "<group>"; };
+		6D821F821C1F494C0032FEE9 /* EXORpcRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcRequest.h; sourceTree = "<group>"; };
+		6D821F831C1F494C0032FEE9 /* EXORpcRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcRequest.m; sourceTree = "<group>"; };
+		6D821F841C1F494C0032FEE9 /* EXORpcWaitRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcWaitRequest.h; sourceTree = "<group>"; };
+		6D821F851C1F494C0032FEE9 /* EXORpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpc.h; sourceTree = "<group>"; };
+		6D821F861C1F494C0032FEE9 /* EXORpc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpc.m; sourceTree = "<group>"; };
+		6D821F871C1F494C0032FEE9 /* EXORpcActivateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcActivateRequest.h; sourceTree = "<group>"; };
+		6D821F881C1F494C0032FEE9 /* EXORpcAuthKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcAuthKey.h; sourceTree = "<group>"; };
+		6D821F891C1F494C0032FEE9 /* EXORpcCreateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcCreateRequest.h; sourceTree = "<group>"; };
+		6D821F8A1C1F494C0032FEE9 /* EXORpcDataportResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcDataportResource.h; sourceTree = "<group>"; };
+		6D821F8B1C1F494C0032FEE9 /* EXORpcDataportResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataportResource.m; sourceTree = "<group>"; };
+		6D821F8C1C1F494C0032FEE9 /* EXORpcDataruleResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcDataruleResource.h; sourceTree = "<group>"; };
+		6D821F8D1C1F494C0032FEE9 /* EXORpcDataruleResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleResource.m; sourceTree = "<group>"; };
+		6D821F8E1C1F494C0032FEE9 /* EXORpcInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcInfoRequest.h; sourceTree = "<group>"; };
+		6D821F8F1C1F494C0032FEE9 /* EXORpcInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcInfoRequest.m; sourceTree = "<group>"; };
+		6D821F901C1F494C0032FEE9 /* EXORpcListingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcListingRequest.h; sourceTree = "<group>"; };
+		6D821F911C1F494C0032FEE9 /* EXORpcListingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcListingRequest.m; sourceTree = "<group>"; };
+		6D821F921C1F494C0032FEE9 /* EXORpcLookupRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcLookupRequest.h; sourceTree = "<group>"; };
+		6D821F931C1F494C0032FEE9 /* EXORpcLookupRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcLookupRequest.m; sourceTree = "<group>"; };
+		6D821F941C1F494C0032FEE9 /* EXORpcReadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcReadRequest.h; sourceTree = "<group>"; };
+		6D821F951C1F494C0032FEE9 /* EXORpcReadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcReadRequest.m; sourceTree = "<group>"; };
+		6D821F961C1F494C0032FEE9 /* EXORpcResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcResource.h; sourceTree = "<group>"; };
+		6D821F971C1F494C0032FEE9 /* EXORpcResourceID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcResourceID.h; sourceTree = "<group>"; };
+		6D821F981C1F494C0032FEE9 /* EXORpcUpdateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcUpdateRequest.h; sourceTree = "<group>"; };
+		6D821F991C1F494C0032FEE9 /* EXORpcValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcValue.h; sourceTree = "<group>"; };
+		6D821F9A1C1F494C0032FEE9 /* EXORpcWriteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcWriteRequest.h; sourceTree = "<group>"; };
+		6D821F9B1C1F494C0032FEE9 /* EXORpcClientResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcClientResource.m; sourceTree = "<group>"; };
+		6D821F9C1C1F494C0032FEE9 /* EXORpcActivateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcActivateRequest.m; sourceTree = "<group>"; };
+		6D821F9D1C1F494C0032FEE9 /* EXORpcAuthKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcAuthKey.m; sourceTree = "<group>"; };
+		6D821F9E1C1F494C0032FEE9 /* EXORpcClientResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcClientResource.h; sourceTree = "<group>"; };
+		6D821F9F1C1F494C0032FEE9 /* EXORpcCloneResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcCloneResource.h; sourceTree = "<group>"; };
+		6D821FA01C1F494C0032FEE9 /* EXORpcCloneResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcCloneResource.m; sourceTree = "<group>"; };
+		6D821FA11C1F494C0032FEE9 /* EXORpcCreateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcCreateRequest.m; sourceTree = "<group>"; };
+		6D821FA21C1F494C0032FEE9 /* EXORpcDatarule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcDatarule.h; sourceTree = "<group>"; };
+		6D821FA31C1F494C0032FEE9 /* EXORpcDatarule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDatarule.m; sourceTree = "<group>"; };
+		6D821FA41C1F494C0032FEE9 /* EXORpcDataruleCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcDataruleCount.h; sourceTree = "<group>"; };
+		6D821FA51C1F494C0032FEE9 /* EXORpcDataruleCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleCount.m; sourceTree = "<group>"; };
+		6D821FA61C1F494C0032FEE9 /* EXORpcDataruleDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcDataruleDuration.h; sourceTree = "<group>"; };
+		6D821FA71C1F494C0032FEE9 /* EXORpcDataruleDuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleDuration.m; sourceTree = "<group>"; };
+		6D821FA81C1F494C0032FEE9 /* EXORpcDataruleInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcDataruleInterval.h; sourceTree = "<group>"; };
+		6D821FA91C1F494C0032FEE9 /* EXORpcDataruleInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleInterval.m; sourceTree = "<group>"; };
+		6D821FAA1C1F494C0032FEE9 /* EXORpcDataruleScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcDataruleScript.h; sourceTree = "<group>"; };
+		6D821FAB1C1F494C0032FEE9 /* EXORpcDataruleScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleScript.m; sourceTree = "<group>"; };
+		6D821FAC1C1F494C0032FEE9 /* EXORpcDataruleSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcDataruleSimple.h; sourceTree = "<group>"; };
+		6D821FAD1C1F494C0032FEE9 /* EXORpcDataruleSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleSimple.m; sourceTree = "<group>"; };
+		6D821FAE1C1F494C0032FEE9 /* EXORpcDataruleTimeout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcDataruleTimeout.h; sourceTree = "<group>"; };
+		6D821FAF1C1F494C0032FEE9 /* EXORpcDataruleTimeout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDataruleTimeout.m; sourceTree = "<group>"; };
+		6D821FB01C1F494C0032FEE9 /* EXORpcDeactivateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcDeactivateRequest.h; sourceTree = "<group>"; };
+		6D821FB11C1F494C0032FEE9 /* EXORpcDeactivateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDeactivateRequest.m; sourceTree = "<group>"; };
+		6D821FB21C1F494C0032FEE9 /* EXORpcDispatchResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcDispatchResource.h; sourceTree = "<group>"; };
+		6D821FB31C1F494C0032FEE9 /* EXORpcDispatchResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDispatchResource.m; sourceTree = "<group>"; };
+		6D821FB41C1F494C0032FEE9 /* EXORpcDropRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcDropRequest.h; sourceTree = "<group>"; };
+		6D821FB51C1F494C0032FEE9 /* EXORpcDropRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcDropRequest.m; sourceTree = "<group>"; };
+		6D821FB61C1F494C0032FEE9 /* EXORpcFlushRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcFlushRequest.h; sourceTree = "<group>"; };
+		6D821FB71C1F494C0032FEE9 /* EXORpcFlushRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcFlushRequest.m; sourceTree = "<group>"; };
+		6D821FB81C1F494C0032FEE9 /* EXORpcMapRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcMapRequest.h; sourceTree = "<group>"; };
+		6D821FB91C1F494C0032FEE9 /* EXORpcMapRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcMapRequest.m; sourceTree = "<group>"; };
+		6D821FBA1C1F494C0032FEE9 /* EXORpcPreprocessOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcPreprocessOperation.h; sourceTree = "<group>"; };
+		6D821FBB1C1F494C0032FEE9 /* EXORpcPreprocessOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcPreprocessOperation.m; sourceTree = "<group>"; };
+		6D821FBC1C1F494C0032FEE9 /* EXORpcRecordRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcRecordRequest.h; sourceTree = "<group>"; };
+		6D821FBD1C1F494C0032FEE9 /* EXORpcRecordRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcRecordRequest.m; sourceTree = "<group>"; };
+		6D821FBE1C1F494C0032FEE9 /* EXORpcResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcResource.m; sourceTree = "<group>"; };
+		6D821FBF1C1F494C0032FEE9 /* EXORpcResourceID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcResourceID.m; sourceTree = "<group>"; };
+		6D821FC01C1F494C0032FEE9 /* EXORpcResourceRetention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcResourceRetention.h; sourceTree = "<group>"; };
+		6D821FC11C1F494C0032FEE9 /* EXORpcResourceRetention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcResourceRetention.m; sourceTree = "<group>"; };
+		6D821FC21C1F494C0032FEE9 /* EXORpcRevokeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcRevokeRequest.h; sourceTree = "<group>"; };
+		6D821FC31C1F494C0032FEE9 /* EXORpcRevokeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcRevokeRequest.m; sourceTree = "<group>"; };
+		6D821FC41C1F494C0032FEE9 /* EXORpcShareRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcShareRequest.h; sourceTree = "<group>"; };
+		6D821FC51C1F494C0032FEE9 /* EXORpcShareRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcShareRequest.m; sourceTree = "<group>"; };
+		6D821FC61C1F494C0032FEE9 /* EXORpcUnmapRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcUnmapRequest.h; sourceTree = "<group>"; };
+		6D821FC71C1F494C0032FEE9 /* EXORpcUnmapRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcUnmapRequest.m; sourceTree = "<group>"; };
+		6D821FC81C1F494C0032FEE9 /* EXORpcUpdateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcUpdateRequest.m; sourceTree = "<group>"; };
+		6D821FC91C1F494C0032FEE9 /* EXORpcUsageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXORpcUsageRequest.h; sourceTree = "<group>"; };
+		6D821FCA1C1F494C0032FEE9 /* EXORpcUsageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcUsageRequest.m; sourceTree = "<group>"; };
+		6D821FCB1C1F494C0032FEE9 /* EXORpcValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcValue.m; sourceTree = "<group>"; };
+		6D821FCC1C1F494C0032FEE9 /* EXORpcWaitRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcWaitRequest.m; sourceTree = "<group>"; };
+		6D821FCD1C1F494C0032FEE9 /* EXORpcWriteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXORpcWriteRequest.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6D821F691C1F48250032FEE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6D821F631C1F48250032FEE9 = {
+			isa = PBXGroup;
+			children = (
+				6D821F6F1C1F48250032FEE9 /* CocoaOneP */,
+				6D821F6E1C1F48250032FEE9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6D821F6E1C1F48250032FEE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6D821F6D1C1F48250032FEE9 /* CocoaOneP.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6D821F6F1C1F48250032FEE9 /* CocoaOneP */ = {
+			isa = PBXGroup;
+			children = (
+				6D821F701C1F48250032FEE9 /* CocoaOneP.h */,
+				6D821F781C1F49100032FEE9 /* rpc */,
+				6D821F791C1F49220032FEE9 /* ws */,
+				6D821F721C1F48250032FEE9 /* Info.plist */,
+			);
+			name = CocoaOneP;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		6D821F781C1F49100032FEE9 /* rpc */ = {
+			isa = PBXGroup;
+			children = (
+				6D821F821C1F494C0032FEE9 /* EXORpcRequest.h */,
+				6D821F831C1F494C0032FEE9 /* EXORpcRequest.m */,
+				6D821F841C1F494C0032FEE9 /* EXORpcWaitRequest.h */,
+				6D821F851C1F494C0032FEE9 /* EXORpc.h */,
+				6D821F861C1F494C0032FEE9 /* EXORpc.m */,
+				6D821F871C1F494C0032FEE9 /* EXORpcActivateRequest.h */,
+				6D821F881C1F494C0032FEE9 /* EXORpcAuthKey.h */,
+				6D821F891C1F494C0032FEE9 /* EXORpcCreateRequest.h */,
+				6D821F8A1C1F494C0032FEE9 /* EXORpcDataportResource.h */,
+				6D821F8B1C1F494C0032FEE9 /* EXORpcDataportResource.m */,
+				6D821F8C1C1F494C0032FEE9 /* EXORpcDataruleResource.h */,
+				6D821F8D1C1F494C0032FEE9 /* EXORpcDataruleResource.m */,
+				6D821F8E1C1F494C0032FEE9 /* EXORpcInfoRequest.h */,
+				6D821F8F1C1F494C0032FEE9 /* EXORpcInfoRequest.m */,
+				6D821F901C1F494C0032FEE9 /* EXORpcListingRequest.h */,
+				6D821F911C1F494C0032FEE9 /* EXORpcListingRequest.m */,
+				6D821F921C1F494C0032FEE9 /* EXORpcLookupRequest.h */,
+				6D821F931C1F494C0032FEE9 /* EXORpcLookupRequest.m */,
+				6D821F941C1F494C0032FEE9 /* EXORpcReadRequest.h */,
+				6D821F951C1F494C0032FEE9 /* EXORpcReadRequest.m */,
+				6D821F961C1F494C0032FEE9 /* EXORpcResource.h */,
+				6D821F971C1F494C0032FEE9 /* EXORpcResourceID.h */,
+				6D821F981C1F494C0032FEE9 /* EXORpcUpdateRequest.h */,
+				6D821F991C1F494C0032FEE9 /* EXORpcValue.h */,
+				6D821F9A1C1F494C0032FEE9 /* EXORpcWriteRequest.h */,
+				6D821F9B1C1F494C0032FEE9 /* EXORpcClientResource.m */,
+				6D821F9C1C1F494C0032FEE9 /* EXORpcActivateRequest.m */,
+				6D821F9D1C1F494C0032FEE9 /* EXORpcAuthKey.m */,
+				6D821F9E1C1F494C0032FEE9 /* EXORpcClientResource.h */,
+				6D821F9F1C1F494C0032FEE9 /* EXORpcCloneResource.h */,
+				6D821FA01C1F494C0032FEE9 /* EXORpcCloneResource.m */,
+				6D821FA11C1F494C0032FEE9 /* EXORpcCreateRequest.m */,
+				6D821FA21C1F494C0032FEE9 /* EXORpcDatarule.h */,
+				6D821FA31C1F494C0032FEE9 /* EXORpcDatarule.m */,
+				6D821FA41C1F494C0032FEE9 /* EXORpcDataruleCount.h */,
+				6D821FA51C1F494C0032FEE9 /* EXORpcDataruleCount.m */,
+				6D821FA61C1F494C0032FEE9 /* EXORpcDataruleDuration.h */,
+				6D821FA71C1F494C0032FEE9 /* EXORpcDataruleDuration.m */,
+				6D821FA81C1F494C0032FEE9 /* EXORpcDataruleInterval.h */,
+				6D821FA91C1F494C0032FEE9 /* EXORpcDataruleInterval.m */,
+				6D821FAA1C1F494C0032FEE9 /* EXORpcDataruleScript.h */,
+				6D821FAB1C1F494C0032FEE9 /* EXORpcDataruleScript.m */,
+				6D821FAC1C1F494C0032FEE9 /* EXORpcDataruleSimple.h */,
+				6D821FAD1C1F494C0032FEE9 /* EXORpcDataruleSimple.m */,
+				6D821FAE1C1F494C0032FEE9 /* EXORpcDataruleTimeout.h */,
+				6D821FAF1C1F494C0032FEE9 /* EXORpcDataruleTimeout.m */,
+				6D821FB01C1F494C0032FEE9 /* EXORpcDeactivateRequest.h */,
+				6D821FB11C1F494C0032FEE9 /* EXORpcDeactivateRequest.m */,
+				6D821FB21C1F494C0032FEE9 /* EXORpcDispatchResource.h */,
+				6D821FB31C1F494C0032FEE9 /* EXORpcDispatchResource.m */,
+				6D821FB41C1F494C0032FEE9 /* EXORpcDropRequest.h */,
+				6D821FB51C1F494C0032FEE9 /* EXORpcDropRequest.m */,
+				6D821FB61C1F494C0032FEE9 /* EXORpcFlushRequest.h */,
+				6D821FB71C1F494C0032FEE9 /* EXORpcFlushRequest.m */,
+				6D821FB81C1F494C0032FEE9 /* EXORpcMapRequest.h */,
+				6D821FB91C1F494C0032FEE9 /* EXORpcMapRequest.m */,
+				6D821FBA1C1F494C0032FEE9 /* EXORpcPreprocessOperation.h */,
+				6D821FBB1C1F494C0032FEE9 /* EXORpcPreprocessOperation.m */,
+				6D821FBC1C1F494C0032FEE9 /* EXORpcRecordRequest.h */,
+				6D821FBD1C1F494C0032FEE9 /* EXORpcRecordRequest.m */,
+				6D821FBE1C1F494C0032FEE9 /* EXORpcResource.m */,
+				6D821FBF1C1F494C0032FEE9 /* EXORpcResourceID.m */,
+				6D821FC01C1F494C0032FEE9 /* EXORpcResourceRetention.h */,
+				6D821FC11C1F494C0032FEE9 /* EXORpcResourceRetention.m */,
+				6D821FC21C1F494C0032FEE9 /* EXORpcRevokeRequest.h */,
+				6D821FC31C1F494C0032FEE9 /* EXORpcRevokeRequest.m */,
+				6D821FC41C1F494C0032FEE9 /* EXORpcShareRequest.h */,
+				6D821FC51C1F494C0032FEE9 /* EXORpcShareRequest.m */,
+				6D821FC61C1F494C0032FEE9 /* EXORpcUnmapRequest.h */,
+				6D821FC71C1F494C0032FEE9 /* EXORpcUnmapRequest.m */,
+				6D821FC81C1F494C0032FEE9 /* EXORpcUpdateRequest.m */,
+				6D821FC91C1F494C0032FEE9 /* EXORpcUsageRequest.h */,
+				6D821FCA1C1F494C0032FEE9 /* EXORpcUsageRequest.m */,
+				6D821FCB1C1F494C0032FEE9 /* EXORpcValue.m */,
+				6D821FCC1C1F494C0032FEE9 /* EXORpcWaitRequest.m */,
+				6D821FCD1C1F494C0032FEE9 /* EXORpcWriteRequest.m */,
+			);
+			path = rpc;
+			sourceTree = "<group>";
+		};
+		6D821F791C1F49220032FEE9 /* ws */ = {
+			isa = PBXGroup;
+			children = (
+				6D821F7A1C1F493F0032FEE9 /* EXOWebSocket.h */,
+				6D821F7B1C1F493F0032FEE9 /* EXOWebSocket.m */,
+				6D821F7C1C1F493F0032FEE9 /* EXOWebSocketSubscribeRequest.h */,
+				6D821F7D1C1F493F0032FEE9 /* EXOWebSocketSubscribeRequest.m */,
+			);
+			path = ws;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6D821F6A1C1F48250032FEE9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D8220081C1F494C0032FEE9 /* EXORpcRecordRequest.h in Headers */,
+				6D8220151C1F494C0032FEE9 /* EXORpcUsageRequest.h in Headers */,
+				6D82200C1C1F494C0032FEE9 /* EXORpcResourceRetention.h in Headers */,
+				6D8220101C1F494C0032FEE9 /* EXORpcShareRequest.h in Headers */,
+				6D821F711C1F48250032FEE9 /* CocoaOneP.h in Headers */,
+				6D821FEE1C1F494C0032FEE9 /* EXORpcDatarule.h in Headers */,
+				6D8220121C1F494C0032FEE9 /* EXORpcUnmapRequest.h in Headers */,
+				6D821FD81C1F494C0032FEE9 /* EXORpcDataruleResource.h in Headers */,
+				6D821FDC1C1F494C0032FEE9 /* EXORpcListingRequest.h in Headers */,
+				6D821FDE1C1F494C0032FEE9 /* EXORpcLookupRequest.h in Headers */,
+				6D821FD41C1F494C0032FEE9 /* EXORpcAuthKey.h in Headers */,
+				6D821FE51C1F494C0032FEE9 /* EXORpcValue.h in Headers */,
+				6D821FF01C1F494C0032FEE9 /* EXORpcDataruleCount.h in Headers */,
+				6D821FD31C1F494C0032FEE9 /* EXORpcActivateRequest.h in Headers */,
+				6D821FEB1C1F494C0032FEE9 /* EXORpcCloneResource.h in Headers */,
+				6D821FFA1C1F494C0032FEE9 /* EXORpcDataruleTimeout.h in Headers */,
+				6D821FFE1C1F494C0032FEE9 /* EXORpcDispatchResource.h in Headers */,
+				6D8220061C1F494C0032FEE9 /* EXORpcPreprocessOperation.h in Headers */,
+				6D821FF61C1F494C0032FEE9 /* EXORpcDataruleScript.h in Headers */,
+				6D821FEA1C1F494C0032FEE9 /* EXORpcClientResource.h in Headers */,
+				6D821FD51C1F494C0032FEE9 /* EXORpcCreateRequest.h in Headers */,
+				6D821FF21C1F494C0032FEE9 /* EXORpcDataruleDuration.h in Headers */,
+				6D821F7E1C1F493F0032FEE9 /* EXOWebSocket.h in Headers */,
+				6D821FD01C1F494C0032FEE9 /* EXORpcWaitRequest.h in Headers */,
+				6D821F801C1F493F0032FEE9 /* EXOWebSocketSubscribeRequest.h in Headers */,
+				6D821FF81C1F494C0032FEE9 /* EXORpcDataruleSimple.h in Headers */,
+				6D82200E1C1F494C0032FEE9 /* EXORpcRevokeRequest.h in Headers */,
+				6D821FF41C1F494C0032FEE9 /* EXORpcDataruleInterval.h in Headers */,
+				6D821FE41C1F494C0032FEE9 /* EXORpcUpdateRequest.h in Headers */,
+				6D821FE01C1F494C0032FEE9 /* EXORpcReadRequest.h in Headers */,
+				6D821FCE1C1F494C0032FEE9 /* EXORpcRequest.h in Headers */,
+				6D8220001C1F494C0032FEE9 /* EXORpcDropRequest.h in Headers */,
+				6D8220021C1F494C0032FEE9 /* EXORpcFlushRequest.h in Headers */,
+				6D821FE31C1F494C0032FEE9 /* EXORpcResourceID.h in Headers */,
+				6D821FD61C1F494C0032FEE9 /* EXORpcDataportResource.h in Headers */,
+				6D821FD11C1F494C0032FEE9 /* EXORpc.h in Headers */,
+				6D821FDA1C1F494C0032FEE9 /* EXORpcInfoRequest.h in Headers */,
+				6D8220041C1F494C0032FEE9 /* EXORpcMapRequest.h in Headers */,
+				6D821FE21C1F494C0032FEE9 /* EXORpcResource.h in Headers */,
+				6D821FE61C1F494C0032FEE9 /* EXORpcWriteRequest.h in Headers */,
+				6D821FFC1C1F494C0032FEE9 /* EXORpcDeactivateRequest.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6D821F6C1C1F48250032FEE9 /* CocoaOneP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D821F751C1F48250032FEE9 /* Build configuration list for PBXNativeTarget "CocoaOneP" */;
+			buildPhases = (
+				6D821F681C1F48250032FEE9 /* Sources */,
+				6D821F691C1F48250032FEE9 /* Frameworks */,
+				6D821F6A1C1F48250032FEE9 /* Headers */,
+				6D821F6B1C1F48250032FEE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CocoaOneP;
+			productName = CocoaOneP;
+			productReference = 6D821F6D1C1F48250032FEE9 /* CocoaOneP.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6D821F641C1F48250032FEE9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Exosite;
+				TargetAttributes = {
+					6D821F6C1C1F48250032FEE9 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 6D821F671C1F48250032FEE9 /* Build configuration list for PBXProject "CocoaOneP" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6D821F631C1F48250032FEE9;
+			productRefGroup = 6D821F6E1C1F48250032FEE9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6D821F6C1C1F48250032FEE9 /* CocoaOneP */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6D821F6B1C1F48250032FEE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6D821F681C1F48250032FEE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D821FE11C1F494C0032FEE9 /* EXORpcReadRequest.m in Sources */,
+				6D8220141C1F494C0032FEE9 /* EXORpcUpdateRequest.m in Sources */,
+				6D8220031C1F494C0032FEE9 /* EXORpcFlushRequest.m in Sources */,
+				6D821FE81C1F494C0032FEE9 /* EXORpcActivateRequest.m in Sources */,
+				6D8220191C1F494C0032FEE9 /* EXORpcWriteRequest.m in Sources */,
+				6D821FF31C1F494C0032FEE9 /* EXORpcDataruleDuration.m in Sources */,
+				6D8220111C1F494C0032FEE9 /* EXORpcShareRequest.m in Sources */,
+				6D8220171C1F494C0032FEE9 /* EXORpcValue.m in Sources */,
+				6D821FEC1C1F494C0032FEE9 /* EXORpcCloneResource.m in Sources */,
+				6D82200D1C1F494C0032FEE9 /* EXORpcResourceRetention.m in Sources */,
+				6D821FFF1C1F494C0032FEE9 /* EXORpcDispatchResource.m in Sources */,
+				6D82200F1C1F494C0032FEE9 /* EXORpcRevokeRequest.m in Sources */,
+				6D82200A1C1F494C0032FEE9 /* EXORpcResource.m in Sources */,
+				6D821FF51C1F494C0032FEE9 /* EXORpcDataruleInterval.m in Sources */,
+				6D821FF71C1F494C0032FEE9 /* EXORpcDataruleScript.m in Sources */,
+				6D821FDB1C1F494C0032FEE9 /* EXORpcInfoRequest.m in Sources */,
+				6D821FE71C1F494C0032FEE9 /* EXORpcClientResource.m in Sources */,
+				6D821FF11C1F494C0032FEE9 /* EXORpcDataruleCount.m in Sources */,
+				6D8220051C1F494C0032FEE9 /* EXORpcMapRequest.m in Sources */,
+				6D821FD91C1F494C0032FEE9 /* EXORpcDataruleResource.m in Sources */,
+				6D821FFD1C1F494C0032FEE9 /* EXORpcDeactivateRequest.m in Sources */,
+				6D821FD21C1F494C0032FEE9 /* EXORpc.m in Sources */,
+				6D821FF91C1F494C0032FEE9 /* EXORpcDataruleSimple.m in Sources */,
+				6D8220131C1F494C0032FEE9 /* EXORpcUnmapRequest.m in Sources */,
+				6D821FFB1C1F494C0032FEE9 /* EXORpcDataruleTimeout.m in Sources */,
+				6D8220091C1F494C0032FEE9 /* EXORpcRecordRequest.m in Sources */,
+				6D821F7F1C1F493F0032FEE9 /* EXOWebSocket.m in Sources */,
+				6D821F811C1F493F0032FEE9 /* EXOWebSocketSubscribeRequest.m in Sources */,
+				6D821FDD1C1F494C0032FEE9 /* EXORpcListingRequest.m in Sources */,
+				6D821FDF1C1F494C0032FEE9 /* EXORpcLookupRequest.m in Sources */,
+				6D8220181C1F494C0032FEE9 /* EXORpcWaitRequest.m in Sources */,
+				6D82200B1C1F494C0032FEE9 /* EXORpcResourceID.m in Sources */,
+				6D8220161C1F494C0032FEE9 /* EXORpcUsageRequest.m in Sources */,
+				6D821FE91C1F494C0032FEE9 /* EXORpcAuthKey.m in Sources */,
+				6D8220071C1F494C0032FEE9 /* EXORpcPreprocessOperation.m in Sources */,
+				6D821FED1C1F494C0032FEE9 /* EXORpcCreateRequest.m in Sources */,
+				6D821FD71C1F494C0032FEE9 /* EXORpcDataportResource.m in Sources */,
+				6D8220011C1F494C0032FEE9 /* EXORpcDropRequest.m in Sources */,
+				6D821FEF1C1F494C0032FEE9 /* EXORpcDatarule.m in Sources */,
+				6D821FCF1C1F494C0032FEE9 /* EXORpcRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6D821F731C1F48250032FEE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6D821F741C1F48250032FEE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6D821F761C1F48250032FEE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Classes/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.exosite.CocoaOneP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6D821F771C1F48250032FEE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Classes/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.exosite.CocoaOneP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6D821F671C1F48250032FEE9 /* Build configuration list for PBXProject "CocoaOneP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D821F731C1F48250032FEE9 /* Debug */,
+				6D821F741C1F48250032FEE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D821F751C1F48250032FEE9 /* Build configuration list for PBXNativeTarget "CocoaOneP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D821F761C1F48250032FEE9 /* Debug */,
+				6D821F771C1F48250032FEE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6D821F641C1F48250032FEE9 /* Project object */;
+}
