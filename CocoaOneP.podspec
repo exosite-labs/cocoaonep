@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "CocoaOneP"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "Cocoa library for using the Exosite One Platform."
   s.homepage         = "http://docs.exosite.com/"
   s.license          = 'BSD'
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
   s.ios.exclude_files = 'Classes/osx'
   s.osx.exclude_files = 'Classes/ios'
-  s.dependency 'AFNetworking', '2.6.3'
+  s.dependency 'AFNetworking', '~> 3.0.0'
 
   s.subspec 'All' do |ss|
     ss.dependency 'CocoaOneP/RPC'
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'WebSocket' do |ss|
     ss.dependency 'CocoaOneP/RPC'
-    ss.dependency 'SocketRocket', '0.4.1'
+    ss.dependency 'SocketRocket', '~> 0.4.2'
     ss.source_files = 'Classes/ws'
   end
 
