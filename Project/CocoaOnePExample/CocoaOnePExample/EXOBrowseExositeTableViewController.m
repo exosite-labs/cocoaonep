@@ -7,8 +7,8 @@
 //
 
 #import "EXOBrowseExositeTableViewController.h"
-#import <EXORpc.h>
-#import <Lockbox.h>
+#import "EXORpc.h"
+#import "Lockbox.h"
 
 @interface EXOBrowseExositeTableViewController ()
 @property(strong,nonatomic) EXORpc *onep;
