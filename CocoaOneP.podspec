@@ -9,9 +9,10 @@ Pod::Spec.new do |s|
                          :tag => "v#{s.version}" }
   s.social_media_url = 'https://twitter.com/exosite'
 
-  s.ios.deployment_target = '7.0'
+  s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.9'
   s.requires_arc = true
+  s.header_dir = 'CocoaOneP'
 
   s.ios.exclude_files = 'Classes/osx'
   s.osx.exclude_files = 'Classes/ios'
