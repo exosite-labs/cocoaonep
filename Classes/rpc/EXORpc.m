@@ -7,7 +7,6 @@
 
 #import "EXORpc.h"
 #import <AFNetworking/AFNetworking.h>
-//#import "AFNetworking.h"
 
 NSString *EXORpcDeviceErrorDomain = @"EXORpcDeviceErrorDomain";
 
