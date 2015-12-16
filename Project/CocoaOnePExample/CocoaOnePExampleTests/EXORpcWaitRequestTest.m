@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import <EXORpc.h>
+#import "EXORpc.h"
 
 @interface EXORpcWaitRequestTest : XCTestCase
 

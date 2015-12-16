@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <EXORpc.h>
+#import "EXORpc.h"
 
 @interface EXORpcDataruleResourceTest : XCTestCase
 

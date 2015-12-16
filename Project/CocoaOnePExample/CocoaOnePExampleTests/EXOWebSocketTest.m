@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "AFNetworking.h"
-#import <EXOWebSocket.h>
+#import "EXOWebSocket.h"
 
 @interface EXOWebSocketTest : XCTestCase
 @property (strong,nonatomic) NSString *tCIK;

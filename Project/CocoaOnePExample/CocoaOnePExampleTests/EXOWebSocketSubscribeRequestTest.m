@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <EXOWebSocket.h>
+#import "EXOWebSocket.h"
 
 @interface EXOWebSocketSubscribeRequestTest : XCTestCase
 
