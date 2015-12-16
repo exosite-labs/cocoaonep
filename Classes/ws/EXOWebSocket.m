@@ -6,8 +6,11 @@
 //
 
 #import "EXOWebSocket.h"
-#import <SocketRocket/SocketRocket.h>
-//#import "SRWebSocket.h"
+#ifdef COCOAPODS
+    #import "SRWebSocket.h"
+#else
+    #import <SocketRocket/SocketRocket.h>
+#endif
 
 
 NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";
