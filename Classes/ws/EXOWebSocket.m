@@ -6,7 +6,8 @@
 //
 
 #import "EXOWebSocket.h"
-#import "SRWebSocket.h"
+#import <SocketRocket/SocketRocket.h>
+//#import "SRWebSocket.h"
 
 
 NSString *EXOWebSocketErrorDomain = @"EXOWebSocketErrorDomain";

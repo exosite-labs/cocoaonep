@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D7E64ED1C21AB3B00E74993 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7E64EB1C21AB3B00E74993 /* AFNetworking.framework */; };
+		6D7E64EE1C21AB3B00E74993 /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7E64EC1C21AB3B00E74993 /* SocketRocket.framework */; };
 		6D821F711C1F48250032FEE9 /* CocoaOneP.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F701C1F48250032FEE9 /* CocoaOneP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D821F7E1C1F493F0032FEE9 /* EXOWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D821F7A1C1F493F0032FEE9 /* EXOWebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D821F7F1C1F493F0032FEE9 /* EXOWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D821F7B1C1F493F0032FEE9 /* EXOWebSocket.m */; };
@@ -91,6 +93,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D7E64EB1C21AB3B00E74993 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
+		6D7E64EC1C21AB3B00E74993 /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = Carthage/Build/iOS/SocketRocket.framework; sourceTree = "<group>"; };
 		6D821F6D1C1F48250032FEE9 /* CocoaOneP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CocoaOneP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D821F701C1F48250032FEE9 /* CocoaOneP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CocoaOneP.h; sourceTree = "<group>"; };
 		6D821F721C1F48250032FEE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D7E64ED1C21AB3B00E74993 /* AFNetworking.framework in Frameworks */,
+				6D7E64EE1C21AB3B00E74993 /* SocketRocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +196,8 @@
 		6D821F631C1F48250032FEE9 = {
 			isa = PBXGroup;
 			children = (
+				6D7E64EB1C21AB3B00E74993 /* AFNetworking.framework */,
+				6D7E64EC1C21AB3B00E74993 /* SocketRocket.framework */,
 				6D821F6F1C1F48250032FEE9 /* CocoaOneP */,
 				6D821F6E1C1F48250032FEE9 /* Products */,
 			);
@@ -568,6 +576,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Classes/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -584,6 +596,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Classes/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

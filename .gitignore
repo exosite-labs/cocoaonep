@@ -6,6 +6,8 @@ Icon
 
 xcuserdata
 Pods/
+Carthage/
+Cartfile.resolved
 
 # Thumbnails
 ._*

@@ -6,7 +6,8 @@
 //
 
 #import "EXORpc.h"
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
+//#import "AFNetworking.h"
 
 NSString *EXORpcDeviceErrorDomain = @"EXORpcDeviceErrorDomain";
 
@@ -110,7 +111,7 @@ static NSString *EXORpcAPIPath = @"/api:v1/rpc/process";
     AFHTTPSessionManager *session = [self sessionWithConfig:nil];
     session.requestSerializer.timeoutInterval = haveWaits?310:60; // If there is a wait request, need a much longer timeout
 
-    [session POST:EXORpcAPIPath parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [session POST:EXORpcAPIPath parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         if ([responseObject isKindOfClass:[NSArray class]]) {
             // Success! (well, at this level anyways.)
             NSArray *responses = responseObject;
