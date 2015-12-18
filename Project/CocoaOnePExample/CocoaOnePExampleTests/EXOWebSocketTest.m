@@ -22,7 +22,7 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"Get test CIK"];
     AFHTTPSessionManager *mgr = [[AFHTTPSessionManager alloc] initWithBaseURL:nil];
     mgr.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [mgr GET:@"https://cik.herokuapp.com" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [mgr GET:@"https://cik.herokuapp.com" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         NSData *data = responseObject;
         self.tCIK = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"Using Test CIK %@", self.tCIK);

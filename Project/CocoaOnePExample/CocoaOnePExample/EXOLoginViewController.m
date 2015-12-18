@@ -89,7 +89,7 @@
 
     
 
-    [lsem GET:@"/api/portals/v1/portal/" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [lsem GET:@"/api/portals/v1/portal/" parameters:nil progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         if (![responseObject isKindOfClass:[NSArray class]]) {
             NSError *error = [NSError errorWithDomain:NSStringFromClass([self class]) code:1 userInfo:@{NSLocalizedDescriptionKey: @"Expected an Array"}];
             NSLog(@"logintoAccount:password:at:complete: Failed to login: %@", error);
