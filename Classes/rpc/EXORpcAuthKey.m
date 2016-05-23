@@ -35,24 +35,12 @@
 
 + (EXORpcAuthKey *)authWithCIK:(NSString *)cik client:(NSString *)clientid
 {
-    if (cik == nil || clientid == nil) {
-        return nil;
-    }
-    if (![EXORpcAuthKey isCIK:cik] || ![EXORpcAuthKey isCIK:clientid]) {
-        return nil;
-    }
-    return [[EXORpcAuthKey alloc] initWithAuth:@{@"cik": [cik copy], @"client_id": [clientid copy]}];
+    return [[EXORpcAuthKey alloc] initWithCIK:cik client:clientid];
 }
 
 + (EXORpcAuthKey *)authWithCIK:(NSString *)cik resource:(NSString *)rid
 {
-    if (cik == nil || rid == nil) {
-        return nil;
-    }
-    if (![EXORpcAuthKey isCIK:cik] || ![EXORpcAuthKey isCIK:rid]) {
-        return nil;
-    }
-    return [[EXORpcAuthKey alloc] initWithAuth:@{@"cik": [cik copy], @"resource_id": [rid copy]}];
+    return [[EXORpcAuthKey alloc] initWithCIK:cik resource:rid];
 }
 
 - (instancetype)init
@@ -67,6 +55,29 @@
     }
     return [self initWithAuth:@{@"cik": [cik copy]}];
 }
+
+- (instancetype)initWithCIK:(NSString *)cik client:(NSString *)clientid
+{
+    if (cik == nil || clientid == nil) {
+        return nil;
+    }
+    if (![EXORpcAuthKey isCIK:cik] || ![EXORpcAuthKey isCIK:clientid]) {
+        return nil;
+    }
+    return [self initWithAuth:@{@"cik": [cik copy], @"client_id": [clientid copy]}];
+}
+
+- (instancetype)initWithCIK:(NSString *)cik resource:(NSString *)rid
+{
+    if (cik == nil || rid == nil) {
+        return nil;
+    }
+    if (![EXORpcAuthKey isCIK:cik] || ![EXORpcAuthKey isCIK:rid]) {
+        return nil;
+    }
+    return [self initWithAuth:@{@"cik": [cik copy], @"resource_id": [rid copy]}];
+}
+
 
 - (instancetype)initWithAuth:(NSDictionary*)auth
 {

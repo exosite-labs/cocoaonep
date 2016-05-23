@@ -77,6 +77,26 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable instancetype)initWithCIK:(NSString*)cik;
 
 /**
+ Initialize an auth identifying a child client by RID of the ancestor client by CIK
+
+ @param cik The ancestor client
+ @param clientid The RID of the client to reference
+
+ @return Authentication object to be used in RPC calls.
+ */
+- (nullable instancetype)initWithCIK:(NSString*)cik client:(NSString*)clientid;
+
+/**
+ Initialize an auth identifying a child resource by RID of the ancestor client by CIK
+
+ @param cik The ancestor client
+ @param rid The RID of the resource to reference
+
+ @return Authentication object to be used in RPC calls.
+ */
+- (nullable instancetype)initWithCIK:(NSString*)cik resource:(NSString*)rid;
+
+/**
  Return this auth as a plist that can be converted into JSON.
  
  @return JSON ready dictionary of values.
